@@ -2,79 +2,44 @@
 
 **Quantifying technological deflation across computing, communications, and energy.**
 
+🌐 **Live Site**: [deflationindex.com](https://deflationindex.com)
+
+---
+
+## What is this?
+
 The Deflation Index (DI) measures the force of technological progress by tracking exponential cost reductions in three fundamental sectors and comparing them against monetary expansion and official inflation metrics.
 
-## 📊 What is the DI?
+**Key Finding**: Technology created 6,337x value from 1990-2024. Inflation consumed ~99% of it. The gap is measurable, trackable, quantifiable.
 
-The Deflation Index is a composite metric (35% Computing, 30% Communications, 35% Energy) that quantifies annual technological deflation from 1990-2024. It reveals the gap between:
-- **What technology delivers** (20-25% annual cost reductions)
-- **What monetary policy creates** (6-7% M2 expansion)  
-- **What we experience** (2-3% CPI inflation)
+---
 
-## 🚀 Live Site
-
-Visit [deflationindex.com](https://deflationindex.com) (coming soon)
-
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 deflation-index/
-├── public/               # Static website files
-│   ├── index.html       # Main website
-│   └── assets/          # Future: images, additional files
-├── data/                # Source data and calculations
-│   ├── master_deflation_index.xlsx
-│   ├── computing_deflation_index.xlsx
-│   ├── communications_deflation_index.xlsx
-│   └── energy_deflation_index.xlsx
-├── docs/                # Documentation
-│   ├── DEPLOYMENT.md    # Deployment instructions
-│   ├── METHODOLOGY.md   # Data sources and calculations
-│   └── API.md           # Future: API documentation
-└── README.md           # This file
+├── public/                    # Website files (deployed to deflationindex.com)
+│   ├── index.html            # Main website
+│   ├── METHODOLOGY.md        # Data sources and calculations
+│   └── *.xlsx                # Data files (downloadable)
+├── DEPLOYMENT_GUIDE.md       # Step-by-step deployment instructions
+├── README.md                 # This file
+└── LICENSE                   # License information
 ```
 
-## 🛠 Technology Stack
+---
 
-- **Frontend**: Static HTML/CSS/JS with Chart.js
-- **Hosting**: Cloudflare Pages (free, global CDN)
-- **Domain**: deflationindex.com
-- **Analytics**: Plausible (privacy-focused, coming soon)
+## Quick Start
 
-## 📈 Key Findings
+Want to deploy your own version?
 
-**1990-2024 Analysis:**
-- Technology delivered **~1,500%** purchasing power gains
-- Actual purchasing power: **-45%** decline
-- Net gap: **~2,000%** or **~90%** of potential abundance
+1. Fork this repository
+2. Follow the **DEPLOYMENT_GUIDE.md** instructions
+3. Deploy to Cloudflare Pages (free)
 
-**Annual Averages:**
-- Deflation Index: **-22%**
-- M2 Growth: **+6.4%**
-- Official CPI: **+2.8%**
-- Annual capture rate: **~19%**
+---
 
-## 🔄 Development
-
-### Local Development
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/deflation-index.git
-cd deflation-index
-
-# Open the site locally
-cd public
-python3 -m http.server 8000
-# Visit http://localhost:8000
-```
-
-### Making Updates
-1. Edit files in `/public`
-2. Test locally
-3. Commit and push to main branch
-4. Cloudflare Pages auto-deploys
-
-## 📊 Data Sources
+## Data
 
 All calculations based on publicly available data:
 - **Federal Reserve**: M2 money supply data
@@ -83,36 +48,56 @@ All calculations based on publicly available data:
 - **BloombergNEF**: Battery cost data
 - **AI Impacts**: Computing cost trends
 - **IEA**: Energy data and analysis
-- **Industry sources**: Storage, communications, LED pricing
 
-## 🤝 Contributing
+See **METHODOLOGY.md** for complete sources and methodology.
 
-This is currently a solo research project by Deflation Index LLC. 
+---
 
-For questions or data corrections: contact@deflationindex.com (coming soon)
+## Key Statistics (1990-2024)
 
-## 📄 License
+- **Average Annual DI**: -22.7%
+- **Average Annual M2**: +6.4%
+- **Average Annual CPI**: +2.7%
+- **Tech Purchasing Power**: 6,337x (what you should have)
+- **Actual Purchasing Power**: 0.4x (what you got)
+- **The Abundance Gap**: ~99%
+
+---
+
+## Technology Stack
+
+- **Frontend**: Static HTML/CSS/JS with Chart.js
+- **Hosting**: Cloudflare Pages (free, global CDN)
+- **Version Control**: GitHub
+- **Domain**: deflationindex.com (via Namecheap)
+
+---
+
+## Making Updates
+
+1. Edit files in the `public/` folder
+2. Commit and push to `main` branch
+3. Site auto-deploys in ~1 minute
+
+See **DEPLOYMENT_GUIDE.md** for detailed instructions.
+
+---
+
+## License
 
 © 2024 Deflation Index LLC. All rights reserved.
 
-Data sources are publicly available. Calculations and methodology are original work.
+- **Code**: Available for reference and learning
+- **Data**: Publicly sourced, calculations are original work
+- **Methodology**: See METHODOLOGY.md
 
-## 🎯 Roadmap
+---
 
-- [x] Core website with interactive visualization
-- [ ] Deploy to deflationindex.com
-- [ ] Add email newsletter signup
-- [ ] Monthly DI updates
-- [ ] API for DI data (Q1 2025)
-- [ ] Premium data subscriptions
-- [ ] Additional sectors (healthcare, education, housing)
-- [ ] Real-time DI calculator
+## Contact
 
-## 📞 Contact
-
-- Website: deflationindex.com (coming soon)
-- Email: contact@deflationindex.com (coming soon)
-- Twitter: @deflationindex (coming soon)
+- **Website**: deflationindex.com
+- **Issues**: Open an issue in this repository
+- **Questions**: Use GitHub Discussions
 
 ---
 
