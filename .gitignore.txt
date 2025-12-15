@@ -1,0 +1,43 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+ENV/
+*.pyc
+
+# Excel temporary files
+~$*.xlsx
+~$*.xls
+*.tmp
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
+logs/
+
+# Backup files
+*-backup-*
+*-old.*
+README-old-v2.md
+METHODOLOGY-old.md
+
+# CSV files (we'll generate these from Excel)
+data/csv/*.csv
