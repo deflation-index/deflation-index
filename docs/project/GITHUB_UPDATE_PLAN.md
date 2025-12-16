@@ -261,16 +261,16 @@ DI measures the force of technological progress from 1990-2024 by comparing:
 
 **But Money Supply Expanded:**
 - M2 Growth: +5.9% per year (average)
-- +600% cumulative (1990-2024)
+- +615% cumulative (precise: 614.84%) (1990-2024)
 - Peak: +24.6% in 2020 (COVID stimulus)
 
 **While Consumer Prices Rose:**
 - CPI: +2.7% per year (average)
-- +150% cumulative (1990-2024)
+- +155% cumulative (precise: 154.65%) (1990-2024)
 
 **The Gap: Where Did the Gains Go?**
 - Annual gap: 7.9 percentage points
-- 35-year cumulative: ~370 percentage points
+- 35-year cumulative: ~545 percentage points (Abundance Gap)
 - Captured by: Corporate profits, asset inflation, complexity costs
 ```
 
@@ -498,8 +498,8 @@ Tesla Roadster (2008) was first lithium-ion EV, but mass market began 2010+.
   </div>
   
   <p class="chart-caption">
-    Technology delivered 84% deflation (1990-2024), but consumer prices rose 150%. 
-    The 370 percentage point gap represents the greatest wealth transfer in modern history.
+    Technology delivered 84% deflation (1990-2024), but consumer Prices rose 155%. 
+    The 545 percentage point Abundance Gap represents the greatest wealth transfer in modern history.
   </p>
 </section>
 ```

@@ -30,7 +30,7 @@ Technology makes things cheaper. Money printing makes things expensive. What win
 - **What monetary policy creates**: +5.9% M2 expansion annually
 - **What we experience**: +2.7% CPI inflation annually
 
-**The 7.9 percentage point gap** represents the greatest wealth transfer in modern history.
+**The 545 percentage point Abundance Gap** represents the greatest wealth transfer in modern history.
 
 ---
 
@@ -46,26 +46,64 @@ Technology makes things cheaper. Money printing makes things expensive. What win
 ### But Money Supply Expanded Dramatically
 
 - **M2 Growth**: +5.9% annually (average 1990-2024)
-- **Cumulative**: +600% over 35 years
+- **Cumulative**: +615% over 35 years (precise: 614.84%)
+- **Multiplier**: 7.15x increase ($3.0T → $21.3T)
 - **Peak Year**: 2020 with +24.6% (COVID-19 stimulus)
 
 ### While Consumer Prices Rose Modestly
 
 - **CPI Inflation**: +2.7% annually (average 1990-2024)
-- **Cumulative**: +150% over 35 years
+- **Cumulative**: +155% over 35 years (precise: 154.65%)
+- **Multiplier**: 2.55x increase
 - **Pattern**: Stable except 2008 (financial crisis) and 2021-2022 (post-COVID)
 
-### The Gap: Where Did $370 Trillion Go?
+### The Gaps: Where Did the Abundance Go?
 
-**Annual Gap**: 7.9 percentage points between tech deflation and CPI inflation  
-**35-Year Cumulative**: ~370 percentage points of "missing deflation"
+We measure two related gaps that reveal the wealth transfer:
 
-**Where the Gains Went**:
-1. **Corporate Profits**: Up 300% since 1990, concentrated in top 10%
+#### **The Abundance Gap: 545 Percentage Points** (Primary Metric)
+
+**What it measures**: The total economic force that was captured rather than passed to consumers
+
+**The Calculation**:
+- Technology delivered: 84pp of price reductions
+- M2 expanded: 615pp of inflationary pressure
+- Combined force: 699pp of total economic pressure
+- Consumer prices (CPI) rose: 155pp
+- **Missing: 545pp captured elsewhere**
+
+**Formula**: |Tech Deflation| + M2 Expansion - CPI Inflation = 84 + 615 - 155 = **545pp**
+
+#### **The Deflation Gap: 239 Percentage Points** (Supporting Metric)
+
+**What it measures**: Deflation that should have reached consumers but didn't
+
+**The Calculation**:
+- Technology delivered: 84pp of deflation
+- Consumer prices rose: 155pp (opposite direction!)
+- **Gap: 239pp** (84 + 155 = 239pp of "missing deflation")
+
+**Annual**: 7.8pp per year (Tech -5.2% vs CPI +2.7% = 7.9pp difference)
+
+**Formula**: |Tech Deflation| + CPI Inflation = **239pp**
+
+---
+
+### Where the 545pp Went
+
+**Winners** (captured productivity gains):
+1. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
 2. **Asset Inflation**: Stocks +1,500%, housing +400% (not captured in CPI)
-3. **Complexity Costs**: Healthcare, education, housing rising faster than wages
-4. **Quality Improvements**: Better goods at same nominal price (partially captured)
+3. **Technology Platforms**: Network effects and monopoly pricing power
+4. **Financial Engineering**: Buybacks, M&A, leverage amplifying returns
 5. **International Arbitrage**: Manufacturing offshore, profits stay domestic
+
+**Losers** (missed productivity gains):
+1. **Bottom 50%**: Wage stagnation despite massive productivity increases
+2. **Middle Class**: Housing/healthcare/education costs rising faster than wages
+3. **Savers**: Real returns negative after inflation
+4. **Fixed Income**: Purchasing power eroded
+5. **Local Communities**: Hollowed out by offshoring
 
 ---
 
@@ -177,20 +215,27 @@ If technology gains fully passed to consumers:
 
 ### What Actually Happened  
 
-With M2 growth but no productivity gains:
+With M2 growth but technology offsetting it:
 - **1990 baseline**: $100  
-- **2024 with 600% M2 growth**: $700
-- **Your costs**: 7x increase
+- **2024 with 615% M2 growth**: $715 potential
+- **Minus 84% tech deflation**: Should be $114 ($715 × 0.16)
+- **Actual CPI**: $255 (155% increase)
 
-### The Balanced Reality
+### The Dual Gap Framework
 
-Technology (-84%) + M2 (+600%) = Net potential +516%
+**Deflation Gap (239pp)**:
+- Tech should have reduced prices 84pp
+- Prices rose 155pp instead
+- Missing deflation: 239pp didn't reach consumers
 
-**Actual CPI**: +150%
+**Abundance Gap (545pp)**:
+- Tech deflation: 84pp down
+- M2 expansion: 615pp up
+- Net economic force: 699pp upward pressure
+- CPI captured: 155pp
+- Missing abundance: 545pp went elsewhere
 
-**The 370pp Gap** = Someone captured the difference
-
-### Who Captured It?
+### Who Captured the 545pp?
 
 **Winners** (captured productivity gains):
 - Top 1%: Asset values (stocks, real estate)
@@ -299,6 +344,9 @@ python scripts/export_to_csv.py
 
 # Validate data integrity
 python scripts/validate_data.py
+
+# Verify all statistics
+python scripts/verify_statistics.py
 ```
 
 ### Making Changes
@@ -369,6 +417,7 @@ See [LICENSE](LICENSE) for details.
 - [x] 100,000+ words of documentation
 - [x] Zero-error verification of all formulas
 - [x] Publication-ready datasets
+- [x] Dual gap framework (Abundance + Deflation gaps)
 
 ### Q1 2025
 - [ ] Launch redesigned website
@@ -411,11 +460,31 @@ If you use the Deflation Index in your research:
   title={The Deflation Index: Measuring Technological Progress (1990-2024)},
   author={Deflation Index LLC},
   year={2024},
+  version={3.0.1},
   publisher={GitHub},
   url={https://github.com/deflation-index/deflation-index},
-  note={Master DI v3.0, Sectors: Computing, Communications, Energy, Transportation}
+  note={Master DI v3.0.1, Corrected statistics with dual-gap framework}
 }
 ```
+
+---
+
+## ⚠️ Version Notes
+
+**v3.0.1 (December 15, 2025)**: Statistics corrections and dual-gap framework
+- Fixed M2 cumulative: 600% → 615% (precise: 614.84%)
+- Fixed CPI cumulative: 150% → 155% (precise: 154.65%)
+- Introduced dual-gap framework:
+  - **Abundance Gap**: 545pp (primary metric) - full wealth transfer
+  - **Deflation Gap**: 239pp (supporting metric) - consumer impact
+- All corrections verified against source Excel (zero formula errors)
+
+**v3.0.0 (December 15, 2025)**: Major expansion
+- Added Transportation sector (4 sectors total)
+- Updated sector weights: 35/30/35 → 25/20/25/15/15
+- Added 100,000+ words of methodology
+- Reorganized repository structure
+- All 700 formulas verified with zero errors
 
 ---
 
