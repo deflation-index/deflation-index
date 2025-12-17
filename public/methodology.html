@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Methodology | The Deflation Index</title>
+    <meta name="description" content="How the Deflation Index is calculated - methodology, data sources, sector weights, and quality standards.">
+    
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
+        
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --red: #FF0000;
+            --gold: #FFD700;
+            --gray: #333333;
+            --light-gray: #CCCCCC;
+            --bg-dark: #0A0A0A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--bg-dark);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid var(--gold);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255,255,255,0.03) 41px
+                ),
+                var(--bg-dark);
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-align: center;
+            max-width: 800px;
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+        
+        /* Content Sections */
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        section h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--gold);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 1rem;
+        }
+        
+        section h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin: 2rem 0 1rem;
+        }
+        
+        section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        section p strong {
+            color: var(--white);
+        }
+        
+        section ul, section ol {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+        
+        section li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--light-gray);
+            margin-bottom: 0.8rem;
+        }
+        
+        section li strong {
+            color: var(--white);
+        }
+        
+        section a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold);
+        }
+        
+        section a:hover {
+            color: var(--white);
+            border-bottom-color: var(--white);
+        }
+        
+        /* Formula Box */
+        .formula-box {
+            background: rgba(255, 215, 0, 0.05);
+            border-left: 5px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--white);
+            overflow-x: auto;
+        }
+        
+        /* Sector Grid */
+        .sector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .sector-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--gray);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .sector-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        
+        .sector-card h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin: 0 0 1rem;
+        }
+        
+        .sector-stat {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .sector-stat strong {
+            color: var(--white);
+        }
+        
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+        
+        thead {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: left;
+            color: var(--gold);
+            font-weight: 700;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray);
+            color: var(--light-gray);
+        }
+        
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(255, 0, 0, 0.05);
+            border: 2px solid var(--red);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .highlight-box h3 {
+            color: var(--red);
+            margin-top: 0;
+        }
+        
+        /* Documentation Links */
+        .doc-links {
+            background: var(--black);
+            border: 2px solid var(--gold);
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .doc-links h3 {
+            color: var(--gold);
+            margin-top: 0;
+        }
+        
+        .doc-links ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .doc-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--black);
+            border-top: 3px solid var(--gold);
+            padding: 2rem;
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--white);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .sector-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 0.85rem;
+            }
+            
+            th, td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">THE DEFLATION INDEX</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Methodology</h1>
+        <p class="hero-subtitle">
+            How the Deflation Index is calculated: sector weights, data sources, formulas, and quality standards.
+        </p>
+    </section>
+    
+    <!-- Overview -->
+    <section>
+        <h2>Overview</h2>
+        
+        <p>The Deflation Index tracks technological cost reductions across four fundamental sectors: computing, communications, energy, and transportation. Each sector is measured using cost-per-performance metrics that capture the true force of technological progress.</p>
+        
+        <p><strong>The Master DI</strong> is a weighted geometric mean of these four sector indices, showing how technological deflation compounds over time.</p>
+        
+        <div class="formula-box">
+            Master DI = (Computing^0.25 × Communications^0.20 × Energy^0.25 × Transportation^0.15 × Future^0.15)
+        </div>
+        
+        <p><strong>Why geometric mean?</strong> Technological improvements multiply (compound), they don't add. A geometric mean properly captures this multiplicative relationship.</p>
+    </section>
+    
+    <!-- Sector Breakdown -->
+    <section style="background: var(--black); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 4rem 2rem;">
+        <h2>The Four Sectors</h2>
+        
+        <div class="sector-grid">
+            <div class="sector-card">
+                <h3>Computing (25%)</h3>
+                <div class="sector-stat"><strong>Metric:</strong> $/GFLOPS, $/GB storage, $/GB RAM</div>
+                <div class="sector-stat"><strong>Deflation:</strong> 99.91% (1990-2024)</div>
+                <div class="sector-stat"><strong>Annual Rate:</strong> 35-40%</div>
+                <div class="sector-stat"><strong>Coverage:</strong> 35 years</div>
+                <div class="sector-stat"><strong>Sources:</strong> AI Impacts, Nordhaus, Backblaze</div>
+            </div>
+            
+            <div class="sector-card">
+                <h3>Communications (20%)</h3>
+                <div class="sector-stat"><strong>Metric:</strong> $/GB data, $/minute voice, $/Mbps bandwidth</div>
+                <div class="sector-stat"><strong>Deflation:</strong> 99.8% (1990-2024)</div>
+                <div class="sector-stat"><strong>Annual Rate:</strong> 30-35%</div>
+                <div class="sector-stat"><strong>Coverage:</strong> 35 years</div>
+                <div class="sector-stat"><strong>Sources:</strong> FCC, BLS, industry reports</div>
+            </div>
+            
+            <div class="sector-card">
+                <h3>Energy (25%)</h3>
+                <div class="sector-stat"><strong>Metric:</strong> $/kWh solar LCOE, $/kWh batteries, $/kilolumen LEDs</div>
+                <div class="sector-stat"><strong>Deflation:</strong> 90% (2010-2024)</div>
+                <div class="sector-stat"><strong>Annual Rate:</strong> 12% pre-2010, 27% post-2010</div>
+                <div class="sector-stat"><strong>Coverage:</strong> 35 years</div>
+                <div class="sector-stat"><strong>Sources:</strong> IRENA, BloombergNEF, DOE</div>
+            </div>
+            
+            <div class="sector-card">
+                <h3>Transportation (15%)</h3>
+                <div class="sector-stat"><strong>Metric:</strong> $/kWh EV batteries, autonomous tech costs</div>
+                <div class="sector-stat"><strong>Deflation:</strong> 88% (2010-2024)</div>
+                <div class="sector-stat"><strong>Annual Rate:</strong> 18-22%</div>
+                <div class="sector-stat"><strong>Coverage:</strong> 15 years</div>
+                <div class="sector-stat"><strong>Sources:</strong> BloombergNEF, DOE, Waymo</div>
+            </div>
+        </div>
+        
+        <p style="margin-top: 2rem;"><strong>Future Technologies (15%):</strong> Reserved for emerging sectors. Currently defaulted to baseline 100 (no deflation incorporated). Will be allocated to healthcare, education, and housing in v4.0.</p>
+    </section>
+    
+    <!-- Calculation Method -->
+    <section>
+        <h2>Calculation Method</h2>
+        
+        <h3>Step 1: Measure Cost-Per-Performance</h3>
+        <p>For each component within each sector, we track the cost per unit of performance over time:</p>
+        <ul>
+            <li><strong>Computing:</strong> Cost per billion floating-point operations per second ($/GFLOPS)</li>
+            <li><strong>Communications:</strong> Cost per gigabyte of data transmission ($/GB)</li>
+            <li><strong>Energy:</strong> Levelized cost of electricity from solar ($/kWh)</li>
+            <li><strong>Transportation:</strong> Battery pack cost per kilowatt-hour ($/kWh)</li>
+        </ul>
+        
+        <h3>Step 2: Calculate Component Indices</h3>
+        <p>Each component is indexed to 100 in the base year (1990 for most, 2010 for energy/transport). As costs fall, the index falls proportionally.</p>
+        
+        <div class="formula-box">
+            Component Index = (Cost in Current Year / Cost in Base Year) × 100
+        </div>
+        
+        <h3>Step 3: Weight Components Within Sectors</h3>
+        <p>Multiple components within each sector are combined using geometric means and their respective weights. For example, Computing = (GFLOPS^0.60 × Storage^0.30 × RAM^0.10).</p>
+        
+        <h3>Step 4: Combine Sectors Into Master DI</h3>
+        <p>The four sector indices are combined using the Master DI formula shown above, producing a single comprehensive measure of technological deflation.</p>
+        
+        <h3>Step 5: Calculate Annual Rates</h3>
+        <p>Year-over-year percentage changes show the annual deflation rate. The average annual rate (1990-2024) is -5.2%.</p>
+    </section>
+    
+    <!-- Data Sources -->
+    <section style="background: rgba(255, 215, 0, 0.03); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 4rem 2rem;">
+        <h2>Data Sources</h2>
+        
+        <p>All data comes from authoritative, publicly available sources. Every data point includes source citations in the Excel files.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Source</th>
+                    <th>What We Use</th>
+                    <th>Reliability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Federal Reserve (FRED)</strong></td>
+                    <td>M2 money supply, CPI data</td>
+                    <td>100/100 (A+)</td>
+                </tr>
+                <tr>
+                    <td><strong>Bureau of Labor Statistics</strong></td>
+                    <td>CPI components, historical pricing</td>
+                    <td>100/100 (A+)</td>
+                </tr>
+                <tr>
+                    <td><strong>IRENA</strong></td>
+                    <td>Solar LCOE, renewable energy costs</td>
+                    <td>95/100 (A)</td>
+                </tr>
+                <tr>
+                    <td><strong>BloombergNEF</strong></td>
+                    <td>Battery costs, EV economics</td>
+                    <td>95/100 (A)</td>
+                </tr>
+                <tr>
+                    <td><strong>AI Impacts</strong></td>
+                    <td>Computing power costs (FLOPS)</td>
+                    <td>90/100 (A-)</td>
+                </tr>
+                <tr>
+                    <td><strong>DOE</strong></td>
+                    <td>LED efficiency, transportation data</td>
+                    <td>95/100 (A)</td>
+                </tr>
+                <tr>
+                    <td><strong>FCC</strong></td>
+                    <td>Broadband pricing, network costs</td>
+                    <td>90/100 (A-)</td>
+                </tr>
+                <tr>
+                    <td><strong>Backblaze</strong></td>
+                    <td>Hard drive cost tracking</td>
+                    <td>85/100 (B+)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p style="margin-top: 1.5rem;"><strong>Average source reliability:</strong> 92/100 (A-grade). We prioritize government agencies, international organizations, and industry leaders with transparent methodologies.</p>
+    </section>
+    
+    <!-- Quality Standards -->
+    <section>
+        <h2>Data Quality Standards</h2>
+        
+        <p>Every data point in the Deflation Index is graded, sourced, and verified. We maintain rigorous quality standards:</p>
+        
+        <h3>The Numbers</h3>
+        <ul>
+            <li><strong>700 formulas:</strong> Every calculation is formula-driven in Excel</li>
+            <li><strong>410 data points:</strong> Comprehensive coverage across 35 years</li>
+            <li><strong>0 errors:</strong> All formulas verified, no broken links or circular references</li>
+            <li><strong>100% sourced:</strong> Every data point has source citation in cell comments</li>
+        </ul>
+        
+        <h3>Quality Grading System</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Grade</th>
+                    <th>Score</th>
+                    <th>Criteria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>A (Excellent)</strong></td>
+                    <td>85-100</td>
+                    <td>Government agencies, peer-reviewed research, industry gold standards</td>
+                </tr>
+                <tr>
+                    <td><strong>B (Good)</strong></td>
+                    <td>70-84</td>
+                    <td>Reputable industry reports, academic estimates, established analysts</td>
+                </tr>
+                <tr>
+                    <td><strong>C (Fair)</strong></td>
+                    <td>50-69</td>
+                    <td>Secondary sources, interpolations, reasonable estimates</td>
+                </tr>
+                <tr>
+                    <td><strong>D (Poor)</strong></td>
+                    <td><50</td>
+                    <td>Weak sources, speculative estimates (not used in index)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Conservative Assumptions</h3>
+        <p>Where uncertainty exists, we choose the more conservative estimate. This means the true technological deflation is likely <em>higher</em> than we measure. The index understates the gap, not overstates it.</p>
+        
+        <div class="highlight-box">
+            <h3>Transparency Commitment</h3>
+            <p>Every Excel file includes:</p>
+            <ul style="margin-top: 1rem;">
+                <li>Source URLs in cell comments</li>
+                <li>Quality flags for each data point</li>
+                <li>Methodology notes explaining calculations</li>
+                <li>Complete formula transparency (no hidden cells)</li>
+                <li>Color-coded formatting (blue = raw data, black = formulas, yellow = estimates)</li>
+            </ul>
+            <p style="margin-top: 1rem;">Anyone can verify our work. That's the standard we hold ourselves to.</p>
+        </div>
+    </section>
+    
+    <!-- The Gaps -->
+    <section style="background: var(--black); border-top: 3px solid var(--red); border-bottom: 3px solid var(--red); padding: 4rem 2rem;">
+        <h2>Understanding The Gaps</h2>
+        
+        <p>We measure two related gaps that reveal how technological gains flow through the economy:</p>
+        
+        <h3>The Deflation Gap (239pp cumulative, 7.8pp annual)</h3>
+        <p><strong>What it measures:</strong> Deflation that should have reached consumers but didn't.</p>
+        <div class="formula-box">
+            Deflation Gap = |Tech Deflation| + CPI Inflation<br>
+            = 84pp + 155pp = 239pp
+        </div>
+        <p>Technology delivered 84% deflation. Consumer prices rose 155% instead. The 239 percentage point gap represents "missing deflation."</p>
+        
+        <h3>The Abundance Gap (545pp cumulative)</h3>
+        <p><strong>What it measures:</strong> Total economic force captured rather than passed to consumers.</p>
+        <div class="formula-box">
+            Abundance Gap = |Tech Deflation| + M2 Expansion - CPI Inflation<br>
+            = 84pp + 615pp - 155pp = 545pp
+        </div>
+        <p>This is the comprehensive measure: technology pushed down (84pp), money printing pushed up (615pp), consumer prices rose 155pp. The 545pp gap represents wealth that flowed elsewhere—to corporate profits, asset prices, and complexity costs.</p>
+        
+        <p style="margin-top: 2rem;"><strong>Both gaps are valid</strong> and tell complementary stories. The Deflation Gap focuses on consumer experience. The Abundance Gap includes the full monetary context.</p>
+    </section>
+    
+    <!-- Documentation -->
+    <section>
+        <div class="doc-links">
+            <h3>Complete Documentation</h3>
+            <p>For comprehensive technical details, see our GitHub repository:</p>
+            <ul>
+                <li><a href="https://github.com/deflation-index/deflation-index/tree/main/docs/methodology" target="_blank">Master Methodology (100,000+ words)</a></li>
+                <li><a href="https://github.com/deflation-index/deflation-index/tree/main/data/excel" target="_blank">Excel Files (all formulas, sources, quality flags)</a></li>
+                <li><a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/DATA_HYGIENE_STANDARDS.md" target="_blank">Data Hygiene Standards</a></li>
+                <li><a href="https://github.com/deflation-index/deflation-index/tree/main/docs/sector-methodologies" target="_blank">Individual Sector Methodologies</a></li>
+                <li><a href="https://github.com/deflation-index/deflation-index/blob/main/README.md" target="_blank">README with full overview</a></li>
+            </ul>
+            <p style="margin-top: 1.5rem;">All data is public, all calculations are transparent, all assumptions are documented. Download the Excel files and verify every number.</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Deflation Index LLC. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a> | <a href="methodology.html">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Built to measure the force of technological progress and track where the abundance goes.</p>
+    </footer>
+</body>
+</html>

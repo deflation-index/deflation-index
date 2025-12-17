@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>FAQ | The Deflation Index</title>
+    <meta name="description" content="Frequently asked questions about the Deflation Index, methodology, data sources, and how to use the research.">
+    
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
+        
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --red: #FF0000;
+            --gold: #FFD700;
+            --gray: #333333;
+            --light-gray: #CCCCCC;
+            --bg-dark: #0A0A0A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--bg-dark);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid var(--gold);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255,255,255,0.03) 41px
+                ),
+                var(--bg-dark);
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-align: center;
+            max-width: 700px;
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: rgba(255, 215, 0, 0.05);
+            border: 2px solid var(--gold);
+        }
+        
+        .toc h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        .toc-section {
+            margin-bottom: 2rem;
+        }
+        
+        .toc-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .toc-section h3 {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .toc-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .toc-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
+            padding-left: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-links a:hover {
+            color: var(--gold);
+            border-left-color: var(--gold);
+            padding-left: 1.5rem;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .faq-category {
+            margin-bottom: 4rem;
+        }
+        
+        .faq-category h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 1rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--gray);
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--gold);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gold);
+            user-select: none;
+        }
+        
+        .faq-question:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--gold);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            padding: 0 1.5rem;
+            color: var(--light-gray);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 2000px;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-answer strong {
+            color: var(--white);
+        }
+        
+        .faq-answer a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold);
+        }
+        
+        .faq-answer a:hover {
+            color: var(--white);
+            border-bottom-color: var(--white);
+        }
+        
+        .faq-answer ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-cta {
+            background: rgba(255, 0, 0, 0.1);
+            border-top: 3px solid var(--red);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .contact-cta h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-cta p {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-cta a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-cta a:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--black);
+            border-top: 3px solid var(--gold);
+            padding: 2rem;
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--white);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .toc {
+                margin: 2rem 1rem;
+            }
+            
+            .faq-container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">THE DEFLATION INDEX</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Frequently Asked Questions</h1>
+        <p class="subtitle">
+            Everything you need to know about the Deflation Index, our methodology, and how to use the data.
+        </p>
+    </section>
+    
+    <!-- FAQ Content -->
+    <div class="faq-container">
+        <!-- Understanding the Index -->
+        <div class="faq-category">
+            <h2>Understanding the Index</h2>
+            
+            <div class="faq-item" id="q1">
+                <div class="faq-question">
+                    <span>What is the Deflation Index?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The Deflation Index (DI) measures technological deflation across four fundamental sectors: computing, communications, energy, and transportation. It tracks how much cheaper technology makes these essential inputs over time.</p>
+                    <p><strong>The core finding:</strong> From 1990-2024, technology delivered 84.3% deflation across these sectors. What cost $100 in 1990 should cost $16 today in real terms. Yet consumer prices rose 155% during the same period.</p>
+                    <p>The DI quantifies this divergence—measuring the force of technological progress against monetary expansion and revealing where the productivity gains went.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q2">
+                <div class="faq-question">
+                    <span>Why 1990 as the base year?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Three key reasons:</strong></p>
+                    <p><strong>1. Data availability:</strong> 1990 is the earliest year where we have reliable, comprehensive data across all four sectors. Computing performance metrics (FLOPS), communications costs, solar efficiency data, and early battery technology all have solid measurement foundations by 1990.</p>
+                    <p><strong>2. Technology inflection point:</strong> The early 1990s marked the beginning of the modern computing era—Windows 3.0, early internet, mobile phones transitioning from luxury to consumer products. It's a natural starting point for measuring digital-age deflation.</p>
+                    <p><strong>3. Long enough to show exponential effects:</strong> 35 years (1990-2024) is sufficient to demonstrate exponential cost reduction curves. Shorter periods might show volatility; longer periods lack reliable data.</p>
+                    <p>Setting 1990 = 100 as the baseline makes it easy to track percentage changes over time.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q3">
+                <div class="faq-question">
+                    <span>How is this different from CPI?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The Consumer Price Index (CPI) measures what consumers actually pay. The Deflation Index measures what technology makes possible.</p>
+                    <p><strong>Key differences:</strong></p>
+                    <p><strong>Scope:</strong> CPI tracks a basket of consumer goods. The DI focuses specifically on technological inputs (computing, communications, energy, transportation) that underpin the entire economy.</p>
+                    <p><strong>Methodology:</strong> CPI uses hedonic adjustments (quality improvements) but often understates technological progress. The DI directly measures cost-per-unit-performance ($/GFLOPS, $/GB, $/kWh), capturing the full force of technological deflation.</p>
+                    <p><strong>Purpose:</strong> CPI aims to measure "price stability" for monetary policy. The DI aims to measure technological progress and reveal where productivity gains flow.</p>
+                    <p>CPI shows +155% inflation (1990-2024). The DI shows -84.3% deflation. The 545 percentage point gap reveals a massive wealth transfer.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q4">
+                <div class="faq-question">
+                    <span>How do you calculate the Master Deflation Index?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The Master DI is a weighted composite of four sector indices:</p>
+                    <p><strong>Sector Weights:</strong></p>
+                    <ul>
+                        <li><strong>Computing (25%):</strong> FLOPS/$, storage $/GB, memory $/GB</li>
+                        <li><strong>Communications (20%):</strong> Data $/GB, voice $/minute, network $/Mbps</li>
+                        <li><strong>Energy (25%):</strong> Solar $/kWh, batteries $/kWh, LEDs $/lumen</li>
+                        <li><strong>Transportation (15%):</strong> EV batteries $/kWh, efficiency gains</li>
+                        <li><strong>Future Technologies (15%):</strong> Reserved (currently defaulted to 100)</li>
+                    </ul>
+                    <p><strong>Formula:</strong> We use a geometric mean (multiplicative) rather than arithmetic mean to properly capture compounding deflation effects. Each year, sector indices are calculated from cost-per-performance metrics, then combined using the weights above.</p>
+                    <p>Result: Master DI fell from 100 (1990) to 15.68 (2024) = 84.3% total deflation.</p>
+                    <p>For full technical details, see our <a href="methodology.html">methodology documentation</a>.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- The Gaps & Findings -->
+        <div class="faq-category">
+            <h2>The Gaps & Findings</h2>
+            
+            <div class="faq-item" id="q5">
+                <div class="faq-question">
+                    <span>Why have you chosen two separate gaps to measure?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We measure two related but distinct gaps because they reveal different aspects of the wealth transfer:</p>
+                    <p><strong>The Deflation Gap (7.8pp annually, 239pp cumulative):</strong></p>
+                    <p>Measures deflation that should have reached consumers but didn't. Formula: |Tech Deflation| + CPI Inflation = 84pp + 155pp = 239pp.</p>
+                    <p>This gap asks: "Technology made things 84% cheaper, yet consumer prices rose 155%. Where did the 239 percentage points of potential deflation go?"</p>
+                    <p><strong>The Abundance Gap (545pp cumulative):</strong></p>
+                    <p>Measures the total economic force captured rather than passed to consumers. Formula: |Tech Deflation| + M2 Expansion - CPI = 84pp + 615pp - 155pp = 545pp.</p>
+                    <p>This gap asks: "Technology pushed down (84pp), money printing pushed up (615pp), consumer prices rose 155pp. Where did the other 545pp go?"</p>
+                    <p><strong>Why both?</strong> The Deflation Gap is simpler and focuses on consumer experience. The Abundance Gap is more comprehensive and includes the full monetary context. Both tell important parts of the story.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q6">
+                <div class="faq-question">
+                    <span>So where does the productivity go?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>This is the central question. The 545pp Abundance Gap represents wealth that flowed to:</p>
+                    <p><strong>1. Corporate Profits:</strong> Up 300%+ since 1990, heavily concentrated in the top 10% of earners. Productivity gains often boost margins rather than reducing prices.</p>
+                    <p><strong>2. Asset Inflation:</strong> Stocks +1,500%, housing +400% since 1990. These aren't captured in CPI but represent where much of the monetary expansion flows. Asset holders capture the gains.</p>
+                    <p><strong>3. Technology Platforms:</strong> Network effects and monopoly pricing power allow tech companies to capture value rather than pass savings to consumers (despite costs falling).</p>
+                    <p><strong>4. Complexity Costs:</strong> Healthcare, education, and housing costs rising faster than wages. Some productivity gains absorbed by increasing regulatory, compliance, and distribution complexity.</p>
+                    <p><strong>5. Quality Improvements:</strong> Better goods at the same nominal price (partially captured in hedonic CPI adjustments, but often understated).</p>
+                    <p><strong>6. International Arbitrage:</strong> Manufacturing moves offshore (capturing labor cost deflation), but profits stay domestic and flow to shareholders/management.</p>
+                    <p><strong>The pattern:</strong> Productivity gains flow upward to capital holders and asset owners rather than downward to consumers through lower prices.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q7">
+                <div class="faq-question">
+                    <span>Why only four sectors? What about housing/healthcare/education?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Short answer:</strong> We're focused on sectors showing clear, measurable technological deflation. Housing, healthcare, and education are planned for future expansion.</p>
+                    <p><strong>The four current sectors (computing, communications, energy, transportation) were chosen because:</strong></p>
+                    <ul>
+                        <li><strong>Exponential cost reduction:</strong> All show 20-40% annual deflation rates</li>
+                        <li><strong>Clean measurement:</strong> Objective cost-per-performance metrics ($/GFLOPS, $/GB, $/kWh)</li>
+                        <li><strong>Fundamental inputs:</strong> These technologies underpin the entire economy</li>
+                        <li><strong>Data availability:</strong> Reliable 35-year datasets from authoritative sources</li>
+                    </ul>
+                    <p><strong>Why not housing/healthcare/education yet?</strong></p>
+                    <p>These sectors show <em>inflation</em> (costs rising) despite technological improvements. They're critical to understanding the full picture, but require different analytical frameworks. We're developing methodologies to incorporate them in v4.0.</p>
+                    <p><strong>Future roadmap:</strong> 15% of index weight is reserved for "Future Technologies" (currently defaulted to baseline 100). As we add sectors, this allocation will be deployed.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Data & Methodology -->
+        <div class="faq-category">
+            <h2>Data & Methodology</h2>
+            
+            <div class="faq-item" id="q8">
+                <div class="faq-question">
+                    <span>Is the data public and verifiable?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes. Complete transparency is foundational to this project.</strong></p>
+                    <p><strong>What's public:</strong></p>
+                    <ul>
+                        <li><strong>All raw data:</strong> Available on <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a> in Excel and CSV formats</li>
+                        <li><strong>All formulas:</strong> 700+ verified formulas with zero errors, all documented in Excel files</li>
+                        <li><strong>All sources:</strong> Every data point includes source citations (FRED, IRENA, BloombergNEF, DOE, FCC, AI Impacts, etc.)</li>
+                        <li><strong>Complete methodology:</strong> 100,000+ words of documentation explaining calculations, assumptions, and quality standards</li>
+                    </ul>
+                    <p><strong>Data quality verification:</strong></p>
+                    <ul>
+                        <li>410 data points across 35 years</li>
+                        <li>700+ formulas verified with zero errors</li>
+                        <li>Average source reliability: 92/100 (A-grade)</li>
+                        <li>All data has quality flags (A/B/C/D grades)</li>
+                    </ul>
+                    <p><strong>Reproducibility:</strong> Anyone can download the Excel files, verify every formula, check every source, and reproduce the Master DI. This is open research.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q9">
+                <div class="faq-question">
+                    <span>Do you have a glossary of terms?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Key Terms:</strong></p>
+                    <p><strong>Deflation Index (DI):</strong> Composite measure of technological cost reductions across computing, communications, energy, and transportation (1990-2024).</p>
+                    <p><strong>Master DI:</strong> Weighted average of four sector indices. Fell from 100 (1990) to 15.68 (2024) = 84.3% total deflation.</p>
+                    <p><strong>M2 Money Supply:</strong> Broad measure of money supply including cash, checking deposits, savings deposits, and money market funds. Grew 615% from 1990-2024.</p>
+                    <p><strong>CPI (Consumer Price Index):</strong> Government measure of consumer price inflation. Rose 155% from 1990-2024.</p>
+                    <p><strong>The Abundance Gap (545pp):</strong> Cumulative wealth transfer from 1990-2024. Formula: |Tech Deflation| + M2 Expansion - CPI = 84 + 615 - 155 = 545pp.</p>
+                    <p><strong>The Deflation Gap (239pp cumulative, 7.8pp annual):</strong> Deflation that should have reached consumers but didn't. Formula: |Tech Deflation| + CPI = 84 + 155 = 239pp.</p>
+                    <p><strong>Cost-per-performance:</strong> Metric measuring price per unit of capability (e.g., $/GFLOPS for computing, $/kWh for energy). Captures true technological progress better than nominal prices.</p>
+                    <p><strong>Percentage points (pp):</strong> Absolute difference between percentages. Example: 10% minus 5% = 5 percentage points, not 5%.</p>
+                    <p>For comprehensive definitions, see the <a href="https://github.com/deflation-index/deflation-index/tree/main/docs/methodology" target="_blank">methodology documentation</a>.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q10">
+                <div class="faq-question">
+                    <span>How often is the index updated?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Current status:</strong> The Deflation Index v3.0.1 is complete through 2024 with zero formula errors and comprehensive 1990-2024 coverage.</p>
+                    <p><strong>Update schedule:</strong></p>
+                    <ul>
+                        <li><strong>Annual updates:</strong> Full recalculation with new year's data (typically released Q1 of following year)</li>
+                        <li><strong>Quarterly reviews:</strong> Minor corrections and data quality improvements</li>
+                        <li><strong>Major versions:</strong> New sectors or methodology changes (e.g., v4.0 will add healthcare/education/housing)</li>
+                    </ul>
+                    <p><strong>Planned for Q1 2025:</strong></p>
+                    <ul>
+                        <li>Monthly DI updates (automated data pipeline)</li>
+                        <li>API v1.0 launch for real-time access</li>
+                        <li>Email newsletter with monthly updates</li>
+                    </ul>
+                    <p><strong>Data freshness:</strong> Most underlying data sources (M2, CPI) are updated monthly by authoritative sources (Federal Reserve, BLS). We'll incorporate these as they become available.</p>
+                    <p>Follow <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a> for update notifications.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comparisons & Usage -->
+        <div class="faq-category">
+            <h2>Comparisons & Usage</h2>
+            
+            <div class="faq-item" id="q11">
+                <div class="faq-question">
+                    <span>How does this compare to other deflation indices?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>The Deflation Index is unique.</strong> Here's how it compares to related work:</p>
+                    <p><strong>vs. CPI (BLS):</strong> CPI measures consumer prices, not technological capability. Hedonic adjustments attempt to capture quality improvements but systematically understate technology's deflationary force.</p>
+                    <p><strong>vs. PCE Price Index (BEA):</strong> Similar to CPI but uses different methodology and weights. Still focused on consumer experience, not technological potential.</p>
+                    <p><strong>vs. GDP Deflator:</strong> Broad measure of price changes across entire economy. Useful for macroeconomics but doesn't isolate technological deflation.</p>
+                    <p><strong>vs. Nordhaus (2007) computing price index:</strong> Groundbreaking work measuring computing deflation (which we build upon), but limited to computing sector only. We extend across four sectors.</p>
+                    <p><strong>vs. Quality-Adjusted Price Indices (various):</strong> Academic work on hedonic pricing is excellent but scattered across sectors and time periods. The DI provides unified, consistent methodology across decades.</p>
+                    <p><strong>What makes the DI different:</strong></p>
+                    <ul>
+                        <li><strong>Multi-sector scope:</strong> Computing + Communications + Energy + Transportation in one index</li>
+                        <li><strong>Explicit monetary comparison:</strong> DI vs. M2 vs. CPI reveals the wealth transfer mechanism</li>
+                        <li><strong>Long time horizon:</strong> 35 years (1990-2024) shows exponential effects</li>
+                        <li><strong>Complete transparency:</strong> All data, formulas, and methodology public on GitHub</li>
+                        <li><strong>Forward-looking:</strong> Designed to expand (healthcare, education, housing in v4.0)</li>
+                    </ul>
+                    <p><strong>To our knowledge, no other index measures economy-wide technological deflation against monetary expansion with this level of rigor and transparency.</strong></p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q12">
+                <div class="faq-question">
+                    <span>Can I use this data for my own research/analysis?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes, with attribution.</strong></p>
+                    <p><strong>The data is currently under a proprietary license,</strong> but we strongly encourage academic, journalistic, and policy research using the Deflation Index.</p>
+                    <p><strong>Permitted uses:</strong></p>
+                    <ul>
+                        <li><strong>Academic research:</strong> Cite the Deflation Index in papers, dissertations, and publications</li>
+                        <li><strong>Journalism:</strong> Reference findings in articles and reports</li>
+                        <li><strong>Policy analysis:</strong> Use data to inform economic policy recommendations</li>
+                        <li><strong>Educational:</strong> Teaching economics, monetary policy, or technology trends</li>
+                        <li><strong>Personal analysis:</strong> Blog posts, Twitter threads, newsletter content</li>
+                    </ul>
+                    <p><strong>Required attribution:</strong></p>
+                    <p style="padding: 1rem; background: rgba(255,255,255,0.05); border-left: 3px solid var(--gold); margin: 1rem 0;">
+                        "The Deflation Index: Measuring Technological Progress (1990-2024), Deflation Index LLC, v3.0.1, available at github.com/deflation-index/deflation-index"
+                    </p>
+                    <p><strong>Not permitted without permission:</strong></p>
+                    <ul>
+                        <li>Commercial redistribution or resale of the data</li>
+                        <li>Incorporation into proprietary financial products</li>
+                        <li>Derivative indices marketed commercially</li>
+                    </ul>
+                    <p><strong>API access:</strong> Premium institutional API access will be available in Q1 2025 ($10k-50k annual). Contact us for early access.</p>
+                    <p><strong>Collaboration welcome:</strong> If you're working on related research, we'd love to hear about it. Reach out at contact@deflationindex.com.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Engagement -->
+        <div class="faq-category">
+            <h2>Engagement</h2>
+            
+            <div class="faq-item" id="q13">
+                <div class="faq-question">
+                    <span>How can I contribute or provide feedback?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>We welcome contributions, suggestions, and constructive criticism.</strong></p>
+                    <p><strong>Ways to contribute:</strong></p>
+                    <p><strong>1. Data improvements:</strong> If you have better data sources or spot errors, please <a href="https://github.com/deflation-index/deflation-index/issues" target="_blank">open an issue on GitHub</a> with details and citations.</p>
+                    <p><strong>2. Methodology feedback:</strong> Challenge our assumptions, suggest alternative calculations, or propose new sectors to track. We're committed to rigor and welcome scholarly debate.</p>
+                    <p><strong>3. Sector expansion:</strong> Have expertise in healthcare, education, or housing cost dynamics? We need domain experts for v4.0 expansion.</p>
+                    <p><strong>4. Code contributions:</strong> Improvements to data pipelines, visualization tools, or API development welcome via <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub pull requests</a>.</p>
+                    <p><strong>5. Spread the word:</strong> Share the research with economists, policymakers, journalists, and investors who might find it valuable.</p>
+                    <p><strong>Contact channels:</strong></p>
+                    <ul>
+                        <li><strong>Email:</strong> contact@deflationindex.com</li>
+                        <li><strong>GitHub Issues:</strong> <a href="https://github.com/deflation-index/deflation-index/issues" target="_blank">Technical discussions and bug reports</a></li>
+                        <li><strong>Newsletter:</strong> Sign up for monthly updates (launching Q1 2025)</li>
+                    </ul>
+                    <p><strong>What we value:</strong> Precision, transparency, intellectual honesty, and constructive engagement. If you see something that looks wrong, speak up. If you have ideas to improve the work, we want to hear them.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <h2>Still Have Questions?</h2>
+        <p>We're here to help. Reach out and we'll get back to you promptly.</p>
+        <a href="mailto:contact@deflationindex.com">Contact Us</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Deflation Index LLC. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a> | <a href="methodology.html">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Built to measure the force of technological progress and track where the abundance goes.</p>
+    </footer>
+    
+    <!-- Accordion JavaScript -->
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

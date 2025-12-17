@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>About | The Deflation Index</title>
+    <meta name="description" content="Learn about the mission, methodology, and team behind the Deflation Index - measuring technological progress and tracking where the abundance goes.">
+    
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
+        
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --red: #FF0000;
+            --gold: #FFD700;
+            --gray: #333333;
+            --light-gray: #CCCCCC;
+            --bg-dark: #0A0A0A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--bg-dark);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid var(--gold);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255,255,255,0.03) 41px
+                ),
+                var(--bg-dark);
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            text-align: center;
+            max-width: 900px;
+            color: var(--white);
+            line-height: 1.6;
+            font-weight: 600;
+        }
+        
+        /* Content Sections */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        section h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--gold);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 1rem;
+        }
+        
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        section p strong {
+            color: var(--white);
+        }
+        
+        section ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+        
+        section li strong {
+            color: var(--white);
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.05);
+            border-left: 5px solid var(--gold);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--white);
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--gray);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Principles Section */
+        .principles {
+            background: var(--black);
+            border-top: 3px solid var(--red);
+            border-bottom: 3px solid var(--red);
+            padding: 4rem 2rem;
+        }
+        
+        .principles-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .principle {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--gray);
+            padding: 2rem;
+        }
+        
+        .principle h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .principle p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--light-gray);
+        }
+        
+        /* Team Section */
+        .team-section {
+            background: rgba(255, 215, 0, 0.03);
+            border-top: 3px solid var(--gold);
+            padding: 4rem 2rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: rgba(255, 0, 0, 0.1);
+            border-top: 3px solid var(--red);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            border: none;
+            padding: 0;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--black);
+            border-top: 3px solid var(--gold);
+            padding: 2rem;
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--white);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">THE DEFLATION INDEX</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About the DI</h1>
+        <p class="hero-subtitle">
+            Measuring the force of technological progress and tracking where the abundance goes.
+        </p>
+    </section>
+    
+    <!-- Mission Section -->
+    <section>
+        <h2>The Mission</h2>
+        
+        <p>Technology creates exponential deflation. Computing power that cost millions now costs pennies. Communication that was expensive is now free. Energy and transportation costs have collapsed. This should have made everyone dramatically wealthier.</p>
+        
+        <p>Instead, consumer prices rose. The gap between what technology delivered and what consumers experienced represents a massive wealth transfer.</p>
+        
+        <div class="highlight-box">
+            The Deflation Index exists to measure this divergence with precision, transparency, and intellectual rigor—and to ask the question that follows: where did the abundance go?
+        </div>
+        
+        <p><strong>This is not a theory. It is measurement.</strong> Every data point is sourced, every formula is verifiable, every calculation is transparent. We built the index to provide an objective foundation for understanding how technological progress interacts with monetary policy—and who captures the gains.</p>
+    </section>
+    
+    <!-- The Question Section -->
+    <section style="background: var(--black); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 4rem 2rem;">
+        <h2>The Central Question</h2>
+        
+        <p>Technology makes things cheaper. Money printing makes things expensive. What wins?</p>
+        
+        <p>For decades, these two forces—technological deflation and monetary expansion—have moved in opposite directions. Technology pushes costs down through exponential improvement. Monetary policy expands the money supply to maintain "price stability."</p>
+        
+        <p>The mathematics reveal a systematic divergence. Technological gains reduce costs. Monetary policy prevents those reductions from reaching consumers. The productivity flows upward—to corporate profits, asset prices, and complexity costs—rather than downward to consumers through lower prices.</p>
+        
+        <p><strong>The Deflation Index quantifies this mechanism.</strong> Not as accusation, but as economics. Not as conspiracy, but as measurement.</p>
+    </section>
+    
+    <!-- How We Work -->
+    <section>
+        <h2>How We Work</h2>
+        
+        <p><strong>Rigorous methodology:</strong> We track cost-per-performance metrics ($/GFLOPS, $/GB, $/kWh, $/kWh battery) across four sectors, weighted by economic importance. The Master Deflation Index is calculated using a geometric mean to properly capture compounding effects.</p>
+        
+        <p><strong>Complete transparency:</strong> All data, formulas, and source citations are public on GitHub. 700 verified formulas. 410 data points. 35 years of coverage. Zero errors. Anyone can download the Excel files, verify every calculation, and reproduce the results.</p>
+        
+        <p><strong>Authoritative sources:</strong> Federal Reserve (M2), Bureau of Labor Statistics (CPI), IRENA (solar), BloombergNEF (batteries), DOE (energy), FCC (communications), AI Impacts (computing). Average source reliability: 92/100 (A-grade).</p>
+        
+        <p><strong>Conservative estimates:</strong> Where uncertainty exists, we choose the more conservative assumption. The true technological deflation is likely higher than we measure. This index understates the gap, not overstates it.</p>
+        
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">700</div>
+                <div class="stat-label">Verified Formulas</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">410</div>
+                <div class="stat-label">Data Points</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Errors</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">35</div>
+                <div class="stat-label">Years (1990-2024)</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Principles Section -->
+    <section class="principles">
+        <div style="max-width: 900px; margin: 0 auto; margin-bottom: 3rem;">
+            <h2 style="text-align: center; border: none; padding: 0;">Our Principles</h2>
+        </div>
+        
+        <div class="principles-grid">
+            <div class="principle">
+                <h3>Measurement Over Theory</h3>
+                <p>We track data, not narratives. The index captures systematic patterns across decades—not cherry-picked examples or anecdotes. If the numbers change, we change the conclusion. Precision over persuasion.</p>
+            </div>
+            
+            <div class="principle">
+                <h3>Transparency Over Authority</h3>
+                <p>Every source is cited. Every formula is visible. Every assumption is documented. Trust comes from verification, not credentials. Anyone can download the data, check the calculations, and challenge the work.</p>
+            </div>
+            
+            <div class="principle">
+                <h3>Analysis Over Accusation</h3>
+                <p>We describe mechanisms, not motives. Monetary policy is a counterforce to technological deflation—that's an observable pattern, not a judgment. The system can be measured without being moralized. Let the data speak.</p>
+            </div>
+            
+            <div class="principle">
+                <h3>Open Over Closed</h3>
+                <p>The research is public. The data is accessible. We encourage academic use, journalistic citation, policy analysis, and critical scrutiny. Knowledge compounds when shared. This work improves through collaboration, not defensiveness.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Vision Section -->
+    <section>
+        <h2>The Vision</h2>
+        
+        <p>The Deflation Index should become the standard measure for tracking technological progress and its economic distribution.</p>
+        
+        <p>Just as CPI measures consumer inflation, the DI should measure technological deflation—and the gap between them should inform monetary policy, investment strategy, and political economy.</p>
+        
+        <p><strong>Why this matters:</strong> Technology is the primary driver of human prosperity. Understanding where those gains flow—to consumers, to capital holders, to asset prices, to complexity costs—is essential for economic policy and social equity.</p>
+        
+        <p><strong>What we're building:</strong> The infrastructure for rigorous, transparent measurement. Clean data. Robust methodology. Open documentation. Collaborative refinement. A foundation for understanding the economics of technological progress.</p>
+        
+        <p>This work will expand to additional sectors, improve with better data, and evolve through critical feedback. The index is never finished—but it's built to compound over time.</p>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2>The Team</h2>
+        
+        <p>The Deflation Index is an independent research project combining economics, data science, and systems thinking. We're a small team committed to rigorous analysis and transparent methodology.</p>
+        
+        <p><strong>Current focus:</strong> Building the most comprehensive, verifiable measure of technological deflation available. Ensuring every number is defensible, every source is credible, and every conclusion follows from the data.</p>
+        
+        <p><strong>We're looking for:</strong></p>
+        <ul>
+            <li><strong>Domain experts:</strong> Healthcare economists, education researchers, housing analysts for v4.0 expansion</li>
+            <li><strong>Data scientists:</strong> Help automate pipelines, build API infrastructure, improve visualization</li>
+            <li><strong>Research collaborators:</strong> Academics working on related questions—let's combine efforts</li>
+            <li><strong>Critics:</strong> If you see methodological flaws, challenge our assumptions, or have better data—tell us</li>
+        </ul>
+        
+        <p>Interested? Email us at <strong style="color: var(--gold);">contact@deflationindex.com</strong></p>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Get Involved</h2>
+        <p>The Deflation Index is an open research project. The data is public, the methodology is transparent, and the work benefits from scrutiny.</p>
+        
+        <div class="cta-buttons">
+            <a href="https://github.com/deflation-index/deflation-index" class="btn" target="_blank">View on GitHub</a>
+            <a href="mailto:contact@deflationindex.com" class="btn">Contact Us</a>
+            <a href="faq.html" class="btn">Read FAQ</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Deflation Index LLC. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a> | <a href="methodology.html">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Built to measure the force of technological progress and track where the abundance goes.</p>
+    </footer>
+</body>
+</html>
