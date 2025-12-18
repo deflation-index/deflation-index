@@ -367,10 +367,23 @@
         <p><strong>The Master DI</strong> is a weighted geometric mean of these four sector indices, showing how technological deflation compounds over time.</p>
         
         <div class="formula-box">
-            Master DI = (Computing^0.25 × Communications^0.20 × Energy^0.25 × Transportation^0.15 × Future^0.15)
+            Master DI = Computing^0.294 × Communications^0.235 × Energy^0.294 × Transport^0.176
         </div>
         
         <p><strong>Why geometric mean?</strong> Technological improvements multiply (compound), they don't add. A geometric mean properly captures this multiplicative relationship.</p>
+        
+        <p style="margin-top: 1.5rem;">Where each sector represents fundamental technological progress:</p>
+        <ul>
+            <li><strong>Computing (29.4%):</strong> The foundation of modern productivity</li>
+            <li><strong>Communications (23.5%):</strong> The network connecting everything</li>
+            <li><strong>Energy (29.4%):</strong> The power for all technology</li>
+            <li><strong>Transportation (17.6%):</strong> The movement of goods and people</li>
+        </ul>
+        
+        <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--light-gray);">
+            <strong>Note:</strong> These weights represent the current v3.0.1 composition with four sectors. 
+            Future versions will add healthcare, education, and housing sectors with rebalanced weights.
+        </p>
     </section>
     
     <!-- Sector Breakdown -->
@@ -379,7 +392,7 @@
         
         <div class="sector-grid">
             <div class="sector-card">
-                <h3>Computing (25%)</h3>
+                <h3>Computing (29.4%)</h3>
                 <div class="sector-stat"><strong>Metric:</strong> $/GFLOPS, $/GB storage, $/GB RAM</div>
                 <div class="sector-stat"><strong>Deflation:</strong> 99.91% (1990-2024)</div>
                 <div class="sector-stat"><strong>Annual Rate:</strong> 35-40%</div>
@@ -388,7 +401,7 @@
             </div>
             
             <div class="sector-card">
-                <h3>Communications (20%)</h3>
+                <h3>Communications (23.5%)</h3>
                 <div class="sector-stat"><strong>Metric:</strong> $/GB data, $/minute voice, $/Mbps bandwidth</div>
                 <div class="sector-stat"><strong>Deflation:</strong> 99.8% (1990-2024)</div>
                 <div class="sector-stat"><strong>Annual Rate:</strong> 30-35%</div>
@@ -397,7 +410,7 @@
             </div>
             
             <div class="sector-card">
-                <h3>Energy (25%)</h3>
+                <h3>Energy (29.4%)</h3>
                 <div class="sector-stat"><strong>Metric:</strong> $/kWh solar LCOE, $/kWh batteries, $/kilolumen LEDs</div>
                 <div class="sector-stat"><strong>Deflation:</strong> 90% (2010-2024)</div>
                 <div class="sector-stat"><strong>Annual Rate:</strong> 12% pre-2010, 27% post-2010</div>
@@ -406,7 +419,7 @@
             </div>
             
             <div class="sector-card">
-                <h3>Transportation (15%)</h3>
+                <h3>Transportation (17.6%)</h3>
                 <div class="sector-stat"><strong>Metric:</strong> $/kWh EV batteries, autonomous tech costs</div>
                 <div class="sector-stat"><strong>Deflation:</strong> 88% (2010-2024)</div>
                 <div class="sector-stat"><strong>Annual Rate:</strong> 18-22%</div>
@@ -415,7 +428,7 @@
             </div>
         </div>
         
-        <p style="margin-top: 2rem;"><strong>Future Technologies (15%):</strong> Reserved for emerging sectors. Currently defaulted to baseline 100 (no deflation incorporated). Will be allocated to healthcare, education, and housing in v4.0.</p>
+        <p style="margin-top: 2rem; font-size: 0.95rem; color: var(--light-gray);"><strong>Note on Future Expansion:</strong> v4.0 will add healthcare, education, and housing sectors. Current v3.0.1 composition uses four sectors with normalized weights totaling 100%.</p>
     </section>
     
     <!-- Calculation Method -->
@@ -517,8 +530,8 @@
         
         <h3>The Numbers</h3>
         <ul>
-            <li><strong>700 formulas:</strong> Every calculation is formula-driven in Excel</li>
-            <li><strong>410 data points:</strong> Comprehensive coverage across 35 years</li>
+            <li><strong>700+ verified formulas:</strong> Every calculation is formula-driven in Excel</li>
+            <li><strong>400+ data points:</strong> Comprehensive coverage across 35 years (1990-2024)</li>
             <li><strong>0 errors:</strong> All formulas verified, no broken links or circular references</li>
             <li><strong>100% sourced:</strong> Every data point has source citation in cell comments</li>
         </ul>

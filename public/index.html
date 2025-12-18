@@ -764,7 +764,7 @@
         
         <p style="margin-top: 4rem; font-size: 0.9rem; opacity: 0.8;">
             Independent analysis tracking technological deflation across four fundamental sectors.
-            <br>700 verified formulas. 410 data points. 35 years. Zero errors.
+            <br>700+ verified formulas. 400+ data points. 35 years (1990-2024). Zero errors.
             <br>Data from Federal Reserve, BLS, IRENA, BloombergNEF, AI Impacts, DOE, FCC.
         </p>
     </section>
@@ -779,12 +779,17 @@
                        '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020',
                        '2021', '2022', '2023', '2024'];
         
-        // CORRECTED: Real Master DI annual deflation rates (~5.2% average)
-        // These are the ACTUAL annual rates showing moderate deflation, not the high placeholder numbers
-        const techDeflation = [0, -4.5, -4.8, -5.1, -5.3, -5.6, -5.8, -6.0, -6.2, -6.5, -6.8,
-                               -6.5, -6.3, -6.0, -5.8, -5.5, -5.3, -5.0, -4.8, -4.5, -4.3,
-                               -4.0, -3.8, -3.5, -3.3, -3.0, -2.8, -2.5, -2.3, -2.0, -1.8,
-                               -1.5, -1.3, -1.0, -0.8];
+        // ACTUAL DATA from master_deflation_index_v3.0.xlsx Column G (Annual_Deflation_%)
+        // These are the precise annual deflation rates calculated from Master DI
+        // Average: -5.20% annually (1991-2024)
+        const techDeflation = [
+            0,      // 1990 baseline
+            -18.65, -15.76, -13.07, -10.69, -8.69, -7.06, -5.77,
+            -4.75,  -3.95,  -3.32,  -2.82,  -2.42, -2.09, -1.82,
+            -1.59,  -1.39,  -1.22,  -1.08,  -0.95, -1.86, -10.87,
+            -9.65,  -8.46,  -7.32,  -6.26,  -5.30, -4.45, -3.70,
+            -3.05,  -2.50,  -2.04,  -1.66,  -1.35, -1.09
+        ];
         
         // M2 growth - CORRECTED (2020 spike in position 30)
         const m2Growth = [7.5, 4.2, 5.8, 6.9, 8.5, 4.3, 5.1, 6.2, 5.8, 6.4, 7.2,
