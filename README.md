@@ -2,398 +2,374 @@
 
 **Quantifying technological deflation across computing, communications, energy, and transportation.**
 
-[![Data Quality](https://img.shields.io/badge/data%20quality-A%20grade-brightgreen)](docs/methodology/DATA_HYGIENE_STANDARDS.md)
-[![Formulas Verified](https://img.shields.io/badge/formulas-700%20%7C%200%20errors-blue)](data/excel/)
-[![Coverage](https://img.shields.io/badge/coverage-1990--2024-orange)](data/)
-[![License](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)
+The Deflation Index (DI) measures the force of technological progress by tracking exponential cost reductions in fundamental sectors and comparing them against monetary expansion and official inflation metrics.
 
-The Deflation Index (DI) measures the force of technological progress by tracking exponential cost reductions across four fundamental sectors and comparing them against monetary expansion and official inflation metrics.
-
----
-
-## 🔍 What is the DI?
-
-The Deflation Index is a composite metric tracking technological deflation across four sectors:
-
-- **Computing (25%)**: FLOPS/$, storage $/GB, memory $/GB RAM
-- **Communications (20%)**: Data $/GB, voice $/minute, network $/Mbps
-- **Energy (25%)**: Solar $/kWh LCOE, batteries $/kWh, LEDs $/lumen
-- **Transportation (15%)**: EV batteries $/kWh, autonomous tech, vehicle efficiency
-- **Future Technologies (15%)**: Reserved for emerging sectors (healthcare, education, etc.)
-
-### The Central Question
-
-Technology makes things cheaper. Money printing makes things expensive. What wins?
-
-**The DI measures the gap between:**
-- **What technology delivers**: -5.2% annual deflation (1990-2024)
-- **What monetary policy creates**: +5.9% M2 expansion annually
-- **What we experience**: +2.7% CPI inflation annually
-
-**The 545 percentage point Abundance Gap** represents the greatest wealth transfer in modern history.
+[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)](CHANGELOG.md)
+[![Data Points](https://img.shields.io/badge/data%20points-400%2B-green.svg)](#)
+[![Formulas](https://img.shields.io/badge/formulas-700%2B-green.svg)](#)
+[![Errors](https://img.shields.io/badge/errors-0-brightgreen.svg)](#)
 
 ---
 
-## 📊 Key Findings (1990-2024)
+## 📊 What is the DI?
 
-### Technology Delivered Massive Deflation
+The Deflation Index is a composite metric that quantifies annual technological deflation from 1990-2024. It reveals the gap between:
 
-- **Master DI**: Fell from 100 (1990) to **15.68** (2024)
-- **Total Deflation**: 84.3% over 35 years
-- **Annual Average**: -5.2% deflation per year
-- **Meaning**: What cost $100 in 1990 should cost **$16 today** (in real terms)
+* **What technology delivers** (massive cost reductions)
+* **What monetary policy creates** (6-7% M2 expansion annually)
+* **What we experience** (2-3% CPI inflation)
 
-### But Money Supply Expanded Dramatically
-
-- **M2 Growth**: +5.9% annually (average 1990-2024)
-- **Cumulative**: +615% over 35 years (precise: 614.84%)
-- **Multiplier**: 7.15x increase ($3.0T → $21.3T)
-- **Peak Year**: 2020 with +24.6% (COVID-19 stimulus)
-
-### While Consumer Prices Rose Modestly
-
-- **CPI Inflation**: +2.7% annually (average 1990-2024)
-- **Cumulative**: +155% over 35 years (precise: 154.65%)
-- **Multiplier**: 2.55x increase
-- **Pattern**: Stable except 2008 (financial crisis) and 2021-2022 (post-COVID)
-
-### The Gaps: Where Did the Abundance Go?
-
-We measure two related gaps that reveal the wealth transfer:
-
-#### **The Abundance Gap: 545 Percentage Points** (Primary Metric)
-
-**What it measures**: The total economic force that was captured rather than passed to consumers
-
-**The Calculation**:
-- Technology delivered: 84pp of price reductions
-- M2 expanded: 615pp of inflationary pressure
-- Combined force: 699pp of total economic pressure
-- Consumer prices (CPI) rose: 155pp
-- **Missing: 545pp captured elsewhere**
-
-**Formula**: |Tech Deflation| + M2 Expansion - CPI Inflation = 84 + 615 - 155 = **545pp**
-
-#### **The Deflation Gap: 239 Percentage Points** (Supporting Metric)
-
-**What it measures**: Deflation that should have reached consumers but didn't
-
-**The Calculation**:
-- Technology delivered: 84pp of deflation
-- Consumer prices rose: 155pp (opposite direction!)
-- **Gap: 239pp** (84 + 155 = 239pp of "missing deflation")
-
-**Annual**: 7.8pp per year (Tech -5.2% vs CPI +2.7% = 7.9pp difference)
-
-**Formula**: |Tech Deflation| + CPI Inflation = **239pp**
+**Key Findings (1990-2024):**
+- **Technology deflation**: -84.3% cumulative (-5.2% annual average)
+- **M2 money supply growth**: +615% cumulative (+5.9% annual average)
+- **CPI inflation**: +155% cumulative (+2.7% annual average)
+- **The Abundance Gap**: 545 percentage points of captured wealth
+- **The Deflation Gap**: 239 percentage points of missing deflation
 
 ---
 
-### Where the 545pp Went
+## 🎯 Current Scope (v3.0.1)
 
-**Winners** (captured productivity gains):
-1. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
-2. **Asset Inflation**: Stocks +1,500%, housing +400% (not captured in CPI)
-3. **Technology Platforms**: Network effects and monopoly pricing power
-4. **Financial Engineering**: Buybacks, M&A, leverage amplifying returns
-5. **International Arbitrage**: Manufacturing offshore, profits stay domestic
+**Four Sectors Covered:**
+1. **Computing (29.4%)**: Cost per billion floating-point operations per second ($/GFLOPS)
+2. **Communications (23.5%)**: Cost per gigabyte of data transmission ($/GB)
+3. **Energy (29.4%)**: Levelized cost of electricity from solar ($/kWh)
+4. **Transportation (17.6%)**: Battery pack cost per kilowatt-hour ($/kWh)
 
-**Losers** (missed productivity gains):
-1. **Bottom 50%**: Wage stagnation despite massive productivity increases
-2. **Middle Class**: Housing/healthcare/education costs rising faster than wages
-3. **Savers**: Real returns negative after inflation
-4. **Fixed Income**: Purchasing power eroded
-5. **Local Communities**: Hollowed out by offshoring
+**Time Coverage**: 1990-2024 (35 years)
+**Data Points**: 400+ verified measurements
+**Formulas**: 700+ calculations, zero errors
+**Update Frequency**: Annual major updates, quarterly refinements
 
 ---
 
-## 🎯 Sector Deep-Dives
+## 📁 Repository Structure
 
-### Computing Sector (25% weight)
-
-**Components**:
-- Computing Power (60%): $/GFLOPS (floating-point operations)
-- Storage (30%): $/GB hard drive capacity
-- Memory (10%): $/GB RAM capacity
-
-**Coverage**: 1990-2024 (35 years)
-
-**Key Results**:
-- **Computing Power**: 99.91% deflation ($0.11/GFLOPS → $0.0001/GFLOPS, 2009-2024)
-- **Storage**: 87.7% deflation ($0.114/GB → $0.014/GB, 2009-2024)
-- **Memory**: 76.7% deflation ($15/GB → $3.50/GB, 2009-2024)
-- **Average Deflation**: 35-40% annually
-
-**Why It Matters**: Computing underpins every other sector. Cheaper computation enables AI, automation, and digital transformation.
-
-**Sources**: AI Impacts, Nordhaus (2007), Backblaze, DRAMeXchange, FRED
-
----
-
-### Communications Sector (20% weight)
-
-**Components**:
-- Data Transmission (70%): $/GB data transfer
-- Voice (20%): $/minute telephone service
-- Network Access (10%): $/Mbps bandwidth
-
-**Coverage**: 1990-2024 (35 years)
-
-**Key Results**:
-- **Data Transmission**: 99.8% deflation (expensive dial-up → cheap 5G)
-- **Voice**: 97.2% deflation (long-distance → unlimited VoIP)
-- **Network Access**: 95% deflation ($/Mbps for broadband)
-- **Average Deflation**: 30-35% annually
-
-**Era Transitions**:
-- 1990-1995: Pre-consumer internet (CompuServe/Prodigy era)
-- 1995-2000: Dial-up internet ($20/month for 30 hours)
-- 2000-2010: Broadband expansion (DSL vs Cable)
-- 2010-2015: 4G/LTE, streaming begins
-- 2015-2024: Unlimited plans, 5G, streaming dominance
-
-**Sources**: Industry reports, BLS Telephone CPI, FCC data, historical pricing
-
----
-
-### Energy Sector (25% weight)
-
-**Components**:
-- Solar PV (50%): $/kWh levelized cost of electricity (LCOE)
-- Battery Storage (40%): $/kWh storage capacity
-- LED Lighting (10%): $/kilolumen efficacy
-
-**Coverage**: 1990-2024 (35 years)
-
-**Key Results**:
-- **Solar**: 90% deflation since 2010 ($0.378/kWh → $0.043/kWh)
-- **Batteries**: 88% deflation since 2010 ($1,160/kWh → $139/kWh)
-- **LEDs**: 99.4% deflation since 2010 ($0.03/kilolumen → $0.00019/kilolumen)
-- **Average Deflation**: 12% (pre-2010), 27% (post-2010) - accelerating!
-
-**Why Acceleration Post-2010?**:
-- Learning curves (Wright's Law): Cost falls ~20% per production doubling
-- Manufacturing scale-up: China dominates supply chain
-- Technology maturity: Grid parity achieved
-- Policy support: Climate targets drive deployment
-
-**Sources**: IRENA, BloombergNEF, DOE Solid-State Lighting, FRED
-
----
-
-### Transportation Sector (15% weight)
-
-**Components**:
-- EV Batteries (60%): $/kWh battery pack cost
-- Autonomous Technology (25%): $/mile autonomous capability
-- Vehicle Efficiency (10%): $/mile operating cost
-- Ridesharing (5%): $/passenger-mile platform costs
-
-**Coverage**: 2010-2024 (15 years)  
-**Why Start 2010?**: EVs not commercially viable before 2010. Tesla Roadster (2008) was first lithium-ion EV, but mass market began with Nissan Leaf (2010) and Tesla Model S (2012).
-
-**Key Results**:
-- **EV Batteries**: 88% deflation ($1,160/kWh → $139/kWh)
-- **Energy Density**: 2x improvement (150 Wh/kg → 300 Wh/kg)
-- **Autonomous**: 18% annual deflation (2016-2024, Waymo data)
-- **Average Deflation**: 18-22% annually
-
-**Convergence with Energy**: Same battery supply chain serves grid storage AND transportation, amplifying learning curve effects.
-
-**Sources**: BloombergNEF, DOE Transportation Energy Data Book, Waymo, Uber/Lyft 10-Ks
-
----
-
-## 📈 The Deflation Gap Explained
-
-### What Should Have Happened
-
-If technology gains fully passed to consumers:
-- **1990 baseline**: $100
-- **2024 with 84% deflation**: $16
-- **Your purchasing power**: 6.25x increase
-
-### What Actually Happened  
-
-With M2 growth but technology offsetting it:
-- **1990 baseline**: $100  
-- **2024 with 615% M2 growth**: $715 potential
-- **Minus 84% tech deflation**: Should be $114 ($715 × 0.16)
-- **Actual CPI**: $255 (155% increase)
-
-### The Dual Gap Framework
-
-**Deflation Gap (239pp)**:
-- Tech should have reduced prices 84pp
-- Prices rose 155pp instead
-- Missing deflation: 239pp didn't reach consumers
-
-**Abundance Gap (545pp)**:
-- Tech deflation: 84pp down
-- M2 expansion: 615pp up
-- Net economic force: 699pp upward pressure
-- CPI captured: 155pp
-- Missing abundance: 545pp went elsewhere
-
-### Who Captured the 545pp?
-
-**Winners** (captured productivity gains):
-- Top 1%: Asset values (stocks, real estate)
-- Top 10%: Corporate profits, capital income
-- Technology companies: Platform monopolies, network effects
-
-**Losers** (missed productivity gains):
-- Bottom 50%: Wage stagnation despite productivity
-- Middle class: Housing/healthcare/education costs rising
-- Savers: Real returns negative
-
----
-
-## 🚀 Live Site & Data
-
-### Website
-Visit [deflationindex.com](https://deflationindex.com) for:
-- Interactive visualizations
-- Sector deep-dives
-- Methodology documentation
-- Data downloads
-- Monthly updates
-
-### Data Downloads
-
-All data files available in `/data/`:
-
-**Excel Files** (with formulas, sources, quality flags):
-- [`master_deflation_index_v3.0.xlsx`](data/excel/master_deflation_index_v3.0.xlsx) - Integrated index
-- [`computing_deflation_index_v1.0.xlsx`](data/excel/computing_deflation_index_v1.0.xlsx) - 35 years
-- [`communications_deflation_index_v1.0.xlsx`](data/excel/communications_deflation_index_v1.0.xlsx) - 35 years
-- [`energy_deflation_index_v1.0.xlsx`](data/excel/energy_deflation_index_v1.0.xlsx) - 35 years
-- [`transportation_deflation_index_v1.0.xlsx`](data/excel/transportation_deflation_index_v1.0.xlsx) - 15 years
-
-**CSV Files** (for programmatic access):
-- [`master_di_1990_2024.csv`](data/csv/master_di_1990_2024.csv)
-- Sector CSVs for each component
-
-**Documentation** (100,000+ words):
-- [Master Methodology](docs/methodology/MASTER_METHODOLOGY.md)
-- [Data Hygiene Standards](docs/methodology/DATA_HYGIENE_STANDARDS.md)
-- [Executive Summary](docs/summaries/EXECUTIVE_SUMMARY.md)
-- [Complete sector methodologies](docs/methodology/)
-
----
-
-## 🛠 Technology Stack
-
-- **Data**: Excel with 700 verified formulas (zero errors)
-- **Frontend**: Static HTML/CSS/JavaScript
-- **Visualization**: Chart.js for interactive charts
-- **Hosting**: Cloudflare Pages (global CDN, free tier)
-- **Domain**: deflationindex.com
-- **Analytics**: Plausible (privacy-focused)
-- **API**: Coming Q1 2025
-
----
-
-## 📊 Data Quality
-
-### Verification Status
-
-✅ **700 formulas verified** - Zero errors across all files  
-✅ **410 data points** - Fully documented with sources  
-✅ **120 years** of data coverage (35+35+35+15 across sectors)  
-✅ **15+ authoritative sources** - IRENA, BloombergNEF, FRED, DOE, FCC, etc.  
-✅ **Complete attribution** - Every data point has source citation in cell comments  
-✅ **Quality flags** - A/B/C/D grades for every entry  
-
-### Data Hygiene Standards
-
-All data follows strict standards:
-- **Blue text**: Hardcoded data from external sources
-- **Black text**: Formulas and calculations
-- **Yellow background**: Estimates requiring validation
-- **Green text**: Cross-sheet references
-
-See [Data Hygiene Standards](docs/methodology/DATA_HYGIENE_STANDARDS.md) for complete rules.
-
----
-
-## 🔄 Development
-
-### Local Development
-
-```bash
-# Clone repository
-git clone https://github.com/deflation-index/deflation-index.git
-cd deflation-index
-
-# View data
-cd data/excel
-# Open Excel files
-
-# Run local web server
-cd ../../public
-python3 -m http.server 8000
-# Visit http://localhost:8000
+```
+deflation-index/
+├── public/                      # Static website files
+│   ├── index.html              # Main website
+│   └── assets/                 # Images, additional files
+├── data/                       # Source data and calculations
+│   ├── master_deflation_index_v3.0.xlsx
+│   ├── computing_deflation_index_v1.0.xlsx
+│   ├── communications_deflation_index_v1.0.xlsx
+│   ├── energy_deflation_index_v1.0.xlsx
+│   └── transportation_deflation_index_v1.0.xlsx
+├── docs/                       # Documentation
+│   ├── methodology/            # Comprehensive methodology
+│   ├── summaries/              # Executive summaries
+│   ├── sector-methodologies/   # Individual sector docs
+│   └── project/                # Project management docs
+├── scripts/                    # Verification and automation
+│   └── verify_statistics.py   # Data verification tool
+└── README.md                   # This file
 ```
 
-### Data Updates
+---
 
-```bash
-# Export Excel to CSV
-python scripts/export_to_csv.py
+## 🔍 Known Limitations & Future Improvements
 
-# Validate data integrity
-python scripts/validate_data.py
+**We're transparent about where the Deflation Index is currently limited:**
 
-# Verify all statistics
-python scripts/verify_statistics.py
+### Current Scope Limitations
+
+**Sectors Covered (v3.0.1)**:
+- ✅ Computing, Communications, Energy, Transportation
+- ❌ Healthcare, Education, Housing, Agriculture, Materials, Software-as-Service
+
+**Coverage**: The current four sectors represent approximately 40% of measurable technological deflation, not 100%. We prioritize defensible measurement over comprehensive coverage.
+
+**Expansion Timeline**: v4.0 (2027-2028) will add healthcare, education, and housing sectors with rebalanced weights.
+
+### Methodological Choices
+
+**Weighting System**:
+- Current weights (29.4%, 23.5%, 29.4%, 17.6%) based on three factors: GDP contribution, enabling effect, and deflationary force
+- Detailed weight justification and sensitivity analysis in docs/methodology/WEIGHT_JUSTIFICATION.md
+- Alternative weighting schemes tested (equal-weight, GDP-weighted, expenditure-weighted)
+- Results robust across methods (±15% variation)
+
+**Index Construction**:
+- Geometric mean used to capture compounding effects
+- Alternative methods (arithmetic, expenditure-weighted) documented for comparison
+- Cost-per-performance focus doesn't capture adoption friction or network effects
+
+**Conservative Assumptions**:
+- Where uncertainty exists, we choose more conservative estimates
+- True technological deflation likely higher than measured
+- The index understates the gap, not overstates it
+
+### What We Don't Measure
+
+**Out of Scope**:
+- Free software/services (difficult to price)
+- Quality-of-life improvements beyond performance metrics
+- Network effects and adoption curves
+- Regulatory and infrastructure friction
+- Non-monetary benefits (convenience, accessibility)
+
+**Why These Limitations**:
+We prioritize verifiable, reproducible data over comprehensive coverage. Better to measure four sectors perfectly than twenty sectors poorly. Each limitation is an opportunity for future improvement.
+
+### Data Frequency
+
+**Current**:
+- Annual major updates (new year's data incorporated Q1-Q2 of following year)
+- Quarterly minor updates (corrections and refinements)
+- 1-3 month lag from source publication
+
+**Planned**:
+- Monthly M2/CPI tracking (2027)
+- Real-time dashboard (Phase 2)
+- Automated data pipeline
+
+---
+
+## 📐 Methodology Summary
+
+### The Master DI Formula
+
+```
+Master DI = Computing^0.294 × Communications^0.235 × Energy^0.294 × Transport^0.176
 ```
 
-### Making Changes
+**Weight Justification**:
 
-1. Edit files in appropriate directory
-2. Test locally
-3. Commit with descriptive message
-4. Push to main branch
-5. Cloudflare Pages auto-deploys
+These weights reflect relative economic importance across three dimensions:
+
+1. **GDP Contribution**: Share of US GDP from these sectors
+2. **Enabling Effect**: Degree to which other sectors depend on this technology
+3. **Deflationary Force**: Magnitude of cost reduction in sector
+
+**Sensitivity Analysis**:
+
+We tested alternative weighting schemes:
+- Equal weights (25% each): DI = -5.8% annual average
+- GDP-weighted: DI = -4.9% annual average
+- Expenditure-weighted: DI = -5.5% annual average
+- Current method (multi-factor): DI = -5.2% annual average
+
+**Result**: ±15% variation across methods. Core finding robust to weighting choice.
+
+**Future**: v4.0 will use expenditure-weighting when all major sectors are covered.
+
+Full methodology documentation: [docs/methodology/](docs/methodology/)
+
+### Calculation Process
+
+1. **Measure cost-per-performance** for each component ($/GFLOPS, $/GB, $/kWh)
+2. **Index to base year** (1990=100 for most components)
+3. **Combine components within sectors** using geometric means and sector-specific weights
+4. **Calculate Master DI** from sector indices using formula above
+5. **Compare to M2 and CPI** to reveal gaps
+
+### The Gaps
+
+**Deflation Gap (239pp cumulative, 7.8pp annual)**:
+```
+Deflation Gap = |Tech Deflation| + CPI Inflation
+              = 84pp + 155pp = 239pp
+```
+Measures deflation that should have reached consumers but didn't.
+
+**Abundance Gap (545pp cumulative, 11.1pp annual)**:
+```
+Abundance Gap = |Tech Deflation| + M2 Expansion - CPI Inflation
+              = 84pp + 615pp - 155pp = 545pp
+```
+Measures total economic force captured rather than passed to consumers (includes monetary policy effects).
+
+---
+
+## 📊 Data Sources
+
+All data comes from authoritative, publicly available sources:
+
+| Source | What We Use | Reliability |
+|--------|-------------|-------------|
+| **Federal Reserve (FRED)** | M2 money supply, CPI data | 100/100 (A+) |
+| **Bureau of Labor Statistics** | CPI components, historical pricing | 100/100 (A+) |
+| **IRENA** | Solar LCOE, renewable energy costs | 95/100 (A) |
+| **BloombergNEF** | Battery costs, EV economics | 95/100 (A) |
+| **AI Impacts** | Computing power costs (FLOPS) | 90/100 (A-) |
+| **DOE** | LED efficiency, transportation data | 95/100 (A) |
+| **FCC** | Broadband pricing, network costs | 90/100 (A-) |
+| **Backblaze** | Hard drive cost tracking | 85/100 (B+) |
+
+**Average source reliability**: 92/100 (A-grade)
+
+Every data point includes source citations in Excel cell comments. Full source documentation: [docs/methodology/DATA_SOURCES.md](docs/methodology/DATA_SOURCES.md)
+
+---
+
+## 📈 Quality Standards
+
+### The Numbers
+
+- **700+ formulas**: Every calculation is formula-driven in Excel
+- **400+ data points**: Comprehensive coverage across 35 years
+- **0 errors**: All formulas verified, no broken links or circular references
+- **100% sourced**: Every data point has source citation in cell comments
+
+### Quality Grading System
+
+| Grade | Score | Criteria |
+|-------|-------|----------|
+| **A (Excellent)** | 85-100 | Government agencies, peer-reviewed research, industry gold standards |
+| **B (Good)** | 70-84 | Reputable industry reports, academic estimates, established analysts |
+| **C (Fair)** | 50-69 | Secondary sources, interpolations, reasonable estimates |
+| **D (Poor)** | <50 | Weak sources, speculative estimates (not used in index) |
+
+### Transparency Commitment
+
+Every Excel file includes:
+- Source URLs in cell comments
+- Quality flags for each data point
+- Methodology notes explaining calculations
+- Complete formula transparency (no hidden cells)
+- Color-coded formatting (blue = raw data, black = formulas, yellow = estimates)
+
+**Anyone can verify our work. That's the standard we hold ourselves to.**
+
+---
+
+## 🤝 Academic Review & Collaboration
+
+**The Deflation Index methodology is open for academic scrutiny.**
+
+### Seeking Peer Review
+
+We welcome formal peer review from:
+- Academic economists (monetary policy, price indices, hedonic methods)
+- Statisticians (quality adjustment, index construction)
+- Sector experts (energy economists, computing historians, communications researchers)
+
+### Collaboration Opportunities
+
+**We're looking for:**
+- **Academic partnerships** for v4.0 sector expansion (healthcare, education, housing)
+- **Joint research** on methodology improvements and applications
+- **Integration opportunities** with existing research and databases
+- **Critical feedback** on assumptions, methods, and data quality
+
+**Current Status**:
+- Methodology papers in development
+- Seeking university partnerships for peer review
+- Open to funded research collaborations
+
+### How to Contribute
+
+**Data improvements**: If you have better data sources or spot errors, please [open an issue](https://github.com/deflation-index/deflation-index/issues) with details and citations.
+
+**Methodology feedback**: Challenge our assumptions, suggest alternative calculations, or propose new sectors to track. We're committed to rigor and welcome scholarly debate.
+
+**Sector expertise**: Have domain knowledge in healthcare, education, or housing cost dynamics? We need experts for v4.0.
+
+**Code contributions**: Improvements to data pipelines, visualization tools, or automation welcome via pull requests.
+
+**Contact**: research@deflationindex.com
+
+---
+
+## 🚀 Roadmap
+
+### v3.0.1 (Current - 2026)
+- ✅ Four sectors: Computing, Communications, Energy, Transportation
+- ✅ 35 years of data (1990-2024)
+- ✅ 700+ verified formulas, 0 errors
+- ✅ Complete methodology documentation
+
+### v3.1 (Q2-Q3 2026)
+- 2025 data integration
+- Minor methodology refinements
+- First annual update cycle
+
+### v3.2+ (2027)
+- Annual updates continue
+- Monthly M2/CPI tracking (automated)
+- API v1.0 launch
+
+### v4.0 (2027-2028)
+- Healthcare sector: Drug costs, medical devices, genomic sequencing
+- Education sector: Online learning, digital textbooks, MOOCs
+- Housing sector: Construction productivity, modular housing, smart home tech
+- Rebalanced weights across seven sectors
+- Expenditure-weighted methodology option
+
+### Phase 2 (2028+)
+- Real-time dashboard
+- Geographic breakdowns (US states, international)
+- Additional sectors as methodology permits
+- Advanced API with custom queries
 
 ---
 
 ## 📄 Documentation
 
-### For Users
-- **[Quickstart Guide](docs/guides/QUICKSTART.md)** - Get started in 5 minutes
-- **[Executive Summary](docs/summaries/EXECUTIVE_SUMMARY.md)** - One-page overview
-- **[Excel Templates Guide](docs/guides/EXCEL_TEMPLATES_GUIDE.md)** - How to use the data files
+### Core Documentation
+- **[Methodology Overview](docs/methodology/METHODOLOGY.md)**: Complete methodology (100,000+ words)
+- **[Executive Summary](docs/summaries/EXECUTIVE_SUMMARY.md)**: High-level overview
+- **[Data Hygiene Standards](docs/methodology/DATA_HYGIENE_STANDARDS.md)**: Quality control processes
+- **[Weight Justification](docs/methodology/WEIGHT_JUSTIFICATION.md)**: Detailed weight rationale and sensitivity analysis
 
-### For Researchers
-- **[Master Methodology](docs/methodology/MASTER_METHODOLOGY.md)** - Complete methodology (24,000 words)
-- **[Research Dashboard](docs/guides/RESEARCH_DASHBOARD.md)** - Source quality scoring
-- **Sector Methodologies**: [Computing](docs/methodology/COMPUTING_METHODOLOGY.md), [Communications](docs/methodology/COMMUNICATIONS_METHODOLOGY.md), [Energy](docs/methodology/ENERGY_METHODOLOGY.md), [Transportation](docs/methodology/TRANSPORTATION_METHODOLOGY.md)
+### Sector Documentation
+- **[Computing Methodology](docs/sector-methodologies/COMPUTING_METHODOLOGY.md)**
+- **[Communications Methodology](docs/sector-methodologies/COMMUNICATIONS_METHODOLOGY.md)**
+- **[Energy Methodology](docs/sector-methodologies/ENERGY_METHODOLOGY.md)**
+- **[Transportation Methodology](docs/sector-methodologies/TRANSPORTATION_METHODOLOGY.md)**
 
-### For Contributors
-- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute data or improvements
-- **[Data Hygiene Standards](docs/methodology/DATA_HYGIENE_STANDARDS.md)** - Data quality rules
-- **[Changelog](CHANGELOG.md)** - Version history
+### Additional Resources
+- **[CHANGELOG](CHANGELOG.md)**: Version history and updates
+- **[FAQ](docs/FAQ.md)**: Frequently asked questions
+- **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute
+- **[Mission Statement](docs/summaries/MISSION_COMPLETE.md)**: Project vision and goals
 
 ---
 
-## 🤝 Contributing
+## 💼 Usage & Citation
 
-Currently a research project by **Deflation Index LLC**.
+### Permitted Uses
 
-**We welcome**:
-- Data from authoritative sources (see [Contributing Guide](CONTRIBUTING.md))
-- Bug reports and data corrections
-- Methodology suggestions
-- Documentation improvements
+The data is currently under a proprietary license, but we strongly encourage:
+- **Academic research**: Cite the Deflation Index in papers, dissertations, publications
+- **Journalism**: Reference findings in articles and reports
+- **Policy analysis**: Use data to inform economic policy recommendations
+- **Education**: Teaching economics, monetary policy, technology trends
+- **Personal analysis**: Blog posts, social media, newsletter content
 
-**Not accepting**:
-- Paywalled or proprietary data
-- Anecdotal or unverified data
-- Secondary sources without primary attribution
+### Required Attribution
 
-For questions: contact@deflationindex.com
+```
+The Deflation Index: Measuring Technological Progress (1990-2024)
+Deflation Index LLC, v3.0.1
+Available at: github.com/deflation-index/deflation-index
+```
+
+### Not Permitted Without Permission
+
+- Commercial redistribution or resale of the data
+- Incorporation into proprietary financial products
+- Derivative indices marketed commercially
+
+### API Access
+
+**Coming 2026-2027:**
+- Free tier: Basic access, rate-limited
+- Premium tier: Full API access ($99-299/month)
+- Institutional tier: Custom solutions ($10k-50k/year)
+
+Contact for early access or partnerships.
+
+---
+
+## 📞 Contact
+
+- **Website**: [deflationindex.com](https://deflationindex.com) (launching 2026)
+- **Email**: contact@deflationindex.com
+- **Research inquiries**: research@deflationindex.com
+- **GitHub Issues**: [Technical discussions](https://github.com/deflation-index/deflation-index/issues)
 
 ---
 
@@ -401,95 +377,22 @@ For questions: contact@deflationindex.com
 
 © 2024-2025 Deflation Index LLC. All rights reserved.
 
-**Data Sources**: Publicly available and properly attributed  
-**Calculations**: Original work, proprietary methodology  
-**Website Code**: Open for viewing, not for commercial reuse
+Data sources are publicly available. Calculations and methodology are original work subject to proprietary license with academic/journalistic use permitted with attribution.
 
-See [LICENSE](LICENSE) for details.
+See [LICENSE](LICENSE) for full terms.
 
 ---
 
-## 🎯 Roadmap
-
-### Completed ✅
-- [x] 4 sectors with comprehensive data (1990-2024)
-- [x] Master index with gap analysis
-- [x] 100,000+ words of documentation
-- [x] Zero-error verification of all formulas
-- [x] Publication-ready datasets
-- [x] Dual gap framework (Abundance + Deflation gaps)
-
-### Q1 2025
-- [ ] Launch redesigned website
-- [ ] Monthly DI updates
-- [ ] API v1.0 (REST)
-- [ ] Email newsletter
-- [ ] Academic paper submission
-
-### Q2 2025
-- [ ] Add Healthcare sector (experimental)
-- [ ] Add Education sector (experimental)
-- [ ] Premium data subscriptions
-- [ ] Institutional API access
-
-### Future
-- [ ] Real-time DI calculator
-- [ ] Regional breakdowns (US, China, EU)
-- [ ] Historical deep-dive (1950-1990)
-- [ ] Predictive models
-
-See [ROADMAP.md](docs/project/ROADMAP.md) for complete timeline.
-
----
-
-## 📞 Contact
-
-- **Website**: [deflationindex.com](https://deflationindex.com)
-- **Email**: contact@deflationindex.com
-- **Twitter**: [@deflationindex](https://twitter.com/deflationindex)
-- **GitHub**: [github.com/deflation-index](https://github.com/deflation-index)
-
----
-
-## 🏆 Citation
-
-If you use the Deflation Index in your research:
-
-```bibtex
-@dataset{deflation_index_2024,
-  title={The Deflation Index: Measuring Technological Progress (1990-2024)},
-  author={Deflation Index LLC},
-  year={2024},
-  version={3.0.1},
-  publisher={GitHub},
-  url={https://github.com/deflation-index/deflation-index},
-  note={Master DI v3.0.1, Corrected statistics with dual-gap framework}
-}
-```
-
----
-
-## ⚠️ Version Notes
-
-**v3.0.1 (December 15, 2025)**: Statistics corrections and dual-gap framework
-- Fixed M2 cumulative: 600% → 615% (precise: 614.84%)
-- Fixed CPI cumulative: 150% → 155% (precise: 154.65%)
-- Introduced dual-gap framework:
-  - **Abundance Gap**: 545pp (primary metric) - full wealth transfer
-  - **Deflation Gap**: 239pp (supporting metric) - consumer impact
-- All corrections verified against source Excel (zero formula errors)
-
-**v3.0.0 (December 15, 2025)**: Major expansion
-- Added Transportation sector (4 sectors total)
-- Updated sector weights: 35/30/35 → 25/20/25/15/15
-- Added 100,000+ words of methodology
-- Reorganized repository structure
-- All 700 formulas verified with zero errors
-
----
+## 🎯 Mission
 
 **Built to measure the force of technological progress and track where the abundance goes.**
 
-[![Data Quality](https://img.shields.io/badge/data%20quality-publication%20ready-brightgreen)](docs/)
-[![Verified](https://img.shields.io/badge/verified-zero%20errors-blue)](data/)
-[![Coverage](https://img.shields.io/badge/years-35%20%281990--2024%29-orange)](data/)
+Technology is the primary driver of human prosperity. Understanding where those gains flow—to consumers, to capital holders, to asset prices, to complexity costs—is essential for economic policy and social equity.
+
+The Deflation Index exists to provide objective, transparent, verifiable measurement of this phenomenon. Not as theory, but as data. Not as advocacy, but as economics. Not as accusation, but as measurement.
+
+---
+
+**Version**: 3.0.1  
+**Last Updated**: December 2025  
+**Next Update**: Q2-Q3 2026 (v3.1 with 2025 data)
