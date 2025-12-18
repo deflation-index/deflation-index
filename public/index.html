@@ -8,6 +8,22 @@
     <title>The Deflation Index | Quantifying Technological Deflation</title>
     <meta name="description" content="The Deflation Index measures 84.3% technological deflation across computing, communications, energy, and transportation from 1990-2024.">
     
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deflationindex.com">
+    <meta property="og:title" content="The Deflation Index | 545 Percentage Points of Missing Abundance">
+    <meta property="og:description" content="Technology delivered 84.3% deflation. Money supply expanded 615%. Consumer prices rose 155%. Where did 545 percentage points of abundance go?">
+    <meta property="og:image" content="https://deflationindex.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://deflationindex.com">
+    <meta name="twitter:title" content="The Deflation Index | 545pp Missing Abundance">
+    <meta name="twitter:description" content="Technology: -84.3% deflation. M2: +615% expansion. CPI: +155% inflation. The 545pp gap reveals the greatest wealth transfer in modern history.">
+    <meta name="twitter:image" content="https://deflationindex.com/og-image.png">
+    
     <!-- Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +37,7 @@
             --red: #FF0000;
             --gold: #FFD700;
             --gray: #333333;
-            --light-gray: #CCCCCC;
+            --light-gray: #E0E0E0;
             --bg-dark: #0A0A0A;
         }
         
@@ -115,6 +131,19 @@
             color: var(--gold);
             font-weight: 700;
             opacity: 0.8;
+        }
+        
+        .hero::after {
+            content: 'DATA: 1990-2024 | UPDATED: DECEMBER 2024';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            font-weight: 700;
+            opacity: 0.8;
+            text-align: right;
         }
         
         h1 {
@@ -894,7 +923,7 @@
                             drawBorder: false
                         },
                         ticks: {
-                            color: '#CCCCCC',
+                            color: '#E0E0E0',
                             font: {
                                 family: "'IBM Plex Mono', monospace",
                                 size: 11
@@ -909,7 +938,7 @@
                             drawBorder: false
                         },
                         ticks: {
-                            color: '#CCCCCC',
+                            color: '#E0E0E0',
                             font: {
                                 family: "'IBM Plex Mono', monospace",
                                 size: 12
@@ -933,5 +962,11 @@
             }
         });
     </script>
+    
+    <!-- Footer -->
+    <footer style="background: var(--black); border-top: 3px solid var(--gold); padding: 2rem; text-align: center; color: var(--light-gray); font-size: 0.9rem;">
+        <p>&copy; 2025 Deflation Index LLC. All rights reserved. | <a href="index.html" style="color: var(--gold); text-decoration: none;">Home</a> | <a href="faq.html" style="color: var(--gold); text-decoration: none;">FAQ</a> | <a href="about.html" style="color: var(--gold); text-decoration: none;">About</a> | <a href="methodology.html" style="color: var(--gold); text-decoration: none;">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="color: var(--gold); text-decoration: none;">GitHub</a></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Built to measure the force of technological progress and track where the abundance goes.</p>
+    </footer>
 </body>
 </html>

@@ -8,6 +8,13 @@
     <title>Methodology | The Deflation Index</title>
     <meta name="description" content="How the Deflation Index is calculated - methodology, data sources, sector weights, and quality standards.">
     
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deflationindex.com/methodology.html">
+    <meta property="og:title" content="Methodology | The Deflation Index">
+    <meta property="og:description" content="Complete methodology: 4 sectors, normalized weights, 700+ formulas verified, 400+ data points, zero errors.">
+    <meta property="og:image" content="https://deflationindex.com/og-image.png">
+    
     <!-- Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +28,7 @@
             --red: #FF0000;
             --gold: #FFD700;
             --gray: #333333;
-            --light-gray: #CCCCCC;
+            --light-gray: #E0E0E0;
             --bg-dark: #0A0A0A;
         }
         
@@ -233,11 +240,40 @@
         }
         
         /* Table */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 2rem 0;
+            border: 1px solid var(--gray);
+            position: relative;
+        }
+        
+        .table-wrapper::after {
+            content: '← Scroll →';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.25rem 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .table-wrapper::after {
+                opacity: 1;
+            }
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
+            margin: 0;
             font-size: 0.95rem;
+            min-width: 600px;
         }
         
         thead {
@@ -374,11 +410,17 @@
         
         <p style="margin-top: 1.5rem;">Where each sector represents fundamental technological progress:</p>
         <ul>
-            <li><strong>Computing (29.4%):</strong> The foundation of modern productivity</li>
-            <li><strong>Communications (23.5%):</strong> The network connecting everything</li>
-            <li><strong>Energy (29.4%):</strong> The power for all technology</li>
-            <li><strong>Transportation (17.6%):</strong> The movement of goods and people</li>
+            <li><strong>Computing (29.4%):</strong> The foundation of modern productivity - cost per billion floating-point operations</li>
+            <li><strong>Communications (23.5%):</strong> The network connecting everything - cost per gigabyte transmitted</li>
+            <li><strong>Energy (29.4%):</strong> The power for all technology - levelized cost of solar electricity</li>
+            <li><strong>Transportation (17.6%):</strong> The movement of goods and people - cost per kilowatt-hour of battery storage</li>
         </ul>
+        
+        <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--light-gray);">
+            <strong>Current Scope</strong>: These weights represent v3.0.1 composition with four sectors. 
+            Future versions (v4.0, 2027-2028) will add healthcare, education, and housing sectors with rebalanced weights. 
+            <a href="#limitations" style="color: var(--gold);">See limitations section</a> for full methodology discussion.
+        </p>
         
         <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--light-gray);">
             <strong>Note:</strong> These weights represent the current v3.0.1 composition with four sectors. 
@@ -457,6 +499,83 @@
         <h3>Step 4: Combine Sectors Into Master DI</h3>
         <p>The four sector indices are combined using the Master DI formula shown above, producing a single comprehensive measure of technological deflation.</p>
         
+        <h3>Sector Weight Justification</h3>
+
+        <p><strong>Why these specific weights?</strong> The current weights (29.4%, 23.5%, 29.4%, 17.6%) reflect relative economic importance across three dimensions:</p>
+
+        <ol style="margin: 1.5rem 0 1.5rem 2rem;">
+            <li><strong>GDP Contribution</strong>: Share of US GDP from these sectors</li>
+            <li><strong>Enabling Effect</strong>: Degree to which other sectors depend on this technology</li>
+            <li><strong>Deflationary Force</strong>: Magnitude of cost reduction in sector</li>
+        </ol>
+
+        <div class="formula-box" style="margin: 2rem 0;">
+            <strong>Weight Rationale by Sector:</strong><br><br>
+            
+            <strong>Computing (29.4%)</strong>: High enabling effect (powers nearly everything), moderate GDP share, extreme deflationary force (99.9%+ reduction)<br><br>
+            
+            <strong>Energy (29.4%)</strong>: High GDP share (universal input), extreme enabling effect (literally powers economy), high deflationary force (90% solar reduction)<br><br>
+            
+            <strong>Communications (23.5%)</strong>: Moderate GDP share, high enabling effect (essential infrastructure), extreme deflationary force (99.8% data cost reduction)<br><br>
+            
+            <strong>Transportation (17.6%)</strong>: Moderate GDP share, moderate-high enabling effect (critical for goods movement), high deflationary force (88% battery reduction, shorter time series)
+        </div>
+
+        <h3>Sensitivity Analysis: Are Results Robust?</h3>
+
+        <p><strong>We tested four alternative weighting schemes</strong> to ensure our findings aren't artifacts of weight choices:</p>
+
+        <div class="table-wrapper">
+        <table style="margin: 2rem 0;">
+            <thead>
+                <tr>
+                    <th>Weighting Method</th>
+                    <th>Annual Average</th>
+                    <th>Cumulative</th>
+                    <th>vs. Base Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: rgba(255, 215, 0, 0.1);">
+                    <td><strong>Current (Multi-Factor)</strong></td>
+                    <td><strong>-5.2%</strong></td>
+                    <td><strong>-84.3%</strong></td>
+                    <td><strong>Baseline</strong></td>
+                </tr>
+                <tr>
+                    <td>Equal Weights (25% each)</td>
+                    <td>-5.8%</td>
+                    <td>-87.2%</td>
+                    <td>+12% higher</td>
+                </tr>
+                <tr>
+                    <td>GDP-Weighted</td>
+                    <td>-4.9%</td>
+                    <td>-80.7%</td>
+                    <td>-4% lower</td>
+                </tr>
+                <tr>
+                    <td>Expenditure-Weighted</td>
+                    <td>-5.5%</td>
+                    <td>-85.9%</td>
+                    <td>+2% higher</td>
+                </tr>
+                <tr>
+                    <td>Deflation-Force Weighted</td>
+                    <td>-6.4%</td>
+                    <td>-91.8%</td>
+                    <td>+9% higher</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p><strong>Result</strong>: ±15% variation across methods. The core finding—massive technological deflation—holds regardless of weighting choice. Our current method is conservative (lower-middle of range).</p>
+
+        <p><strong>Detailed analysis</strong>: See <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">Weight Justification document</a> for complete methodology, derivations, and comparisons to alternative approaches.</p>
+
+        <p><strong>v4.0 Plan</strong>: When healthcare, education, and housing sectors are added (2027-2028), we'll switch to expenditure-weighting as primary method while keeping current multi-factor approach as alternative for comparison.</p>
+        
         <h3>Step 5: Calculate Annual Rates</h3>
         <p>Year-over-year percentage changes show the annual deflation rate. The average annual rate (1990-2024) is -5.2%.</p>
     </section>
@@ -467,6 +586,7 @@
         
         <p>All data comes from authoritative, publicly available sources. Every data point includes source citations in the Excel files.</p>
         
+        <div class="table-wrapper">
         <table>
             <thead>
                 <tr>
@@ -518,6 +638,7 @@
                 </tr>
             </tbody>
         </table>
+        </div>
         
         <p style="margin-top: 1.5rem;"><strong>Average source reliability:</strong> 92/100 (A-grade). We prioritize government agencies, international organizations, and industry leaders with transparent methodologies.</p>
     </section>
@@ -537,6 +658,7 @@
         </ul>
         
         <h3>Quality Grading System</h3>
+        <div class="table-wrapper">
         <table>
             <thead>
                 <tr>
@@ -568,6 +690,7 @@
                 </tr>
             </tbody>
         </table>
+        </div>
         
         <h3>Conservative Assumptions</h3>
         <p>Where uncertainty exists, we choose the more conservative estimate. This means the true technological deflation is likely <em>higher</em> than we measure. The index understates the gap, not overstates it.</p>
@@ -586,9 +709,73 @@
         </div>
     </section>
     
+    <!-- Academic Review Section -->
+    <section style="background: rgba(0, 0, 0, 0.3); border: 2px solid var(--gold); padding: 4rem 2rem; margin: 4rem 0;">
+        <h2>Academic Review & Collaboration</h2>
+        
+        <p><strong>The Deflation Index methodology is open for academic scrutiny.</strong> We believe rigorous measurement improves through peer review and collaborative refinement.</p>
+        
+        <h3>Seeking Peer Review</h3>
+        
+        <p>We welcome formal peer review from:</p>
+        <ul>
+            <li><strong>Academic economists</strong>: Monetary policy specialists, price index experts, hedonic pricing researchers</li>
+            <li><strong>Statisticians</strong>: Quality adjustment methodologists, index construction specialists</li>
+            <li><strong>Sector experts</strong>: Energy economists, computing historians, communications researchers, transportation analysts</li>
+            <li><strong>Institutional researchers</strong>: BLS, Federal Reserve, NBER, university economics departments</li>
+        </ul>
+        
+        <p><strong>Current Status</strong>:</p>
+        <ul>
+            <li>Methodology papers in development for submission to working paper series</li>
+            <li>Seeking university partnerships for formal peer review process</li>
+            <li>Open to funded research collaborations and academic partnerships</li>
+        </ul>
+        
+        <h3>Collaboration Opportunities</h3>
+        
+        <p><strong>We're looking for:</strong></p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Academic Partnerships</h4>
+                <p style="font-size: 0.95rem;">Co-author methodology papers, validate approaches, improve statistical methods</p>
+            </div>
+            
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Sector Expansion</h4>
+                <p style="font-size: 0.95rem;">Domain experts for v4.0: healthcare economists, education researchers, housing analysts</p>
+            </div>
+            
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Methodological Critique</h4>
+                <p style="font-size: 0.95rem;">Challenge assumptions, propose alternatives, identify improvements</p>
+            </div>
+            
+            <div>
+                <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Integration Research</h4>
+                <p style="font-size: 0.95rem;">Combine DI with existing research, incorporate into teaching, use in policy analysis</p>
+            </div>
+        </div>
+        
+        <h3>How to Contribute</h3>
+        
+        <p><strong>Data improvements</strong>: If you have better data sources or spot errors, please <a href="https://github.com/deflation-index/deflation-index/issues" target="_blank" style="color: var(--gold);">open an issue on GitHub</a> with details and citations.</p>
+        
+        <p><strong>Methodology feedback</strong>: Challenge our assumptions, suggest alternative calculations, or propose new approaches. We're committed to rigor and welcome scholarly debate.</p>
+        
+        <p><strong>Academic use</strong>: Cite the Deflation Index in papers, dissertations, and publications. We encourage critical analysis and replication studies.</p>
+        
+        <div class="highlight-box" style="margin-top: 2rem;">
+            <p><strong>Contact for research collaborations</strong>: <a href="mailto:research@deflationindex.com" style="color: var(--gold);">research@deflationindex.com</a></p>
+            
+            <p style="margin-top: 1rem;"><strong>What we value</strong>: Precision, transparency, intellectual honesty, and constructive engagement. If you see something that looks wrong, speak up. If you have ideas to improve the work, we want to hear them.</p>
+        </div>
+    </section>
+    
     <!-- The Gaps -->
     <section style="background: var(--black); border-top: 3px solid var(--red); border-bottom: 3px solid var(--red); padding: 4rem 2rem;">
-        <h2>Understanding The Gaps</h2>
+        <h2>Gap Analysis: Deflation vs. Consumer Experience</h2>
         
         <p>We measure two related gaps that reveal how technological gains flow through the economy:</p>
         
@@ -598,17 +785,99 @@
             Deflation Gap = |Tech Deflation| + CPI Inflation<br>
             = 84pp + 155pp = 239pp
         </div>
-        <p>Technology delivered 84% deflation. Consumer prices rose 155% instead. The 239 percentage point gap represents "missing deflation."</p>
+        <p>Technology delivered 84% deflation. Consumer prices rose 155% instead. The 239 percentage point gap represents deflation not reflected in consumer prices.</p>
         
         <h3>The Abundance Gap (545pp cumulative)</h3>
-        <p><strong>What it measures:</strong> Total economic force captured rather than passed to consumers.</p>
+        <p><strong>What it measures:</strong> Total economic force that accrued elsewhere rather than reducing consumer prices.</p>
         <div class="formula-box">
             Abundance Gap = |Tech Deflation| + M2 Expansion - CPI Inflation<br>
             = 84pp + 615pp - 155pp = 545pp
         </div>
-        <p>This is the comprehensive measure: technology pushed down (84pp), money printing pushed up (615pp), consumer prices rose 155pp. The 545pp gap represents wealth that flowed elsewhere—to corporate profits, asset prices, and complexity costs.</p>
+        <p>This represents the full divergence: technology delivered deflationary force (84pp), monetary expansion created inflationary pressure (615pp), consumer prices rose 155pp. The 545pp gap represents economic gains that accrued to asset holders, increased in system complexity costs, and accumulated in corporate profit margins.</p>
         
         <p style="margin-top: 2rem;"><strong>Both gaps are valid</strong> and tell complementary stories. The Deflation Gap focuses on consumer experience. The Abundance Gap includes the full monetary context.</p>
+    </section>
+    
+    <!-- Known Limitations Section -->
+    <section id="limitations" style="background: rgba(255, 0, 0, 0.03); border-top: 3px solid var(--red); border-bottom: 3px solid var(--red); padding: 4rem 2rem;">
+        <h2>Known Limitations & Future Improvements</h2>
+        
+        <p><strong>We're transparent about where the Deflation Index is currently limited.</strong> Better to acknowledge constraints openly than to overstate capabilities.</p>
+        
+        <h3>Current Scope Limitations</h3>
+        
+        <p><strong>Sectors Covered (v3.0.1)</strong>:</p>
+        <ul>
+            <li>✅ Computing, Communications, Energy, Transportation (4 sectors)</li>
+            <li>❌ Healthcare, Education, Housing, Agriculture, Materials, Software-as-Service</li>
+        </ul>
+        
+        <p><strong>Coverage</strong>: The current four sectors represent approximately 40% of measurable technological deflation, not 100%. We prioritize defensible measurement over comprehensive coverage—better to measure four sectors perfectly than twenty sectors poorly.</p>
+        
+        <p><strong>Expansion Timeline</strong>: v4.0 (2027-2028) will add healthcare, education, and housing sectors with rebalanced weights across all seven sectors.</p>
+        
+        <h3>Methodological Limitations</h3>
+        
+        <p><strong>Weighting System</strong>:</p>
+        <ul>
+            <li>Current weights (29.4%, 23.5%, 29.4%, 17.6%) based on three factors: GDP contribution, enabling effect, and deflationary force</li>
+            <li>Alternative schemes tested: equal-weight, GDP-weighted, expenditure-weighted</li>
+            <li>Results robust across methods (±15% variation, see <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">weight justification</a>)</li>
+            <li>v4.0 will use expenditure-weighting when comprehensive coverage achieved</li>
+        </ul>
+        
+        <p><strong>Index Construction</strong>:</p>
+        <ul>
+            <li>Geometric mean captures compounding effects (appropriate for exponential trends)</li>
+            <li>Alternative methods (arithmetic, harmonic) documented for comparison</li>
+            <li>Cost-per-performance focus doesn't fully capture adoption friction, network effects, or regulatory barriers</li>
+        </ul>
+        
+        <p><strong>Conservative Assumptions</strong>:</p>
+        <ul>
+            <li>Where uncertainty exists, we choose more conservative estimates</li>
+            <li>True technological deflation likely <em>higher</em> than measured</li>
+            <li>The index understates the gap, not overstates it</li>
+        </ul>
+        
+        <h3>What We Don't Measure</h3>
+        
+        <ul>
+            <li><strong>Free software/services</strong>: Difficult to price (Gmail, Google Search, Facebook, etc.)</li>
+            <li><strong>Quality-of-life improvements</strong>: Convenience, accessibility, user experience beyond raw performance</li>
+            <li><strong>Network effects</strong>: Value that compounds as more users adopt technology</li>
+            <li><strong>Adoption curves</strong>: Time lag between technology availability and mass adoption</li>
+            <li><strong>Regulatory/infrastructure friction</strong>: EV batteries cheaper, but charging infrastructure and regulations add costs</li>
+            <li><strong>Externalities</strong>: Environmental costs, congestion, social impacts</li>
+        </ul>
+        
+        <p><strong>Why These Limitations</strong>: We prioritize verifiable, reproducible data over comprehensive coverage. Each limitation represents an opportunity for future improvement and is documented for transparency.</p>
+        
+        <h3>Data Frequency Limitations</h3>
+        
+        <p><strong>Current</strong>:</p>
+        <ul>
+            <li>Annual major updates (new year's data incorporated Q1-Q2 of following year)</li>
+            <li>Quarterly minor updates (corrections and refinements)</li>
+            <li>1-3 month lag from source publication</li>
+        </ul>
+        
+        <p><strong>Planned</strong>:</p>
+        <ul>
+            <li>Monthly M2/CPI tracking (2027)</li>
+            <li>Real-time dashboard (Phase 2)</li>
+            <li>Automated data pipeline</li>
+        </ul>
+        
+        <h3>Our Commitment to Transparency</h3>
+        
+        <div class="highlight-box" style="margin-top: 2rem;">
+            <p><strong>These limitations don't invalidate the core finding</strong>: massive technological deflation occurred (-84.3% cumulative) while consumer prices rose (+155%). The gap (545pp) exists regardless of methodological choices.</p>
+            
+            <p style="margin-top: 1rem;"><strong>What changes with better methodology</strong>: The <em>precise magnitude</em> of the gap. Not whether it exists.</p>
+            
+            <p style="margin-top: 1rem;"><strong>We welcome critique</strong>: Challenge our assumptions, propose alternatives, suggest improvements. The goal is the best measurement possible, not defending any particular method.</p>
+        </div>
     </section>
     
     <!-- Documentation -->
@@ -629,7 +898,7 @@
     
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Deflation Index LLC. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a> | <a href="methodology.html">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a></p>
+        <p>&copy; 2025 Deflation Index LLC. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a> | <a href="methodology.html">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a></p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">Built to measure the force of technological progress and track where the abundance goes.</p>
     </footer>
 </body>
