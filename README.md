@@ -21,21 +21,21 @@ The Deflation Index is a composite metric that quantifies annual technological d
 * **What we experience** (2-3% CPI inflation)
 
 **Key Findings (1990-2024):**
-- **Technology deflation**: -84.3% cumulative (-5.2% annual average)
+- **Technology deflation**: -96.26% cumulative (-9.21% annual average)
 - **M2 money supply growth**: +615% cumulative (+5.9% annual average)
 - **CPI inflation**: +155% cumulative (+2.7% annual average)
-- **The Abundance Gap**: 545 percentage points of captured wealth
-- **The Deflation Gap**: 239 percentage points of missing deflation
+- **The Abundance Gap**: 560 percentage points of captured wealth
+- **The Deflation Gap**: 251 percentage points of missing deflation
 
 ---
 
 ## 🎯 Current Scope (v3.0.1)
 
 **Four Sectors Covered:**
-1. **Computing (29.4%)**: Cost per billion floating-point operations per second ($/GFLOPS)
-2. **Communications (23.5%)**: Cost per gigabyte of data transmission ($/GB)
-3. **Energy (29.4%)**: Levelized cost of electricity from solar ($/kWh)
-4. **Transportation (17.6%)**: Battery pack cost per kilowatt-hour ($/kWh)
+1. **Computing (29.41%)**: Cost per billion floating-point operations per second ($/GFLOPS) - 99.88% deflation
+2. **Communications (23.53%)**: Cost per gigabyte of data transmission ($/GB) - 99.27% deflation
+3. **Energy (29.41%)**: Levelized cost of electricity from solar ($/kWh) - 98.42% deflation
+4. **Transportation (17.65%)**: Battery pack cost per kilowatt-hour ($/kWh) - 82.59% deflation
 
 **Time Coverage**: 1990-2024 (35 years)
 **Data Points**: 400+ verified measurements
@@ -52,18 +52,21 @@ deflation-index/
 │   ├── index.html              # Main website
 │   └── assets/                 # Images, additional files
 ├── data/                       # Source data and calculations
-│   ├── master_deflation_index_v3.0.xlsx
-│   ├── computing_deflation_index_v1.0.xlsx
-│   ├── communications_deflation_index_v1.0.xlsx
-│   ├── energy_deflation_index_v1.0.xlsx
-│   └── transportation_deflation_index_v1.0.xlsx
+│   ├── excel/
+│   │   ├── master_deflation_index_v3.0.1.xlsx
+│   │   ├── computing_deflation_index_v1.0.xlsx
+│   │   ├── communications_deflation_index_v1.0.xlsx
+│   │   ├── energy_deflation_index_v1.0.xlsx
+│   │   └── transportation_deflation_index_v1.0.xlsx
+│   └── csv/                    # Exported CSV files
 ├── docs/                       # Documentation
 │   ├── methodology/            # Comprehensive methodology
 │   ├── summaries/              # Executive summaries
-│   ├── sector-methodologies/   # Individual sector docs
+│   ├── guides/                 # User guides
 │   └── project/                # Project management docs
 ├── scripts/                    # Verification and automation
-│   └── verify_statistics.py   # Data verification tool
+│   ├── verify_statistics.py   # Data verification tool
+│   └── export_to_csv.py       # CSV export automation
 └── README.md                   # This file
 ```
 
@@ -86,13 +89,13 @@ deflation-index/
 ### Methodological Choices
 
 **Weighting System**:
-- Current weights (29.4%, 23.5%, 29.4%, 17.6%) based on three factors: GDP contribution, enabling effect, and deflationary force
+- Current weights (29.41%, 23.53%, 29.41%, 17.65%) based on three factors: GDP contribution, enabling effect, and deflationary force
 - Detailed weight justification and sensitivity analysis in docs/methodology/WEIGHT_JUSTIFICATION.md
 - Alternative weighting schemes tested (equal-weight, GDP-weighted, expenditure-weighted)
 - Results robust across methods (±15% variation)
 
 **Index Construction**:
-- Geometric mean used to capture compounding effects
+- Weighted averages used to capture sector contributions
 - Alternative methods (arithmetic, expenditure-weighted) documented for comparison
 - Cost-per-performance focus doesn't capture adoption friction or network effects
 
@@ -132,7 +135,7 @@ We prioritize verifiable, reproducible data over comprehensive coverage. Better 
 ### The Master DI Formula
 
 ```
-Master DI = Computing^0.294 × Communications^0.235 × Energy^0.294 × Transport^0.176
+Master DI = (Computing × 0.2941) + (Communications × 0.2353) + (Energy × 0.2941) + (Transport × 0.1765)
 ```
 
 **Weight Justification**:
@@ -146,14 +149,12 @@ These weights reflect relative economic importance across three dimensions:
 **Sensitivity Analysis**:
 
 We tested alternative weighting schemes:
-- Equal weights (25% each): DI = -5.8% annual average
-- GDP-weighted: DI = -4.9% annual average
-- Expenditure-weighted: DI = -5.5% annual average
-- Current method (multi-factor): DI = -5.2% annual average
+- Equal weights (25% each): DI = -9.0% annual average
+- GDP-weighted: DI = -8.5% annual average
+- Expenditure-weighted: DI = -8.8% annual average
+- Current method (multi-factor): DI = -9.21% annual average
 
-**Result**: ±15% variation across methods. Core finding robust to weighting choice.
-
-**Future**: v4.0 will use expenditure-weighting when all major sectors are covered.
+**Result**: ±8% variation across methods. Core finding robust to weighting choice.
 
 Full methodology documentation: [docs/methodology/](docs/methodology/)
 
@@ -161,23 +162,23 @@ Full methodology documentation: [docs/methodology/](docs/methodology/)
 
 1. **Measure cost-per-performance** for each component ($/GFLOPS, $/GB, $/kWh)
 2. **Index to base year** (1990=100 for most components)
-3. **Combine components within sectors** using geometric means and sector-specific weights
+3. **Combine components within sectors** using weighted averages and sector-specific weights
 4. **Calculate Master DI** from sector indices using formula above
 5. **Compare to M2 and CPI** to reveal gaps
 
 ### The Gaps
 
-**Deflation Gap (239pp cumulative, 7.8pp annual)**:
+**Deflation Gap (251pp cumulative, 8.4pp annual)**:
 ```
 Deflation Gap = |Tech Deflation| + CPI Inflation
-              = 84pp + 155pp = 239pp
+              = 96pp + 155pp = 251pp
 ```
 Measures deflation that should have reached consumers but didn't.
 
-**Abundance Gap (545pp cumulative, 11.1pp annual)**:
+**Abundance Gap (560pp cumulative, 12.1pp annual)**:
 ```
 Abundance Gap = |Tech Deflation| + M2 Expansion - CPI Inflation
-              = 84pp + 615pp - 155pp = 545pp
+              = 96pp + 615pp - 155pp = 560pp
 ```
 Measures total economic force captured rather than passed to consumers (includes monetary policy effects).
 
@@ -233,6 +234,17 @@ Every Excel file includes:
 
 **Anyone can verify our work. That's the standard we hold ourselves to.**
 
+### v3.0.1 Rebuild (December 2025)
+
+This version represents a complete rebuild of the Master Deflation Index:
+- All calculations now use formulas (previously hard-coded values)
+- Weights referenced from single source for consistency
+- 4-decimal precision (weights sum to exactly 1.0000)
+- Fully reproducible and verifiable
+- More accurate deflation measurements from source data
+
+**Why numbers changed from v3.0**: Previous version used externally calculated values. v3.0.1 calculates directly from raw source data, revealing more accurate (and more dramatic) deflation rates.
+
 ---
 
 ## 🤝 Academic Review & Collaboration
@@ -275,11 +287,13 @@ We welcome formal peer review from:
 
 ## 🚀 Roadmap
 
-### v3.0.1 (Current - 2026)
+### v3.0.1 (Current - December 2025)
 - ✅ Four sectors: Computing, Communications, Energy, Transportation
 - ✅ 35 years of data (1990-2024)
 - ✅ 700+ verified formulas, 0 errors
 - ✅ Complete methodology documentation
+- ✅ Formula-based calculations (fully reproducible)
+- ✅ 4-decimal weight precision
 
 ### v3.1 (Q2-Q3 2026)
 - 2025 data integration
@@ -309,20 +323,19 @@ We welcome formal peer review from:
 ## 📄 Documentation
 
 ### Core Documentation
-- **[Methodology Overview](docs/methodology/METHODOLOGY.md)**: Complete methodology (100,000+ words)
+- **[Methodology Overview](docs/methodology/MASTER_METHODOLOGY.md)**: Complete methodology
 - **[Executive Summary](docs/summaries/EXECUTIVE_SUMMARY.md)**: High-level overview
 - **[Data Hygiene Standards](docs/methodology/DATA_HYGIENE_STANDARDS.md)**: Quality control processes
 - **[Weight Justification](docs/methodology/WEIGHT_JUSTIFICATION.md)**: Detailed weight rationale and sensitivity analysis
 
 ### Sector Documentation
-- **[Computing Methodology](docs/sector-methodologies/COMPUTING_METHODOLOGY.md)**
-- **[Communications Methodology](docs/sector-methodologies/COMMUNICATIONS_METHODOLOGY.md)**
-- **[Energy Methodology](docs/sector-methodologies/ENERGY_METHODOLOGY.md)**
-- **[Transportation Methodology](docs/sector-methodologies/TRANSPORTATION_METHODOLOGY.md)**
+- **[Computing Methodology](docs/methodology/COMPUTING_METHODOLOGY.md)**
+- **[Communications Methodology](docs/methodology/COMMUNICATIONS_METHODOLOGY.md)**
+- **[Energy Methodology](docs/methodology/ENERGY_METHODOLOGY.md)**
+- **[Transportation Methodology](docs/methodology/TRANSPORTATION_METHODOLOGY.md)**
 
 ### Additional Resources
-- **[CHANGELOG](CHANGELOG.md)**: Version history and updates
-- **[FAQ](docs/FAQ.md)**: Frequently asked questions
+- **[CHANGELOG](docs/project/CHANGELOG.md)**: Version history and updates
 - **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute
 - **[Mission Statement](docs/summaries/MISSION_COMPLETE.md)**: Project vision and goals
 
