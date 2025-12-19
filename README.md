@@ -42,6 +42,51 @@ The Deflation Index is a composite metric that quantifies annual technological d
 **Formulas**: 700+ calculations, zero errors
 **Update Frequency**: Annual major updates, quarterly refinements
 
+
+## 🔄 Weighting Variants
+
+**The Deflation Index provides four weighting methodologies to demonstrate robustness:**
+
+### Primary Index (Recommended)
+**DI-Multi-Factor** (`master_deflation_index_v3.0.1.xlsx`)
+- Weights: Computing 29.41%, Communications 23.53%, Energy 29.41%, Transportation 17.65%
+- Methodology: Balances GDP contribution, enabling effect, and deflationary force
+- Use case: Primary index for analysis, publications, and API default
+- Results: -96.26% cumulative deflation, -9.21% annual average
+
+### Alternative Variants
+
+**DI-Equal** (`master_deflation_index_v3.0.1_EQUAL.xlsx`)
+- Weights: 25% each sector
+- Methodology: Simple equal weighting, no assumptions about relative importance
+- Use case: Conservative baseline, easy to explain
+- Results: ~-95.8% cumulative deflation, ~-9.0% annual average
+
+**DI-Expenditure** (`master_deflation_index_v3.0.1_EXPENDITURE.xlsx`)
+- Weights: Computing 25%, Communications 20%, Energy 30%, Transportation 25%
+- Methodology: Weighted by household and business expenditure patterns
+- Use case: Consumer-focused perspective, future primary when 7+ sectors covered
+- Results: ~-95.5% cumulative deflation, ~-8.8% annual average
+
+**DI-GDP** (`master_deflation_index_v3.0.1_GDP.xlsx`)
+- Weights: Computing 20%, Communications 15%, Energy 40%, Transportation 25%
+- Methodology: Weighted by direct GDP contribution
+- Use case: Macro-economic analysis, conservative estimate
+- Results: ~-94.2% cumulative deflation, ~-8.3% annual average
+
+### Sensitivity Analysis
+
+**Range across variants:**
+- 2024 Master DI: 3.74 to ~5.8
+- Cumulative deflation: -94.2% to -96.26%
+- Annual average: -8.3% to -9.21%
+
+**Key Finding:** All variants show substantial deflation, confirming the core finding regardless of weighting choice. The ~2 percentage point spread demonstrates robustness while allowing users to select their preferred methodology.
+
+**Full documentation:** [VARIANTS_GUIDE.md](docs/methodology/VARIANTS_GUIDE.md)
+
+---
+
 ---
 
 ## 📁 Repository Structure
