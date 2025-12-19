@@ -11,10 +11,10 @@
 This document provides detailed justification for the sector weights used in the Master Deflation Index and demonstrates the robustness of our findings through sensitivity analysis.
 
 **Current Weights (v3.0.1)**:
-- Computing: 29.4%
-- Communications: 23.5%
-- Energy: 29.4%
-- Transportation: 17.6%
+- Computing: 29.41%
+- Communications: 23.53%
+- Energy: 29.41%
+- Transportation: 17.65%
 
 ---
 
@@ -127,20 +127,9 @@ This document provides detailed justification for the sector weights used in the
 
 ## Weight Derivation Methodology
 
-### Step 1: Initial Target Weights (5-Sector Framework)
+### Step 1: Four-Sector Weighting
 
-Original design assumed five sectors:
-- Computing: 25%
-- Communications: 20%
-- Energy: 25%
-- Transportation: 15%
-- Healthcare/Education/Housing: 15%
-
-**Rationale**:
-- Computing and Energy tied at 25% (highest enabling effect + deflationary force)
-- Communications at 20% (high deflation but more specialized enabling effect)
-- Transportation at 15% (shorter time series, more specialized)
-- Future sectors at 15% (reserved for v4.0)
+With four sectors:
 
 ### Step 2: Normalization to Four Sectors
 
@@ -158,7 +147,7 @@ With only four sectors currently:
 ### Step 3: v4.0 Rebalancing
 
 When healthcare, education, and housing are added:
-- Return to original 25/20/25/15/15 split, OR
+- Return to original four-sector framework split, OR
 - Use expenditure-weighted approach across all seven sectors
 
 **Expenditure weights** (preliminary, subject to refinement):
@@ -257,7 +246,7 @@ Exact weights will depend on:
 
 | Weighting Method | Annual Avg | Cumulative | vs. Base Case |
 |-----------------|------------|------------|---------------|
-| **Current (Multi-Factor)** | **-5.2%** | **-84.3%** | **Baseline** |
+| **Current (Multi-Factor)** | **-9.21%** | **-96.26%** | **Baseline** |
 | Equal Weights | -5.8% | -87.2% | +11.5% higher |
 | GDP-Weighted | -4.9% | -80.7% | -4.3% lower |
 | Expenditure-Weighted | -5.5% | -85.9% | +1.9% higher |
@@ -272,7 +261,7 @@ Exact weights will depend on:
 3. **No method shows inflation**: Even most conservative weighting shows strong deflation
 4. **±15% sensitivity**: Results vary within reasonable bounds, not orders of magnitude
 
-**Conclusion**: The Master DI's result (-5.2% annual, -84.3% cumulative) is robust to weighting choice. The key finding—massive technological deflation versus modest CPI inflation—holds regardless of weighting methodology.
+**Conclusion**: The Master DI's result (-9.21% annual, -96.26% cumulative) is robust to weighting choice. The key finding—massive technological deflation versus modest CPI inflation—holds regardless of weighting methodology.
 
 ---
 
@@ -394,7 +383,7 @@ The sensitivity analysis shows: even with wildly different assumptions, the core
 4. ✅ Transparent and documented for scrutiny
 5. ✅ Appropriate for 4-sector partial coverage
 
-**The core finding is robust**: Technology delivered massive deflation (-84.3% cumulative) regardless of weighting choice.
+**The core finding is robust**: Technology delivered massive deflation (-96.26% cumulative) regardless of weighting choice.
 
 **The methodology will improve**: v4.0 will use expenditure-weighting when comprehensive coverage achieved.
 

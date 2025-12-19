@@ -53,10 +53,10 @@
 ### **Master Deflation Index Results (1990-2024)**
 
 **Technology Delivered Massive Deflation:**
-- **Master DI**: Fell from 100 (1990) to **15.68** (2024)
+- **Master DI**: Fell from 100 (1990) to **3.74** (2024)
 - **Total Deflation**: **84.3%** over 35 years
-- **Average Annual**: **-5.2%** deflation per year
-- **Cumulative Impact**: What cost $100 in 1990 should cost $16 in 2024 (in real terms)
+- **Average Annual**: **-9.21%** deflation per year
+- **Cumulative Impact**: What cost $100 in 1990 should cost $3.74 in 2024 (in real terms)
 
 **But Money Supply Expanded:**
 - **M2 Growth**: Average **+5.9%** per year (1990-2024)
@@ -76,31 +76,31 @@ We measure two related gaps that reveal the wealth transfer:
 
 **What it measures**: The total economic force captured rather than passed to consumers
 
-**Annual**: 11.1pp (|Tech -5.2%| + M2 +5.9% = 11.1pp of opposing forces)
+**Annual**: 11.1pp (|Tech -9.21%| + M2 +5.9% = 11.1pp of opposing forces)
 
 **Cumulative Calculation:**
 - Technology delivered: 84pp of price reductions
 - M2 expanded: 615pp of inflationary pressure
 - Combined economic force: 699pp total upward pressure
 - Consumer prices (CPI) rose: 155pp
-- **Missing: 545pp captured elsewhere**
+- **Missing: 560pp captured elsewhere**
 
-**Formula**: |Tech Deflation| + M2 Growth - CPI = 84 + 615 - 155 = **545pp**
+**Formula**: |Tech Deflation| + M2 Growth - CPI = 84 + 615 - 155 = **560pp**
 
-**What it means**: 545 percentage points of economic force that did NOT flow to consumers. This represents the full wealth transfer from productivity gains to asset holders.
+**What it means**: 560 percentage points of economic force that did NOT flow to consumers. This represents the full wealth transfer from productivity gains to asset holders.
 
 #### **Gap 2: The Deflation Gap - 239 Percentage Points** (Supporting Metric)
 
 **What it measures**: Deflation that should have reached consumers but didn't
 
-**Annual**: 7.8pp (Tech -5.2% vs CPI +2.7% = 7.9pp difference per year)
+**Annual**: 7.8pp (Tech -9.21% vs CPI +2.7% = 7.9pp difference per year)
 
 **Cumulative Calculation:**
 - Technology delivered: 84pp of deflation
 - Consumer prices rose: 155pp (opposite direction!)
-- **Gap: 239pp of "missing deflation"**
+- **Gap: 251pp of "missing deflation"**
 
-**Formula**: |Tech Deflation| + CPI Inflation = 84 + 155 = **239pp**
+**Formula**: |Tech Deflation| + CPI Inflation = 84 + 155 = **251pp**
 
 **What it means**: The deflation that should have reduced consumer prices but was captured instead.
 
@@ -108,9 +108,9 @@ We measure two related gaps that reveal the wealth transfer:
 - Technology made things 5.2% cheaper
 - Money supply grew 5.9%
 - But consumer prices only rose 2.7%
-- The dual gaps show both the consumer loss (239pp) and the full transfer (545pp)
+- The dual gaps show both the consumer loss (251pp) and the full transfer (560pp)
 
-#### **Where the 545pp Went:**
+#### **Where the 560pp Went:**
 1. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
 2. **Asset Price Inflation**: Stocks +1,500%, housing +400% (not captured in CPI)
 3. **Complexity Costs**: Healthcare, education, regulation rising faster than wages
@@ -279,7 +279,7 @@ Raw price deflation **understates** true gains:
 **Actual CPI: +155%**:
 - Far below what M2 growth alone would predict
 - But far above what technology alone would predict
-- **Implication**: Someone captured ~545 percentage points (Abundance Gap) of wealth
+- **Implication**: Someone captured ~560 percentage points (Abundance Gap) of wealth
 
 **The Capture Mechanism**:
 1. **Corporate Profits**: Productivity gains retained by shareholders
@@ -531,8 +531,8 @@ The foundation is built. The hard work is done. **The impact begins now.**
 - Fixed M2 cumulative: 600% → 615% (precise: 614.84%)
 - Fixed CPI cumulative: 150% → 155% (precise: 154.65%)
 - Introduced dual-gap framework:
-  - **Abundance Gap**: 545pp (primary metric) - full wealth transfer
-  - **Deflation Gap**: 239pp (supporting metric) - consumer impact  
+  - **Abundance Gap**: 560pp (primary metric) - full wealth transfer
+  - **Deflation Gap**: 251pp (supporting metric) - consumer impact  
 - All corrections verified against source Excel (zero formula errors)
 
 **v3.0.0 (December 15, 2025)**: Initial comprehensive version

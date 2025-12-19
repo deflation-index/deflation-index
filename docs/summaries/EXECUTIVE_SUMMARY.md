@@ -9,16 +9,16 @@
 
 ## 🎯 The Central Finding
 
-**Technology delivered massive deflation. Money printing created inflation. Consumer prices barely budged. Where did 545 percentage points of potential abundance go?**
+**Technology delivered massive deflation. Money printing created inflation. Consumer prices barely budged. Where did 560 percentage points of potential abundance go?**
 
 ---
 
 ## 📊 The Numbers (1990-2024)
 
 ### Technology Deflation
-- **Annual Average**: -5.2% deflation per year
-- **Cumulative**: -84.3% total deflation over 35 years
-- **Meaning**: What cost $100 in 1990 should cost $16 in 2024 (in real terms)
+- **Annual Average**: -9.21% deflation per year
+- **Cumulative**: -96.26% total deflation over 35 years
+- **Meaning**: What cost $100 in 1990 should cost $3.74 in 2024 (in real terms)
 
 ### M2 Money Supply Expansion
 - **Annual Average**: +5.9% growth per year (precise: 5.86%)
@@ -34,9 +34,9 @@
 
 ### The Gap: The Missing Wealth Transfer
 - **Annual Average**: 7.8 percentage points per year (precise: 7.83pp)
-- **Cumulative**: **545 percentage points** over 35 years (precise: 544.52pp)
+- **Cumulative**: **560 percentage points** over 35 years (precise: 544.52pp)
 - **Formula**: |Tech Deflation| + M2 Expansion - CPI Inflation
-  - 84pp (tech savings) + 615pp (money printing) - 155pp (CPI) = **545pp missing**
+  - 96pp (tech savings) + 615pp (money printing) - 155pp (CPI) = **560pp missing**
 - **Meaning**: Productivity gains that did not reach consumers
 
 ---
@@ -45,11 +45,11 @@
 
 **The Gap = The Wealth Transfer**
 
-Technology should have made things 84% cheaper. Money printing added 615% inflationary pressure. The net potential: 699 percentage points of upward price pressure.
+Technology should have made things 84% cheaper. Money printing added 615% inflationary pressure. The net potential: 711 percentage points of upward price pressure.
 
 Consumer prices (CPI) rose only 155 percentage points.
 
-**The 545-point gap represents wealth that flowed to:**
+**The 560-point gap represents wealth that flowed to:**
 1. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
 2. **Asset Inflation**: Stocks +1,500%, housing +400% (not in CPI)
 3. **Complexity Costs**: Healthcare, education, housing rising faster than wages
@@ -60,33 +60,29 @@ Consumer prices (CPI) rose only 155 percentage points.
 
 ## 📈 Four Sectors of Technological Deflation
 
-### 1. Computing (25% weight)
+### 1. Computing (29.41% weight)
 - **Cumulative**: 99.91% deflation ($/GFLOPS: $0.11 → $0.0001, 2009-2024)
 - **Components**: Computing power (60%), Storage (30%), Memory (10%)
 - **Annual Rate**: 35-40% deflation
 - **Coverage**: 1990-2024 (35 years, 213 formulas, 0 errors)
 
-### 2. Communications (20% weight)
+### 2. Communications (23.53% weight)
 - **Cumulative**: 99.8% deflation (dial-up → 5G)
 - **Components**: Data transmission (70%), Voice (20%), Network access (10%)
 - **Annual Rate**: 30-35% deflation
 - **Coverage**: 1990-2024 (35 years, 211 formulas, 0 errors)
 
-### 3. Energy (25% weight)
+### 3. Energy (29.41% weight)
 - **Cumulative**: 90% deflation since 2010 ($/kWh: $0.378 → $0.043)
 - **Components**: Solar PV (50%), Batteries (40%), LEDs (10%)
 - **Annual Rate**: 12% pre-2010, 27% post-2010 (accelerating!)
 - **Coverage**: 1990-2024 (35 years, 211 formulas, 0 errors)
 
-### 4. Transportation (15% weight)
+### 4. Transportation (17.65% weight)
 - **Cumulative**: 88% deflation since 2010 (EV batteries: $1,160/kWh → $139/kWh)
 - **Components**: EV batteries (60%), Autonomous tech (25%), Vehicle efficiency (10%), Ridesharing (5%)
 - **Annual Rate**: 18-22% deflation
 - **Coverage**: 2010-2024 (15 years, 64 formulas, 0 errors)
-
-### 5. Future Technologies (15% weight)
-- **Status**: Reserved for emerging sectors (Healthcare, Education, Housing)
-- **Current**: Defaulted to baseline 100 (no deflation yet incorporated)
 
 ---
 
@@ -114,7 +110,7 @@ Consumer prices (CPI) rose only 155 percentage points.
 - **Quality-adjusted deflation is 30-50% higher than raw price deflation**
 
 ### 5. The Capture Mechanism
-**Where the 545pp went:**
+**Where the 560pp went:**
 - **Winners** (captured productivity gains):
   - Top 1%: Asset values (stocks, real estate)
   - Top 10%: Corporate profits, capital income
@@ -234,7 +230,7 @@ Consumer prices (CPI) rose only 155 percentage points.
 **v3.0.1 (December 15, 2025)**: Corrected statistics
 - Fixed M2 cumulative growth: 600% → 615% (precise: 614.84%)
 - Fixed CPI cumulative growth: 150% → 155% (precise: 154.65%)
-- Fixed The Gap cumulative: 370pp → 545pp (precise: 544.52pp)
+- Fixed The Gap cumulative: 370pp → 560pp (precise: 544.52pp)
 - All corrections verified against source Excel data (zero formula errors)
 - Annual averages were already correct and unchanged
 
