@@ -1,8 +1,9 @@
 # The Deflation Index
+## Measuring where technological productivity flows
 
-**Quantifying technological deflation across computing, communications, energy, and transportation.**
+Technology is the primary driver of human productivity. The Deflation Index tracks cost reductions in computing, communications, energy, and transportation, then compares them to monetary expansion and consumer price inflation.
 
-The Deflation Index (DI) measures the force of technological progress by tracking exponential cost reductions in fundamental sectors and comparing them against monetary expansion and official inflation metrics.
+**The gap between technological deflation and consumer prices reveals where productivity gains are captured—and where they're not.**
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)](CHANGELOG.md)
@@ -12,20 +13,13 @@ The Deflation Index (DI) measures the force of technological progress by trackin
 
 ---
 
-## 📊 What is the DI?
+## 📊 Key Findings (1990-2024)
 
-The Deflation Index is a composite metric that quantifies annual technological deflation from 1990-2024. It reveals the gap between:
-
-* **What technology delivers** (massive cost reductions)
-* **What monetary policy creates** (6-7% M2 expansion annually)
-* **What we experience** (2-3% CPI inflation)
-
-**Key Findings (1990-2024):**
-- **Technology deflation**: -96.26% cumulative (-9.21% annual average)
-- **M2 money supply growth**: +615% cumulative (+5.9% annual average)
-- **CPI inflation**: +155% cumulative (+2.7% annual average)
-- **The Abundance Gap**: 560 percentage points of captured wealth
-- **The Deflation Gap**: 251 percentage points of missing deflation
+* **Technology deflation**: -96.26% cumulative (-9.21% annual average)
+* **M2 money supply growth**: +615% cumulative (+5.9% annual average)
+* **CPI inflation**: +155% cumulative (+2.7% annual average)
+* **The Abundance Gap**: 560 percentage points of captured wealth
+* **The Deflation Gap**: 251 percentage points of missing deflation
 
 ---
 
@@ -43,50 +37,27 @@ The Deflation Index is a composite metric that quantifies annual technological d
 **Update Frequency**: Annual major updates, quarterly refinements
 
 
-## 🔄 Weighting Variants
 
-**The Deflation Index provides four weighting methodologies to demonstrate robustness:**
+## 💡 Why Focus on Technology?
 
-### Primary Index (Recommended)
-**DI-Multi-Factor** (`master_deflation_index_v3.0.1.xlsx`)
-- Weights: Computing 29.41%, Communications 23.53%, Energy 29.41%, Transportation 17.65%
-- Methodology: Balances GDP contribution, enabling effect, and deflationary force
-- Use case: Primary index for analysis, publications, and API default
-- Results: -96.26% cumulative deflation, -9.21% annual average
+Technology is the primary driver of long-term productivity growth. This isn't ideology—it's historical fact.
 
-### Alternative Variants
+**The Evidence:**
+- GDP per capita was flat for 2,000 years until the Industrial Revolution
+- Every major productivity leap correlates with technological breakthroughs
+- From 1990-2024: Computing costs fell 99.88%, solar energy 98.42%, data transmission 99.27%
 
-**DI-Equal** (`master_deflation_index_v3.0.1_EQUAL.xlsx`)
-- Weights: 25% each sector
-- Methodology: Simple equal weighting, no assumptions about relative importance
-- Use case: Conservative baseline, easy to explain
-- Results: ~-95.8% cumulative deflation, ~-9.0% annual average
+**The Question:**
 
-**DI-Expenditure** (`master_deflation_index_v3.0.1_EXPENDITURE.xlsx`)
-- Weights: Computing 25%, Communications 20%, Energy 30%, Transportation 25%
-- Methodology: Weighted by household and business expenditure patterns
-- Use case: Consumer-focused perspective, future primary when 7+ sectors covered
-- Results: ~-95.5% cumulative deflation, ~-8.8% annual average
+If technology sectors show exponential cost reductions, why don't consumer prices fall proportionally?
 
-**DI-GDP** (`master_deflation_index_v3.0.1_GDP.xlsx`)
-- Weights: Computing 20%, Communications 15%, Energy 40%, Transportation 25%
-- Methodology: Weighted by direct GDP contribution
-- Use case: Macro-economic analysis, conservative estimate
-- Results: ~-94.2% cumulative deflation, ~-8.3% annual average
+The Deflation Index measures this divergence. We track cost-per-performance in four technology sectors, compare to M2 and CPI, and calculate the gap: **560 percentage points over 35 years.**
 
-### Sensitivity Analysis
+**This gap represents captured productivity.** It went somewhere. This index exists to measure where.
 
-**Range across variants:**
-- 2024 Master DI: 3.74 to ~5.8
-- Cumulative deflation: -94.2% to -96.26%
-- Annual average: -8.3% to -9.21%
-
-**Key Finding:** All variants show substantial deflation, confirming the core finding regardless of weighting choice. The ~2 percentage point spread demonstrates robustness while allowing users to select their preferred methodology.
-
-**Full documentation:** [VARIANTS_GUIDE.md](docs/methodology/VARIANTS_GUIDE.md)
+**Full context:** [Why Technology Matters](docs/WHY_TECHNOLOGY_MATTERS.md)
 
 ---
-
 ---
 
 ## 📁 Repository Structure
