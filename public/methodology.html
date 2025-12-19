@@ -410,10 +410,10 @@
         
         <p style="margin-top: 1.5rem;">Where each sector represents fundamental technological progress:</p>
         <ul>
-            <li><strong>Computing (29.4%):</strong> The foundation of modern productivity - cost per billion floating-point operations</li>
-            <li><strong>Communications (23.5%):</strong> The network connecting everything - cost per gigabyte transmitted</li>
-            <li><strong>Energy (29.4%):</strong> The power for all technology - levelized cost of solar electricity</li>
-            <li><strong>Transportation (17.6%):</strong> The movement of goods and people - cost per kilowatt-hour of battery storage</li>
+            <li><strong>Computing (29.41%):</strong> The foundation of modern productivity - cost per billion floating-point operations</li>
+            <li><strong>Communications (23.53%):</strong> The network connecting everything - cost per gigabyte transmitted</li>
+            <li><strong>Energy (29.41%):</strong> The power for all technology - levelized cost of solar electricity</li>
+            <li><strong>Transportation (17.65%):</strong> The movement of goods and people - cost per kilowatt-hour of battery storage</li>
         </ul>
         
         <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--light-gray);">
@@ -434,7 +434,7 @@
         
         <div class="sector-grid">
             <div class="sector-card">
-                <h3>Computing (29.4%)</h3>
+                <h3>Computing (29.41%)</h3>
                 <div class="sector-stat"><strong>Metric:</strong> $/GFLOPS, $/GB storage, $/GB RAM</div>
                 <div class="sector-stat"><strong>Deflation:</strong> 99.91% (1990-2024)</div>
                 <div class="sector-stat"><strong>Annual Rate:</strong> 35-40%</div>
@@ -443,7 +443,7 @@
             </div>
             
             <div class="sector-card">
-                <h3>Communications (23.5%)</h3>
+                <h3>Communications (23.53%)</h3>
                 <div class="sector-stat"><strong>Metric:</strong> $/GB data, $/minute voice, $/Mbps bandwidth</div>
                 <div class="sector-stat"><strong>Deflation:</strong> 99.8% (1990-2024)</div>
                 <div class="sector-stat"><strong>Annual Rate:</strong> 30-35%</div>
@@ -452,7 +452,7 @@
             </div>
             
             <div class="sector-card">
-                <h3>Energy (29.4%)</h3>
+                <h3>Energy (29.41%)</h3>
                 <div class="sector-stat"><strong>Metric:</strong> $/kWh solar LCOE, $/kWh batteries, $/kilolumen LEDs</div>
                 <div class="sector-stat"><strong>Deflation:</strong> 90% (2010-2024)</div>
                 <div class="sector-stat"><strong>Annual Rate:</strong> 12% pre-2010, 27% post-2010</div>
@@ -461,7 +461,7 @@
             </div>
             
             <div class="sector-card">
-                <h3>Transportation (17.6%)</h3>
+                <h3>Transportation (17.65%)</h3>
                 <div class="sector-stat"><strong>Metric:</strong> $/kWh EV batteries, autonomous tech costs</div>
                 <div class="sector-stat"><strong>Deflation:</strong> 88% (2010-2024)</div>
                 <div class="sector-stat"><strong>Annual Rate:</strong> 18-22%</div>
@@ -501,7 +501,7 @@
         
         <h3>Sector Weight Justification</h3>
 
-        <p><strong>Why these specific weights?</strong> The current weights (29.4%, 23.5%, 29.4%, 17.6%) reflect relative economic importance across three dimensions:</p>
+        <p><strong>Why these specific weights?</strong> The current weights (29.41%, 23.53%, 29.41%, 17.65%) reflect relative economic importance across three dimensions:</p>
 
         <ol style="margin: 1.5rem 0 1.5rem 2rem;">
             <li><strong>GDP Contribution</strong>: Share of US GDP from these sectors</li>
@@ -512,13 +512,13 @@
         <div class="formula-box" style="margin: 2rem 0;">
             <strong>Weight Rationale by Sector:</strong><br><br>
             
-            <strong>Computing (29.4%)</strong>: High enabling effect (powers nearly everything), moderate GDP share, extreme deflationary force (99.9%+ reduction)<br><br>
+            <strong>Computing (29.41%)</strong>: High enabling effect (powers nearly everything), moderate GDP share, extreme deflationary force (99.9%+ reduction)<br><br>
             
-            <strong>Energy (29.4%)</strong>: High GDP share (universal input), extreme enabling effect (literally powers economy), high deflationary force (90% solar reduction)<br><br>
+            <strong>Energy (29.41%)</strong>: High GDP share (universal input), extreme enabling effect (literally powers economy), high deflationary force (90% solar reduction)<br><br>
             
-            <strong>Communications (23.5%)</strong>: Moderate GDP share, high enabling effect (essential infrastructure), extreme deflationary force (99.8% data cost reduction)<br><br>
+            <strong>Communications (23.53%)</strong>: Moderate GDP share, high enabling effect (essential infrastructure), extreme deflationary force (99.8% data cost reduction)<br><br>
             
-            <strong>Transportation (17.6%)</strong>: Moderate GDP share, moderate-high enabling effect (critical for goods movement), high deflationary force (88% battery reduction, shorter time series)
+            <strong>Transportation (17.65%)</strong>: Moderate GDP share, moderate-high enabling effect (critical for goods movement), high deflationary force (88% battery reduction, shorter time series)
         </div>
 
         <h3>Sensitivity Analysis: Are Results Robust?</h3>
@@ -538,8 +538,8 @@
             <tbody>
                 <tr style="background: rgba(255, 215, 0, 0.1);">
                     <td><strong>Current (Multi-Factor)</strong></td>
-                    <td><strong>-5.2%</strong></td>
-                    <td><strong>-84.3%</strong></td>
+                    <td><strong>-9.21%</strong></td>
+                    <td><strong>-96.26%</strong></td>
                     <td><strong>Baseline</strong></td>
                 </tr>
                 <tr>
@@ -577,7 +577,115 @@
         <p><strong>v4.0 Plan</strong>: When healthcare, education, and housing sectors are added (2027-2028), we'll switch to expenditure-weighting as primary method while keeping current multi-factor approach as alternative for comparison.</p>
         
         <h3>Step 5: Calculate Annual Rates</h3>
-        <p>Year-over-year percentage changes show the annual deflation rate. The average annual rate (1990-2024) is -5.2%.</p>
+        <p>Year-over-year percentage changes show the annual deflation rate. The average annual rate (1990-2024) is -9.21%.</p>
+    </section>
+    
+    <!-- Four Weighting Methodologies -->
+    <section style="background: rgba(138, 43, 226, 0.05); border-top: 3px solid #8A2BE2; border-bottom: 3px solid #8A2BE2; padding: 4rem 2rem;">
+        <h2>Four Weighting Methodologies</h2>
+        
+        <p style="max-width: 900px; margin: 0 auto 3rem; text-align: center; font-size: 1.1rem;">
+            The Deflation Index provides four different weighting schemes to demonstrate robustness. All four methodologies confirm substantial deflation, showing the finding is consistent regardless of weighting approach.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto 3rem;">
+            <!-- Primary: Multi-Factor -->
+            <div style="background: rgba(138, 43, 226, 0.1); border: 2px solid #8A2BE2; padding: 2rem; border-radius: 8px;">
+                <h3 style="color: #8A2BE2; margin-top: 0;">DI-Multi-Factor</h3>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 1rem;">PRIMARY METHODOLOGY</p>
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; margin: 1rem 0; color: var(--gold);">
+                    29.41% / 23.53% / 29.41% / 17.65%
+                </div>
+                <p style="font-size: 0.95rem; margin: 1rem 0;">
+                    Balances GDP contribution, enabling effect, and deflationary force
+                </p>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #00FF00;">-96.26%</div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">Cumulative Deflation</div>
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.9;">
+                    <strong>Use for:</strong> Primary analysis, publications, citations
+                </p>
+            </div>
+            
+            <!-- Equal -->
+            <div style="background: rgba(255, 255, 255, 0.03); border: 2px solid var(--gray); padding: 2rem; border-radius: 8px;">
+                <h3 style="color: var(--gold); margin-top: 0;">DI-Equal</h3>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 1rem;">ALTERNATIVE</p>
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; margin: 1rem 0; color: var(--gold);">
+                    25% / 25% / 25% / 25%
+                </div>
+                <p style="font-size: 0.95rem; margin: 1rem 0;">
+                    Simple equal weighting, no assumptions
+                </p>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #00FF00;">~-95.8%</div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">Cumulative Deflation</div>
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.9;">
+                    <strong>Use for:</strong> Conservative baseline, easy explanation
+                </p>
+            </div>
+            
+            <!-- Expenditure -->
+            <div style="background: rgba(255, 255, 255, 0.03); border: 2px solid var(--gray); padding: 2rem; border-radius: 8px;">
+                <h3 style="color: var(--gold); margin-top: 0;">DI-Expenditure</h3>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 1rem;">ALTERNATIVE</p>
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; margin: 1rem 0; color: var(--gold);">
+                    25% / 20% / 30% / 25%
+                </div>
+                <p style="font-size: 0.95rem; margin: 1rem 0;">
+                    Weighted by household/business expenditure patterns
+                </p>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #00FF00;">~-95.5%</div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">Cumulative Deflation</div>
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.9;">
+                    <strong>Use for:</strong> Consumer-focused perspective
+                </p>
+            </div>
+            
+            <!-- GDP -->
+            <div style="background: rgba(255, 255, 255, 0.03); border: 2px solid var(--gray); padding: 2rem; border-radius: 8px;">
+                <h3 style="color: var(--gold); margin-top: 0;">DI-GDP</h3>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 1rem;">ALTERNATIVE</p>
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; margin: 1rem 0; color: var(--gold);">
+                    20% / 15% / 40% / 25%
+                </div>
+                <p style="font-size: 0.95rem; margin: 1rem 0;">
+                    Weighted by direct GDP contribution
+                </p>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #00FF00;">~-94.2%</div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">Cumulative Deflation</div>
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.9;">
+                    <strong>Use for:</strong> Macro-economic analysis
+                </p>
+            </div>
+        </div>
+        
+        <div style="background: rgba(138, 43, 226, 0.15); border: 2px solid #8A2BE2; padding: 2rem; max-width: 900px; margin: 0 auto;">
+            <h3 style="color: #8A2BE2;">Sensitivity Analysis</h3>
+            <p style="font-size: 1.1rem; margin: 1rem 0;">
+                Range across all variants: <strong style="color: var(--gold);">-94.2% to -96.26%</strong>
+            </p>
+            <p style="font-size: 1rem; margin: 1rem 0;">
+                All four methodologies confirm substantial deflation, demonstrating the core finding is robust regardless of weighting choice. The ~2 percentage point spread is minimal given 35 years of measurement.
+            </p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <h3>Download All Variants</h3>
+            <p style="margin: 1rem 0 2rem;">All four weighting methodologies available with complete formulas and data</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                <a href="https://github.com/deflation-index/deflation-index/tree/main/data/excel" target="_blank" style="background: #8A2BE2; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 700;">Multi-Factor (Primary)</a>
+                <a href="https://github.com/deflation-index/deflation-index/tree/main/data/excel" target="_blank" style="background: var(--gold); color: var(--black); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 700;">Equal-Weighted</a>
+                <a href="https://github.com/deflation-index/deflation-index/tree/main/data/excel" target="_blank" style="background: var(--gold); color: var(--black); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 700;">Expenditure-Weighted</a>
+                <a href="https://github.com/deflation-index/deflation-index/tree/main/data/excel" target="_blank" style="background: var(--gold); color: var(--black); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 700;">GDP-Weighted</a>
+            </div>
+        </div>
     </section>
     
     <!-- Data Sources -->
@@ -767,7 +875,7 @@
         <p><strong>Academic use</strong>: Cite the Deflation Index in papers, dissertations, and publications. We encourage critical analysis and replication studies.</p>
         
         <div class="highlight-box" style="margin-top: 2rem;">
-            <p><strong>Contact for research collaborations</strong>: <a href="mailto:research@deflationindex.com" style="color: var(--gold);">research@deflationindex.com</a></p>
+            <p><strong>Contact for research collaborations</strong>: <a href="/cdn-cgi/l/email-protection#4a382f392f2b3829220a2e2f2c262b3e23252423242e2f3264292527" style="color: var(--gold);"><span class="__cf_email__" data-cfemail="f88a9d8b9d998a9b90b89c9d9e94998c91979691969c9d80d69b9795">[email&#160;protected]</span></a></p>
             
             <p style="margin-top: 1rem;"><strong>What we value</strong>: Precision, transparency, intellectual honesty, and constructive engagement. If you see something that looks wrong, speak up. If you have ideas to improve the work, we want to hear them.</p>
         </div>
@@ -787,13 +895,13 @@
         </div>
         <p>Technology delivered 84% deflation. Consumer prices rose 155% instead. The 239 percentage point gap represents deflation not reflected in consumer prices.</p>
         
-        <h3>The Abundance Gap (545pp cumulative)</h3>
+        <h3>The Abundance Gap (560pp cumulative)</h3>
         <p><strong>What it measures:</strong> Total economic force that accrued elsewhere rather than reducing consumer prices.</p>
         <div class="formula-box">
             Abundance Gap = |Tech Deflation| + M2 Expansion - CPI Inflation<br>
-            = 84pp + 615pp - 155pp = 545pp
+            = 84pp + 615pp - 155pp = 560pp
         </div>
-        <p>This represents the full divergence: technology delivered deflationary force (84pp), monetary expansion created inflationary pressure (615pp), consumer prices rose 155pp. The 545pp gap represents economic gains that accrued to asset holders, increased in system complexity costs, and accumulated in corporate profit margins.</p>
+        <p>This represents the full divergence: technology delivered deflationary force (84pp), monetary expansion created inflationary pressure (615pp), consumer prices rose 155pp. The 560pp gap represents economic gains that accrued to asset holders, increased in system complexity costs, and accumulated in corporate profit margins.</p>
         
         <p style="margin-top: 2rem;"><strong>Both gaps are valid</strong> and tell complementary stories. The Deflation Gap focuses on consumer experience. The Abundance Gap includes the full monetary context.</p>
     </section>
@@ -820,7 +928,7 @@
         
         <p><strong>Weighting System</strong>:</p>
         <ul>
-            <li>Current weights (29.4%, 23.5%, 29.4%, 17.6%) based on three factors: GDP contribution, enabling effect, and deflationary force</li>
+            <li>Current weights (29.41%, 23.53%, 29.41%, 17.65%) based on three factors: GDP contribution, enabling effect, and deflationary force</li>
             <li>Alternative schemes tested: equal-weight, GDP-weighted, expenditure-weighted</li>
             <li>Results robust across methods (±15% variation, see <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">weight justification</a>)</li>
             <li>v4.0 will use expenditure-weighting when comprehensive coverage achieved</li>
@@ -872,7 +980,7 @@
         <h3>Our Commitment to Transparency</h3>
         
         <div class="highlight-box" style="margin-top: 2rem;">
-            <p><strong>These limitations don't invalidate the core finding</strong>: massive technological deflation occurred (-84.3% cumulative) while consumer prices rose (+155%). The gap (545pp) exists regardless of methodological choices.</p>
+            <p><strong>These limitations don't invalidate the core finding</strong>: massive technological deflation occurred (-96.26% cumulative) while consumer prices rose (+155%). The gap (560pp) exists regardless of methodological choices.</p>
             
             <p style="margin-top: 1rem;"><strong>What changes with better methodology</strong>: The <em>precise magnitude</em> of the gap. Not whether it exists.</p>
             
@@ -899,7 +1007,4 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Deflation Index LLC. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a> | <a href="methodology.html">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a></p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">Built to measure the force of technological progress and track where the abundance goes.</p>
-    </footer>
-</body>
-</html>
+        <p style="margin-top

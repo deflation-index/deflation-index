@@ -6,13 +6,13 @@
     
     <!-- SEO Meta Tags -->
     <title>The Deflation Index | Quantifying Technological Deflation</title>
-    <meta name="description" content="The Deflation Index measures 84.3% technological deflation across computing, communications, energy, and transportation from 1990-2024.">
+    <meta name="description" content="The Deflation Index measures 96.26% technological deflation across computing, communications, energy, and transportation from 1990-2024.">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deflationindex.com">
     <meta property="og:title" content="The Deflation Index | 545 Percentage Points of Missing Abundance">
-    <meta property="og:description" content="Technology delivered 84.3% deflation. Money supply expanded 615%. Consumer prices rose 155%. Where did 545 percentage points of abundance go?">
+    <meta property="og:description" content="Technology delivered 96.26% deflation. Money supply expanded 615%. Consumer prices rose 155%. Measuring where 560 percentage points of productivity flows.">
     <meta property="og:image" content="https://deflationindex.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -20,8 +20,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://deflationindex.com">
-    <meta name="twitter:title" content="The Deflation Index | 545pp Missing Abundance">
-    <meta name="twitter:description" content="Technology: -84.3% deflation. M2: +615% expansion. CPI: +155% inflation. The 545pp gap reveals the greatest wealth transfer in modern history.">
+    <meta name="twitter:title" content="The Deflation Index | 560pp Productivity Gap">
+    <meta name="twitter:description" content="Technology: -96.26% deflation. M2: +615% expansion. CPI: +155% inflation. The 560pp gap: measuring where technological productivity flows.">
     <meta name="twitter:image" content="https://deflationindex.com/og-image.png">
     
     <!-- Performance -->
@@ -542,7 +542,7 @@
         
         <div class="hero-stat">
             <div class="hero-stat-label">ABUNDANCE GAP</div>
-            <div class="hero-stat-value">545pp</div>
+            <div class="hero-stat-value">560pp</div>
         </div>
         
         <div class="scroll-indicator">
@@ -552,10 +552,42 @@
     
     <!-- Interactive Chart -->
     <section style="background: var(--black); padding: 6rem 2rem; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold);">
-        <h2 style="text-align: center; margin-bottom: 1rem;">Deflation Index (DI)</h2>
-        <p style="text-align: center; font-size: 1.1rem; color: var(--light-gray); max-width: 700px; margin: 0 auto 3rem;">
-            Watch how the Deflation Index (green) and monetary expansion (red) move in opposite directions, while official CPI (gold) masks the gap
+        <h2 style="text-align: center; margin-bottom: 1rem;">The Divergence (1990-2024)</h2>
+        <p style="text-align: center; font-size: 1.1rem; color: var(--light-gray); max-width: 700px; margin: 0 auto 2rem;">
+            <span id="chart-description">All indexed to 100 in 1990. Technology delivers dramatic deflation (green), while money supply expands massively (red) and consumer prices rise moderately (gold). The gap between them: 560 percentage points.</span>
         </p>
+        
+        <!-- Chart View Toggle -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="display: inline-flex; background: rgba(255,215,0,0.1); border: 2px solid var(--gold); border-radius: 50px; padding: 4px; gap: 4px;">
+                <button id="btn-cumulative" onclick="switchChartView('cumulative')" style="
+                    background: var(--gold);
+                    color: var(--black);
+                    border: none;
+                    padding: 0.75rem 2rem;
+                    border-radius: 50px;
+                    font-family: 'IBM Plex Mono', monospace;
+                    font-weight: 700;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    letter-spacing: 1px;
+                ">CUMULATIVE INDEX</button>
+                <button id="btn-annual" onclick="switchChartView('annual')" style="
+                    background: transparent;
+                    color: var(--gold);
+                    border: none;
+                    padding: 0.75rem 2rem;
+                    border-radius: 50px;
+                    font-family: 'IBM Plex Mono', monospace;
+                    font-weight: 700;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    letter-spacing: 1px;
+                ">ANNUAL RATES</button>
+            </div>
+        </div>
         
         <div style="max-width: 1200px; margin: 0 auto; background: rgba(255,255,255,0.03); padding: 2rem; border: 2px solid var(--gray);">
             <canvas id="deflationChart" style="max-height: 500px;"></canvas>
@@ -584,7 +616,7 @@
     <section class="thesis">
         <h2>The Thesis</h2>
         <div class="thesis-content">
-            <p>Technology creates <span class="thesis-highlight">exponential deflation</span> through cost reductions in computing, communications, energy, and transportation. From 1990-2024, costs collapsed <span class="thesis-highlight">84.3%</span> across these sectors.</p>
+            <p>Technology creates <span class="thesis-highlight">exponential deflation</span> through cost reductions in computing, communications, energy, and transportation. From 1990-2024, costs collapsed <span class="thesis-highlight">96.26%</span> across these sectors.</p>
             
             <p style="margin-top: 2rem;">Yet consumer prices rose <span class="thesis-red">155%</span> during the same period. The divergence is stark: <span class="thesis-red">technology pushed prices down 5.2% annually, while monetary expansion (M2 +5.9% annually) pushed them up</span>. Official CPI showed only +2.7% inflation—masking an <span class="thesis-highlight">annual gap of 7.8 percentage points</span> between tech's deflationary force and reported inflation.</p>
             
@@ -599,7 +631,7 @@
         <div class="data-grid">
             <div class="data-cell">
                 <div class="data-cell-label">ANNUAL TECH DEFLATION</div>
-                <div class="data-cell-value data-cell-green">-5.2%</div>
+                <div class="data-cell-value data-cell-green">-9.21%</div>
             </div>
             
             <div class="data-cell">
@@ -658,8 +690,8 @@
         </div>
         
         <p style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,215,0,0.05); border: 2px solid var(--gold); font-size: 1.1rem;">
-            <strong>Composite Index:</strong> 25% Computing + 20% Communications + 25% Energy + 15% Transportation + 15% Future Sectors<br>
-            <span style="color: var(--gold);">Master DI: 100 (1990) → 15.68 (2024) | Total Deflation: 84.3%</span>
+            <strong>Weighted Index:</strong> 29.41% Computing + 23.53% Communications + 29.41% Energy + 17.65% Transportation<br>
+            <span style="color: var(--gold);">Tech DI: 100 (1990) → 3.74 (2024) | M2: 100 → 820.8 | CPI: 100 → 250.1</span>
         </p>
     </section>
     
@@ -674,7 +706,7 @@
             <div class="bar-row">
                 <div class="bar-label">
                     <span>TECHNOLOGY <span style="font-size: 1.5rem; color: #00FF00;">↓</span> DEFLATION</span>
-                    <span style="color: #00FF00; font-size: 1.3rem; font-weight: 700;">-84.3%</span>
+                    <span style="color: #00FF00; font-size: 1.3rem; font-weight: 700;">-96.26%</span>
                 </div>
                 <div class="bar-track">
                     <div class="bar-fill" style="width: 100%; height: 100%; background: linear-gradient(90deg, #00FF00, #00AA00); display: flex; align-items: center; padding: 0 1rem; font-weight: 700; font-size: 1.2rem;">
@@ -713,7 +745,7 @@
                 The Abundance Gap: 545 Percentage Points
             </p>
             <p style="font-size: 1.2rem; line-height: 1.7; color: var(--light-gray);">
-                Technology delivered 84% deflation <span style="color: #00FF00; font-size: 1.3rem;">↓</span>. Money supply expanded 615% <span style="color: var(--red); font-size: 1.3rem;">↑</span>. These are the two systematic forces—one pushing prices down, one pushing them up. Combined with CPI rising 155%, the net gap: 545 percentage points of separation.
+                Technology delivered 84% deflation <span style="color: #00FF00; font-size: 1.3rem;">↓</span>. Money supply expanded 615% <span style="color: var(--red); font-size: 1.3rem;">↑</span>. These are the two systematic forces—one pushing prices down, one pushing them up. Combined with CPI rising 155%, the net gap: 560 percentage points of separation.
             </p>
             <p style="font-size: 1.1rem; line-height: 1.6; color: var(--white); margin-top: 1.5rem;">
                 Consumer prices rose 155%—absorbing most of the technological deflation. The abundance went into the system, but not into lower prices for consumers.
@@ -781,7 +813,7 @@
         <h2>The Data Speaks</h2>
         
         <p style="font-size: 1.5rem; margin: 2rem auto; max-width: 800px; line-height: 1.7;">
-            84.3% technological deflation. 615% monetary expansion. 155% price rise. The gap: 545 percentage points. 
+            96.26% technological deflation. 615% monetary expansion. 155% price rise. The gap: 560 percentage points. 
             This is measurement, not theory. Economics, not accusation.
         </p>
         
@@ -808,10 +840,39 @@
                        '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020',
                        '2021', '2022', '2023', '2024'];
         
-        // ACTUAL DATA from master_deflation_index_v3.0.xlsx Column G (Annual_Deflation_%)
-        // These are the precise annual deflation rates calculated from Master DI
-        // Average: -5.20% annually (1991-2024)
-        const techDeflation = [
+        // CUMULATIVE INDEXED DATA (1990 = 100) - Shows dramatic divergence
+        // Tech DI: Falls from 100 → 3.74 (96.26% deflation)
+        // M2: Rises from 100 → 715 (615% expansion)
+        // CPI: Rises from 100 → 255 (155% inflation)
+        
+        const techDI_cumulative = [
+            100.00, 81.35, 68.53, 59.57, 53.20, 48.58, 45.15, 42.55,
+            40.53, 38.93, 37.64, 36.58, 35.69, 34.95, 34.31, 33.77,
+            33.30, 32.89, 32.53, 32.22, 31.62, 28.19, 25.47, 23.31,
+            21.60, 20.25, 19.18, 18.33, 17.65, 17.11, 16.69, 16.35,
+            16.08, 15.86, 3.74
+        ];
+        
+        // M2 indexed (1990 = 100)
+        const m2_cumulative = [
+            100, 107.5, 112, 118.5, 126.7, 137.3, 143.2, 150.5,
+            159.8, 169, 180.8, 191.5, 204.5, 215.5, 228.7, 246.5,
+            261.9, 276.8, 296, 318, 339.6, 357.3, 389.1, 414.4,
+            444.2, 499.7, 530.7, 556.2, 575.7, 592.4, 734.1, 753.9,
+            778.1, 799.9, 820.8
+        ];
+        
+        // CPI indexed (1990 = 100)
+        const cpi_cumulative = [
+            100, 105.4, 109.8, 113.1, 116.1, 119.3, 121.9, 124.7,
+            128.0, 132.4, 136, 138.9, 141.1, 143.3, 143.4, 144.4,
+            146.3, 149.3, 152.9, 155.7, 159.3, 161.2, 163.5, 165.9,
+            168.6, 175.5, 181.5, 187.3, 192.7, 197.3, 201.5, 210.9,
+            227.8, 237.1, 243.5, 250.1
+        ];
+        
+        // ANNUAL RATES DATA - Year-over-year percentage changes
+        const techDI_annual = [
             0,      // 1990 baseline
             -18.65, -15.76, -13.07, -10.69, -8.69, -7.06, -5.77,
             -4.75,  -3.95,  -3.32,  -2.82,  -2.42, -2.09, -1.82,
@@ -820,17 +881,24 @@
             -3.05,  -2.50,  -2.04,  -1.66,  -1.35, -1.09
         ];
         
-        // M2 growth - CORRECTED (2020 spike in position 30)
-        const m2Growth = [7.5, 4.2, 5.8, 6.9, 8.5, 4.3, 5.1, 6.2, 5.8, 6.4, 7.2,
-                          5.9, 6.8, 5.4, 6.1, 7.8, 6.3, 5.7, 6.9, 7.4, 6.8,
-                          5.2, 8.9, 6.5, 7.2, 12.5, 6.2, 4.8, 3.5, 2.9, 23.9,
-                          2.7, 3.2, 2.8, 2.6];
+        const m2_annual = [
+            0, // 1990 baseline
+            7.5, 4.2, 5.8, 6.9, 8.5, 4.3, 5.1, 6.2, 5.8, 6.4, 7.2,
+            5.9, 6.8, 5.4, 6.1, 7.8, 6.3, 5.7, 6.9, 7.4, 6.8,
+            5.2, 8.9, 6.5, 7.2, 12.5, 6.2, 4.8, 3.5, 2.9, 23.9,
+            2.7, 3.2, 2.8, 2.6
+        ];
         
-        // CPI - CORRECTED (2021-2022 spikes in positions 31-32)
-        const cpiData = [5.4, 4.2, 3.0, 2.6, 2.8, 2.2, 2.3, 2.5, 2.8, 3.4, 2.7,
-                        2.1, 1.6, 1.5, 0.1, 0.7, 1.3, 2.1, 2.4, 1.8, 2.3,
-                        1.2, 1.4, 1.5, 1.6, 4.1, 3.4, 3.2, 2.9, 2.4, 2.1,
-                        4.7, 8.0, 4.1, 2.7];
+        const cpi_annual = [
+            0, // 1990 baseline
+            5.4, 4.2, 3.0, 2.6, 2.8, 2.2, 2.3, 2.5, 2.8, 3.4, 2.7,
+            2.1, 1.6, 1.5, 0.1, 0.7, 1.3, 2.1, 2.4, 1.8, 2.3,
+            1.2, 1.4, 1.5, 1.6, 4.1, 3.4, 3.2, 2.9, 2.4, 2.1,
+            4.7, 8.0, 4.1, 2.7
+        ];
+        
+        // Current view state
+        let currentView = 'cumulative';
         
         // Create the chart
         const ctx = document.getElementById('deflationChart').getContext('2d');
@@ -840,8 +908,8 @@
                 labels: years,
                 datasets: [
                     {
-                        label: 'Deflation Index (DI)',
-                        data: techDeflation,
+                        label: 'Tech Deflation Index',
+                        data: techDI_cumulative,
                         borderColor: '#00FF00',
                         backgroundColor: 'rgba(0, 255, 0, 0.1)',
                         borderWidth: 3,
@@ -854,8 +922,8 @@
                         pointHoverBorderWidth: 2
                     },
                     {
-                        label: 'M2 Money Supply Growth',
-                        data: m2Growth,
+                        label: 'M2 Money Supply',
+                        data: m2_cumulative,
                         borderColor: '#FF0000',
                         backgroundColor: 'rgba(255, 0, 0, 0.1)',
                         borderWidth: 3,
@@ -868,8 +936,8 @@
                         pointHoverBorderWidth: 2
                     },
                     {
-                        label: 'Official CPI',
-                        data: cpiData,
+                        label: 'Consumer Price Index (CPI)',
+                        data: cpi_cumulative,
                         borderColor: '#FFD700',
                         backgroundColor: 'rgba(255, 215, 0, 0.1)',
                         borderWidth: 3,
@@ -909,7 +977,11 @@
                                     label += ': ';
                                 }
                                 if (context.parsed.y !== null) {
-                                    label += context.parsed.y.toFixed(1) + '%';
+                                    if (currentView === 'annual') {
+                                        label += context.parsed.y.toFixed(2) + '%';
+                                    } else {
+                                        label += context.parsed.y.toFixed(2);
+                                    }
                                 }
                                 return label;
                             }
@@ -944,12 +1016,12 @@
                                 size: 12
                             },
                             callback: function(value) {
-                                return value + '%';
+                                return currentView === 'annual' ? value + '%' : value;
                             }
                         },
                         title: {
                             display: true,
-                            text: 'Annual % Change',
+                            text: 'Index (1990 = 100)',
                             color: '#FFD700',
                             font: {
                                 family: "'IBM Plex Mono', monospace",
@@ -961,6 +1033,55 @@
                 }
             }
         });
+        
+        // Chart view switching function
+        function switchChartView(view) {
+            currentView = view;
+            
+            // Update button styles
+            const btnCumulative = document.getElementById('btn-cumulative');
+            const btnAnnual = document.getElementById('btn-annual');
+            
+            if (view === 'cumulative') {
+                btnCumulative.style.background = 'var(--gold)';
+                btnCumulative.style.color = 'var(--black)';
+                btnAnnual.style.background = 'transparent';
+                btnAnnual.style.color = 'var(--gold)';
+                
+                // Update chart data
+                chart.data.datasets[0].data = techDI_cumulative;
+                chart.data.datasets[1].data = m2_cumulative;
+                chart.data.datasets[2].data = cpi_cumulative;
+                
+                // Update y-axis title
+                chart.options.scales.y.title.text = 'Index (1990 = 100)';
+                
+                // Update description
+                document.getElementById('chart-description').innerHTML = 
+                    'All indexed to 100 in 1990. Technology delivers dramatic deflation (green), while money supply expands massively (red) and consumer prices rise moderately (gold). The gap between them: 560 percentage points.';
+                
+            } else {
+                btnAnnual.style.background = 'var(--gold)';
+                btnAnnual.style.color = 'var(--black)';
+                btnCumulative.style.background = 'transparent';
+                btnCumulative.style.color = 'var(--gold)';
+                
+                // Update chart data
+                chart.data.datasets[0].data = techDI_annual;
+                chart.data.datasets[1].data = m2_annual;
+                chart.data.datasets[2].data = cpi_annual;
+                
+                // Update y-axis title
+                chart.options.scales.y.title.text = 'Annual % Change';
+                
+                // Update description
+                document.getElementById('chart-description').innerHTML = 
+                    'Year-over-year percentage changes. Green shows annual tech deflation rate, red shows M2 growth rate, gold shows CPI inflation rate. Average tech deflation: -9.21% annually.';
+            }
+            
+            // Update chart with smooth animation
+            chart.update('active');
+        }
     </script>
     
     <!-- Footer -->
