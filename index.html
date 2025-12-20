@@ -33,12 +33,14 @@
         
         :root {
             --black: #000000;
+            --soft-black: #121212;
             --white: #FFFFFF;
             --red: #FF0000;
             --gold: #FFD700;
+            --muted-gold: #E5C100;
             --gray: #333333;
             --light-gray: #E0E0E0;
-            --bg-dark: #0A0A0A;
+            --bg-dark: #0F0F0F;
         }
         
         * {
@@ -50,7 +52,9 @@
         body {
             font-family: 'IBM Plex Mono', monospace;
             background: var(--bg-dark);
-            color: var(--white);
+            color: var(--light-gray);
+            line-height: 1.8;
+            font-weight: 400;
             overflow-x: hidden;
         }
         
@@ -107,7 +111,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 6rem 2rem 2rem 2rem;
             background: 
                 repeating-linear-gradient(
                     0deg,
@@ -148,10 +152,11 @@
         
         h1 {
             font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(3rem, 10vw, 8rem);
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
             text-align: center;
-            line-height: 0.9;
-            margin-bottom: 1rem;
+            line-height: 0.95;
+            margin-bottom: 1.5rem;
+            margin-top: 0;
             letter-spacing: -2px;
             text-transform: uppercase;
         }
@@ -161,7 +166,7 @@
         }
         
         .the {
-            font-size: clamp(2rem, 6vw, 4rem);
+            font-size: clamp(1.5rem, 5vw, 3rem);
             opacity: 0.5;
         }
         
@@ -186,11 +191,11 @@
         }
         
         .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-size: clamp(0.95rem, 2vw, 1.2rem);
             text-align: center;
-            max-width: 900px;
-            margin: 2rem auto;
-            line-height: 1.6;
+            max-width: 800px;
+            margin: 1.5rem auto;
+            line-height: 1.7;
             opacity: 0;
             animation: fadeIn 1s ease-out 0.5s forwards;
         }
@@ -200,24 +205,25 @@
         }
         
         .hero-stat {
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             text-align: center;
-            padding: 2rem 3rem;
+            padding: 1.5rem 2.5rem;
             border: 2px solid var(--red);
             background: rgba(255, 0, 0, 0.05);
             opacity: 0;
             animation: fadeIn 1s ease-out 0.8s forwards;
+            max-width: 400px;
         }
         
         .hero-stat-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 3px;
             margin-bottom: 0.5rem;
             color: var(--light-gray);
         }
         
         .hero-stat-value {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 700;
             color: var(--red);
             font-family: 'Space Mono', monospace;
@@ -247,14 +253,26 @@
         
         /* Section Styles */
         section {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
         
+        /* Section Label (Forager-inspired) */
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--muted-gold);
+            opacity: 0.7;
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 600;
+        }
+        
         h2 {
             font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 3rem;
             text-transform: uppercase;
             letter-spacing: -1px;
@@ -270,20 +288,25 @@
         }
         
         .thesis-content {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            line-height: 1.8;
-            max-width: 900px;
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            line-height: 1.9;
+            max-width: 850px;
             margin: 0 auto;
+            font-weight: 400;
+        }
+        
+        .thesis-content p {
+            margin-bottom: 2.5rem;
         }
         
         .thesis-highlight {
             color: var(--gold);
-            font-weight: 700;
+            font-weight: 600;
         }
         
         .thesis-red {
             color: var(--red);
-            font-weight: 700;
+            font-weight: 600;
         }
         
         /* Data Grid */
@@ -477,9 +500,9 @@
         }
         
         .btn {
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             background: transparent;
-            border: 2px solid var(--gold);
+            border: 3px solid var(--gold);
             color: var(--gold);
             font-family: 'IBM Plex Mono', monospace;
             font-size: 1rem;
@@ -490,12 +513,37 @@
             transition: all 0.3s ease;
             cursor: pointer;
             display: inline-block;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         
         .btn:hover {
             background: var(--gold);
             color: var(--black);
             transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Mobile touch targets - minimum 44px */
+        @media (max-width: 768px) {
+            .btn {
+                min-height: 44px;
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Scroll Animations - Subtle fade-ins */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Responsive */
@@ -537,34 +585,48 @@
         </h1>
         
         <p class="subtitle">
-            Measuring technological deflation across fundamental sectors—and tracking where the abundance goes.
+            Measuring where technological productivity flows.
         </p>
-        
-        <div class="hero-stat">
-            <div class="hero-stat-label">ABUNDANCE GAP</div>
-            <div class="hero-stat-value">560pp</div>
-        </div>
         
         <div class="scroll-indicator">
             <div class="scroll-arrow"></div>
         </div>
     </section>
     
+    <!-- The Setup - Narrative Build -->
+    <section style="background: var(--bg-dark); padding: 6rem 2rem; border-top: 3px solid var(--gold);">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="font-size: clamp(1.2rem, 3vw, 1.8rem); line-height: 1.9; margin-bottom: 2.5rem; font-weight: 400; color: var(--light-gray);">
+                Technology delivered <span style="color: #00FF00; font-weight: 600;">massive deflation</span>.
+            </p>
+            <p style="font-size: clamp(1.2rem, 3vw, 1.8rem); line-height: 1.9; margin-bottom: 2.5rem; font-weight: 400; color: var(--light-gray);">
+                The money supply expanded <span style="color: var(--red); font-weight: 600;">dramatically</span>.
+            </p>
+            <p style="font-size: clamp(1.2rem, 3vw, 1.8rem); line-height: 1.9; margin-bottom: 3.5rem; font-weight: 400; color: var(--light-gray);">
+                Consumer prices rose <span style="color: var(--gold); font-weight: 600;">modestly</span>.
+            </p>
+            <p style="font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.4; color: var(--gold); font-weight: 600; margin-top: 4rem;">
+                Where did 560 percentage points go?
+            </p>
+        </div>
+    </section>
+    
     <!-- Interactive Chart -->
-    <section style="background: var(--black); padding: 6rem 2rem; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold);">
+    <section style="background: var(--black); padding: 8rem 2rem; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold);">
+        <span class="section-label" style="text-align: center; display: block;">THE DATA</span>
         <h2 style="text-align: center; margin-bottom: 1rem;">The Divergence (1990-2024)</h2>
-        <p style="text-align: center; font-size: 1.1rem; color: var(--light-gray); max-width: 700px; margin: 0 auto 2rem;">
+        <p style="text-align: center; font-size: 1.05rem; color: var(--light-gray); max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;">
             <span id="chart-description">All indexed to 100 in 1990. Technology delivers dramatic deflation (green), while money supply expands massively (red) and consumer prices rise moderately (gold). The gap between them: 560 percentage points.</span>
         </p>
         
         <!-- Chart View Toggle -->
         <div style="text-align: center; margin-bottom: 2rem;">
-            <div style="display: inline-flex; background: rgba(255,215,0,0.1); border: 2px solid var(--gold); border-radius: 50px; padding: 4px; gap: 4px;">
+            <div style="display: inline-flex; background: rgba(255,215,0,0.1); border: 2px solid var(--gold); border-radius: 50px; padding: 4px; gap: 4px; flex-wrap: wrap; justify-content: center;">
                 <button id="btn-cumulative" onclick="switchChartView('cumulative')" style="
                     background: var(--gold);
                     color: var(--black);
                     border: none;
-                    padding: 0.75rem 2rem;
+                    padding: 0.9rem 2.2rem;
                     border-radius: 50px;
                     font-family: 'IBM Plex Mono', monospace;
                     font-weight: 700;
@@ -572,12 +634,14 @@
                     cursor: pointer;
                     transition: all 0.3s ease;
                     letter-spacing: 1px;
+                    min-height: 44px;
+                    min-width: 160px;
                 ">CUMULATIVE INDEX</button>
                 <button id="btn-annual" onclick="switchChartView('annual')" style="
                     background: transparent;
                     color: var(--gold);
                     border: none;
-                    padding: 0.75rem 2rem;
+                    padding: 0.9rem 2.2rem;
                     border-radius: 50px;
                     font-family: 'IBM Plex Mono', monospace;
                     font-weight: 700;
@@ -585,6 +649,8 @@
                     cursor: pointer;
                     transition: all 0.3s ease;
                     letter-spacing: 1px;
+                    min-height: 44px;
+                    min-width: 160px;
                 ">ANNUAL RATES</button>
             </div>
         </div>
@@ -1089,5 +1155,31 @@
         <p>&copy; 2025 Deflation Index LLC. All rights reserved. | <a href="index.html" style="color: var(--gold); text-decoration: none;">Home</a> | <a href="faq.html" style="color: var(--gold); text-decoration: none;">FAQ</a> | <a href="about.html" style="color: var(--gold); text-decoration: none;">About</a> | <a href="methodology.html" style="color: var(--gold); text-decoration: none;">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="color: var(--gold); text-decoration: none;">GitHub</a></p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">Built to measure the force of technological progress and track where the abundance goes.</p>
     </footer>
+    
+    <!-- Scroll Animation Script -->
+    <script>
+        // Subtle scroll animations (Forager-inspired)
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections except hero
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section:not(.hero)');
+            sections.forEach(section => {
+                section.classList.add('fade-in-section');
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>

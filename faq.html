@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deflationindex.com/faq.html">
     <meta property="og:title" content="FAQ | The Deflation Index">
-    <meta property="og:description" content="Learn about the methodology, data sources, and research behind measuring 560pp of missing abundance.">
+    <meta property="og:description" content="Learn about the methodology, data sources, and research behind measuring 545pp of missing abundance.">
     <meta property="og:image" content="https://deflationindex.com/og-image.png">
     
     <!-- Performance -->
@@ -24,12 +24,14 @@
         
         :root {
             --black: #000000;
+            --soft-black: #121212;
             --white: #FFFFFF;
             --red: #FF0000;
             --gold: #FFD700;
+            --muted-gold: #E5C100;
             --gray: #333333;
             --light-gray: #E0E0E0;
-            --bg-dark: #0A0A0A;
+            --bg-dark: #0F0F0F;
         }
         
         * {
@@ -41,7 +43,9 @@
         body {
             font-family: 'IBM Plex Mono', monospace;
             background: var(--bg-dark);
-            color: var(--white);
+            color: var(--light-gray);
+            line-height: 1.8;
+            font-weight: 400;
             overflow-x: hidden;
         }
         
@@ -206,7 +210,7 @@
         }
         
         .faq-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             border: 2px solid var(--gray);
             background: rgba(255, 255, 255, 0.02);
             transition: all 0.3s ease;
@@ -217,7 +221,7 @@
         }
         
         .faq-question {
-            padding: 1.5rem;
+            padding: 1.8rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -246,19 +250,19 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease, padding 0.5s ease;
-            padding: 0 1.5rem;
+            padding: 0 1.8rem;
             color: var(--light-gray);
-            line-height: 1.8;
+            line-height: 1.9;
             font-size: 1rem;
         }
         
         .faq-item.active .faq-answer {
             max-height: 2000px;
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 1.8rem 1.8rem;
         }
         
         .faq-answer p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .faq-answer p:last-child {
@@ -267,6 +271,7 @@
         
         .faq-answer strong {
             color: var(--white);
+            font-weight: 600;
         }
         
         .faq-answer a {
@@ -362,6 +367,18 @@
                 padding: 2rem 1rem;
             }
         }
+        
+        /* Scroll Animations - Subtle fade-ins */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -398,7 +415,7 @@
                 </div>
                 <div class="faq-answer">
                     <p>The Deflation Index (DI) measures technological deflation across four fundamental sectors: computing, communications, energy, and transportation. It tracks how much cheaper technology makes these essential inputs over time.</p>
-                    <p><strong>The core finding:</strong> From 1990-2024, technology delivered 96.26% deflation across these sectors. What cost $100 in 1990 should cost $16 today in real terms. Yet consumer prices rose 155% during the same period.</p>
+                    <p><strong>The core finding:</strong> From 1990-2024, technology delivered 84.3% deflation across these sectors. What cost $100 in 1990 should cost $16 today in real terms. Yet consumer prices rose 155% during the same period.</p>
                     <p>The DI quantifies this divergence—measuring the force of technological progress against monetary expansion and revealing where the productivity gains went.</p>
                 </div>
             </div>
@@ -428,7 +445,7 @@
                     <p><strong>Scope:</strong> CPI tracks a basket of consumer goods. The DI focuses specifically on technological inputs (computing, communications, energy, transportation) that underpin the entire economy.</p>
                     <p><strong>Methodology:</strong> CPI uses hedonic adjustments (quality improvements) but often understates technological progress. The DI directly measures cost-per-unit-performance ($/GFLOPS, $/GB, $/kWh), capturing the full force of technological deflation.</p>
                     <p><strong>Purpose:</strong> CPI aims to measure "price stability" for monetary policy. The DI aims to measure technological progress and reveal where productivity gains flow.</p>
-                    <p>CPI shows +155% inflation (1990-2024). The DI shows -96.26% deflation. The 545 percentage point gap reveals a massive wealth transfer.</p>
+                    <p>CPI shows +155% inflation (1990-2024). The DI shows -84.3% deflation. The 545 percentage point gap reveals a massive wealth transfer.</p>
                 </div>
             </div>
             
@@ -448,7 +465,7 @@
                         <li><strong>Future Technologies (15%):</strong> Reserved (currently defaulted to 100)</li>
                     </ul>
                     <p><strong>Formula:</strong> We use a geometric mean (multiplicative) rather than arithmetic mean to properly capture compounding deflation effects. Each year, sector indices are calculated from cost-per-performance metrics, then combined using the weights above.</p>
-                    <p>Result: Master DI fell from 100 (1990) to 3.74 (2024) = 96.26% total deflation.</p>
+                    <p>Result: Master DI fell from 100 (1990) to 15.68 (2024) = 84.3% total deflation.</p>
                     <p>For full technical details, see our <a href="methodology.html">methodology documentation</a>.</p>
                 </div>
             </div>
@@ -468,9 +485,9 @@
                     <p><strong>The Deflation Gap (7.8pp annually, 239pp cumulative):</strong></p>
                     <p>Measures deflation that should have reached consumers but didn't. Formula: |Tech Deflation| + CPI Inflation = 84pp + 155pp = 239pp.</p>
                     <p>This gap asks: "Technology made things 84% cheaper, yet consumer prices rose 155%. Where did the 239 percentage points of potential deflation go?"</p>
-                    <p><strong>The Abundance Gap (560pp cumulative):</strong></p>
-                    <p>Measures the total economic force captured rather than passed to consumers. Formula: |Tech Deflation| + M2 Expansion - CPI = 84pp + 615pp - 155pp = 560pp.</p>
-                    <p>This gap asks: "Technology pushed down (84pp), money printing pushed up (615pp), consumer prices rose 155pp. Where did the other 560pp go?"</p>
+                    <p><strong>The Abundance Gap (545pp cumulative):</strong></p>
+                    <p>Measures the total economic force captured rather than passed to consumers. Formula: |Tech Deflation| + M2 Expansion - CPI = 84pp + 615pp - 155pp = 545pp.</p>
+                    <p>This gap asks: "Technology pushed down (84pp), money printing pushed up (615pp), consumer prices rose 155pp. Where did the other 545pp go?"</p>
                     <p><strong>Why both?</strong> The Deflation Gap is simpler and focuses on consumer experience. The Abundance Gap is more comprehensive and includes the full monetary context. Both tell important parts of the story.</p>
                 </div>
             </div>
@@ -481,7 +498,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>This is the central question. The 560pp Abundance Gap represents wealth that flowed to:</p>
+                    <p>This is the central question. The 545pp Abundance Gap represents wealth that flowed to:</p>
                     <p><strong>1. Corporate Profits:</strong> Up 300%+ since 1990, heavily concentrated in the top 10% of earners. Productivity gains often boost margins rather than reducing prices.</p>
                     <p><strong>2. Asset Inflation:</strong> Stocks +1,500%, housing +400% since 1990. These aren't captured in CPI but represent where much of the monetary expansion flows. Asset holders capture the gains.</p>
                     <p><strong>3. Technology Platforms:</strong> Network effects and monopoly pricing power allow tech companies to capture value rather than pass savings to consumers (despite costs falling).</p>
@@ -550,10 +567,10 @@
                 <div class="faq-answer">
                     <p><strong>Key Terms:</strong></p>
                     <p><strong>Deflation Index (DI):</strong> Composite measure of technological cost reductions across computing, communications, energy, and transportation (1990-2024).</p>
-                    <p><strong>Master DI:</strong> Weighted average of four sector indices. Fell from 100 (1990) to 3.74 (2024) = 96.26% total deflation.</p>
+                    <p><strong>Master DI:</strong> Weighted average of four sector indices. Fell from 100 (1990) to 15.68 (2024) = 84.3% total deflation.</p>
                     <p><strong>M2 Money Supply:</strong> Broad measure of money supply including cash, checking deposits, savings deposits, and money market funds. Grew 615% from 1990-2024.</p>
                     <p><strong>CPI (Consumer Price Index):</strong> Government measure of consumer price inflation. Rose 155% from 1990-2024.</p>
-                    <p><strong>The Abundance Gap (560pp):</strong> Cumulative wealth transfer from 1990-2024. Formula: |Tech Deflation| + M2 Expansion - CPI = 84 + 615 - 155 = 560pp.</p>
+                    <p><strong>The Abundance Gap (545pp):</strong> Cumulative wealth transfer from 1990-2024. Formula: |Tech Deflation| + M2 Expansion - CPI = 84 + 615 - 155 = 545pp.</p>
                     <p><strong>The Deflation Gap (239pp cumulative, 7.8pp annual):</strong> Deflation that should have reached consumers but didn't. Formula: |Tech Deflation| + CPI = 84 + 155 = 239pp.</p>
                     <p><strong>Cost-per-performance:</strong> Metric measuring price per unit of capability (e.g., $/GFLOPS for computing, $/kWh for energy). Captures true technological progress better than nominal prices.</p>
                     <p><strong>Percentage points (pp):</strong> Absolute difference between percentages. Example: 10% minus 5% = 5 percentage points, not 5%.</p>
@@ -641,7 +658,7 @@
                         <li>Derivative indices marketed commercially</li>
                     </ul>
                     <p><strong>API access:</strong> Premium institutional API access will be available in 2026 ($10k-50k annual). Contact us for early access.</p>
-                    <p><strong>Collaboration welcome:</strong> If you're working on related research, we'd love to hear about it. Reach out at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="43202c2d37222037032726252f22372a2c2d2a2d27263b6d202c2e">[email&#160;protected]</a>.</p>
+                    <p><strong>Collaboration welcome:</strong> If you're working on related research, we'd love to hear about it. Reach out at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6b5b9b8a2b7b5a296b2b3b0bab7a2bfb9b8bfb8b2b3aef8b5b9bb">[email&#160;protected]</a>.</p>
                 </div>
             </div>
         </div>
@@ -665,7 +682,7 @@
                     <p><strong>5. Spread the word:</strong> Share the research with economists, policymakers, journalists, and investors who might find it valuable.</p>
                     <p><strong>Contact channels:</strong></p>
                     <ul>
-                        <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dbb8b4b5afbab8af9bbfbebdb7baafb2b4b5b2b5bfbea3f5b8b4b6">[email&#160;protected]</a></li>
+                        <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5a6aaabb1a4a6b185a1a0a3a9a4b1acaaabacaba1a0bdeba6aaa8">[email&#160;protected]</a></li>
                         <li><strong>GitHub Issues:</strong> <a href="https://github.com/deflation-index/deflation-index/issues" target="_blank">Technical discussions and bug reports</a></li>
                         <li><strong>Newsletter:</strong> Sign up for monthly updates (launching 2026)</li>
                     </ul>
@@ -679,7 +696,7 @@
     <section class="contact-cta">
         <h2>Still Have Questions?</h2>
         <p>We're here to help. Reach out and we'll get back to you promptly.</p>
-        <a href="/cdn-cgi/l/email-protection#2744484953464453674342414b46534e48494e4943425f0944484a">Contact Us</a>
+        <a href="/cdn-cgi/l/email-protection#3d5e5253495c5e497d59585b515c495452535453595845135e5250">Contact Us</a>
     </section>
     
     <!-- Footer -->
@@ -694,4 +711,37 @@
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
-                const isActive = item
+                const isActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.faq-container, .contact-cta');
+            sections.forEach(section => {
+                section.classList.add('fade-in-section');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

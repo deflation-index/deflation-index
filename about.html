@@ -24,12 +24,14 @@
         
         :root {
             --black: #000000;
+            --soft-black: #121212;
             --white: #FFFFFF;
             --red: #FF0000;
             --gold: #FFD700;
+            --muted-gold: #E5C100;
             --gray: #333333;
             --light-gray: #E0E0E0;
-            --bg-dark: #0A0A0A;
+            --bg-dark: #0F0F0F;
         }
         
         * {
@@ -41,7 +43,9 @@
         body {
             font-family: 'IBM Plex Mono', monospace;
             background: var(--bg-dark);
-            color: var(--white);
+            color: var(--light-gray);
+            line-height: 1.8;
+            font-weight: 400;
             overflow-x: hidden;
         }
         
@@ -135,7 +139,7 @@
         section {
             max-width: 900px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
         }
         
         section h2 {
@@ -152,11 +156,12 @@
             font-size: 1.1rem;
             line-height: 1.9;
             color: var(--light-gray);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         section p strong {
             color: var(--white);
+            font-weight: 600;
         }
         
         section ul {
@@ -350,6 +355,18 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Scroll Animations - Subtle fade-ins */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -493,7 +510,7 @@
             <li><strong>Critics:</strong> If you see methodological flaws, challenge our assumptions, or have better data—tell us</li>
         </ul>
         
-        <p>Interested? Email us at <strong style="color: var(--gold);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b5854554f5a584f7b5f5e5d575a4f52545552555f5e4315585456">[email&#160;protected]</a></strong></p>
+        <p>Interested? Email us at <strong style="color: var(--gold);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72111d1c06131106321617141e13061b1d1c1b1c16170a5c111d1f">[email&#160;protected]</a></strong></p>
     </section>
     
     <!-- CTA Section -->
@@ -503,7 +520,7 @@
         
         <div class="cta-buttons">
             <a href="https://github.com/deflation-index/deflation-index" class="btn" target="_blank">View on GitHub</a>
-            <a href="/cdn-cgi/l/email-protection#c3a0acadb7a2a0b783a7a6a5afa2b7aaacadaaada7a6bbeda0acae" class="btn">Contact Us</a>
+            <a href="/cdn-cgi/l/email-protection#fe9d91908a9f9d8abe9a9b98929f8a97919097909a9b86d09d9193" class="btn">Contact Us</a>
             <a href="faq.html" class="btn">Read FAQ</a>
         </div>
     </section>
@@ -511,4 +528,30 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Deflation Index LLC. All rights reserved. | <a href="index.html">Home</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a> | <a href="methodology.html">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a></p>
- 
+    </footer>
+    
+    <!-- Scroll Animation Script -->
+    <script>
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('fade-in-section');
+                observer.observe(section);
+            });
+        });
+    </script>
+ </body>
+</html>
