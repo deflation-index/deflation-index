@@ -1,15 +1,14 @@
 # The Deflation Index
 ## Measuring where technological productivity flows
 
-Technology is the primary driver of human productivity. The Deflation Index tracks cost reductions in computing, communications, energy, and transportation, then compares them to monetary expansion and consumer price inflation.
+Technology is the primary driver of human productivity. The Deflation Index tracks cost reductions in computing, communications, energy, and transportation, then compares them to monetary expansion.
 
-**The gap between technological deflation and consumer prices reveals where productivity gains are captured—and where they're not.**
+**The gap between technological deflation and monetary expansion reveals where productivity gains are captured—and where they're not.**
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)](CHANGELOG.md)
 [![Data Points](https://img.shields.io/badge/data%20points-400%2B-green.svg)](#)
 [![Formulas](https://img.shields.io/badge/formulas-700%2B-green.svg)](#)
-[![Errors](https://img.shields.io/badge/errors-0-brightgreen.svg)](#)
 
 ---
 
@@ -17,9 +16,7 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 
 * **Technology deflation**: -96.26% cumulative (-9.21% annual average)
 * **M2 money supply growth**: +615% cumulative (+5.9% annual average)
-* **CPI inflation**: +155% cumulative (+2.7% annual average)
-* **The Abundance Gap**: 560 percentage points of captured wealth
-* **The Deflation Gap**: 251 percentage points of missing deflation
+* **The DI-M2 Gap**: 15.1 percentage points annually
 
 ---
 
@@ -33,7 +30,7 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 
 **Time Coverage**: 1990-2024 (35 years)
 **Data Points**: 400+ verified measurements
-**Formulas**: 700+ calculations, zero errors
+**Formulas**: 700+ calculations
 **Update Frequency**: Annual major updates, quarterly refinements
 
 
@@ -51,7 +48,7 @@ Technology is the primary driver of long-term productivity growth. This isn't id
 
 If technology sectors show exponential cost reductions, why don't consumer prices fall proportionally?
 
-The Deflation Index measures this divergence. We track cost-per-performance in four technology sectors, compare to M2 and CPI, and calculate the gap: **560 percentage points over 35 years.**
+The Deflation Index measures this divergence. We track cost-per-performance in four technology sectors, compare to M2, and calculate the gap: **15.1 percentage points annually.**
 
 **This gap represents captured productivity.** It went somewhere. This index exists to measure where.
 
@@ -148,10 +145,10 @@ We prioritize verifiable, reproducible data over comprehensive coverage. Better 
 
 ## 📐 Methodology Summary
 
-### The Master DI Formula
+### The DI Formula
 
 ```
-Master DI = (Computing × 0.2941) + (Communications × 0.2353) + (Energy × 0.2941) + (Transport × 0.1765)
+DI = (Computing × 0.2941) + (Communications × 0.2353) + (Energy × 0.2941) + (Transport × 0.1765)
 ```
 
 **Weight Justification**:
@@ -179,24 +176,17 @@ Full methodology documentation: [docs/methodology/](docs/methodology/)
 1. **Measure cost-per-performance** for each component ($/GFLOPS, $/GB, $/kWh)
 2. **Index to base year** (1990=100 for most components)
 3. **Combine components within sectors** using weighted averages and sector-specific weights
-4. **Calculate Master DI** from sector indices using formula above
-5. **Compare to M2 and CPI** to reveal gaps
+4. **Calculate DI** from sector indices using formula above
+5. **Compare to M2** to reveal the gap
 
-### The Gaps
+### The DI-M2 Gap
 
-**Deflation Gap (251pp cumulative, 8.4pp annual)**:
 ```
-Deflation Gap = |Tech Deflation| + CPI Inflation
-              = 96pp + 155pp = 251pp
+DI-M2 Gap = |DI Annual Rate| + M2 Annual Rate
+          = 9.21% + 5.9% = 15.1 percentage points annually
 ```
-Measures deflation that should have reached consumers but didn't.
 
-**Abundance Gap (560pp cumulative, 12.1pp annual)**:
-```
-Abundance Gap = |Tech Deflation| + M2 Expansion - CPI Inflation
-              = 96pp + 615pp - 155pp = 560pp
-```
-Measures total economic force captured rather than passed to consumers (includes monetary policy effects).
+This measures the annual divergence between technological deflation and monetary expansion. Over 35 years, this compounds dramatically—technology pushed costs down while money supply expansion pushed them up. The gap represents productivity gains that didn't reach consumers as lower prices.
 
 ---
 
@@ -207,15 +197,11 @@ All data comes from authoritative, publicly available sources:
 | Source | What We Use | Reliability |
 |--------|-------------|-------------|
 | **Federal Reserve (FRED)** | M2 money supply, CPI data | 100/100 (A+) |
-| **Bureau of Labor Statistics** | CPI components, historical pricing | 100/100 (A+) |
-| **IRENA** | Solar LCOE, renewable energy costs | 95/100 (A) |
-| **BloombergNEF** | Battery costs, EV economics | 95/100 (A) |
-| **AI Impacts** | Computing power costs (FLOPS) | 90/100 (A-) |
-| **DOE** | LED efficiency, transportation data | 95/100 (A) |
-| **FCC** | Broadband pricing, network costs | 90/100 (A-) |
-| **Backblaze** | Hard drive cost tracking | 85/100 (B+) |
-
-**Average source reliability**: 92/100 (A-grade)
+| **Bureau of Labor Statistics** | Consumer Price Index | 100/100 (A-) |
+| **IRENA** | Solar LCOE data | 95/100 (A) |
+| **BloombergNEF** | Battery cost data | 95/100 (A) |
+| **AI Impacts** | Computing cost data | 90/100 (A-) |
+| **ITU/FCC** | Communications cost data | 90/100 (A-) |
 
 Every data point includes source citations in Excel cell comments. Full source documentation: [docs/methodology/DATA_SOURCES.md](docs/methodology/DATA_SOURCES.md)
 
@@ -227,8 +213,8 @@ Every data point includes source citations in Excel cell comments. Full source d
 
 - **700+ formulas**: Every calculation is formula-driven in Excel
 - **400+ data points**: Comprehensive coverage across 35 years
-- **0 errors**: All formulas verified, no broken links or circular references
 - **100% sourced**: Every data point has source citation in cell comments
+- **Fully reproducible**: Download the Excel files and verify every calculation
 
 ### Quality Grading System
 
@@ -252,7 +238,7 @@ Every Excel file includes:
 
 ### v3.0.1 Rebuild (December 2025)
 
-This version represents a complete rebuild of the Master Deflation Index:
+This version represents a complete rebuild of the Deflation Index:
 - All calculations now use formulas (previously hard-coded values)
 - Weights referenced from single source for consistency
 - 4-decimal precision (weights sum to exactly 1.0000)
@@ -306,7 +292,7 @@ We welcome formal peer review from:
 ### v3.0.1 (Current - December 2025)
 - ✅ Four sectors: Computing, Communications, Energy, Transportation
 - ✅ 35 years of data (1990-2024)
-- ✅ 700+ verified formulas, 0 errors
+- ✅ 700+ verified formulas
 - ✅ Complete methodology documentation
 - ✅ Formula-based calculations (fully reproducible)
 - ✅ 4-decimal weight precision
@@ -395,7 +381,7 @@ Contact for early access or partnerships.
 
 ## 📞 Contact
 
-- **Website**: [deflationindex.com](https://deflationindex.com) (launching 2026)
+- **Website**: [deflationindex.com](https://deflationindex.com)
 - **Email**: contact@deflationindex.com
 - **Research inquiries**: research@deflationindex.com
 - **GitHub Issues**: [Technical discussions](https://github.com/deflation-index/deflation-index/issues)

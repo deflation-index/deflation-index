@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Methodology | The Deflation Index</title>
-    <meta name="description" content="How the Deflation Index is calculated - methodology, data sources, sector weights, and quality standards.">
+    <title>Methodology & Data | The Deflation Index</title>
+    <meta name="description" content="How the Deflation Index is calculated - methodology, data sources, sector weights, downloads, and quality standards.">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deflationindex.com/methodology.html">
-    <meta property="og:title" content="Methodology | The Deflation Index">
-    <meta property="og:description" content="Complete methodology: 4 sectors, normalized weights, 700+ formulas verified, 400+ data points, zero errors.">
+    <meta property="og:title" content="Methodology & Data | The Deflation Index">
+    <meta property="og:description" content="Complete methodology and data downloads: 4 sectors, normalized weights, 700+ formulas verified, 400+ data points.">
     <meta property="og:image" content="https://deflationindex.com/og-image.png">
     
     <!-- Performance -->
@@ -26,7 +26,7 @@
             --black: #000000;
             --soft-black: #121212;
             --white: #FFFFFF;
-            --red: #FF0000;
+            --cyan: #00CED1;
             --gold: #FFD700;
             --muted-gold: #E5C100;
             --gray: #333333;
@@ -78,22 +78,93 @@
             letter-spacing: -1px;
         }
         
-        .nav-links {
+        .nav-controls {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
         
-        .nav-links a {
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
             color: var(--light-gray);
-            text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             transition: color 0.3s ease;
         }
         
-        .nav-links a:hover {
-            color: var(--gold);
+        .theme-toggle:hover { color: var(--gold); }
+        
+        .hamburger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1002;
         }
+        
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        
+        .menu-overlay nav {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .menu-overlay a {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.8rem;
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .menu-overlay a:hover { color: var(--gold); }
+        
+        body.light-mode {
+            --bg-dark: #F5F5F5;
+            --soft-black: #FFFFFF;
+            --light-gray: #333333;
+            --white: #000000;
+        }
+        
+        body.light-mode .nav { background: rgba(245, 245, 245, 0.95); }
+        body.light-mode .menu-overlay { background: rgba(245, 245, 245, 0.98); }
+        body.light-mode .hero { background: linear-gradient(180deg, #E8E8E8 0%, #F5F5F5 100%); }
+        body.light-mode section { background: #FFFFFF; }
+        
+        .nav-links { display: none; }
         
         /* Hero Section */
         .hero {
@@ -306,13 +377,13 @@
         /* Highlight Box */
         .highlight-box {
             background: rgba(255, 0, 0, 0.05);
-            border: 2px solid var(--red);
+            border: 2px solid var(--cyan);
             padding: 2rem;
             margin: 2rem 0;
         }
         
         .highlight-box h3 {
-            color: var(--red);
+            color: var(--cyan);
             margin-top: 0;
         }
         
@@ -388,6 +459,159 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Variants Section */
+        .variants {
+            background: var(--black);
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        .variants-toggle {
+            cursor: pointer;
+            padding: 1.5rem;
+            background: rgba(255, 215, 0, 0.05);
+            border: 2px solid var(--gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+        
+        .variants-toggle:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        .variants-toggle h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .toggle-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .variants-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .variants-content.active {
+            max-height: 3000px;
+        }
+        
+        .variants-toggle.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .variant-intro {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 215, 0, 0.05);
+            border-left: 4px solid var(--gold);
+        }
+        
+        .variant-card {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--gray);
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+        
+        .variant-card:hover {
+            border-color: var(--gold);
+            background: rgba(255, 215, 0, 0.03);
+        }
+        
+        .variant-card h4 {
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .variant-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--gold);
+            color: var(--black);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 1rem;
+        }
+        
+        .variant-card p {
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+        
+        .variant-stats {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .variant-stats strong {
+            color: var(--gold);
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .sensitivity-table {
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .sector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .sector-card {
+            padding: 1.5rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid var(--gray);
+            transition: all 0.3s ease;
+        }
+        
+        .sector-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .sector-card h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -395,19 +619,34 @@
     <nav class="nav">
         <div class="nav-content">
             <a href="index.html" class="nav-logo">THE DEFLATION INDEX</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="faq.html">FAQ</a>
-                <a href="about.html">About</a>
+            <div class="nav-controls">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <span class="theme-icon">☀️</span>
+                </button>
+                <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
     
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <nav>
+            <a href="about.html" onclick="toggleMenu()">About Us</a>
+            <a href="methodology.html" onclick="toggleMenu()">Methodology / Data</a>
+            <a href="collaborate.html" onclick="toggleMenu()">Collaborate</a>
+            <a href="products.html" onclick="toggleMenu()">Our Products</a>
+        </nav>
+    </div>
+    
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Methodology</h1>
+        <h1>Methodology & Data</h1>
         <p class="hero-subtitle">
-            How the Deflation Index is calculated: sector weights, data sources, formulas, and quality standards.
+            How the Deflation Index is calculated, plus complete data downloads and alternative weighting methodologies.
         </p>
     </section>
     
@@ -417,10 +656,10 @@
         
         <p>The Deflation Index tracks technological cost reductions across four fundamental sectors: computing, communications, energy, and transportation. Each sector is measured using cost-per-performance metrics that capture the true force of technological progress.</p>
         
-        <p><strong>The Master DI</strong> is a weighted geometric mean of these four sector indices, showing how technological deflation compounds over time.</p>
+        <p><strong>The DI</strong> is a weighted geometric mean of these four sector indices, showing how technological deflation compounds over time.</p>
         
         <div class="formula-box">
-            Master DI = Computing^0.294 × Communications^0.235 × Energy^0.294 × Transport^0.176
+            DI = Computing^0.294 × Communications^0.235 × Energy^0.294 × Transport^0.176
         </div>
         
         <p><strong>Why geometric mean?</strong> Technological improvements multiply (compound), they don't add. A geometric mean properly captures this multiplicative relationship.</p>
@@ -513,8 +752,8 @@
         <h3>Step 3: Weight Components Within Sectors</h3>
         <p>Multiple components within each sector are combined using geometric means and their respective weights. For example, Computing = (GFLOPS^0.60 × Storage^0.30 × RAM^0.10).</p>
         
-        <h3>Step 4: Combine Sectors Into Master DI</h3>
-        <p>The four sector indices are combined using the Master DI formula shown above, producing a single comprehensive measure of technological deflation.</p>
+        <h3>Step 4: Combine Sectors Into DI</h3>
+        <p>The four sector indices are combined using the DI formula shown above, producing a single comprehensive measure of technological deflation.</p>
         
         <h3>Sector Weight Justification</h3>
 
@@ -555,46 +794,40 @@
             <tbody>
                 <tr style="background: rgba(255, 215, 0, 0.1);">
                     <td><strong>Current (Multi-Factor)</strong></td>
-                    <td><strong>-5.2%</strong></td>
-                    <td><strong>-84.3%</strong></td>
+                    <td><strong>-9.21%</strong></td>
+                    <td><strong>-96.26%</strong></td>
                     <td><strong>Baseline</strong></td>
                 </tr>
                 <tr>
                     <td>Equal Weights (25% each)</td>
-                    <td>-5.8%</td>
-                    <td>-87.2%</td>
+                    <td>-9.0%</td>
+                    <td>-95.8%</td>
                     <td>+12% higher</td>
                 </tr>
                 <tr>
                     <td>GDP-Weighted</td>
-                    <td>-4.9%</td>
-                    <td>-80.7%</td>
-                    <td>-4% lower</td>
+                    <td>-8.3%</td>
+                    <td>-94.2%</td>
+                    <td>+55% higher</td>
                 </tr>
                 <tr>
                     <td>Expenditure-Weighted</td>
-                    <td>-5.5%</td>
-                    <td>-85.9%</td>
-                    <td>+2% higher</td>
-                </tr>
-                <tr>
-                    <td>Deflation-Force Weighted</td>
-                    <td>-6.4%</td>
-                    <td>-91.8%</td>
-                    <td>+9% higher</td>
+                    <td>-8.8%</td>
+                    <td>-95.5%</td>
+                    <td>+20% higher</td>
                 </tr>
             </tbody>
         </table>
         </div>
 
-        <p><strong>Result</strong>: ±15% variation across methods. The core finding—massive technological deflation—holds regardless of weighting choice. Our current method is conservative (lower-middle of range).</p>
+        <p><strong>Result</strong>: All variants show substantial technological deflation (-94% to -96% cumulative). The core finding holds regardless of weighting choice.</p>
 
         <p><strong>Detailed analysis</strong>: See <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">Weight Justification document</a> for complete methodology, derivations, and comparisons to alternative approaches.</p>
 
         <p><strong>v4.0 Plan</strong>: When healthcare, education, and housing sectors are added (2027-2028), we'll switch to expenditure-weighting as primary method while keeping current multi-factor approach as alternative for comparison.</p>
         
         <h3>Step 5: Calculate Annual Rates</h3>
-        <p>Year-over-year percentage changes show the annual deflation rate. The average annual rate (1990-2024) is -5.2%.</p>
+        <p>Year-over-year percentage changes show the annual deflation rate. The average annual rate (1990-2024) is -9.21%.</p>
     </section>
     
     <!-- Data Sources -->
@@ -658,6 +891,183 @@
         </div>
         
         <p style="margin-top: 1.5rem;"><strong>Average source reliability:</strong> 92/100 (A-grade). We prioritize government agencies, international organizations, and industry leaders with transparent methodologies.</p>
+    </section>
+    
+    <!-- Downloads -->
+    <section>
+        <h2>Download the Data</h2>
+        
+        <p style="margin-bottom: 2rem;">All data is open and free. Download the Excel files, verify every formula, and build your own analysis.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div style="background: rgba(255, 215, 0, 0.05); border: 2px solid var(--gold); padding: 2rem; text-align: center;">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Complete Dataset</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">DI v3.0.1 with all sectors, M2, and gap analysis</p>
+                <a href="data/excel/master_deflation_index_v3.0.1.xlsx" download style="display: inline-block; background: var(--gold); color: var(--black); padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">Download Excel</a>
+            </div>
+            
+            <div style="background: rgba(0, 206, 209, 0.05); border: 2px solid var(--cyan); padding: 2rem; text-align: center;">
+                <h3 style="color: var(--cyan); margin-bottom: 1rem;">GitHub Repository</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">All source data, scripts, and documentation</p>
+                <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="display: inline-block; background: var(--cyan); color: var(--black); padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Alternative Methodologies -->
+    <section class="variants">
+        <div class="variants-toggle" onclick="toggleVariants()">
+            <h3>Advanced: Alternative Weighting Methodologies</h3>
+            <span class="toggle-icon">▼</span>
+        </div>
+        
+        <div class="variants-content" id="variants-content">
+            <div class="variant-intro">
+                <p><strong>Why provide variants?</strong> To demonstrate the robustness of our findings across different methodological approaches. All variants use the same source data and sector indices—only the weights differ.</p>
+            </div>
+            
+            <!-- Variant 1: Multi-Factor -->
+            <div class="variant-card">
+                <h4>1. Multi-Factor Weighting <span class="variant-badge">Primary</span></h4>
+                <p><strong>Methodology:</strong> Balances three factors: GDP contribution, enabling effect (how much other sectors depend on it), and deflationary force (magnitude of cost reductions).</p>
+                
+                <p><strong>Weights:</strong> Computing 29.4% • Communications 23.5% • Energy 29.4% • Transportation 17.6%</p>
+                
+                <div class="variant-stats">
+                    <strong>Result:</strong> 96.26% cumulative deflation | 2024 DI: 3.74 | Annual avg: -9.21%
+                </div>
+                
+                <p><strong>Use case:</strong> Recommended default. Most comprehensive approach accounting for both direct and indirect economic impact.</p>
+                
+                <a href="data/excel/master_deflation_index_v3.0.1.xlsx" class="download-btn" download>Download Primary</a>
+            </div>
+            
+            <!-- Variant 2: Equal -->
+            <div class="variant-card">
+                <h4>2. Equal-Weighted</h4>
+                <p><strong>Methodology:</strong> Simple equal weighting across all sectors with no assumptions about relative importance.</p>
+                
+                <p><strong>Weights:</strong> Computing 25% • Communications 25% • Energy 25% • Transportation 25%</p>
+                
+                <div class="variant-stats">
+                    <strong>Result:</strong> ~95.8% cumulative deflation | 2024 DI: ~4.2 | Annual avg: ~-9.0%
+                </div>
+                
+                <p><strong>Use case:</strong> Simple baseline, conservative estimate, easy to explain and defend.</p>
+                
+                <a href="data/excel/master_deflation_index_v3.0.1_EQUAL.xlsx" class="download-btn" download>Download Equal-Weighted</a>
+            </div>
+            
+            <!-- Variant 3: Expenditure -->
+            <div class="variant-card">
+                <h4>3. Expenditure-Weighted</h4>
+                <p><strong>Methodology:</strong> Weighted by household and business expenditure patterns—where money is actually spent.</p>
+                
+                <p><strong>Weights:</strong> Computing 25% • Communications 20% • Energy 30% • Transportation 25%</p>
+                
+                <div class="variant-stats">
+                    <strong>Result:</strong> ~95.5% cumulative deflation | 2024 DI: ~4.5 | Annual avg: ~-8.8%
+                </div>
+                
+                <p><strong>Use case:</strong> Consumer-centric perspective, "where did my money go?" analysis, policy discussions.</p>
+                
+                <a href="data/excel/master_deflation_index_v3.0.1_EXPENDITURE.xlsx" class="download-btn" download>Download Expenditure-Weighted</a>
+            </div>
+            
+            <!-- Variant 4: GDP -->
+            <div class="variant-card">
+                <h4>4. GDP-Weighted</h4>
+                <p><strong>Methodology:</strong> Weighted by direct GDP contribution—traditional economic weighting.</p>
+                
+                <p><strong>Weights:</strong> Computing 20% • Communications 15% • Energy 40% • Transportation 25%</p>
+                
+                <div class="variant-stats">
+                    <strong>Result:</strong> ~94.2% cumulative deflation | 2024 DI: ~5.8 | Annual avg: ~-8.3%
+                </div>
+                
+                <p><strong>Use case:</strong> Macro-economic analysis, GDP impact studies, conservative estimate.</p>
+                
+                <a href="data/excel/master_deflation_index_v3.0.1_GDP.xlsx" class="download-btn" download>Download GDP-Weighted</a>
+            </div>
+            
+            <!-- Sensitivity Analysis -->
+            <h3 style="margin-top: 3rem; color: var(--gold);">Sensitivity Analysis Summary</h3>
+            
+            <div class="sensitivity-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variant</th>
+                            <th>2024 DI</th>
+                            <th>Cumulative</th>
+                            <th>Annual Avg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Multi-Factor (Primary)</strong></td>
+                            <td>3.74</td>
+                            <td>-96.26%</td>
+                            <td>-9.21%</td>
+                        </tr>
+                        <tr>
+                            <td>Equal-Weighted</td>
+                            <td>~4.2</td>
+                            <td>~-95.8%</td>
+                            <td>~-9.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Expenditure-Weighted</td>
+                            <td>~4.5</td>
+                            <td>~-95.5%</td>
+                            <td>~-8.8%</td>
+                        </tr>
+                        <tr>
+                            <td>GDP-Weighted</td>
+                            <td>~5.8</td>
+                            <td>~-94.2%</td>
+                            <td>~-8.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 215, 0, 0.05); border-left: 4px solid var(--gold);">
+                <strong>Key Finding:</strong> All variants show substantial technological deflation (94-96% cumulative). The core finding is robust across all methodologies. Choice of weights affects magnitude but not direction.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Sector Downloads -->
+    <section>
+        <h2>Individual Sector Data</h2>
+        <p style="margin-bottom: 2rem;">Download sector-specific indices with detailed calculations and source data.</p>
+        
+        <div class="sector-grid">
+            <div class="sector-card">
+                <h4>Computing</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Performance-adjusted price index</p>
+                <a href="data/excel/computing_deflation_index_v1.0.xlsx" class="download-btn" download>Download</a>
+            </div>
+            
+            <div class="sector-card">
+                <h4>Communications</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Data transmission cost index</p>
+                <a href="data/excel/communications_deflation_index_v1.0.xlsx" class="download-btn" download>Download</a>
+            </div>
+            
+            <div class="sector-card">
+                <h4>Energy</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Solar + LED cost index</p>
+                <a href="data/excel/energy_deflation_index_v1.0.xlsx" class="download-btn" download>Download</a>
+            </div>
+            
+            <div class="sector-card">
+                <h4>Transportation</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Battery cost index</p>
+                <a href="data/excel/transportation_deflation_index_v1.0.xlsx" class="download-btn" download>Download</a>
+            </div>
+        </div>
     </section>
     
     <!-- Quality Standards -->
@@ -790,33 +1200,31 @@
         </div>
     </section>
     
-    <!-- The Gaps -->
-    <section style="background: var(--black); border-top: 3px solid var(--red); border-bottom: 3px solid var(--red); padding: 4rem 2rem;">
-        <h2>Gap Analysis: Deflation vs. Consumer Experience</h2>
+    <!-- The Gap -->
+    <section style="background: var(--black); border-top: 3px solid var(--cyan); border-bottom: 3px solid var(--cyan); padding: 4rem 2rem;">
+        <h2>The DI-M2 Gap</h2>
         
-        <p>We measure two related gaps that reveal how technological gains flow through the economy:</p>
+        <p>The core measurement reveals a systematic divergence between two opposing forces:</p>
         
-        <h3>The Deflation Gap (239pp cumulative, 7.8pp annual)</h3>
-        <p><strong>What it measures:</strong> Deflation that should have reached consumers but didn't.</p>
+        <h3>Annual Gap: 15.1 Percentage Points</h3>
         <div class="formula-box">
-            Deflation Gap = |Tech Deflation| + CPI Inflation<br>
-            = 84pp + 155pp = 239pp
+            DI-M2 Gap = |Tech Deflation Rate| + M2 Expansion Rate<br>
+            = 9.21% + 5.9% = 15.1pp annually
         </div>
-        <p>Technology delivered 84% deflation. Consumer prices rose 155% instead. The 239 percentage point gap represents deflation not reflected in consumer prices.</p>
+        <p>Technology delivered 9.21% annual deflation across the four sectors. Meanwhile, the money supply expanded 5.9% annually. These opposing forces create a 15.1 percentage point gap every year.</p>
         
-        <h3>The Abundance Gap (545pp cumulative)</h3>
-        <p><strong>What it measures:</strong> Total economic force that accrued elsewhere rather than reducing consumer prices.</p>
+        <h3>Cumulative Divergence (1990-2024)</h3>
         <div class="formula-box">
-            Abundance Gap = |Tech Deflation| + M2 Expansion - CPI Inflation<br>
-            = 84pp + 615pp - 155pp = 545pp
+            DI: 100 → 3.74 (96.26% deflation)<br>
+            M2: 100 → 820.8 (615% expansion)
         </div>
-        <p>This represents the full divergence: technology delivered deflationary force (84pp), monetary expansion created inflationary pressure (615pp), consumer prices rose 155pp. The 545pp gap represents economic gains that accrued to asset holders, increased in system complexity costs, and accumulated in corporate profit margins.</p>
+        <p>Over 35 years, this annual gap compounds into massive divergence. Technology made these sectors 96% cheaper while the money supply expanded 615%. The question: where does the productivity go?</p>
         
-        <p style="margin-top: 2rem;"><strong>Both gaps are valid</strong> and tell complementary stories. The Deflation Gap focuses on consumer experience. The Abundance Gap includes the full monetary context.</p>
+        <p style="margin-top: 2rem;"><strong>The answer:</strong> Into asset prices, corporate profits, financial complexity, and system overhead—not into lower prices for consumers.</p>
     </section>
     
     <!-- Known Limitations Section -->
-    <section id="limitations" style="background: rgba(255, 0, 0, 0.03); border-top: 3px solid var(--red); border-bottom: 3px solid var(--red); padding: 4rem 2rem;">
+    <section id="limitations" style="background: rgba(255, 0, 0, 0.03); border-top: 3px solid var(--cyan); border-bottom: 3px solid var(--cyan); padding: 4rem 2rem;">
         <h2>Known Limitations & Future Improvements</h2>
         
         <p><strong>We're transparent about where the Deflation Index is currently limited.</strong> Better to acknowledge constraints openly than to overstate capabilities.</p>
@@ -889,7 +1297,7 @@
         <h3>Our Commitment to Transparency</h3>
         
         <div class="highlight-box" style="margin-top: 2rem;">
-            <p><strong>These limitations don't invalidate the core finding</strong>: massive technological deflation occurred (-84.3% cumulative) while consumer prices rose (+155%). The gap (545pp) exists regardless of methodological choices.</p>
+            <p><strong>These limitations don't invalidate the core finding</strong>: massive technological deflation occurred (-96.26% cumulative) while consumer prices rose (+155%). This divergence exists regardless of methodological choices.</p>
             
             <p style="margin-top: 1rem;"><strong>What changes with better methodology</strong>: The <em>precise magnitude</em> of the gap. Not whether it exists.</p>
             
@@ -915,16 +1323,54 @@
     
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Deflation Index LLC. All rights reserved. | <a href="index.html">Home</a> | <a href="data.html">Data</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a> | <a href="methodology.html">Methodology</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a></p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">Built to measure the force of technological progress and track where the abundance goes.</p>
-        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1rem;">
-            Programmatic access? We're exploring API options for 2025. 
-            <a href="mailto:api@deflationindex.com?subject=API Interest">Let us know your use case</a>.
+        <p>&copy; 2025 Deflation Index LLC. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="faq.html">FAQ</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a>
         </p>
     </footer>
     
-    <!-- Scroll Animation Script -->
+    <!-- Menu and Theme Scripts -->
     <script>
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const menuOverlay = document.getElementById('menuOverlay');
+            hamburger.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-icon');
+            body.classList.toggle('light-mode');
+            themeIcon.textContent = body.classList.contains('light-mode') ? '🌙' : '☀️';
+            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+        
+        function toggleVariants() {
+            const content = document.getElementById('variants-content');
+            const toggle = document.querySelector('.variants-toggle');
+            content.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.querySelector('.theme-icon');
+            if (!savedTheme) {
+                if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.body.classList.add('light-mode');
+                    themeIcon.textContent = '🌙';
+                }
+            } else if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeIcon.textContent = '🌙';
+            }
+        });
+    </script>
+    
+    <!-- Scroll Animation Script -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const observerOptions = {
             threshold: 0.15,
             rootMargin: '0px 0px -100px 0px'
@@ -940,11 +1386,4 @@
         
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.add('fade-in-section');
-                observer.observe(section);
-            });
-        });
-    </script>
-</body>
-</html>
+            sections.forEac
