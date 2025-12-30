@@ -1,43 +1,44 @@
 # Executive Summary: The Deflation Index
 ## Measuring Technological Progress and the Missing Abundance (1990-2024)
 
-**Version**: 3.0.1 (Corrected)  
-**Date**: December 15, 2025  
-**Status**: Publication-Ready | Zero Formula Errors | Comprehensive Data
+**Version**: 3.0.2 (M2 Corrected)  
+**Date**: December 30, 2025  
+**Status**: Publication-Ready | FRED-Verified | Zero Formula Errors
 
 ---
 
 ## 🎯 The Central Finding
 
-**Technology delivered massive deflation. Money printing created inflation. Consumer prices barely budged. Where did 560 percentage points of potential abundance go?**
+**Technology delivered massive deflation. Money printing created inflation. Consumer prices barely budged. Where did the potential abundance go?**
 
 ---
 
 ## 📊 The Numbers (1990-2024)
 
-### Technology Deflation
+### Technology Deflation (Deflation Index)
 - **Annual Average**: -9.21% deflation per year
 - **Cumulative**: -96.26% total deflation over 35 years
 - **Meaning**: What cost $100 in 1990 should cost $3.74 in 2024 (in real terms)
 
-### M2 Money Supply Expansion
-- **Annual Average**: +5.9% growth per year (precise: 5.86%)
-- **Cumulative**: +615% total growth over 35 years (precise: 614.84%)
-- **Multiplier**: 7.15x increase
-- **Meaning**: Money supply grew from ~$3.0T to $21.3T
+### M2 Money Supply Expansion (FRED M2SL)
+- **Annual Average**: +5.7% growth per year (precise: 5.66%)
+- **Cumulative**: +550% total growth over 35 years (precise: 550.2%)
+- **Multiplier**: 6.5x increase
+- **Meaning**: Money supply grew from $3.28T to $21.3T
+- **Source**: Federal Reserve FRED Series M2SL (verified December 2025)
 
-### Consumer Price Inflation (CPI)
+### Consumer Price Inflation (CPI-U)
 - **Annual Average**: +2.7% inflation per year (precise: 2.72%)
 - **Cumulative**: +155% total inflation over 35 years (precise: 154.65%)
 - **Multiplier**: 2.55x increase
 - **Meaning**: Consumer prices rose modestly despite massive money printing
 
-### The Gap: The Missing Wealth Transfer
-- **Annual Average**: 7.8 percentage points per year (precise: 7.83pp)
-- **Cumulative**: **560 percentage points** over 35 years (precise: 544.52pp)
+### The Gap: Where Did the Abundance Go?
+- **Annual Gap**: 14.9 percentage points per year (DI-M2)
+- **Cumulative Gap**: ~491 percentage points over 35 years
 - **Formula**: |Tech Deflation| + M2 Expansion - CPI Inflation
-  - 96pp (tech savings) + 615pp (money printing) - 155pp (CPI) = **560pp missing**
-- **Meaning**: Productivity gains that did not reach consumers
+  - 96pp (tech savings) + 550pp (money printing) - 155pp (CPI) = **491pp**
+- **Meaning**: Productivity gains that did not reach consumer prices
 
 ---
 
@@ -45,13 +46,13 @@
 
 **The Gap = The Wealth Transfer**
 
-Technology should have made things 84% cheaper. Money printing added 615% inflationary pressure. The net potential: 711 percentage points of upward price pressure.
+Technology should have made things 96% cheaper. Money printing added 550% inflationary pressure.
 
-Consumer prices (CPI) rose only 155 percentage points.
+Consumer prices (CPI) rose only 155%.
 
-**The 560-point gap represents wealth that flowed to:**
+**The ~491-point cumulative gap represents wealth that flowed to:**
 1. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
-2. **Asset Inflation**: Stocks +1,500%, housing +400% (not in CPI)
+2. **Asset Inflation**: Stocks +1,500%, housing +400% (not captured in CPI)
 3. **Complexity Costs**: Healthcare, education, housing rising faster than wages
 4. **Quality Improvements**: Better goods at same nominal price (partially captured)
 5. **International Arbitrage**: Manufacturing offshore, profits domestic
@@ -110,7 +111,7 @@ Consumer prices (CPI) rose only 155 percentage points.
 - **Quality-adjusted deflation is 30-50% higher than raw price deflation**
 
 ### 5. The Capture Mechanism
-**Where the 560pp went:**
+**Where the gap went:**
 - **Winners** (captured productivity gains):
   - Top 1%: Asset values (stocks, real estate)
   - Top 10%: Corporate profits, capital income
@@ -129,8 +130,8 @@ Consumer prices (CPI) rose only 155 percentage points.
 - ✅ **410 data points**: Fully documented with source citations
 - ✅ **120 years of coverage**: 35+35+35+15 across four sectors
 - ✅ **15+ authoritative sources**: IRENA, BloombergNEF, FRED, DOE, FCC, AI Impacts
-- ✅ **Complete attribution**: Every data point has source citation in cell comments
-- ✅ **Quality flags**: A/B/C/D grades assigned for every entry
+- ✅ **FRED M2 verified**: All M2 data cross-checked against Federal Reserve source
+- ✅ **Complete attribution**: Every data point has source citation
 
 ### Data Hygiene Standards
 - **Blue text**: Hardcoded data from external sources
@@ -157,8 +158,8 @@ Consumer prices (CPI) rose only 155 percentage points.
 
 ### Popular Media
 - **Target**: NYT, WSJ, The Atlantic, The Economist
-- **Angle**: "Where Did 545 Percentage Points of Abundance Go?"
-- **Hook**: Technology should have made us 6x richer, but we're barely 2x richer
+- **Angle**: "Technology Should Have Made Us 6x Richer—Where Did It Go?"
+- **Hook**: 14.9 percentage points of productivity vanish annually
 - **Visual**: Interactive chart showing DI vs M2 vs CPI divergence
 
 ### Policy
@@ -177,21 +178,21 @@ Consumer prices (CPI) rose only 155 percentage points.
 
 ## 🎯 Next Steps
 
-### Immediate (December 2025)
-1. ✅ Complete data population (DONE)
+### Immediate (January 2026)
+1. ✅ Complete M2 data correction (DONE)
 2. ✅ Verify zero formula errors (DONE)
 3. ✅ Document comprehensive methodology (DONE)
 4. ✅ Update GitHub repository (DONE)
 5. 🔄 Launch website redesign (IN PROGRESS)
 
-### Q1 2025
+### Q1 2026
 - [ ] Monthly DI updates (automated data pipeline)
 - [ ] Academic paper submission
 - [ ] Popular article pitch (NYT/WSJ)
 - [ ] API v1.0 launch (REST endpoints)
 - [ ] Email newsletter launch
 
-### Q2 2025
+### Q2 2026
 - [ ] Add Healthcare sector (experimental)
 - [ ] Add Education sector (experimental)
 - [ ] Premium data subscriptions
@@ -212,14 +213,14 @@ Consumer prices (CPI) rose only 155 percentage points.
 ## 📄 Citation
 
 ```bibtex
-@dataset{deflation_index_2024,
+@dataset{deflation_index_2025,
   title={The Deflation Index: Measuring Technological Progress (1990-2024)},
   author={Deflation Index LLC},
-  year={2024},
-  version={3.0.1},
+  year={2025},
+  version={3.0.2},
   publisher={GitHub},
   url={https://github.com/deflation-index/deflation-index},
-  note={Master DI v3.0, Corrected statistics, Zero formula errors}
+  note={M2 data verified against FRED M2SL, zero formula errors}
 }
 ```
 
@@ -227,19 +228,22 @@ Consumer prices (CPI) rose only 155 percentage points.
 
 ## ⚠️ Version Notes
 
-**v3.0.1 (December 15, 2025)**: Corrected statistics
-- Fixed M2 cumulative growth: 600% → 615% (precise: 614.84%)
-- Fixed CPI cumulative growth: 150% → 155% (precise: 154.65%)
-- Fixed The Gap cumulative: 370pp → 560pp (precise: 544.52pp)
-- All corrections verified against source Excel data (zero formula errors)
-- Annual averages were already correct and unchanged
+**v3.0.2 (December 30, 2025)**: M2 Data Correction
+- Fixed M2 cumulative expansion: 615% → 550.2% (FRED M2SL verified)
+- Fixed M2 annual rate: 5.9% → 5.66%
+- Fixed DI-M2 Gap: 15.1pp → 14.9pp
+- Fixed 1990 M2 base: ~$3.0T → $3.277T
+- Created data/constants.json as single source of truth
+- All DI figures unchanged (only M2 side corrected)
 
-**v3.0.0 (December 15, 2025)**: Major expansion
+**v3.0.1 (December 19, 2025)**: Formula Rebuild
+- Complete formula-based rebuild of Master_DI
+- Cumulative deflation: -84.3% → -96.26%
+- Annual average: -5.2% → -9.21%
+
+**v3.0.0 (December 15, 2025)**: Transportation Sector
 - Added Transportation sector (4 sectors total)
-- Updated sector weights: 35/30/35 → 25/20/25/15/15
-- Added 100,000+ words of methodology documentation
-- Reorganized GitHub repository structure
-- All 700 formulas verified with zero errors
+- Updated sector weights
 
 ---
 

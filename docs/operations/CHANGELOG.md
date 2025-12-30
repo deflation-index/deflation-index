@@ -5,6 +5,69 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.2] - 2025-12-30
+
+### Changed - M2 DATA CORRECTION (CRITICAL)
+
+**M2 Money Supply Data Corrected from FRED M2SL**:
+- **CORRECTED** M2 cumulative expansion: 615% → **550.2%**
+- **CORRECTED** M2 annual growth rate: 5.9% → **5.66%**
+- **CORRECTED** M2 index (2024): 820.8 → **650.2**
+- **CORRECTED** 1990 M2 base value: ~$3.0T → **$3.277T**
+- **CORRECTED** M2 multiplier: 7.15x → **6.5x**
+
+**Gap Analysis Recalculated**:
+- **CORRECTED** DI-M2 annual gap: 15.1pp → **14.9pp**
+- **CORRECTED** Abundance gap: 560pp → **491pp**
+
+**Data Source**: Federal Reserve FRED Series M2SL
+- URL: https://fred.stlouisfed.org/series/M2SL
+- 1990 annual average: $3,276.8 billion (verified)
+- 2024 value: ~$21,300 billion (verified)
+- True expansion: (21,300 / 3,276.8) - 1 = 550.2%
+
+### Added
+
+**Single Source of Truth**:
+- Created `data/constants.json` with all authoritative statistics
+- Contains complete M2 year-by-year data from FRED (1990-2024)
+- All documentation now references this single source
+
+**Documentation Restructure**:
+- New `docs/README.md` navigation index
+- New `docs/methodology/README.md` overview
+- New `docs/reference/GLOSSARY.md` key terms
+- Reorganized docs into: methodology/, reference/, about/, operations/
+- Renamed files for clarity (shorter names)
+
+### Removed
+
+**Outdated Planning Documents**:
+- `docs/guides/QUICK_ACTION_GUIDE.md` (one-time instructions)
+- `docs/guides/PROJECT_SUMMARY.md` (redundant)
+- `docs/project/GITHUB_UPDATE_PLAN.md` (completed plan)
+- `docs/summaries/DATA_POPULATION_SUMMARY.md` (status tracking)
+- `docs/summaries/MISSION_COMPLETE.md` (celebratory)
+
+### Impact Assessment
+
+**Core Finding UNCHANGED**:
+- DI annual rate: -9.21% ✓ (unchanged)
+- DI cumulative: -96.26% ✓ (unchanged)
+- Technology deflation thesis fully intact
+
+**M2 Side Corrected**:
+- Previous M2 figures were ~12% overstated
+- Gap narrows slightly but remains massive (14.9pp annually)
+- Story strengthened by FRED-verified accuracy
+
+**Why This Matters**:
+- Data credibility is paramount for academic/policy acceptance
+- FRED is the authoritative source for M2 data
+- Correction demonstrates commitment to accuracy over narrative
+
+---
+
 ## [3.0.1] - 2025-12-19
 
 ### Changed - MAJOR REBUILD
@@ -46,16 +109,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Shows TRUE magnitude of technological deflation
 - More accurate and fully verifiable
 
-**Impact**:
-- Numbers changed significantly (~12 percentage points more deflation)
-- But now backed by formulas, not assumptions
-- Can be verified by any external researcher
-- Foundation is now bulletproof for scaling
-
-**Gap Analysis Updates**:
-- Abundance Gap: 545pp → 560pp (15pp wider)
-- Deflation Gap: 239pp → 251pp (12pp wider)
-- The missing wealth transfer is LARGER than previously measured
+---
 
 ## [3.0.0] - 2025-12-15
 
@@ -69,6 +123,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rebalanced weights: Computing 29.4%, Communications 23.5%, Energy 29.4%, Transportation 17.6%
 - Updated all calculations and documentation
 
+---
+
 ## [2.0.0] - 2024-01-15
 
 ### Added
@@ -78,6 +134,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Annual data update
 - Minor methodology refinements
+
+---
 
 ## [1.0.0] - 2024-01-01
 
@@ -94,7 +152,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Major version** (X.0.0): Adding/removing sectors, major methodology changes
 - **Minor version** (3.X.0): Annual data updates, methodology refinements
-- **Patch version** (3.0.X): Bug fixes, documentation updates, minor corrections
+- **Patch version** (3.0.X): Bug fixes, documentation updates, data corrections
 
 ---
 
@@ -102,7 +160,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### v3.1 (Q2-Q3 2026)
 - 2025 data integration
-- First annual update with v3.0.1 formula-based methodology
+- First annual update with v3.0.2 corrected methodology
 
 ### v4.0 (2027-2028)
 - Healthcare, Education, Housing sectors

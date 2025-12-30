@@ -15,8 +15,8 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 ## 📊 Key Findings (1990-2024)
 
 * **Technology deflation**: -96.26% cumulative (-9.21% annual average)
-* **M2 money supply growth**: +615% cumulative (+5.9% annual average)
-* **The DI-M2 Gap**: 15.1 percentage points annually
+* **M2 money supply growth**: +550% cumulative (+5.7% annual average)
+* **The DI-M2 Gap**: 14.9 percentage points annually
 
 ---
 
@@ -48,7 +48,7 @@ Technology is the primary driver of long-term productivity growth. This isn't id
 
 If technology sectors show exponential cost reductions, why don't consumer prices fall proportionally?
 
-The Deflation Index measures this divergence. We track cost-per-performance in four technology sectors, compare to M2, and calculate the gap: **15.1 percentage points annually.**
+The Deflation Index measures this divergence. We track cost-per-performance in four technology sectors, compare to M2, and calculate the gap: **14.9 percentage points annually.**
 
 **This gap represents captured productivity.** It went somewhere. This index exists to measure where.
 
@@ -183,7 +183,7 @@ Full methodology documentation: [docs/methodology/](docs/methodology/)
 
 ```
 DI-M2 Gap = |DI Annual Rate| + M2 Annual Rate
-          = 9.21% + 5.9% = 15.1 percentage points annually
+          = 9.21% + 5.7% = 14.9 percentage points annually
 ```
 
 This measures the annual divergence between technological deflation and monetary expansion. Over 35 years, this compounds dramatically—technology pushed costs down while money supply expansion pushed them up. The gap represents productivity gains that didn't reach consumers as lower prices.

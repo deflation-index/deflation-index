@@ -44,7 +44,7 @@
 
 The gap between:
 1. **Technological Deflation** (what tech delivers: ~20-25% annual cost reductions)
-2. **Monetary Expansion** (M2 growth: ~6-7% annually)
+2. **Monetary Expansion** (M2 growth: ~5-6% annually, per FRED M2SL)
 3. **Consumer Experience** (CPI: ~2-3% annually)
 
 ...reveals where the gains from technological progress flow. The DI makes this visible.

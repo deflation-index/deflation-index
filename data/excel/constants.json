@@ -1,0 +1,131 @@
+{
+  "version": "3.0.2",
+  "last_updated": "2025-12-30",
+  "description": "Single source of truth for Deflation Index statistics",
+  
+  "sources": {
+    "m2": {
+      "name": "Federal Reserve FRED Series M2SL",
+      "url": "https://fred.stlouisfed.org/series/M2SL",
+      "retrieved": "2025-12-30",
+      "notes": "Seasonally adjusted, monthly data converted to annual averages"
+    },
+    "cpi": {
+      "name": "Bureau of Labor Statistics CPI-U",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "retrieved": "2025-12-30"
+    },
+    "di": {
+      "name": "Deflation Index Master v3.0.1",
+      "file": "data/excel/master_deflation_index_v3.0.1.xlsx"
+    }
+  },
+
+  "deflation_index": {
+    "base_year": 1990,
+    "base_value": 100.00,
+    "end_year": 2024,
+    "end_value": 3.74,
+    "cumulative_deflation_percent": -96.26,
+    "cagr_percent": -9.21,
+    "description": "Technology cost index, 1990=100"
+  },
+
+  "m2_money_supply": {
+    "base_year": 1990,
+    "base_value_billions": 3276.8,
+    "end_year": 2024,
+    "end_value_billions": 21300,
+    "index_base_year": 1990,
+    "index_2024": 650.2,
+    "cumulative_expansion_percent": 550.2,
+    "cagr_percent": 5.66,
+    "multiplier": 6.5,
+    "description": "M2 money stock index, 1990=100, from FRED M2SL",
+    "annual_data": {
+      "1990": {"value_billions": 3276.8, "index": 100.00, "yoy_percent": null},
+      "1991": {"value_billions": 3377.0, "index": 103.06, "yoy_percent": 3.06},
+      "1992": {"value_billions": 3430.3, "index": 104.68, "yoy_percent": 1.58},
+      "1993": {"value_billions": 3480.9, "index": 106.23, "yoy_percent": 1.48},
+      "1994": {"value_billions": 3496.7, "index": 106.71, "yoy_percent": 0.45},
+      "1995": {"value_billions": 3640.7, "index": 111.11, "yoy_percent": 4.12},
+      "1996": {"value_billions": 3820.1, "index": 116.58, "yoy_percent": 4.93},
+      "1997": {"value_billions": 4033.4, "index": 123.09, "yoy_percent": 5.58},
+      "1998": {"value_billions": 4377.4, "index": 133.59, "yoy_percent": 8.53},
+      "1999": {"value_billions": 4635.0, "index": 141.45, "yoy_percent": 5.88},
+      "2000": {"value_billions": 4917.2, "index": 150.06, "yoy_percent": 6.09},
+      "2001": {"value_billions": 5431.2, "index": 165.75, "yoy_percent": 10.45},
+      "2002": {"value_billions": 5784.7, "index": 176.54, "yoy_percent": 6.51},
+      "2003": {"value_billions": 6071.7, "index": 185.30, "yoy_percent": 4.96},
+      "2004": {"value_billions": 6412.2, "index": 195.69, "yoy_percent": 5.61},
+      "2005": {"value_billions": 6674.1, "index": 203.69, "yoy_percent": 4.08},
+      "2006": {"value_billions": 7033.6, "index": 214.66, "yoy_percent": 5.39},
+      "2007": {"value_billions": 7438.4, "index": 227.02, "yoy_percent": 5.76},
+      "2008": {"value_billions": 8153.7, "index": 248.85, "yoy_percent": 9.62},
+      "2009": {"value_billions": 8483.9, "index": 258.93, "yoy_percent": 4.05},
+      "2010": {"value_billions": 8662.3, "index": 264.37, "yoy_percent": 2.10},
+      "2011": {"value_billions": 9314.6, "index": 284.28, "yoy_percent": 7.53},
+      "2012": {"value_billions": 10020.8, "index": 305.83, "yoy_percent": 7.58},
+      "2013": {"value_billions": 10672.7, "index": 325.73, "yoy_percent": 6.51},
+      "2014": {"value_billions": 11361.4, "index": 346.75, "yoy_percent": 6.45},
+      "2015": {"value_billions": 12046.6, "index": 367.67, "yoy_percent": 6.03},
+      "2016": {"value_billions": 12888.0, "index": 393.34, "yoy_percent": 6.98},
+      "2017": {"value_billions": 13603.6, "index": 415.18, "yoy_percent": 5.55},
+      "2018": {"value_billions": 14254.5, "index": 435.05, "yoy_percent": 4.78},
+      "2019": {"value_billions": 14917.2, "index": 455.28, "yoy_percent": 4.65},
+      "2020": {"value_billions": 18321.7, "index": 559.19, "yoy_percent": 22.83},
+      "2021": {"value_billions": 20715.5, "index": 632.25, "yoy_percent": 13.07},
+      "2022": {"value_billions": 21321.9, "index": 650.75, "yoy_percent": 2.93},
+      "2023": {"value_billions": 20867.3, "index": 636.88, "yoy_percent": -2.13},
+      "2024": {"value_billions": 21300.0, "index": 650.20, "yoy_percent": 2.07}
+    }
+  },
+
+  "cpi": {
+    "base_year": 1990,
+    "base_index": 100.00,
+    "end_year": 2024,
+    "end_index": 254.65,
+    "cumulative_inflation_percent": 154.65,
+    "cagr_percent": 2.72,
+    "multiplier": 2.55,
+    "description": "Consumer Price Index, rebased to 1990=100"
+  },
+
+  "gap_analysis": {
+    "di_m2_gap": {
+      "annual_pp": 14.87,
+      "annual_rounded": 14.9,
+      "description": "Annual gap between DI deflation rate and M2 expansion rate",
+      "formula": "|DI annual rate| + M2 annual rate = |-9.21| + 5.66 = 14.87"
+    },
+    "abundance_gap": {
+      "cumulative_pp": 491,
+      "description": "Cumulative gap: tech savings + monetary expansion - actual inflation",
+      "formula": "|DI cumulative| + M2 cumulative - CPI cumulative = 96 + 550 - 155 = 491"
+    }
+  },
+
+  "sector_weights": {
+    "computing": 0.2941,
+    "communications": 0.2353,
+    "energy": 0.2941,
+    "transportation": 0.1765,
+    "total": 1.0000
+  },
+
+  "key_statistics_for_display": {
+    "hero_numbers": {
+      "di_annual": "-9.21%",
+      "di_cumulative": "-96.26%",
+      "m2_annual": "+5.7%",
+      "m2_cumulative": "+550%",
+      "gap_annual": "14.9pp"
+    },
+    "prose_descriptions": {
+      "di": "Technology made things 96% cheaper (1990-2024)",
+      "m2": "Money supply expanded 550% (6.5x) over the same period",
+      "gap": "The 14.9 percentage point annual gap reveals where productivity gains flow"
+    }
+  }
+}
