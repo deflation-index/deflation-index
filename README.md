@@ -207,7 +207,7 @@ All data comes from authoritative, publicly available sources:
 | **AI Impacts** | Computing cost data | 90/100 (A-) |
 | **ITU/FCC** | Communications cost data | 90/100 (A-) |
 
-Every data point includes source citations in Excel cell comments. Full source documentation: [docs/methodology/DATA_SOURCES.md](docs/methodology/DATA_SOURCES.md)
+Every data point includes source citations in Excel cell comments. Full source documentation: [data/sources/SOURCES.md](data/sources/SOURCES.md)
 
 ---
 
