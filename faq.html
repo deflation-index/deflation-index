@@ -725,7 +725,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p><strong>The Deflation Index is unique.</strong> Here's how it compares to related work:</p>
+                    <p><strong>While price indices and hedonic adjustments exist, no publicly available index specifically isolates technology-driven cost deflation across multiple sectors and measures it against monetary expansion.</strong> The Deflation Index fills that gap. Here's how it compares to related work:</p>
                     <p><strong>vs. CPI (BLS):</strong> CPI measures consumer prices, not technological capability. Hedonic adjustments attempt to capture quality improvements but systematically understate technology's deflationary force.</p>
                     <p><strong>vs. PCE Price Index (BEA):</strong> Similar to CPI but uses different methodology and weights. Still focused on consumer experience, not technological potential.</p>
                     <p><strong>vs. GDP Deflator:</strong> Broad measure of price changes across entire economy. Useful for macroeconomics but doesn't isolate technological deflation.</p>
@@ -893,4 +893,8 @@
         
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('.faq-container, .contact-cta');
-            sections.forEac
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
