@@ -6,7 +6,7 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 **The gap between technological deflation and monetary expansion reveals where productivity gains are captured—and where they're not.**
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.0.2-blue.svg)](CHANGELOG.md)
 [![Data Points](https://img.shields.io/badge/data%20points-400%2B-green.svg)](#)
 [![Formulas](https://img.shields.io/badge/formulas-700%2B-green.svg)](#)
 
@@ -20,7 +20,7 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 
 ---
 
-## 🎯 Current Scope (v3.0.1)
+## 🎯 Current Scope (v3.0.2)
 
 **Four Sectors Covered:**
 1. **Computing (29.41%)**: Cost per billion floating-point operations per second ($/GFLOPS) - 99.88% deflation
@@ -61,25 +61,29 @@ The Deflation Index measures this divergence. We track cost-per-performance in f
 
 ```
 deflation-index/
-├── public/                      # Static website files
-│   ├── index.html              # Main website
-│   └── assets/                 # Images, additional files
+├── index.html                  # Main website
+├── methodology.html            # Methodology page
+├── faq.html                    # FAQ page
+├── products.html               # Products/API page
+├── about.html                  # About page
 ├── data/                       # Source data and calculations
+│   ├── constants.json          # Single source of truth (v3.0.2)
 │   ├── excel/
 │   │   ├── master_deflation_index_v3.0.1.xlsx
 │   │   ├── computing_deflation_index_v1.0.xlsx
 │   │   ├── communications_deflation_index_v1.0.xlsx
 │   │   ├── energy_deflation_index_v1.0.xlsx
 │   │   └── transportation_deflation_index_v1.0.xlsx
-│   └── csv/                    # Exported CSV files
+│   ├── csv/                    # Exported CSV files
+│   └── sources/                # Raw source documents
 ├── docs/                       # Documentation
-│   ├── methodology/            # Comprehensive methodology
-│   ├── summaries/              # Executive summaries
-│   ├── guides/                 # User guides
-│   └── project/                # Project management docs
+│   ├── methodology/            # Sector methodologies
+│   ├── reference/              # API, glossary, guides
+│   ├── about/                  # Executive summary, essays
+│   └── operations/             # Changelog, deployment, contributing
 ├── scripts/                    # Verification and automation
-│   ├── verify_statistics.py   # Data verification tool
-│   └── export_to_csv.py       # CSV export automation
+│   ├── verify_statistics.py    # Data verification tool
+│   └── export_to_csv.py        # CSV export automation
 └── README.md                   # This file
 ```
 
@@ -91,7 +95,7 @@ deflation-index/
 
 ### Current Scope Limitations
 
-**Sectors Covered (v3.0.1)**:
+**Sectors Covered (v3.0.2)**:
 - ✅ Computing, Communications, Energy, Transportation
 - ❌ Healthcare, Education, Housing, Agriculture, Materials, Software-as-Service
 
@@ -236,7 +240,7 @@ Every Excel file includes:
 
 **Anyone can verify our work. That's the standard we hold ourselves to.**
 
-### v3.0.1 Rebuild (December 2025)
+### v3.0.2 Rebuild (December 2025)
 
 This version represents a complete rebuild of the Deflation Index:
 - All calculations now use formulas (previously hard-coded values)
@@ -245,7 +249,7 @@ This version represents a complete rebuild of the Deflation Index:
 - Fully reproducible and verifiable
 - More accurate deflation measurements from source data
 
-**Why numbers changed from v3.0**: Previous version used externally calculated values. v3.0.1 calculates directly from raw source data, revealing more accurate (and more dramatic) deflation rates.
+**Why numbers changed from v3.0**: Previous version used externally calculated values. v3.0.2 calculates directly from raw source data, revealing more accurate (and more dramatic) deflation rates.
 
 ---
 
@@ -289,7 +293,7 @@ We welcome formal peer review from:
 
 ## 🚀 Roadmap
 
-### v3.0.1 (Current - December 2025)
+### v3.0.2 (Current - December 2025)
 - ✅ Four sectors: Computing, Communications, Energy, Transportation
 - ✅ 35 years of data (1990-2024)
 - ✅ 700+ verified formulas
@@ -337,7 +341,7 @@ We welcome formal peer review from:
 - **[Transportation Methodology](docs/methodology/TRANSPORTATION_METHODOLOGY.md)**
 
 ### Additional Resources
-- **[CHANGELOG](docs/project/CHANGELOG.md)**: Version history and updates
+- **[CHANGELOG](docs/operations/CHANGELOG.md)**: Version history and updates
 - **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute
 - **[Mission Statement](docs/summaries/MISSION_COMPLETE.md)**: Project vision and goals
 
@@ -358,7 +362,7 @@ The data is currently under a proprietary license, but we strongly encourage:
 
 ```
 The Deflation Index: Measuring Technological Progress (1990-2024)
-Deflation Index LLC, v3.0.1
+Deflation Index LLC, v3.0.2
 Available at: github.com/deflation-index/deflation-index
 ```
 
@@ -408,6 +412,6 @@ The Deflation Index exists to provide objective, transparent, verifiable measure
 
 ---
 
-**Version**: 3.0.1  
+**Version**: 3.0.2  
 **Last Updated**: December 2025  
 **Next Update**: Q2-Q3 2026 (v3.1 with 2025 data)
