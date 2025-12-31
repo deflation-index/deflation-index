@@ -6,7 +6,7 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 **The gap between technological deflation and monetary expansion reveals where productivity gains are captured—and where they're not.**
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.0.2-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)](CHANGELOG.md)
 [![Data Points](https://img.shields.io/badge/data%20points-400%2B-green.svg)](#)
 [![Formulas](https://img.shields.io/badge/formulas-700%2B-green.svg)](#)
 
@@ -61,29 +61,25 @@ The Deflation Index measures this divergence. We track cost-per-performance in f
 
 ```
 deflation-index/
-├── index.html                  # Main website
-├── methodology.html            # Methodology page
-├── faq.html                    # FAQ page
-├── products.html               # Products/API page
-├── about.html                  # About page
+├── public/                      # Static website files
+│   ├── index.html              # Main website
+│   └── assets/                 # Images, additional files
 ├── data/                       # Source data and calculations
-│   ├── constants.json          # Single source of truth (v3.0.2)
 │   ├── excel/
-│   │   ├── master_deflation_index_v3.0.1.xlsx
+│   │   ├── master_deflation_index_v3.0.2.xlsx
 │   │   ├── computing_deflation_index_v1.0.xlsx
 │   │   ├── communications_deflation_index_v1.0.xlsx
 │   │   ├── energy_deflation_index_v1.0.xlsx
 │   │   └── transportation_deflation_index_v1.0.xlsx
-│   ├── csv/                    # Exported CSV files
-│   └── sources/                # Raw source documents
+│   └── csv/                    # Exported CSV files
 ├── docs/                       # Documentation
-│   ├── methodology/            # Sector methodologies
-│   ├── reference/              # API, glossary, guides
-│   ├── about/                  # Executive summary, essays
-│   └── operations/             # Changelog, deployment, contributing
+│   ├── methodology/            # Comprehensive methodology
+│   ├── summaries/              # Executive summaries
+│   ├── guides/                 # User guides
+│   └── project/                # Project management docs
 ├── scripts/                    # Verification and automation
-│   ├── verify_statistics.py    # Data verification tool
-│   └── export_to_csv.py        # CSV export automation
+│   ├── verify_statistics.py   # Data verification tool
+│   └── export_to_csv.py       # CSV export automation
 └── README.md                   # This file
 ```
 
@@ -207,7 +203,7 @@ All data comes from authoritative, publicly available sources:
 | **AI Impacts** | Computing cost data | 90/100 (A-) |
 | **ITU/FCC** | Communications cost data | 90/100 (A-) |
 
-Every data point includes source citations in Excel cell comments. Full source documentation: [data/sources/SOURCES.md](data/sources/SOURCES.md)
+Every data point includes source citations in Excel cell comments. Full source documentation: [docs/methodology/DATA_SOURCES.md](docs/methodology/DATA_SOURCES.md)
 
 ---
 
@@ -341,7 +337,7 @@ We welcome formal peer review from:
 - **[Transportation Methodology](docs/methodology/TRANSPORTATION_METHODOLOGY.md)**
 
 ### Additional Resources
-- **[CHANGELOG](docs/operations/CHANGELOG.md)**: Version history and updates
+- **[CHANGELOG](docs/project/CHANGELOG.md)**: Version history and updates
 - **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute
 - **[Mission Statement](docs/summaries/MISSION_COMPLETE.md)**: Project vision and goals
 
@@ -412,6 +408,6 @@ The Deflation Index exists to provide objective, transparent, verifiable measure
 
 ---
 
-**Version**: 3.0.2  
+**Version**: 3.0.1  
 **Last Updated**: December 2025  
 **Next Update**: Q2-Q3 2026 (v3.1 with 2025 data)
