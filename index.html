@@ -207,7 +207,7 @@
         }
         
         body.light-mode .hero {
-            background: linear-gradient(180deg, #E8E8E8 0%, #F5F5F5 100%);
+            background: #F5F5F5;
         }
         
         body.light-mode section {
@@ -274,7 +274,8 @@
         
         body.light-mode [style*="background: var(--black)"] h2,
         body.light-mode [style*="background: var(--black)"] p,
-        body.light-mode [style*="background: var(--black)"] span {
+        body.light-mode [style*="background: var(--black)"] span,
+        body.light-mode [style*="background: var(--black)"] div {
             color: #E0E0E0 !important;
         }
         
@@ -309,8 +310,10 @@
         }
         
         body.light-mode .timeline-year {
-            background: var(--gold);
-            color: #000000;
+            background: transparent;
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.25rem;
         }
         
         /* Footer stays dark */
@@ -761,6 +764,22 @@
         }
         
         /* Mobile touch targets - minimum 44px */
+
+        /* Mobile nav spacing fix */
+        @media (max-width: 768px) {
+            .nav-controls {
+                gap: 0.5rem;
+            }
+            
+            .nav-logo {
+                font-size: 0.9rem;
+            }
+            
+            .nav {
+                padding: 1rem 1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .btn {
                 min-height: 44px;
@@ -1035,7 +1054,7 @@
                 Technology delivered 9.21% annual deflation <span style="color: #00CED1; font-size: 1.3rem;">↓</span>. Money supply expanded 5.7% annually <span style="color: #00FF00; font-size: 1.3rem;">↑</span>. These opposing forces create a <span style="color: var(--gold); font-weight: 600;">14.9 percentage point gap</span> every year—compounding over 35 years into a massive divergence.
             </p>
             <p style="font-size: 1.1rem; line-height: 1.6; color: var(--white); margin-top: 1.5rem;">
-                Where does the productivity go? Into asset prices, corporate profits, and financial complexity—not into lower prices for consumers.
+                Where does the productivity go? It concentrates into asset prices, intermediaries, and financial complexity—rather than flowing to consumers as lower prices.
             </p>
         </div>
     </div>
@@ -1111,7 +1130,7 @@
         
         <p style="margin-top: 4rem; font-size: 0.9rem; opacity: 0.8;">
             Independent analysis tracking technological deflation across four fundamental sectors.
-            <br>700+ verified formulas. 400+ data points. 35 years (1990-2024). Zero errors.
+            <br>700+ verified formulas. 400+ data points. 35 years (1990-2024).
             <br>Data from Federal Reserve, BLS, IRENA, BloombergNEF, AI Impacts, DOE, FCC.
         </p>
     </section>

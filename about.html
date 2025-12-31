@@ -196,6 +196,23 @@
         body.light-mode section {
             background: #FFFFFF;
         }
+        /* Light Mode - Dark sections keep light text */
+        body.light-mode [style*="background: var(--black)"] {
+            color: #E0E0E0 !important;
+        }
+        
+        body.light-mode [style*="background: var(--black)"] h2,
+        body.light-mode [style*="background: var(--black)"] p,
+        body.light-mode [style*="background: var(--black)"] span,
+        body.light-mode [style*="background: var(--black)"] div,
+        body.light-mode [style*="background: var(--black)"] strong {
+            color: #E0E0E0 !important;
+        }
+        
+        body.light-mode [style*="background: var(--black)"] h2 {
+            color: var(--gold) !important;
+        }
+
         
         .nav-links { display: none; }
         
@@ -471,6 +488,22 @@
             opacity: 1;
             transform: translateY(0);
         }
+    
+        /* Mobile nav spacing fix */
+        @media (max-width: 768px) {
+            .nav-controls {
+                gap: 0.5rem;
+            }
+            
+            .nav-logo {
+                font-size: 0.9rem;
+            }
+            
+            .nav {
+                padding: 1rem 1rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -532,7 +565,7 @@
         
         <p>For decades, these two forces—technological deflation and monetary expansion—have moved in opposite directions. Technology pushes costs down through exponential improvement. Monetary policy expands the money supply to maintain "price stability."</p>
         
-        <p>The mathematics reveal a systematic divergence. Technological gains reduce costs. Monetary policy prevents those reductions from reaching consumers. The productivity flows upward—to corporate profits, asset prices, and complexity costs—rather than downward to consumers through lower prices.</p>
+        <p>The mathematics reveal a systematic divergence. Technological gains reduce costs. Monetary policy prevents those reductions from reaching consumers. The productivity concentrates—into asset prices, intermediaries, and complexity costs—rather than flowing to consumers through lower prices.</p>
         
         <p><strong>The Deflation Index quantifies this mechanism.</strong> Not as accusation, but as economics. Not as conspiracy, but as measurement.</p>
     </section>
