@@ -1,7 +1,7 @@
 # Glossary of Terms
 
 **Version**: 3.0.2  
-**Last Updated**: December 30, 2025
+**Last Updated**: January 2026
 
 Key terms and definitions used in the Deflation Index project.
 
@@ -112,7 +112,7 @@ Modifications to raw price data to account for improvements in product quality o
 The deflation index for a single sector (Computing, Communications, Energy, or Transportation) before weighting is applied.
 
 ### Sector Weight
-The percentage contribution of each sector to the Master DI. Based on multi-factor analysis including GDP contribution, R&D investment, patent activity, and productivity growth.
+The percentage contribution of each sector to the Master DI. Based on multi-factor analysis including GDP contribution, enabling effect (how much other sectors depend on this technology), and deflationary force (magnitude of cost reductions).
 
 | Sector | Weight |
 |--------|--------|

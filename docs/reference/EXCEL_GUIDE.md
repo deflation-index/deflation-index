@@ -2,20 +2,27 @@
 ## The Deflation Index - Data Entry & Maintenance
 
 **Created**: December 15, 2025  
-**Version**: 1.0  
+**Updated**: January 2026  
+**Version**: 1.1  
 **Purpose**: Complete guide for using the Deflation Index Excel templates
 
 ---
 
 ## 📦 WHAT YOU HAVE
 
-### **Five Excel Files Ready to Use:**
+### **Eight Excel Files Ready to Use:**
 
+**Sector Files (4):**
 1. **computing_deflation_index_v1.0.xlsx** - Computing sector (with sample 2020-2024 data)
 2. **communications_deflation_index_v1.0.xlsx** - Communications sector (template)
 3. **energy_deflation_index_v1.0.xlsx** - Energy sector (template)
 4. **transportation_deflation_index_v1.0.xlsx** - Transportation sector (template)
-5. **master_deflation_index_v3.0.xlsx** - Master index combining all sectors
+
+**Master Files (4 weighting variants):**
+5. **master_deflation_index_v3.0.1.xlsx** - Master index (primary multi-factor weights)
+6. **master_deflation_index_v3.0.1_EQUAL.xlsx** - Equal-weighted variant (25% each)
+7. **master_deflation_index_v3.0.1_EXPENDITURE.xlsx** - Expenditure-weighted variant
+8. **master_deflation_index_v3.0.1_GDP.xlsx** - GDP-weighted variant
 
 ### **Each Sector File Contains 7 Worksheets:**
 
@@ -198,7 +205,7 @@ python3 recalc.py /path/to/computing_deflation_index_v1.0.xlsx
 **Fix immediately:**
 - #REF! = Invalid cell reference (you deleted a row/column)
 - #DIV/0! = Division by zero (denominator is empty or zero)
-- See DATA_HYGIENE_STANDARDS.md Section 8.1 for all error types
+- See DATA_STANDARDS.md Section 8.1 for all error types
 
 **DO NOT proceed until status = "success" and total_errors = 0**
 
@@ -261,11 +268,13 @@ Sector_Index[year] =
 Deflation_Rate[year] = (Sector_Index[year] / Sector_Index[year-1]) - 1
 ```
 
-**Typical values:**
-- Computing: -35% to -40% annually
-- Communications: -30% to -35% annually
-- Energy: -25% to -30% annually (accelerating post-2010)
-- Transportation: -18% to -22% annually
+**Sector Index CAGR (compound annual growth rate, 1990-2024):**
+- Computing: -17.9% annually (sector index)
+- Communications: -13.5% annually (sector index)
+- Energy: -11.5% annually (sector index)
+- Transportation: -11.7% annually (2010-2024, sector index)
+
+**Note:** Individual components within sectors may deflate faster. For example, raw $/GFLOPS (computing power) deflates at ~35-40% annually, but the weighted computing sector index (which includes storage and memory) deflates at ~18% annually.
 
 ---
 
@@ -490,7 +499,7 @@ Minor data addition | Your Name
 
 Once all four sector files are complete (1990-2024):
 
-### **Step 1: Open master_deflation_index_v3.0.xlsx**
+### **Step 1: Open master_deflation_index_v3.0.1.xlsx**
 
 ### **Step 2: Link Sector Indices**
 
@@ -510,13 +519,14 @@ Repeat for Energy and Transportation.
 
 ### **Step 3: Verify Weights**
 
-In Sector_Weights sheet, verify:
-- Computing: 25%
-- Communications: 20%
-- Energy: 25%
-- Transportation: 15%
-- Future: 15%
-- **TOTAL = 100%**
+In Sector_Weights sheet, verify (v3.0.1 weights):
+- Computing: 29.41%
+- Communications: 23.53%
+- Energy: 29.41%
+- Transportation: 17.65%
+- **TOTAL = 100.00%**
+
+Note: These weights are referenced by formulas throughout the Master_Index sheet. Changing them will automatically update all calculations.
 
 ### **Step 4: Add M2 and CPI Data**
 
@@ -636,9 +646,9 @@ These reveal where technological gains flow.
 
 **Essential Documents:**
 - `MASTER_METHODOLOGY.md` - Cross-sector framework
-- `DATA_HYGIENE_STANDARDS.md` - Quality protocols
+- `DATA_STANDARDS.md` - Quality protocols
 - `RESEARCH_DASHBOARD.md` - Source evaluation
-- `[SECTOR]_METHODOLOGY.md` - Sector-specific details
+- `COMPUTING.md`, `COMMUNICATIONS.md`, `ENERGY.md`, `TRANSPORTATION.md` - Sector-specific details
 
 **Key Skills:**
 - `/mnt/skills/public/xlsx/SKILL.md` - Excel best practices

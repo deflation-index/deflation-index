@@ -109,7 +109,7 @@ deflation-index/
 - Current weights (29.41%, 23.53%, 29.41%, 17.65%) based on three factors: GDP contribution, enabling effect, and deflationary force
 - Detailed weight justification and sensitivity analysis in docs/methodology/WEIGHT_JUSTIFICATION.md
 - Alternative weighting schemes tested (equal-weight, GDP-weighted, expenditure-weighted)
-- Results robust across methods (±15% variation)
+- Results robust across methods (8.37-9.21% annual, ~10% relative variation)
 
 **Index Construction**:
 - Weighted averages used to capture sector contributions
@@ -165,13 +165,13 @@ These weights reflect relative economic importance across three dimensions:
 
 **Sensitivity Analysis**:
 
-We tested alternative weighting schemes:
-- Equal weights (25% each): DI = -9.0% annual average
-- GDP-weighted: DI = -8.5% annual average
-- Expenditure-weighted: DI = -8.8% annual average
+We tested alternative weighting schemes (all verified against Excel files):
+- Equal weights (25% each): DI = -8.45% annual average
+- GDP-weighted: DI = -8.37% annual average
+- Expenditure-weighted: DI = -8.43% annual average
 - Current method (multi-factor): DI = -9.21% annual average
 
-**Result**: ±8% variation across methods. Core finding robust to weighting choice.
+**Result**: Annual rates range from -8.37% to -9.21% (0.84pp spread). Core finding robust to weighting choice. Current weights produce highest deflation because they emphasize Computing and Communications (fastest-deflating sectors).
 
 Full methodology documentation: [docs/methodology/](docs/methodology/)
 
@@ -330,20 +330,19 @@ We welcome formal peer review from:
 
 ### Core Documentation
 - **[Methodology Overview](docs/methodology/MASTER_METHODOLOGY.md)**: Complete methodology
-- **[Executive Summary](docs/summaries/EXECUTIVE_SUMMARY.md)**: High-level overview
-- **[Data Hygiene Standards](docs/methodology/DATA_HYGIENE_STANDARDS.md)**: Quality control processes
+- **[Executive Summary](docs/about/EXECUTIVE_SUMMARY.md)**: High-level overview
+- **[Data Standards](docs/methodology/DATA_STANDARDS.md)**: Quality control processes
 - **[Weight Justification](docs/methodology/WEIGHT_JUSTIFICATION.md)**: Detailed weight rationale and sensitivity analysis
 
 ### Sector Documentation
-- **[Computing Methodology](docs/methodology/COMPUTING_METHODOLOGY.md)**
-- **[Communications Methodology](docs/methodology/COMMUNICATIONS_METHODOLOGY.md)**
-- **[Energy Methodology](docs/methodology/ENERGY_METHODOLOGY.md)**
-- **[Transportation Methodology](docs/methodology/TRANSPORTATION_METHODOLOGY.md)**
+- **[Computing Methodology](docs/methodology/COMPUTING.md)**
+- **[Communications Methodology](docs/methodology/COMMUNICATIONS.md)**
+- **[Energy Methodology](docs/methodology/ENERGY.md)**
+- **[Transportation Methodology](docs/methodology/TRANSPORTATION.md)**
 
 ### Additional Resources
 - **[CHANGELOG](docs/operations/CHANGELOG.md)**: Version history and updates
 - **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute
-- **[Mission Statement](docs/summaries/MISSION_COMPLETE.md)**: Project vision and goals
 
 ---
 
@@ -413,5 +412,5 @@ The Deflation Index exists to provide objective, transparent, verifiable measure
 ---
 
 **Version**: 3.0.2  
-**Last Updated**: December 2025  
+**Last Updated**: January 2026  
 **Next Update**: Q2-Q3 2026 (v3.1 with 2025 data)

@@ -2,9 +2,9 @@
 
 **4 Weighting Methodologies for Comprehensive Analysis**
 
-Version: 3.0.1  
-Date: December 19, 2025  
-Status: Ready for GitHub & Website Implementation
+Version: 3.0.2  
+Date: January 2026  
+Status: Ready for GitHub & Website Implementation (Verified)
 
 ---
 
@@ -76,10 +76,10 @@ The Deflation Index now includes **4 weighting variants** to demonstrate the rob
 - Easy to explain and defend
 - Good conservative baseline
 
-**Expected Results:**
-- 2024 Master DI: ~4.2 (slightly higher than primary)
-- Cumulative deflation: ~-95.8%
-- Annual average: ~-9.0%
+**Expected Results** (verified):
+- 2024 Master DI: 4.96
+- Cumulative deflation: -95.04%
+- Annual average: -8.45%
 
 **Use Cases:**
 - Simple explanation for general audiences
@@ -107,10 +107,10 @@ The Deflation Index now includes **4 weighting variants** to demonstrate the rob
 - Aligns with BLS methodology
 - Most relevant for "missing abundance" narrative
 
-**Expected Results:**
-- 2024 Master DI: ~4.5 (higher - energy weighted more, deflates less)
-- Cumulative deflation: ~-95.5%
-- Annual average: ~-8.8%
+**Expected Results** (verified):
+- 2024 Master DI: 5.01
+- Cumulative deflation: -94.99%
+- Annual average: -8.43%
 
 **Use Cases:**
 - Consumer inflation comparisons
@@ -138,10 +138,10 @@ The Deflation Index now includes **4 weighting variants** to demonstrate the rob
 - Energy dominant (universal input to economy)
 - More conservative (energy deflates slower)
 
-**Expected Results:**
-- 2024 Master DI: ~5.8 (highest - energy heavily weighted)
-- Cumulative deflation: ~-94.2%
-- Annual average: ~-8.3%
+**Expected Results** (verified):
+- 2024 Master DI: 5.12
+- Cumulative deflation: -94.88%
+- Annual average: -8.37%
 
 **Use Cases:**
 - Macro-economic analysis
@@ -155,19 +155,20 @@ The Deflation Index now includes **4 weighting variants** to demonstrate the rob
 
 | Variant | 2024 DI | Cumulative | Annual Avg | vs Primary |
 |---------|---------|------------|------------|------------|
-| **DI-Multi-Factor** | **3.74** | **-96.26%** | **-9.21%** | **Baseline** |
-| DI-Equal | ~4.2 | ~-95.8% | ~-9.0% | +12% higher |
-| DI-Expenditure | ~4.5 | ~-95.5% | ~-8.8% | +20% higher |
-| DI-GDP | ~5.8 | ~-94.2% | ~-8.3% | +55% higher |
+| **DI-Multi-Factor** | **3.74** | **-96.25%** | **-9.21%** | **Baseline** |
+| DI-Equal | 4.96 | -95.04% | -8.45% | +33% higher DI |
+| DI-Expenditure | 5.01 | -94.99% | -8.43% | +34% higher DI |
+| DI-GDP | 5.12 | -94.88% | -8.37% | +37% higher DI |
 
-**Key Finding:** All variants show substantial deflation (-94% to -96% cumulative)
+**Key Finding:** All variants show substantial deflation (94-96% cumulative, 8.3-9.2% annually)
 
-**Range:** 2.06 point spread (3.74 to 5.8)
+**Range:** 1.38 point spread (3.74 to 5.12)
 
 **Interpretation:**
 - Core finding robust across all methodologies
-- ~55% variation in absolute levels
-- But all show massive deflation vs. CPI
+- ~37% variation in DI absolute levels (3.74 to 5.12)
+- But all show massive deflation vs. CPI (94-96% cumulative)
+- Current weights produce highest deflation because they emphasize Computing and Communications (fastest deflators)
 - Choice of weights affects magnitude but not direction
 
 ---
@@ -306,12 +307,12 @@ The Deflation Index provides four weighting methodologies:
 
 All variants available in `data/excel/`. See [VARIANTS_GUIDE.md](docs/VARIANTS_GUIDE.md) for details.
 
-**Sensitivity**: Results range from -94.2% to -96.26% cumulative deflation. Core finding robust across all methodologies.
+**Sensitivity**: Results range from -94.88% to -96.25% cumulative deflation. Core finding robust across all methodologies.
 ```
 
 ### **WEIGHT_JUSTIFICATION.md - Update Sensitivity Table**
 
-Update the sensitivity analysis table with actual v3.0.1 results from the variant files.
+✅ **DONE** (January 2026): Sensitivity analysis table updated with verified v3.0.1 results from variant files.
 
 ---
 

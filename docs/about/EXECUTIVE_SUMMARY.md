@@ -1,8 +1,8 @@
 # Executive Summary: The Deflation Index
 ## Measuring Technological Progress and the Missing Abundance (1990-2024)
 
-**Version**: 3.0.2 (M2 Corrected)  
-**Date**: December 30, 2025  
+**Version**: 3.0.2 (M2 Corrected, Language Refined)  
+**Date**: January 2026  
 **Status**: Publication-Ready | FRED-Verified | Zero Formula Errors
 
 ---
@@ -44,15 +44,15 @@
 
 ## 🔍 What is The Gap?
 
-**The Gap = The Wealth Transfer**
+**The Gap = Redistribution of Productivity Gains**
 
 Technology should have made things 96% cheaper. Money printing added 550% inflationary pressure.
 
 Consumer prices (CPI) rose only 155%.
 
-**The ~491-point cumulative gap represents wealth that flowed to:**
-1. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
-2. **Asset Inflation**: Stocks +1,500%, housing +400% (not captured in CPI)
+**The ~491-point cumulative gap represents productivity gains that flowed elsewhere:**
+1. **Asset Appreciation**: Stocks +1,500%, housing +400% (not captured in CPI)
+2. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
 3. **Complexity Costs**: Healthcare, education, housing rising faster than wages
 4. **Quality Improvements**: Better goods at same nominal price (partially captured)
 5. **International Arbitrage**: Manufacturing offshore, profits domestic
@@ -110,15 +110,15 @@ Consumer prices (CPI) rose only 155%.
 - Transportation: EV energy density up 2x
 - **Quality-adjusted deflation is 30-50% higher than raw price deflation**
 
-### 5. The Capture Mechanism
-**Where the gap went:**
-- **Winners** (captured productivity gains):
-  - Top 1%: Asset values (stocks, real estate)
-  - Top 10%: Corporate profits, capital income
-  - Tech companies: Platform monopolies, network effects
-- **Losers** (missed productivity gains):
-  - Bottom 50%: Wage stagnation despite productivity
-  - Middle class: Housing/healthcare/education costs rising
+### 5. Uneven Capture of Technological Abundance
+**Where the productivity gains flowed:**
+- **Disproportionate beneficiaries**:
+  - Asset holders: Equities, real estate appreciation
+  - Capital owners: Corporate profits, capital income
+  - Platform companies: Network effects, scale advantages
+- **Limited benefit**:
+  - Wage earners: Stagnation despite productivity growth
+  - Non-asset holders: Housing/healthcare/education costs rising
   - Savers: Real returns negative after inflation
 
 ---
@@ -228,13 +228,15 @@ Consumer prices (CPI) rose only 155%.
 
 ## ⚠️ Version Notes
 
-**v3.0.2 (December 30, 2025)**: M2 Data Correction
+**v3.0.2 (January 2026)**: M2 Data Correction + Language Refinement
 - Fixed M2 cumulative expansion: 615% → 550.2% (FRED M2SL verified)
 - Fixed M2 annual rate: 5.9% → 5.66%
 - Fixed DI-M2 Gap: 15.1pp → 14.9pp
 - Fixed 1990 M2 base: ~$3.0T → $3.277T
 - Created data/constants.json as single source of truth
 - All DI figures unchanged (only M2 side corrected)
+- Refined language: "wealth transfer" → "redistribution of productivity gains"
+- Refined language: "winners/losers" → "uneven capture of technological abundance"
 
 **v3.0.1 (December 19, 2025)**: Formula Rebuild
 - Complete formula-based rebuild of Master_DI
@@ -247,4 +249,4 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-**Built to measure the force of technological progress and track where the abundance goes.**
+**Built to measure the force of technological progress and track where the abundance flows.**

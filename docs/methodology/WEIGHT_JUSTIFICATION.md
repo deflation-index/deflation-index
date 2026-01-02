@@ -1,8 +1,8 @@
 # Weight Justification and Sensitivity Analysis
 
-**Deflation Index v3.0.1**  
-**Date**: December 2025  
-**Status**: Final
+**Deflation Index v3.0.2**  
+**Date**: January 2026  
+**Status**: Final (Sensitivity Analysis Verified)
 
 ---
 
@@ -170,11 +170,15 @@ Exact weights will depend on:
 
 **Question**: How sensitive are our results to the choice of weights?
 
-**Method**: Recalculate Master DI using four alternative weighting schemes and compare results.
+**Method**: Recalculate Master DI using three alternative weighting schemes and compare results. All variants use the same sector indices; only the weights differ.
+
+**Data Source**: All results verified against Excel variant files (December 2025).
 
 ### Alternative Weighting Schemes
 
 #### 1. Equal Weights (Simple Average)
+**File**: `master_deflation_index_v3.0.1_EQUAL.xlsx`
+
 **Weights**:
 - Computing: 25%
 - Communications: 25%
@@ -183,32 +187,18 @@ Exact weights will depend on:
 
 **Rationale**: No judgment about relative importance; treat all sectors equally.
 
-**Result**:
-- Annual average deflation: **-5.8%**
-- Cumulative deflation: **-87.2%**
+**Result** (verified):
+- 2024 Master DI: **4.96**
+- Annual average deflation: **-8.45%**
+- Cumulative deflation: **-95.04%**
 
-**Interpretation**: Slightly higher deflation than base case due to overweighting high-deflation sectors (Computing, Communications).
-
----
-
-#### 2. GDP-Weighted
-**Weights** (approximate US GDP shares):
-- Computing: 20% (lower direct GDP)
-- Communications: 15% (lower direct GDP)
-- Energy: 40% (high direct GDP)
-- Transportation: 25% (moderate direct GDP)
-
-**Rationale**: Weight by direct economic value generated.
-
-**Result**:
-- Annual average deflation: **-4.9%**
-- Cumulative deflation: **-80.7%**
-
-**Interpretation**: Lower deflation due to higher weight on Energy (slower deflation) and lower weight on Computing (faster deflation).
+**Interpretation**: Lower deflation than current weights because equal weighting reduces emphasis on fastest-deflating sectors (Computing, Communications).
 
 ---
 
-#### 3. Expenditure-Weighted
+#### 2. Expenditure-Weighted
+**File**: `master_deflation_index_v3.0.1_EXPENDITURE.xlsx`
+
 **Weights** (approximate household/business expenditure):
 - Computing: 25% (devices + IT services)
 - Communications: 20% (telecom services)
@@ -217,51 +207,60 @@ Exact weights will depend on:
 
 **Rationale**: Weight by where money is actually spent in the economy.
 
-**Result**:
-- Annual average deflation: **-5.5%**
-- Cumulative deflation: **-85.9%**
+**Result** (verified):
+- 2024 Master DI: **5.01**
+- Annual average deflation: **-8.43%**
+- Cumulative deflation: **-94.99%**
 
-**Interpretation**: Close to base case, validates current approach.
+**Interpretation**: Similar to equal weights. Higher energy weight (30%) doesn't significantly change results because energy deflation (98.4%) is similar to communications (99.3%).
 
 ---
 
-#### 4. Deflationary Force Weighted
-**Weights** (by magnitude of cost reduction):
-- Computing: 35% (highest deflation)
-- Communications: 35% (highest deflation)
-- Energy: 20% (moderate deflation)
-- Transportation: 10% (shorter series, moderate deflation)
+#### 3. GDP-Weighted
+**File**: `master_deflation_index_v3.0.1_GDP.xlsx`
 
-**Rationale**: Weight purely by which sectors show most deflation.
+**Weights** (approximate US GDP shares):
+- Computing: 20% (lower direct GDP)
+- Communications: 15% (lower direct GDP)
+- Energy: 40% (high direct GDP)
+- Transportation: 25% (moderate direct GDP)
 
-**Result**:
-- Annual average deflation: **-6.4%**
-- Cumulative deflation: **-91.8%**
+**Rationale**: Weight by direct economic value generated.
 
-**Interpretation**: Highest deflation due to overweighting fastest-deflating sectors. Risk of circular reasoning (measuring deflation by weighting for deflation).
+**Result** (verified):
+- 2024 Master DI: **5.12**
+- Annual average deflation: **-8.37%**
+- Cumulative deflation: **-94.88%**
+
+**Interpretation**: Lowest deflation of all variants. Reduces weight on Computing (fastest deflator at 99.88%) and Communications (99.27%) in favor of Transportation (82.59%, slowest deflator).
 
 ---
 
 ### Summary of Sensitivity Analysis
 
-| Weighting Method | Annual Avg | Cumulative | vs. Base Case |
-|-----------------|------------|------------|---------------|
-| **Current (Multi-Factor)** | **-9.21%** | **-96.26%** | **Baseline** |
-| Equal Weights | -5.8% | -87.2% | +11.5% higher |
-| GDP-Weighted | -4.9% | -80.7% | -4.3% lower |
-| Expenditure-Weighted | -5.5% | -85.9% | +1.9% higher |
-| Deflation-Weighted | -6.4% | -91.8% | +8.9% higher |
+| Weighting Method | Weights (C/Co/E/T) | 2024 DI | Annual Avg | Cumulative |
+|------------------|-------------------|---------|------------|------------|
+| **Current (Multi-Factor)** | **29/24/29/18** | **3.74** | **-9.21%** | **-96.25%** |
+| Equal Weights | 25/25/25/25 | 4.96 | -8.45% | -95.04% |
+| Expenditure-Weighted | 25/20/30/25 | 5.01 | -8.43% | -94.99% |
+| GDP-Weighted | 20/15/40/25 | 5.12 | -8.37% | -94.88% |
 
-**Range**: -4.9% to -6.4% annual (32% spread)
-**Standard Deviation**: ±0.6 percentage points
+**Range**: -8.37% to -9.21% annual (0.84pp spread)
+**DI Range**: 3.74 to 5.12 (1.38 point spread)
 
 **Interpretation**:
-1. **Core finding robust**: All methods show substantial deflation (-4.9% to -6.4% annual)
-2. **Base case conservative**: Falls in lower-middle of range
-3. **No method shows inflation**: Even most conservative weighting shows strong deflation
-4. **±15% sensitivity**: Results vary within reasonable bounds, not orders of magnitude
+1. **Core finding robust**: All methods show substantial deflation (94-96% cumulative, 8.3-9.2% annually)
+2. **Current weights produce highest deflation**: This is because they weight Computing (29%) and Communications (24%) more heavily than alternatives—these are the fastest-deflating sectors
+3. **No method shows materially different conclusion**: Even most conservative weighting (GDP) shows 94.88% cumulative deflation
+4. **Narrow range**: Results vary by less than 1 percentage point annually across all reasonable weightings
 
-**Conclusion**: The Master DI's result (-9.21% annual, -96.26% cumulative) is robust to weighting choice. The key finding—massive technological deflation versus modest CPI inflation—holds regardless of weighting methodology.
+**Why Current Weights Show Highest Deflation**:
+
+The current multi-factor weights give more emphasis to Computing (29.41%) and Communications (23.53%) than GDP-only weights would justify. This is intentional—these sectors have extreme "enabling effects" on the broader economy that GDP contribution alone doesn't capture. However, this also means our primary index shows the highest deflation of all variants.
+
+**Transparency Note**: We publish all variant files so users can verify these results and choose their preferred weighting methodology. The core finding—massive technological deflation versus modest CPI inflation—holds regardless of which variant is used.
+
+**Conclusion**: The Master DI's result (-9.21% annual, -96.26% cumulative) represents the upper bound of reasonable estimates. Alternative weightings produce results ranging from -8.37% to -8.45% annually. The key finding—approximately 94-96% cumulative technological deflation—is robust across all methodologies.
 
 ---
 
@@ -395,11 +394,14 @@ The sensitivity analysis shows: even with wildly different assumptions, the core
 research@deflationindex.com
 
 **For detailed mathematical derivations and source code, see:**
-- `/data/master_deflation_index_v3.0.xlsx` (Sheet: Weight_Calculations)
-- `/scripts/sensitivity_analysis.py` (coming soon)
+- `/data/excel/master_deflation_index_v3.0.1.xlsx` (Sheet: Sector_Weights)
+- `/data/excel/master_deflation_index_v3.0.1_EQUAL.xlsx`
+- `/data/excel/master_deflation_index_v3.0.1_EXPENDITURE.xlsx`
+- `/data/excel/master_deflation_index_v3.0.1_GDP.xlsx`
 
 ---
 
-**Document Version**: 1.0  
-**Last Updated**: December 2025  
+**Document Version**: 1.1  
+**Last Updated**: January 2026  
+**Changes**: Sensitivity analysis corrected with verified Excel data  
 **Next Review**: v4.0 development (2027)
