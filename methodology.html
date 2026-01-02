@@ -812,45 +812,47 @@
         <p><strong>We tested four alternative weighting schemes</strong> to ensure our findings aren't artifacts of weight choices:</p>
 
         <div class="table-wrapper">
+        <h4>Robustness Check: Alternative Weightings</h4>
+        <p>To test sensitivity, we calculated results under alternative weighting schemes:</p>
         <table style="margin: 2rem 0;">
             <thead>
                 <tr>
-                    <th>Weighting Method</th>
-                    <th>Annual Average</th>
-                    <th>Cumulative</th>
-                    <th>vs. Base Case</th>
+                    <th>Weighting Approach</th>
+                    <th>Weights (C/Co/E/T)</th>
+                    <th>Annual DI</th>
+                    <th>Cumulative DI</th>
                 </tr>
             </thead>
             <tbody>
                 <tr style="background: rgba(255, 215, 0, 0.1);">
                     <td><strong>Current (Multi-Factor)</strong></td>
+                    <td>29/24/29/18</td>
                     <td><strong>-9.21%</strong></td>
-                    <td><strong>-96.26%</strong></td>
-                    <td><strong>Baseline</strong></td>
+                    <td><strong>-96.25%</strong></td>
                 </tr>
                 <tr>
-                    <td>Equal Weights (25% each)</td>
-                    <td>-9.0%</td>
-                    <td>-95.8%</td>
-                    <td>+12% higher</td>
-                </tr>
-                <tr>
-                    <td>GDP-Weighted</td>
-                    <td>-8.3%</td>
-                    <td>-94.2%</td>
-                    <td>+55% higher</td>
+                    <td>Equal Weights</td>
+                    <td>25/25/25/25</td>
+                    <td>-8.45%</td>
+                    <td>-95.04%</td>
                 </tr>
                 <tr>
                     <td>Expenditure-Weighted</td>
-                    <td>-8.8%</td>
-                    <td>-95.5%</td>
-                    <td>+20% higher</td>
+                    <td>25/20/30/25</td>
+                    <td>-8.43%</td>
+                    <td>-94.99%</td>
+                </tr>
+                <tr>
+                    <td>GDP-Only Weights</td>
+                    <td>20/15/40/25</td>
+                    <td>-8.37%</td>
+                    <td>-94.88%</td>
                 </tr>
             </tbody>
         </table>
         </div>
 
-        <p><strong>Result</strong>: All variants show substantial technological deflation (-94% to -96% cumulative). The core finding holds regardless of weighting choice.</p>
+        <p><strong>Result</strong>: The core finding—approximately 94-96% cumulative deflation at 8.3-9.2% annually—is robust across reasonable weighting approaches. The current weighting produces the highest deflation rate because it gives more weight to the fastest-deflating sectors (Computing, Communications).</p>
 
         <p><strong>Detailed analysis</strong>: See <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">Weight Justification document</a> for complete methodology, derivations, and comparisons to alternative approaches.</p>
 

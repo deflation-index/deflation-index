@@ -556,7 +556,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>The Consumer Price Index (CPI) measures what consumers actually pay. The Deflation Index measures what technology makes possible.</p>
+                    <p>The Consumer Price Index (CPI) measures what consumers pay for certain goods. The Deflation Index measures what technology more broadly makes possible.</p>
                     <p><strong>Key differences:</strong></p>
                     <p><strong>Scope:</strong> CPI tracks a basket of consumer goods. The DI focuses specifically on technological inputs (computing, communications, energy, transportation) that underpin the entire economy.</p>
                     <p><strong>Methodology:</strong> CPI uses hedonic adjustments (quality improvements) but often understates technological progress. The DI directly measures cost-per-unit-performance ($/GFLOPS, $/GB, $/kWh), capturing the full force of technological deflation.</p>
@@ -607,6 +607,46 @@
             
             <div class="faq-item" id="q6">
                 <div class="faq-question">
+                    <span>Why compare against M2 money supply instead of CPI?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>The short answer:</strong> M2 measures monetary expansion itself. CPI measures prices of a specific government-defined basket. They answer different questions.</p>
+                    <p><strong>What each metric tells us:</strong></p>
+                    <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                        <tr style="border-bottom: 2px solid var(--gold);">
+                            <th style="text-align: left; padding: 0.5rem;">Metric</th>
+                            <th style="text-align: left; padding: 0.5rem;">Measures</th>
+                            <th style="text-align: left; padding: 0.5rem;">Annual Rate (1990-2024)</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--gray);">
+                            <td style="padding: 0.5rem;">M2</td>
+                            <td style="padding: 0.5rem;">Dollars in circulation</td>
+                            <td style="padding: 0.5rem;">+5.7%</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--gray);">
+                            <td style="padding: 0.5rem;">CPI</td>
+                            <td style="padding: 0.5rem;">Government-defined consumer basket</td>
+                            <td style="padding: 0.5rem;">+2.8%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem;">Deflation Index</td>
+                            <td style="padding: 0.5rem;">Core technology costs</td>
+                            <td style="padding: 0.5rem;">-9.2%</td>
+                        </tr>
+                    </table>
+                    <p><strong>Why M2 is the right comparison:</strong></p>
+                    <p>M2 represents the monetary environment in which technology operates. When the money supply expands, that expansion must flow <em>somewhere</em>. The question is: where?</p>
+                    <p>The Deflation Index shows that technology costs fell 9.2% annually against a backdrop of 5.7% monetary expansion. That's a 14.9 percentage point divergence. This divergence is real regardless of what CPI reports.</p>
+                    <p><strong>What about CPI?</strong></p>
+                    <p>CPI averaged 2.8% over this period—lower than M2 growth. This doesn't disprove the DI-M2 gap. It raises a different question: where did the rest of the monetary expansion go?</p>
+                    <p>The answer is visible in asset prices—equities, real estate, and education costs have far outpaced both CPI and M2 since 1990.</p>
+                    <p><strong>Key insight:</strong> Inflation is not a single number—it's a vector affecting different goods, services, and assets at vastly different rates. The DI-M2 gap reveals the scale of technological deflation relative to monetary expansion, and raises the question of why these efficiencies don't appear in consumer prices.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" id="q7">
+                <div class="faq-question">
                     <span>So where does the productivity go?</span>
                     <span class="faq-icon">+</span>
                 </div>
@@ -622,7 +662,7 @@
                 </div>
             </div>
             
-            <div class="faq-item" id="q7">
+            <div class="faq-item" id="q8">
                 <div class="faq-question">
                     <span>Why only four sectors? What about housing/healthcare/education?</span>
                     <span class="faq-icon">+</span>
@@ -647,7 +687,7 @@
         <div class="faq-category">
             <h2>Data & Methodology</h2>
             
-            <div class="faq-item" id="q8">
+            <div class="faq-item" id="q9">
                 <div class="faq-question">
                     <span>Is the data public and verifiable?</span>
                     <span class="faq-icon">+</span>
@@ -672,7 +712,7 @@
                 </div>
             </div>
             
-            <div class="faq-item" id="q9">
+            <div class="faq-item" id="q10">
                 <div class="faq-question">
                     <span>Do you have a glossary of terms?</span>
                     <span class="faq-icon">+</span>
@@ -690,7 +730,7 @@
                 </div>
             </div>
             
-            <div class="faq-item" id="q10">
+            <div class="faq-item" id="q11">
                 <div class="faq-question">
                     <span>How often is the index updated?</span>
                     <span class="faq-icon">+</span>
@@ -719,7 +759,7 @@
         <div class="faq-category">
             <h2>Comparisons & Usage</h2>
             
-            <div class="faq-item" id="q11">
+            <div class="faq-item" id="q12">
                 <div class="faq-question">
                     <span>How does this compare to other deflation indices?</span>
                     <span class="faq-icon">+</span>
@@ -734,7 +774,7 @@
                     <p><strong>What makes the DI different:</strong></p>
                     <ul>
                         <li><strong>Multi-sector scope:</strong> Computing + Communications + Energy + Transportation in one index</li>
-                        <li><strong>Explicit monetary comparison:</strong> DI vs. M2 vs. CPI reveals the wealth transfer mechanism</li>
+                        <li><strong>Explicit monetary comparison:</strong> DI vs. M2 vs. CPI reveals where productivity gains flow</li>
                         <li><strong>Long time horizon:</strong> 35 years (1990-2024) shows exponential effects</li>
                         <li><strong>Complete transparency:</strong> All data, formulas, and methodology public on GitHub</li>
                         <li><strong>Forward-looking:</strong> Designed to expand (healthcare, education, housing in v4.0)</li>
@@ -743,7 +783,7 @@
                 </div>
             </div>
             
-            <div class="faq-item" id="q12">
+            <div class="faq-item" id="q13">
                 <div class="faq-question">
                     <span>Can I use this data for my own research/analysis?</span>
                     <span class="faq-icon">+</span>
@@ -779,7 +819,7 @@
         <div class="faq-category">
             <h2>Engagement</h2>
             
-            <div class="faq-item" id="q13">
+            <div class="faq-item" id="q14">
                 <div class="faq-question">
                     <span>How can I contribute or provide feedback?</span>
                     <span class="faq-icon">+</span>
