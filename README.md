@@ -287,7 +287,7 @@ We welcome formal peer review from:
 
 **Code contributions**: Improvements to data pipelines, visualization tools, or automation welcome via pull requests.
 
-**Contact**: research@deflationindex.com
+**Contact**: contact@deflationindex.com
 
 ---
 
@@ -386,7 +386,6 @@ Contact for early access or partnerships.
 
 - **Website**: [deflationindex.com](https://deflationindex.com)
 - **Email**: contact@deflationindex.com
-- **Research inquiries**: research@deflationindex.com
 - **GitHub Issues**: [Technical discussions](https://github.com/deflation-index/deflation-index/issues)
 
 ---
