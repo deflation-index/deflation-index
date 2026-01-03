@@ -961,23 +961,14 @@
         </div>
     </section>
     
-    <!-- Contrasting Forces -->
-    <section class="thesis">
-        <h2>Contrasting Forces</h2>
-        <div class="thesis-content">
-            <p>Technology creates <span class="thesis-highlight">exponential deflation</span> through cost reductions in computing, communications, energy, and transportation. From 1990-2024, costs collapsed <span class="thesis-highlight">96.26%</span> across these sectors.</p>
-            
-            <p style="margin-top: 2rem;">Meanwhile, the money supply expanded <span class="thesis-green">550%</span> during the same period. The divergence is stark: technology pushed prices down <span class="thesis-highlight">9.21% annually</span>, while monetary expansion pushed them up <span class="thesis-green">5.7% annually</span>. These are the two dominant forces—one deflationary, one inflationary.</p>
-            
-            <p style="margin-top: 2rem;">The mathematics reveal a systematic divergence. Technology drives costs down, monetary expansion drives them up. The <span class="thesis-gold">annual gap of 14.9 percentage points</span> between these forces compounds over decades.</p>
-        </div>
-    </section>
-    
-    <!-- The Numbers -->
-    <section>
-        <h2>The Numbers</h2>
+    <!-- The Divergence (Consolidated) -->
+    <section class="gap-viz">
+        <p style="text-align: center; font-size: 1.4rem; margin-bottom: 3rem; color: var(--light-gray); font-weight: 500; letter-spacing: 1px;">
+            Two systems, opposite directions
+        </p>
         
-        <div class="data-grid" style="max-width: 600px; margin: 0 auto;">
+        <!-- Annual Numbers - Visual First -->
+        <div class="data-grid" style="max-width: 600px; margin: 0 auto 2rem;">
             <div class="data-cell">
                 <div class="data-cell-label">ANNUAL TECH DEFLATION</div>
                 <div class="data-cell-value data-cell-green">-9.21%</div>
@@ -989,18 +980,11 @@
             </div>
         </div>
         
-        <p style="text-align: center; margin-top: 2rem; color: var(--light-gray); font-size: 1.1rem;">
+        <p style="text-align: center; margin-bottom: 3rem; color: var(--light-gray); font-size: 1.1rem;">
             The gap: <span style="color: var(--gold); font-weight: 700;">14.9 percentage points</span> annually
         </p>
-    </section>
-    
-    <!-- The Gap Visualization -->
-    <div class="gap-viz">
-        <h2 style="text-align: center; border-bottom: none;">THE DIVERGENCE</h2>
-        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: var(--light-gray);">
-            Two forces, opposite directions
-        </p>
         
+        <!-- Cumulative Bar Visualization -->
         <div class="gap-bars">
             <div class="bar-row">
                 <div class="bar-label">
@@ -1027,18 +1011,16 @@
             </div>
         </div>
         
+        <!-- Summary Box -->
         <div style="max-width: 900px; margin: 4rem auto; padding: 2rem; background: rgba(0,206,209,0.05); border: 2px solid var(--cyan); text-align: center;">
-            <p style="font-size: 2rem; line-height: 1.4; color: var(--gold); font-weight: 700; margin-bottom: 1rem;">
-                The Gap: 14.9pp Annually
-            </p>
-            <p style="font-size: 1.2rem; line-height: 1.7; color: var(--light-gray);">
-                Technology delivered 9.21% annual deflation <span style="color: #00CED1; font-size: 1.3rem;">↓</span>. Money supply expanded 5.7% annually <span style="color: #00FF00; font-size: 1.3rem;">↑</span>. These opposing forces create a <span style="color: var(--gold); font-weight: 600;">14.9 percentage point gap</span> every year—compounding over 35 years into a massive divergence.
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--light-gray);">
+                Technology creates exponential deflation—costs collapsed <span style="color: #00CED1; font-weight: 600;">96.26%</span> across computing, communications, energy, and transportation. Meanwhile, the money supply expanded <span style="color: #00FF00; font-weight: 600;">550%</span>. These opposing systems create a <span style="color: var(--gold); font-weight: 600;">14.9 percentage point gap</span> every year, compounding over 35 years into a massive divergence.
             </p>
             <p style="font-size: 1.1rem; line-height: 1.6; color: var(--white); margin-top: 1.5rem;">
                 Where does the productivity go? It concentrates into asset prices, intermediaries, and financial complexity—rather than flowing to consumers as lower prices.
             </p>
         </div>
-    </div>
+    </section>
     
     <!-- Timeline -->
     <section>
@@ -1089,7 +1071,7 @@
                 <div class="timeline-year">2024</div>
                 <div class="timeline-content">
                     <h4>Current State</h4>
-                    <p>Computing 99.99%+ cheaper than 1990. Communications essentially free. Solar cheapest energy in history. Purchasing power down 60%. M2: $21.3T (+550%).</p>
+                    <p>Computing 99.99%+ cheaper than 1990. Communications essentially free. Solar cheapest energy in history. DI: 3.74 (down 96.26%). M2: $21.3T (+550%).</p>
                 </div>
             </div>
         </div>
@@ -1104,8 +1086,8 @@
         </p>
         
         <div class="cta-buttons">
-            <a href="data/excel/master_deflation_index.xlsx" class="btn" download>Download Data</a>
-            <a href="docs/methodology/METHODOLOGY.md" class="btn">Methodology</a>
+            <a href="data/excel/master_deflation_index_v3_0_1.xlsx" class="btn" download>Download Data</a>
+            <a href="methodology.html" class="btn">Methodology</a>
             <a href="https://github.com/deflation-index/deflation-index" class="btn" target="_blank">GitHub</a>
         </div>
         
