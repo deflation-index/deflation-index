@@ -69,11 +69,13 @@ deflation-index/
 ├── data/                       # Source data and calculations
 │   ├── constants.json          # Single source of truth (v3.0.2)
 │   ├── excel/
-│   │   ├── master_deflation_index_v3.0.1.xlsx
-│   │   ├── computing_deflation_index_v1.0.xlsx
-│   │   ├── communications_deflation_index_v1.0.xlsx
-│   │   ├── energy_deflation_index_v1.0.xlsx
-│   │   └── transportation_deflation_index_v1.0.xlsx
+│   │   ├── master_deflation_index_v3_0_1.xlsx         # Primary index file
+│   │   ├── master_deflation_index_v3_0_1_EQUAL.xlsx   # Equal weights sensitivity
+│   │   ├── master_deflation_index_v3_0_1_GDP.xlsx     # GDP-weighted sensitivity
+│   │   ├── computing_deflation_index_v1_0.xlsx        # Computing sector detail
+│   │   ├── communications_deflation_index_v1_0.xlsx   # Communications sector detail
+│   │   ├── energy_deflation_index_v1_0.xlsx           # Energy sector detail
+│   │   └── transportation_deflation_index_v1_0.xlsx   # Transportation sector detail
 │   ├── csv/                    # Exported CSV files
 │   └── sources/                # Raw source documents
 ├── docs/                       # Documentation
