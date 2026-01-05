@@ -11,7 +11,13 @@
     <meta property="og:url" content="https://deflationindex.com/products.html">
     <meta property="og:title" content="Products | The Deflation Index">
     <meta property="og:description" content="Access Deflation Index data through API, subscriptions, and institutional offerings.">
-    <meta property="og:image" content="https://deflationindex.com/og-image.png">
+    <meta property="og:image" content="https://deflationindex.com/assets/logo/di_logo_og.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/di_logo_32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/di_logo_64.png">
+    <link rel="apple-touch-icon" href="/di_logo_64.png">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
@@ -54,22 +60,21 @@
         }
         
         .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-family: 'Archivo Black', sans-serif;
             font-size: 1.2rem;
             color: var(--gold);
             text-decoration: none;
         }
         
-        .nav-controls { display: flex; gap: 1.5rem; align-items: center; }
-        
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            color: var(--light-gray);
-            font-size: 1.2rem;
+        .nav-logo-img {
+            height: 32px;
+            width: auto;
         }
+        
+        .nav-controls { display: flex; gap: 1.5rem; align-items: center; }
         
         .hamburger {
             background: none;
@@ -139,15 +144,6 @@
             background: rgba(255, 255, 255, 0.05);
             border-left-color: var(--gold);
         }
-        
-        body.light-mode {
-            --bg-dark: #F5F5F5;
-            --light-gray: #333333;
-            --white: #000000;
-        }
-        
-        body.light-mode .nav { background: rgba(245, 245, 245, 0.95); }
-        body.light-mode .menu-dropdown { background: rgba(255, 255, 255, 0.98); border: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
         
         .hero {
             min-height: 60vh;
@@ -279,11 +275,11 @@
 <body>
     <nav class="nav">
         <div class="nav-content">
-            <a href="index.html" class="nav-logo">THE DEFLATION INDEX</a>
+            <a href="index.html" class="nav-logo">
+                <img src="/assets/logo/di_logo_primary.svg" alt="DI" class="nav-logo-img">
+                <span>THE DEFLATION INDEX</span>
+            </a>
             <div class="nav-controls">
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <span class="theme-icon">☀️</span>
-                </button>
                 <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -390,7 +386,8 @@
     </section>
     
     <footer>
-        <p>&copy; 2025 Deflation Index LLC. All rights reserved.</p>
+        <img src="/assets/logo/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto;">
+        <p>&copy; 2026 Deflation Index LLC. All rights reserved.</p>
         <p style="margin-top: 0.5rem;">
             <a href="faq.html">FAQ</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a>
         </p>
@@ -414,27 +411,6 @@
             }
         });
         
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.querySelector('.theme-icon');
-            body.classList.toggle('light-mode');
-            themeIcon.textContent = body.classList.contains('light-mode') ? '🌙' : '☀️';
-            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            const themeIcon = document.querySelector('.theme-icon');
-            if (!savedTheme) {
-                if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.body.classList.add('light-mode');
-                    themeIcon.textContent = '🌙';
-                }
-            } else if (savedTheme === 'light') {
-                document.body.classList.add('light-mode');
-                themeIcon.textContent = '🌙';
-            }
-        });
     </script>
 </body>
 </html>
