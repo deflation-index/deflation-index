@@ -196,11 +196,25 @@ Always include alt text:
 | Use Case | Recommended File | Notes |
 |----------|------------------|-------|
 | GitHub README | `di_logo_primary.svg` | Scalable, small file |
-| Website header | `di_logo_primary.svg` | Best quality |
+| Website footer | `di_logo_primary.svg` | Best quality |
 | Social profile | `di_logo_512.png` | Standard size |
 | Link preview | `di_logo_og.png` | Open Graph standard |
 | Documentation | `di_logo_primary.svg` | High quality |
 | Print | `di_logo_primary.svg` | Convert to PDF/EPS |
+
+---
+
+## Favicon Files
+
+Favicon files are stored in the **repository root** (not in this folder) with dark backgrounds baked in for visibility on light browser tabs:
+
+| File | Location | Size | Notes |
+|------|----------|------|-------|
+| `favicon.ico` | `/favicon.ico` | Multi-size | Browser tab icon |
+| `di_logo_32.png` | `/di_logo_32.png` | 32×32px | Small favicon |
+| `di_logo_64.png` | `/di_logo_64.png` | 64×64px | Large favicon, Apple touch |
+
+These use a rounded-square dark background (#0A0A0A) with cyan "DI" text for readability across all browser themes.
 
 ---
 
