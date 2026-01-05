@@ -70,26 +70,10 @@ The Deflation Index measures this divergence. We track cost-per-performance in f
 ```
 deflation-index/
 ├── assets/                     # Brand assets and images
-│   └── logo/                   # Official logos (see usage guidelines)
-│       ├── di_logo_primary.svg
-│       ├── di_logo_512.png
-│       ├── di_logo_og.png
-│       └── README.md
-├── index.html                  # Main website
-├── methodology.html            # Methodology page
-├── faq.html                    # FAQ page
-├── products.html               # Products/API page
-├── about.html                  # About page
+│   └── logo/                   # Official logos (see assets/logo/README.md)
 ├── data/                       # Source data and calculations
 │   ├── constants.json          # Single source of truth (v3.0.2)
-│   ├── excel/
-│   │   ├── master_deflation_index_v3_0_1.xlsx         # Primary index file
-│   │   ├── master_deflation_index_v3_0_1_EQUAL.xlsx   # Equal weights sensitivity
-│   │   ├── master_deflation_index_v3_0_1_GDP.xlsx     # GDP-weighted sensitivity
-│   │   ├── computing_deflation_index_v1_0.xlsx        # Computing sector detail
-│   │   ├── communications_deflation_index_v1_0.xlsx   # Communications sector detail
-│   │   ├── energy_deflation_index_v1_0.xlsx           # Energy sector detail
-│   │   └── transportation_deflation_index_v1_0.xlsx   # Transportation sector detail
+│   ├── excel/                  # Excel workbooks with formulas
 │   ├── csv/                    # Exported CSV files
 │   └── sources/                # Raw source documents
 ├── docs/                       # Documentation
@@ -98,8 +82,16 @@ deflation-index/
 │   ├── about/                  # Executive summary, essays
 │   └── operations/             # Changelog, deployment, contributing
 ├── scripts/                    # Verification and automation
-│   ├── verify_statistics.py    # Data verification tool
-│   └── export_to_csv.py        # CSV export automation
+├── favicon.ico                 # Browser tab icon
+├── di_logo_32.png              # Favicon 32x32
+├── di_logo_64.png              # Favicon 64x64
+├── index.html                  # Homepage
+├── about.html                  # About page
+├── methodology.html            # Methodology page
+├── faq.html                    # FAQ page
+├── collaborate.html            # Collaboration page
+├── products.html               # Products/API page
+├── LICENSE                     # Proprietary license
 └── README.md                   # This file
 ```
 
