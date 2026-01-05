@@ -1,0 +1,8 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- The Unveiling Logo - Variation B -->
+  <!-- Background/Shadow Layer -->
+  <text x="105" y="135" font-family="Arial, sans-serif" font-size="120" font-weight="700" letter-spacing="3" fill="#00ffff" fill-opacity="0.25">DI</text>
+  
+  <!-- Foreground Layer -->
+  <text x="100" y="130" font-family="Arial, sans-serif" font-size="120" font-weight="700" letter-spacing="3" fill="#00ffff">DI</text>
+</svg>

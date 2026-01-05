@@ -1,9 +1,17 @@
-# The Deflation Index
-## Measuring where technological productivity flows
+<p align="center">
+  <img src="assets/logo/di_logo_primary.svg" alt="The Deflation Index" height="80">
+</p>
 
+<h1 align="center">The Deflation Index</h1>
+<h3 align="center">Measuring where technological productivity flows</h3>
+
+<p align="center">
 Technology is the primary driver of human productivity. The Deflation Index tracks cost reductions in computing, communications, energy, and transportation, then compares them to monetary expansion.
+</p>
 
-**The gap between technological deflation and monetary expansion reveals where productivity gains are captured—and where they're not.**
+<p align="center">
+<strong>The gap between technological deflation and monetary expansion reveals where productivity gains are captured—and where they're not.</strong>
+</p>
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-3.0.2-blue.svg)](CHANGELOG.md)
@@ -61,6 +69,12 @@ The Deflation Index measures this divergence. We track cost-per-performance in f
 
 ```
 deflation-index/
+├── assets/                     # Brand assets and images
+│   └── logo/                   # Official logos (see usage guidelines)
+│       ├── di_logo_primary.svg
+│       ├── di_logo_512.png
+│       ├── di_logo_og.png
+│       └── README.md
 ├── index.html                  # Main website
 ├── methodology.html            # Methodology page
 ├── faq.html                    # FAQ page
@@ -394,9 +408,13 @@ Contact for early access or partnerships.
 
 ## 📜 License
 
-© 2024-2025 Deflation Index LLC. All rights reserved.
+© 2024-2026 Deflation Index LLC. All rights reserved.
 
+### Data & Methodology
 Data sources are publicly available. Calculations and methodology are original work subject to proprietary license with academic/journalistic use permitted with attribution.
+
+### Brand Assets
+The Deflation Index name, logo, and brand assets (located in `/assets/`) are proprietary trademarks of Deflation Index LLC. Use is permitted for attribution, academic citation, and journalistic reference. See [assets/logo/README.md](assets/logo/README.md) for usage guidelines.
 
 See [LICENSE](LICENSE) for full terms.
 
