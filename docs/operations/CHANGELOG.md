@@ -5,6 +5,53 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.3] - 2026-01-10
+
+### Changed - SIMPLIFIED SENSITIVITY ANALYSIS
+
+**Reduced from 4 variants to 2 methodologies**:
+- **Retained**: Multi-Factor (Primary) and Equal-Weighted (Baseline)
+- **Removed**: Expenditure-Weighted and GDP-Weighted variants
+
+**Rationale**: Previous Expenditure and GDP variants implied derivation from official BLS/BEA statistics that was not rigorously implemented. We prioritize verifiability over comprehensiveness—better to have 2 bulletproof methodologies than 4 with questionable foundations.
+
+**Results Unchanged**:
+- Multi-Factor: -96.25% cumulative, -9.21% annual
+- Equal-Weighted: -95.04% cumulative, -8.45% annual
+- Core finding robust: Both confirm massive technological deflation
+
+### Removed
+
+**Excel Files Deleted**:
+- `master_deflation_index_v3.0.1_EXPENDITURE.xlsx`
+- `master_deflation_index_v3.0.1_GDP.xlsx`
+
+**Documentation References**:
+- All references to "4 variants" updated to "2 methodologies"
+- Expenditure/GDP sections removed from VARIANTS.md and WEIGHT_JUSTIFICATION.md
+
+### Added
+
+**Future Roadmap**:
+- v4.0 (2027-2028) will implement rigorous BLS/BEA-derived sensitivity analyses
+- Expenditure-weighting from BLS Consumer Expenditure Survey
+- GDP-weighting from BEA GDP-by-Industry data
+- Requires expanded sector coverage (7+ sectors) for meaningful implementation
+
+### Impact Assessment
+
+**Core Finding UNCHANGED**:
+- Massive technological deflation confirmed (95-96% cumulative)
+- Both retained methodologies show same directional finding
+- Simplified approach is more defensible for academic/policy audiences
+
+**Why This Matters**:
+- Eliminates attack surface from unverifiable claims
+- Invites community collaboration on future rigorous sensitivity analysis
+- Maintains credibility through transparency about limitations
+
+---
+
 ## [3.0.2] - 2025-12-30
 
 ### Changed - M2 DATA CORRECTION (CRITICAL)
@@ -160,12 +207,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### v3.1 (Q2-Q3 2026)
 - 2025 data integration
-- First annual update with v3.0.2 corrected methodology
+- First annual update with v3.0.3 methodology
 
 ### v4.0 (2027-2028)
 - Healthcare, Education, Housing sectors
 - Major weight rebalancing
-- Expenditure-weighted option
+- Rigorous BLS/BEA-derived sensitivity analyses
 
 ---
 

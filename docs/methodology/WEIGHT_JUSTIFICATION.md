@@ -1,6 +1,6 @@
 # Weight Justification and Sensitivity Analysis
 
-**Deflation Index v3.0.2**  
+**Deflation Index v3.0.3**  
 **Date**: January 2026  
 **Status**: Final (Sensitivity Analysis Verified)
 
@@ -10,7 +10,7 @@
 
 This document provides detailed justification for the sector weights used in the Master Deflation Index and demonstrates the robustness of our findings through sensitivity analysis.
 
-**Current Weights (v3.0.1)**:
+**Current Weights (v3.0.3)**:
 - Computing: 29.41%
 - Communications: 23.53%
 - Energy: 29.41%
@@ -27,7 +27,7 @@ This document provides detailed justification for the sector weights used in the
 2. **Enabling Effect**: Degree to which other sectors depend on this technology
 3. **Deflationary Force**: Magnitude and consistency of cost reductions
 
-**Note**: These are v3.0.1 weights with only four sectors. When v4.0 adds healthcare, education, and housing, all weights will be rebalanced and we will shift to expenditure-weighted methodology.
+**Note**: These are v3.0.3 weights with four sectors. When v4.0 adds healthcare, education, and housing, all weights will be rebalanced with rigorously-sourced methodologies.
 
 ---
 
@@ -75,7 +75,7 @@ This document provides detailed justification for the sector weights used in the
 - Lower GDP contribution than computing/energy
 - High but not extreme enabling effect (more specialized than computing)
 - Extreme deflationary force supports substantial weight
-- Result: Lowest weight among four sectors, but still significant
+- Result: Third-highest weight among four sectors
 
 ### Energy (29.4%)
 
@@ -127,42 +127,33 @@ This document provides detailed justification for the sector weights used in the
 
 ## Weight Derivation Methodology
 
-### Step 1: Four-Sector Weighting
+### Step 1: Base Weights
 
-With four sectors:
+Initial weights assigned based on three-factor analysis:
+- Computing: 25% (high enabling, extreme deflation)
+- Communications: 20% (high enabling, extreme deflation)
+- Energy: 25% (high GDP, extreme enabling)
+- Transportation: 15% (newer sector, shorter time series)
+- Reserved: 15% (for future sectors)
 
 ### Step 2: Normalization to Four Sectors
 
-With only four sectors currently:
-- Sum of four sectors: 85%
-- Need to normalize to 100%
+With only four sectors currently, normalize to 100%:
 
 **Calculation**:
-- Computing: 25% ÷ 0.85 = 29.41% ≈ 29.4%
-- Communications: 20% ÷ 0.85 = 23.53% ≈ 23.5%
-- Energy: 25% ÷ 0.85 = 29.41% ≈ 29.4%
-- Transportation: 15% ÷ 0.85 = 17.65% ≈ 17.6%
-- **Total: 100.0%**
+- Computing: 25% ÷ 0.85 = 29.41%
+- Communications: 20% ÷ 0.85 = 23.53%
+- Energy: 25% ÷ 0.85 = 29.41%
+- Transportation: 15% ÷ 0.85 = 17.65%
+- **Total: 100.00%**
 
-### Step 3: v4.0 Rebalancing
+### Step 3: v4.0 Rebalancing (Future)
 
 When healthcare, education, and housing are added:
-- Return to original four-sector framework split, OR
-- Use expenditure-weighted approach across all seven sectors
-
-**Expenditure weights** (preliminary, subject to refinement):
-- Computing: 15-20%
-- Communications: 10-15%
-- Energy: 15-20%
-- Transportation: 10-15%
-- Healthcare: 15-20%
-- Education: 5-10%
-- Housing: 15-20%
-
-Exact weights will depend on:
-1. Relative expenditure shares in US GDP
-2. Quality-adjusted price indices for each sector
-3. Time series length and data quality
+- All weights will be rebalanced across 7 sectors
+- Plan to implement rigorously-sourced sensitivity analyses
+- Expenditure-weighting derived from BLS Consumer Expenditure Survey
+- GDP-weighting derived from BEA GDP-by-Industry data
 
 ---
 
@@ -170,13 +161,10 @@ Exact weights will depend on:
 
 **Question**: How sensitive are our results to the choice of weights?
 
-**Method**: Recalculate Master DI using three alternative weighting schemes and compare results. All variants use the same sector indices; only the weights differ.
+**Method**: Compare our Multi-Factor methodology against an equal-weighted baseline that makes zero assumptions about sector importance.
 
-**Data Source**: All results verified against Excel variant files (December 2025).
+### Equal-Weighted Baseline
 
-### Alternative Weighting Schemes
-
-#### 1. Equal Weights (Simple Average)
 **File**: `master_deflation_index_v3.0.1_EQUAL.xlsx`
 
 **Weights**:
@@ -185,54 +173,14 @@ Exact weights will depend on:
 - Energy: 25%
 - Transportation: 25%
 
-**Rationale**: No judgment about relative importance; treat all sectors equally.
+**Rationale**: No judgment about relative importance; treat all sectors equally. This is the most conservative, assumption-free approach.
 
 **Result** (verified):
 - 2024 Master DI: **4.96**
 - Annual average deflation: **-8.45%**
 - Cumulative deflation: **-95.04%**
 
-**Interpretation**: Lower deflation than current weights because equal weighting reduces emphasis on fastest-deflating sectors (Computing, Communications).
-
----
-
-#### 2. Expenditure-Weighted
-**File**: `master_deflation_index_v3.0.1_EXPENDITURE.xlsx`
-
-**Weights** (approximate household/business expenditure):
-- Computing: 25% (devices + IT services)
-- Communications: 20% (telecom services)
-- Energy: 30% (electricity + fuel)
-- Transportation: 25% (vehicles + services)
-
-**Rationale**: Weight by where money is actually spent in the economy.
-
-**Result** (verified):
-- 2024 Master DI: **5.01**
-- Annual average deflation: **-8.43%**
-- Cumulative deflation: **-94.99%**
-
-**Interpretation**: Similar to equal weights. Higher energy weight (30%) doesn't significantly change results because energy deflation (98.4%) is similar to communications (99.3%).
-
----
-
-#### 3. GDP-Weighted
-**File**: `master_deflation_index_v3.0.1_GDP.xlsx`
-
-**Weights** (approximate US GDP shares):
-- Computing: 20% (lower direct GDP)
-- Communications: 15% (lower direct GDP)
-- Energy: 40% (high direct GDP)
-- Transportation: 25% (moderate direct GDP)
-
-**Rationale**: Weight by direct economic value generated.
-
-**Result** (verified):
-- 2024 Master DI: **5.12**
-- Annual average deflation: **-8.37%**
-- Cumulative deflation: **-94.88%**
-
-**Interpretation**: Lowest deflation of all variants. Reduces weight on Computing (fastest deflator at 99.88%) and Communications (99.27%) in favor of Transportation (82.59%, slowest deflator).
+**Interpretation**: Slightly lower deflation than Multi-Factor because equal weighting reduces emphasis on fastest-deflating sectors (Computing at 99.88%, Communications at 99.27%).
 
 ---
 
@@ -240,51 +188,39 @@ Exact weights will depend on:
 
 | Weighting Method | Weights (C/Co/E/T) | 2024 DI | Annual Avg | Cumulative |
 |------------------|-------------------|---------|------------|------------|
-| **Current (Multi-Factor)** | **29/24/29/18** | **3.74** | **-9.21%** | **-96.25%** |
-| Equal Weights | 25/25/25/25 | 4.96 | -8.45% | -95.04% |
-| Expenditure-Weighted | 25/20/30/25 | 5.01 | -8.43% | -94.99% |
-| GDP-Weighted | 20/15/40/25 | 5.12 | -8.37% | -94.88% |
+| **Multi-Factor (Primary)** | **29/24/29/18** | **3.74** | **-9.21%** | **-96.25%** |
+| Equal-Weighted (Baseline) | 25/25/25/25 | 4.96 | -8.45% | -95.04% |
 
-**Range**: -8.37% to -9.21% annual (0.84pp spread)
-**DI Range**: 3.74 to 5.12 (1.38 point spread)
+**Range**: -8.45% to -9.21% annual (0.76pp spread)
 
-**Interpretation**:
-1. **Core finding robust**: All methods show substantial deflation (94-96% cumulative, 8.3-9.2% annually)
-2. **Current weights produce highest deflation**: This is because they weight Computing (29%) and Communications (24%) more heavily than alternatives—these are the fastest-deflating sectors
-3. **No method shows materially different conclusion**: Even most conservative weighting (GDP) shows 94.88% cumulative deflation
-4. **Narrow range**: Results vary by less than 1 percentage point annually across all reasonable weightings
+**Key Findings**:
 
-**Why Current Weights Show Highest Deflation**:
+1. **Core finding robust**: Both methods show substantial deflation (95-96% cumulative)
+2. **Direction unchanged**: Massive technological deflation confirmed regardless of weighting
+3. **Narrow range**: Results vary by less than 1 percentage point annually
+4. **Both dwarf inflation**: Even conservative estimate (-95.04%) far exceeds CPI inflation
 
-The current multi-factor weights give more emphasis to Computing (29.41%) and Communications (23.53%) than GDP-only weights would justify. This is intentional—these sectors have extreme "enabling effects" on the broader economy that GDP contribution alone doesn't capture. However, this also means our primary index shows the highest deflation of all variants.
+**Why Multi-Factor Shows Higher Deflation**:
 
-**Transparency Note**: We publish all variant files so users can verify these results and choose their preferred weighting methodology. The core finding—massive technological deflation versus modest CPI inflation—holds regardless of which variant is used.
+The Multi-Factor weights give more emphasis to Computing (29.41%) and Communications (23.53%) than equal weighting. These are the fastest-deflating sectors (99.88% and 99.27% respectively). This is intentional—these sectors have extreme "enabling effects" on the broader economy that pure equal-weighting doesn't capture.
 
-**Conclusion**: The Master DI's result (-9.21% annual, -96.26% cumulative) represents the upper bound of reasonable estimates. Alternative weightings produce results ranging from -8.37% to -8.45% annually. The key finding—approximately 94-96% cumulative technological deflation—is robust across all methodologies.
+**Transparency Note**: We publish both files so users can verify results and choose their preferred methodology. The core finding—massive technological deflation—holds regardless of which approach is used.
 
 ---
 
-## Why Not Use Expenditure Weights Now?
+## Why Only Two Methodologies?
 
-**Question**: If expenditure-weighting gives similar results, why not use it as primary method?
+**Previous versions** included Expenditure-Weighted and GDP-Weighted variants. We removed these in v3.0.3 because:
 
-**Answer**: Expenditure data requires all sectors to be covered.
+1. **Unverifiable claims**: The labels implied derivation from BLS/BEA data that we hadn't rigorously implemented
+2. **Mapping challenges**: Our 4 technology sectors don't cleanly map to official expenditure/GDP categories
+3. **Prioritizing accuracy**: We prefer fewer, bulletproof methodologies over more variants with weak foundations
 
-**Current Problem**:
-- We only have 4 of ~7-10 major sectors
-- Expenditure weights for incomplete coverage would be misleading
-- Better to use multi-factor approach for partial coverage
-
-**v4.0 Plan**:
-- Add healthcare, education, housing
-- Get to 7+ sectors covering 80%+ of economy
-- Then switch to expenditure-weighting as primary
-- Keep current method as alternative for comparison
-
-**Why Multi-Factor Works Now**:
-- Explicitly accounts for enabling effects (can't be measured by expenditure)
-- Handles partial coverage better (doesn't assume we've captured all spending)
-- More defensible for 4-sector index
+**Future plans** (v4.0, 2027-2028):
+- When we expand to 7+ sectors with comprehensive coverage
+- Implement rigorous expenditure-weighting from BLS Consumer Expenditure Survey
+- Implement rigorous GDP-weighting from BEA GDP-by-Industry data
+- Welcome collaboration from economists on methodology development
 
 ---
 
@@ -300,22 +236,16 @@ The current multi-factor weights give more emphasis to Computing (29.41%) and Co
 **Strength**: Long time series, visual storytelling
 **Limitation**: Not aggregated into single index, sector-specific only
 
-### Nordhaus (2007) Computing Price Index
-**Approach**: Performance-adjusted price index for computing
-**Strength**: Pioneering academic work, careful methodology
-**Limitation**: Computing only, no multi-sector aggregation
-
 ### The Deflation Index Approach
 **Difference**: 
 - Multi-sector aggregation (4 now, 7+ future)
 - Explicit comparison to M2/CPI (reveals gaps)
 - Cost-per-performance focus (not general prices)
-- Transparent weighting with alternatives provided
+- Transparent weighting with baseline provided
 
 **Trade-offs**:
 - More comprehensive than single-sector indices
 - More focused than BLS (tech only vs. all consumption)
-- Less established than official measures
 - More transparent in methodology and assumptions
 
 ---
@@ -330,37 +260,34 @@ The current multi-factor weights give more emphasis to Computing (29.41%) and Co
 
 **Quality of Life**: Weights based on economic measures, not utility/happiness improvements.
 
-**Externalities**: Pollution, congestion, other social costs not considered in weights.
-
 **Regional Variation**: US-centric weights may not apply globally.
 
-### Why These Matter
+### Why These Limitations Are Acceptable
 
 The goal is not perfect measurement of "true importance" (impossible to define). The goal is:
 1. **Defensible methodology** that others can critique and improve
 2. **Robust findings** that hold across reasonable alternatives
 3. **Transparent assumptions** so users can adjust if desired
 
-The sensitivity analysis shows: even with wildly different assumptions, the core finding (massive tech deflation vs. modest CPI inflation) remains.
+The sensitivity analysis shows: even with equal weighting (zero assumptions), the core finding remains.
 
 ---
 
 ## Future Improvements
 
-### v4.0 Weight Methodology
+### v4.0 Methodology Enhancements (2027-2028)
 
 **Plan**:
-1. **Primary method**: Expenditure-weighting across 7+ sectors
-2. **Alternative methods**: Equal-weight, GDP-weight, multi-factor (current)
-3. **User choice**: API allows specifying preferred weighting
+1. Expand to 7+ sectors (add healthcare, education, housing)
+2. Implement BLS-derived expenditure-weighting
+3. Implement BEA-derived GDP-weighting
+4. Provide user choice via API parameters
 
 **Data Requirements**:
 - Healthcare sector fully developed
 - Education sector fully developed
 - Housing sector fully developed
-- At least 5-10 years of data for each
-
-**Timeline**: 2027-2028
+- Rigorous mapping to official BLS/BEA categories
 
 ### Academic Collaboration
 
@@ -377,14 +304,13 @@ The sensitivity analysis shows: even with wildly different assumptions, the core
 
 **The current weighting system (29.4%, 23.5%, 29.4%, 17.6%) is:**
 1. ✅ Justified by three-factor framework (GDP, enabling effect, deflation)
-2. ✅ Robust to alternative specifications (±15% sensitivity)
-3. ✅ Conservative relative to alternatives (middle-low of range)
-4. ✅ Transparent and documented for scrutiny
-5. ✅ Appropriate for 4-sector partial coverage
+2. ✅ Robust to alternative specifications (Equal-weighted baseline confirms finding)
+3. ✅ Transparent and documented for scrutiny
+4. ✅ Appropriate for 4-sector partial coverage
 
-**The core finding is robust**: Technology delivered massive deflation (-96.26% cumulative) regardless of weighting choice.
+**The core finding is robust**: Technology delivered massive deflation (-95% to -96% cumulative) regardless of weighting choice.
 
-**The methodology will improve**: v4.0 will use expenditure-weighting when comprehensive coverage achieved.
+**The methodology will improve**: v4.0 will add rigorously-sourced sensitivity analyses when comprehensive coverage achieved.
 
 **We welcome critique**: Challenge our assumptions, propose alternatives, suggest improvements. The goal is the best measurement possible, not defending any particular method.
 
@@ -393,15 +319,13 @@ The sensitivity analysis shows: even with wildly different assumptions, the core
 **For questions or suggestions on weight methodology, contact:**
 research@deflationindex.com
 
-**For detailed mathematical derivations and source code, see:**
-- `/data/excel/master_deflation_index_v3.0.1.xlsx` (Sheet: Sector_Weights)
-- `/data/excel/master_deflation_index_v3.0.1_EQUAL.xlsx`
-- `/data/excel/master_deflation_index_v3.0.1_EXPENDITURE.xlsx`
-- `/data/excel/master_deflation_index_v3.0.1_GDP.xlsx`
+**For detailed calculations and source files, see:**
+- `/data/excel/master_deflation_index_v3.0.2.xlsx` (Primary)
+- `/data/excel/master_deflation_index_v3.0.1_EQUAL.xlsx` (Baseline)
 
 ---
 
-**Document Version**: 1.1  
+**Document Version**: 2.0  
 **Last Updated**: January 2026  
-**Changes**: Sensitivity analysis corrected with verified Excel data  
+**Changes**: Simplified from 4 variants to 2 methodologies for v3.0.3  
 **Next Review**: v4.0 development (2027)

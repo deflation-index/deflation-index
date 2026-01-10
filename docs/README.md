@@ -1,7 +1,7 @@
 # Deflation Index Documentation
 
-**Version**: 3.0.2  
-**Last Updated**: December 30, 2025
+**Version**: 3.0.3  
+**Last Updated**: January 10, 2026
 
 Welcome to the Deflation Index documentation. This index helps you navigate our comprehensive methodology, reference materials, and operational guides.
 
@@ -20,7 +20,7 @@ Core methodology and sector-specific documentation.
 | [ENERGY.md](methodology/ENERGY.md) | Energy sector methodology |
 | [TRANSPORTATION.md](methodology/TRANSPORTATION.md) | Transportation sector methodology |
 | [WEIGHT_JUSTIFICATION.md](methodology/WEIGHT_JUSTIFICATION.md) | Sector weight rationale |
-| [VARIANTS.md](methodology/VARIANTS.md) | Alternative weighting schemes |
+| [VARIANTS.md](methodology/VARIANTS.md) | Sensitivity analysis (2 methodologies) |
 | [DATA_STANDARDS.md](methodology/DATA_STANDARDS.md) | Data hygiene and quality standards |
 
 ### [reference/](reference/)
@@ -72,17 +72,30 @@ Deployment, contribution, and operational guides.
 
 ---
 
-## 📊 Key Statistics (v3.0.2)
+## 📊 Key Statistics (v3.0.3)
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| DI Annual Rate | -9.21% | Master DI v3.0.1 |
-| DI Cumulative | -96.26% | Master DI v3.0.1 |
+| DI Annual Rate | -9.21% | Master DI v3.0.2 |
+| DI Cumulative | -96.25% | Master DI v3.0.2 |
 | M2 Annual Rate | +5.66% | FRED M2SL |
-| M2 Cumulative | +550.2% | FRED M2SL |
+| M2 Cumulative | +550.0% | FRED M2SL |
 | DI-M2 Gap | 14.9pp | Calculated |
 
 **Single Source of Truth**: All statistics derive from `data/constants.json`
+
+---
+
+## 🔄 Sensitivity Analysis
+
+We provide two weighting methodologies to demonstrate robustness:
+
+| Methodology | 2024 DI | Cumulative | Annual |
+|-------------|---------|------------|--------|
+| **Multi-Factor (Primary)** | 3.74 | -96.25% | -9.21% |
+| Equal-Weighted (Baseline) | 4.96 | -95.04% | -8.45% |
+
+**Key Finding**: Both methodologies confirm massive technological deflation (95-96% cumulative). See [VARIANTS.md](methodology/VARIANTS.md) for details.
 
 ---
 
@@ -91,7 +104,8 @@ Deployment, contribution, and operational guides.
 | File | Location | Description |
 |------|----------|-------------|
 | `constants.json` | `data/constants.json` | Authoritative statistics |
-| Master Index | `data/excel/master_deflation_index_v3.0.1.xlsx` | Primary calculations |
+| Master Index | `data/excel/master_deflation_index_v3.0.2.xlsx` | Primary calculations |
+| Equal-Weighted | `data/excel/master_deflation_index_v3.0.1_EQUAL.xlsx` | Baseline methodology |
 | Sector Files | `data/excel/[sector]_deflation_index_v1.0.xlsx` | Sector data |
 | CSV Exports | `data/csv/` | Machine-readable exports |
 
