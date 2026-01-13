@@ -25,7 +25,7 @@ Potential applications for API access:
 All data is available for download in Excel format with full formulas and documentation. **No API required for most use cases.**
 
 **Available now:**
-- Master Deflation Index (4 weighting variants)
+- Master Deflation Index (2 weighting methodologies: Multi-Factor + Equal-Weighted)
 - Sector indices (Computing, Communications, Energy, Transportation)
 - M2 and CPI comparison data
 - Complete methodology and source citations
@@ -90,7 +90,7 @@ These are **exploratory ranges only**, not commitments. Actual pricing will depe
 - Real-time or hourly updates
 - Historical data (monthly granularity)
 - Sector breakdowns
-- Variant methodologies
+- Weighting methodologies (Multi-Factor + Equal-Weighted)
 
 ### Enterprise Tier (Custom)
 - Unlimited API calls
@@ -112,7 +112,7 @@ These are **exploratory ranges only**, not commitments. Actual pricing will depe
 GET /api/v1/di/current
 GET /api/v1/di/historical?start=1990&end=2024
 GET /api/v1/sectors/{sector}?start=1990&end=2024
-GET /api/v1/variants/{variant}/current
+GET /api/v1/weights
 POST /api/v1/calculate/purchasing-power
 ```
 
@@ -134,13 +134,13 @@ POST /api/v1/calculate/purchasing-power
 
 ## Timeline
 
-**Current Phase (Q1 2025)**: Validation
+**Current Phase (Q1 2026)**: Validation
 - Gathering user requirements
 - Understanding use cases
 - Testing pricing assumptions
 - Building email list of interested users
 
-**If Demand Validated**: Q2-Q3 2025
+**If Demand Validated**: Q2-Q3 2026
 - MVP API development
 - Pilot program with 3-5 early users
 - Iterate based on feedback
@@ -208,5 +208,5 @@ We're listening.
 
 ---
 
-**Last Updated**: December 2024  
-**Next Review**: March 2025 (after analyzing user feedback)
+**Last Updated**: January 2026  
+**Next Review**: Q2 2026 (after analyzing user feedback)

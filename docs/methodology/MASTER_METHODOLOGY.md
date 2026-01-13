@@ -1,8 +1,8 @@
 # Master Methodology Document
 ## The Deflation Index - Cross-Sector Standards & Protocols
 
-**Version**: 2.0  
-**Last Updated**: December 15, 2025  
+**Version**: 2.1  
+**Last Updated**: January 2026  
 **Scope**: All sectors in The Deflation Index  
 **Status**: Living Document - Updated with each sector addition
 
@@ -849,7 +849,7 @@ CAGR = (Final_Value / Initial_Value)^(1/years) - 1
 
 **Document Control**:
 - **Authors**: Deflation Index LLC
-- **Version**: 2.0 (expanded from initial v1.0)
-- **Effective Date**: December 15, 2025
+- **Version**: 2.1 (expanded from initial v1.0)
+- **Effective Date**: January 10, 2026
 - **Review Cycle**: Annual (Q1)
 - **Next Review**: March 31, 2026

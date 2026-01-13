@@ -1,0 +1,901 @@
+{
+  "metadata": {
+    "version": "3.0.2",
+    "last_updated": "2025-01-04"
+  },
+  "sectors": [
+    {
+      "id": "computing",
+      "name": "Computing",
+      "weight": 0.2941,
+      "metric": "$/GFLOPS",
+      "metric_description": "Cost per billion floating-point operations per second",
+      "cumulative_deflation_pct": -99.88,
+      "annual_avg_deflation_pct": -17.87,
+      "data_start_year": 1990,
+      "data_end_year": 2024,
+      "annual_data": [
+        {
+          "year": 1990,
+          "index_value": 100.0,
+          "raw_value": 831.07,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1991,
+          "index_value": 68.5095,
+          "raw_value": 519.42,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1992,
+          "index_value": 47.5171,
+          "raw_value": 324.64,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1993,
+          "index_value": 33.4269,
+          "raw_value": 202.9,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1994,
+          "index_value": 23.81,
+          "raw_value": 126.81,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1995,
+          "index_value": 17.2155,
+          "raw_value": 79.26,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1996,
+          "index_value": 12.6345,
+          "raw_value": 49.54,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1997,
+          "index_value": 9.3683,
+          "raw_value": 30.96,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1998,
+          "index_value": 7.096,
+          "raw_value": 19.35,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 1999,
+          "index_value": 5.4135,
+          "raw_value": 12.1,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2000,
+          "index_value": 4.1812,
+          "raw_value": 7.55,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2001,
+          "index_value": 3.2499,
+          "raw_value": 4.72,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2002,
+          "index_value": 2.5522,
+          "raw_value": 2.95,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2003,
+          "index_value": 2.0201,
+          "raw_value": 1.84,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2004,
+          "index_value": 1.6361,
+          "raw_value": 1.15,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2005,
+          "index_value": 1.3299,
+          "raw_value": 0.72,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2006,
+          "index_value": 1.0745,
+          "raw_value": 0.45,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2007,
+          "index_value": 0.8853,
+          "raw_value": 0.28,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2008,
+          "index_value": 0.7401,
+          "raw_value": 0.175,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2009,
+          "index_value": 0.7509,
+          "raw_value": 0.11,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2010,
+          "index_value": 0.5555,
+          "raw_value": 0.07,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2011,
+          "index_value": 0.4554,
+          "raw_value": 0.045,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2012,
+          "index_value": 0.3954,
+          "raw_value": 0.03,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2013,
+          "index_value": 0.3475,
+          "raw_value": 0.02,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2014,
+          "index_value": 0.3253,
+          "raw_value": 0.013,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2015,
+          "index_value": 0.2856,
+          "raw_value": 0.008,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2016,
+          "index_value": 0.2461,
+          "raw_value": 0.005,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2017,
+          "index_value": 0.2165,
+          "raw_value": 0.003,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2018,
+          "index_value": 0.1948,
+          "raw_value": 0.0018,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2019,
+          "index_value": 0.181,
+          "raw_value": 0.0012,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2020,
+          "index_value": 0.1691,
+          "raw_value": 0.0008,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2021,
+          "index_value": 0.1534,
+          "raw_value": 0.0005,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2022,
+          "index_value": 0.1338,
+          "raw_value": 0.0003,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2023,
+          "index_value": 0.1249,
+          "raw_value": 0.00015,
+          "unit": "$/GFLOPS"
+        },
+        {
+          "year": 2024,
+          "index_value": 0.1239,
+          "raw_value": 0.0001,
+          "unit": "$/GFLOPS"
+        }
+      ]
+    },
+    {
+      "id": "communications",
+      "name": "Communications",
+      "weight": 0.2353,
+      "metric": "$/GB",
+      "metric_description": "Cost per gigabyte of data transmission",
+      "cumulative_deflation_pct": -99.27,
+      "annual_avg_deflation_pct": -13.46,
+      "data_start_year": 1990,
+      "data_end_year": 2024,
+      "annual_data": [
+        {
+          "year": 1990,
+          "index_value": 100.0,
+          "raw_value": 94.4784,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1991,
+          "index_value": 66.6322,
+          "raw_value": 52.488,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1992,
+          "index_value": 47.307,
+          "raw_value": 29.16,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1993,
+          "index_value": 35.8547,
+          "raw_value": 16.2,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1994,
+          "index_value": 28.8398,
+          "raw_value": 9.0,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1995,
+          "index_value": 31.6306,
+          "raw_value": 11.390625,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1996,
+          "index_value": 27.0322,
+          "raw_value": 7.59375,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1997,
+          "index_value": 23.5099,
+          "raw_value": 5.0625,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1998,
+          "index_value": 20.7402,
+          "raw_value": 3.375,
+          "unit": "$/GB"
+        },
+        {
+          "year": 1999,
+          "index_value": 18.505,
+          "raw_value": 2.25,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2000,
+          "index_value": 16.656,
+          "raw_value": 1.5,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2001,
+          "index_value": 15.066,
+          "raw_value": 1.2,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2002,
+          "index_value": 13.7986,
+          "raw_value": 1.0,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2003,
+          "index_value": 12.6678,
+          "raw_value": 0.85,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2004,
+          "index_value": 11.4872,
+          "raw_value": 0.7,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2005,
+          "index_value": 10.3933,
+          "raw_value": 0.6,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2006,
+          "index_value": 9.3492,
+          "raw_value": 0.5,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2007,
+          "index_value": 8.3051,
+          "raw_value": 0.4,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2008,
+          "index_value": 7.298,
+          "raw_value": 0.35,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2009,
+          "index_value": 6.291,
+          "raw_value": 0.3,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2010,
+          "index_value": 5.2839,
+          "raw_value": 0.25,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2011,
+          "index_value": 4.7804,
+          "raw_value": 0.225,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2012,
+          "index_value": 4.2769,
+          "raw_value": 0.2,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2013,
+          "index_value": 3.777,
+          "raw_value": 0.18,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2014,
+          "index_value": 3.2772,
+          "raw_value": 0.16,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2015,
+          "index_value": 2.7811,
+          "raw_value": 0.145,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2016,
+          "index_value": 2.2849,
+          "raw_value": 0.13,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2017,
+          "index_value": 2.0786,
+          "raw_value": 0.12,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2018,
+          "index_value": 1.7851,
+          "raw_value": 0.11,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2019,
+          "index_value": 1.4917,
+          "raw_value": 0.1,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2020,
+          "index_value": 1.2853,
+          "raw_value": 0.09,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2021,
+          "index_value": 1.0789,
+          "raw_value": 0.08,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2022,
+          "index_value": 0.9633,
+          "raw_value": 0.075,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2023,
+          "index_value": 0.8477,
+          "raw_value": 0.07,
+          "unit": "$/GB"
+        },
+        {
+          "year": 2024,
+          "index_value": 0.732,
+          "raw_value": 0.065,
+          "unit": "$/GB"
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "Energy",
+      "weight": 0.2941,
+      "metric": "$/kWh (solar LCOE)",
+      "metric_description": "Levelized cost of electricity from solar photovoltaic",
+      "cumulative_deflation_pct": -98.42,
+      "annual_avg_deflation_pct": -11.48,
+      "data_start_year": 1990,
+      "data_end_year": 2024,
+      "annual_data": [
+        {
+          "year": 1990,
+          "index_value": 100.0,
+          "raw_value": 3.0476,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1991,
+          "index_value": 91.7423,
+          "raw_value": 2.7455,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1992,
+          "index_value": 84.2483,
+          "raw_value": 2.4735,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1993,
+          "index_value": 77.4469,
+          "raw_value": 2.2283,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1994,
+          "index_value": 71.2736,
+          "raw_value": 2.0075,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1995,
+          "index_value": 65.6698,
+          "raw_value": 1.8086,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1996,
+          "index_value": 60.5827,
+          "raw_value": 1.6293,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1997,
+          "index_value": 55.9643,
+          "raw_value": 1.4679,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1998,
+          "index_value": 51.771,
+          "raw_value": 1.3224,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1999,
+          "index_value": 47.9633,
+          "raw_value": 1.1914,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2000,
+          "index_value": 68.1197,
+          "raw_value": 1.0733,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2001,
+          "index_value": 55.3755,
+          "raw_value": 0.9669,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2002,
+          "index_value": 45.6634,
+          "raw_value": 0.8711,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2003,
+          "index_value": 38.1729,
+          "raw_value": 0.7848,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2004,
+          "index_value": 32.3196,
+          "raw_value": 0.707,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2005,
+          "index_value": 49.9083,
+          "raw_value": 0.637,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2006,
+          "index_value": 38.4738,
+          "raw_value": 0.5738,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2007,
+          "index_value": 30.3808,
+          "raw_value": 0.517,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2008,
+          "index_value": 24.5584,
+          "raw_value": 0.4657,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2009,
+          "index_value": 20.2885,
+          "raw_value": 0.4196,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2010,
+          "index_value": 17.0889,
+          "raw_value": 0.378,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2011,
+          "index_value": 12.9595,
+          "raw_value": 0.3,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2012,
+          "index_value": 10.2836,
+          "raw_value": 0.25,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2013,
+          "index_value": 7.9769,
+          "raw_value": 0.185,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2014,
+          "index_value": 6.0852,
+          "raw_value": 0.16,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2015,
+          "index_value": 4.7801,
+          "raw_value": 0.122,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2016,
+          "index_value": 4.0235,
+          "raw_value": 0.12,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2017,
+          "index_value": 3.1704,
+          "raw_value": 0.1,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2018,
+          "index_value": 2.665,
+          "raw_value": 0.085,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2019,
+          "index_value": 2.2005,
+          "raw_value": 0.068,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2020,
+          "index_value": 1.9457,
+          "raw_value": 0.057,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2021,
+          "index_value": 1.7239,
+          "raw_value": 0.048,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2022,
+          "index_value": 1.8057,
+          "raw_value": 0.05,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2023,
+          "index_value": 1.6774,
+          "raw_value": 0.044,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2024,
+          "index_value": 1.5845,
+          "raw_value": 0.043,
+          "unit": "$/kWh"
+        }
+      ]
+    },
+    {
+      "id": "transportation",
+      "name": "Transportation",
+      "weight": 0.1765,
+      "metric": "$/kWh (battery)",
+      "metric_description": "Electric vehicle battery pack cost per kilowatt-hour",
+      "cumulative_deflation_pct": -82.59,
+      "annual_avg_deflation_pct": -5.01,
+      "data_start_year": 2010,
+      "data_end_year": 2024,
+      "note": "Index values 1990-2009 set to 100 (pre-commercial EV battery era). Raw values available from 2010.",
+      "annual_data": [
+        {
+          "year": 1990,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1991,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1992,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1993,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1994,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1995,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1996,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1997,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1998,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 1999,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2000,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2001,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2002,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2003,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2004,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2005,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2006,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2007,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2008,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2009,
+          "index_value": 100.0,
+          "raw_value": null,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2010,
+          "index_value": 100.0,
+          "raw_value": 1160.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2011,
+          "index_value": 79.8358,
+          "raw_value": 900.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2012,
+          "index_value": 64.5813,
+          "raw_value": 700.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2013,
+          "index_value": 56.7159,
+          "raw_value": 600.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2014,
+          "index_value": 42.2003,
+          "raw_value": 410.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2015,
+          "index_value": 37.2906,
+          "raw_value": 350.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2016,
+          "index_value": 31.1248,
+          "raw_value": 273.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2017,
+          "index_value": 25.8456,
+          "raw_value": 208.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2018,
+          "index_value": 23.0049,
+          "raw_value": 176.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2019,
+          "index_value": 21.0509,
+          "raw_value": 156.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2020,
+          "index_value": 20.0575,
+          "raw_value": 149.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2021,
+          "index_value": 18.9163,
+          "raw_value": 140.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2022,
+          "index_value": 19.2529,
+          "raw_value": 151.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2023,
+          "index_value": 18.6289,
+          "raw_value": 149.0,
+          "unit": "$/kWh"
+        },
+        {
+          "year": 2024,
+          "index_value": 17.4138,
+          "raw_value": 139.0,
+          "unit": "$/kWh"
+        }
+      ]
+    }
+  ]
+}

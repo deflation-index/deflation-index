@@ -3,14 +3,14 @@
 
 **Created**: December 15, 2025  
 **Updated**: January 2026  
-**Version**: 1.1  
+**Version**: 1.2  
 **Purpose**: Complete guide for using the Deflation Index Excel templates
 
 ---
 
 ## 📦 WHAT YOU HAVE
 
-### **Eight Excel Files Ready to Use:**
+### **Six Excel Files Ready to Use:**
 
 **Sector Files (4):**
 1. **computing_deflation_index_v1.0.xlsx** - Computing sector (with sample 2020-2024 data)
@@ -18,11 +18,9 @@
 3. **energy_deflation_index_v1.0.xlsx** - Energy sector (template)
 4. **transportation_deflation_index_v1.0.xlsx** - Transportation sector (template)
 
-**Master Files (4 weighting variants):**
-5. **master_deflation_index_v3.0.1.xlsx** - Master index (primary multi-factor weights)
-6. **master_deflation_index_v3.0.1_EQUAL.xlsx** - Equal-weighted variant (25% each)
-7. **master_deflation_index_v3.0.1_EXPENDITURE.xlsx** - Expenditure-weighted variant
-8. **master_deflation_index_v3.0.1_GDP.xlsx** - GDP-weighted variant
+**Master Files (2 methodologies):**
+5. **master_deflation_index_v3.0.2.xlsx** - Master index (primary multi-factor weights)
+6. **master_deflation_index_v3.0.1_EQUAL.xlsx** - Equal-weighted baseline (25% each)
 
 ### **Each Sector File Contains 7 Worksheets:**
 
@@ -262,236 +260,7 @@ Sector_Index[year] =
   (Memory_Index × 0.10)
 ```
 
-### **Annual Deflation Rate**
-
-```
-Deflation_Rate[year] = (Sector_Index[year] / Sector_Index[year-1]) - 1
-```
-
-**Sector Index CAGR (compound annual growth rate, 1990-2024):**
-- Computing: -17.9% annually (sector index)
-- Communications: -13.5% annually (sector index)
-- Energy: -11.5% annually (sector index)
-- Transportation: -11.7% annually (2010-2024, sector index)
-
-**Note:** Individual components within sectors may deflate faster. For example, raw $/GFLOPS (computing power) deflates at ~35-40% annually, but the weighted computing sector index (which includes storage and memory) deflates at ~18% annually.
-
----
-
-## 🎨 FORMATTING STANDARDS (Enforce Rigorously!)
-
-### **Text Colors** (per xlsx SKILL.md)
-
-**Blue (RGB: 0,0,255):**
-- All hardcoded inputs from external sources
-- Raw cost data
-- CPI values
-- Quality metrics
-- Year column (as text: "2024" not 2,024)
-
-**Black (RGB: 0,0,0):**
-- ALL formulas
-- All calculated values
-- Never hardcode calculations in black text
-
-**Green (RGB: 0,128,0):**
-- Cross-sheet references only
-- Example: `=Master_Data!L7` in Sector_Index sheet
-
-**Red (RGB: 255,0,0):**
-- External file links (avoid if possible)
-- Warning notes only
-
-### **Background Colors**
-
-**Yellow (RGB: 255,255,0):**
-- Estimated data (pre-2000 reconstructions)
-- Interpolated values (filling gaps)
-- Assumptions needing review
-
-**Light Gray (RGB: 211,211,211):**
-- Header rows only
-- No data in gray cells
-
-**White (RGB: 255,255,255):**
-- Standard data cells
-
-### **Number Formats**
-
-**Currency:**
-- `$#,##0.0000` for costs <$1 ($/GFLOPS, $/GB)
-- `$#,##0.00` for costs >$1 ($/GB RAM)
-- Always specify units in header
-
-**Percentages:**
-- `0.0%` (one decimal place)
-- Use for deflation rates, quality flags
-
-**Years:**
-- Format as TEXT ("2024" not "2,024")
-- Prevents Excel from adding commas
-
-**Zeros:**
-- Display as "-" using format: `$#,##0;($#,##0);-`
-
----
-
-## 🚨 COMMON MISTAKES TO AVOID
-
-### **Mistake 1: Hardcoding Calculated Values**
-
-❌ **WRONG:**
-```
-Cell F15: 0.0012 [typed manually after calculating in calculator]
-```
-
-✅ **CORRECT:**
-```
-Cell F15: =B15*($E$40/$E15) [formula that auto-calculates]
-```
-
-**Why it matters:** If you update CPI or raw data, hardcoded values won't update!
-
-### **Mistake 2: Wrong Text Colors**
-
-❌ **WRONG:**
-```
-Cell B15: 0.0012 [black text - looks like formula but it's hardcoded]
-```
-
-✅ **CORRECT:**
-```
-Cell B15: 0.0012 [blue text - clearly shows it's source data]
-```
-
-**Why it matters:** You won't know which cells are formulas vs. data!
-
-### **Mistake 3: Missing Source Citations**
-
-❌ **WRONG:**
-```
-Cell B15: 0.0012 [blue text, but no comment]
-```
-
-✅ **CORRECT:**
-```
-Cell B15: 0.0012 [blue text, with comment: "Source: AI Impacts 2015..."]
-```
-
-**Why it matters:** External auditors can't verify your data!
-
-### **Mistake 4: Skipping recalc.py**
-
-❌ **WRONG:**
-```
-[Make changes, save file, close Excel]
-```
-
-✅ **CORRECT:**
-```
-[Make changes, SAVE, run recalc.py, verify zero errors, THEN close]
-```
-
-**Why it matters:** Formula errors corrupt the entire index!
-
-### **Mistake 5: Not Documenting Assumptions**
-
-❌ **WRONG:**
-```
-[Interpolate 1998 data, don't document method]
-```
-
-✅ **CORRECT:**
-```
-[Interpolate 1998, add note: "Linear interpolation between 1997-1999", 
- yellow background, document in Assumptions sheet]
-```
-
-**Why it matters:** Future maintainers won't know how to update!
-
----
-
-## 📊 EXAMPLE: Complete Data Entry for One Year
-
-Let's walk through entering **2015 data for Computing sector**:
-
-### **Step 1: Gather Sources**
-
-**Computing Power:**
-- AI Impacts: GTX 980 Ti, 6.1 TFLOPS @ $649 = $0.106/GFLOPS
-- PassMark: Score 11,467, $649 = 17.6 GFLOPS/$ = $0.057/GFLOPS
-- **Use**: Average = $0.005/GFLOPS
-
-**Storage:**
-- Backblaze Q4 2015: 6TB drives, $0.035/GB average
-- Amazon retail: 6TB WD Red $210 = $0.035/GB ✓
-
-**Memory:**
-- DRAMeXchange Q4 2015: DDR3-1600 8GB kit $40 = $5.00/GB
-- Newegg: Crucial DDR3 $38 = $4.75/GB
-- **Use**: $6.50/GB (includes retail markup)
-
-**CPI:**
-- FRED series CPIAUCSL, December 2015: 236.5
-
-**Quality Metrics:**
-- GTX 980 Ti: 4.5 GFLOPS/watt (from Anandtech review)
-- 6TB WD Red: 150 MB/s transfer (from spec sheet)
-- DDR3-1600: 12.8 GB/s bandwidth (JEDEC standard)
-
-### **Step 2: Enter in Excel** (row 31, year 2015)
-
-**Cell A31:** `2015` [blue text, text format]
-
-**Cell B31:** `0.005` [blue text, $#,##0.0000 format]
-- Comment: "Source: AI Impacts 2015 + PassMark average. GTX 980 Ti 6.1 TFLOPS @ $649. Cross-check: PassMark ID 2838. URL: https://aiimpacts.org/... Accessed: 2025-12-15. Quality: A"
-
-**Cell C31:** `0.035` [blue text, $#,##0.0000 format]
-- Comment: "Source: Backblaze Q4 2015, 6TB HDD average. Cross-check: Amazon WD Red 6TB $210. URL: https://www.backblaze.com/blog/hard-drive-cost-2015/. Accessed: 2025-12-15. Quality: A"
-
-**Cell D31:** `6.50` [blue text, $#,##0.00 format]
-- Comment: "Source: DRAMeXchange Q4 2015, DDR3-1600 pricing. Cross-check: Newegg Crucial 8GB $52. Includes retail markup. Accessed: 2025-12-15. Quality: B"
-
-**Cell E31:** `236.5` [blue text, 0.0 format]
-- Comment: "Source: FRED series CPIAUCSL, December 2015. URL: https://fred.stlouisfed.org/series/CPIAUCSL. Accessed: 2025-12-15."
-
-**Cell F31:** `=B31*($E$40/$E31)` [black text - auto formula]
-**Cell G31:** `=C31*($E$40/$E31)` [black text - auto formula]
-**Cell H31:** `=D31*($E$40/$E31)` [black text - auto formula]
-
-**Cell I31:** `4.5` [blue text, 0 format]
-- Comment: "Source: Anandtech GTX 980 Ti review. 4.5 GFLOPS/watt efficiency. URL: https://www.anandtech.com/show/9306/. Accessed: 2025-12-15."
-
-**Cell J31:** `150` [blue text, 0 format]
-**Cell K31:** `12.8` [blue text, 0.0 format]
-
-**Cell L31:** `=F31*(I31/$I$40)^0.3` [black text - auto formula]
-**Cell M31:** `=G31*(J31/$J$40)^0.2` [black text - auto formula]
-**Cell N31:** `=H31*(K31/$K$40)^0.4` [black text - auto formula]
-
-**Cell O31:** `Computing: AI Impacts/PassMark avg | Storage: Backblaze Q4 | Memory: DRAMeXchange`
-
-**Cell P31:** `All sources cross-validated ✓`
-
-**Cell Q31:** `None - good data quality`
-
-**Cell R31:** `A`
-
-### **Step 3: Verify**
-
-1. Save file
-2. Run recalc.py → verify zero errors
-3. Check that F31, G31, H31 show inflation-adjusted values
-4. Check that L31, M31, N31 show quality-adjusted values
-5. Scan row for proper color coding (blue vs. black)
-
-### **Step 4: Document**
-
-**In Changelog sheet:**
-```
-2025-12-15 | v1.1 | Added 2015 data (Computing, Storage, Memory) | 
-Minor data addition | Your Name
-```
+Component weights are sector-specific and documented in each methodology file.
 
 ---
 
@@ -499,7 +268,7 @@ Minor data addition | Your Name
 
 Once all four sector files are complete (1990-2024):
 
-### **Step 1: Open master_deflation_index_v3.0.1.xlsx**
+### **Step 1: Open master_deflation_index_v3.0.2.xlsx**
 
 ### **Step 2: Link Sector Indices**
 
@@ -519,7 +288,7 @@ Repeat for Energy and Transportation.
 
 ### **Step 3: Verify Weights**
 
-In Sector_Weights sheet, verify (v3.0.1 weights):
+In Sector_Weights sheet, verify (v3.0.3 weights):
 - Computing: 29.41%
 - Communications: 23.53%
 - Energy: 29.41%

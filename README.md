@@ -73,6 +73,7 @@ deflation-index/
 │   └── logo/                   # Official logos (see assets/logo/README.md)
 ├── data/                       # Source data and calculations
 │   ├── constants.json          # Single source of truth (v3.0.3)
+│   ├── api/                    # JSON data for API/integrations
 │   ├── excel/                  # Excel workbooks with formulas
 │   ├── csv/                    # Exported CSV files
 │   └── sources/                # Raw source documents

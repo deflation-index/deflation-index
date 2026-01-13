@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "version": "3.0.3",
+    "last_updated": "2026-01-10",
+    "description": "Deflation Index weighting methodologies"
+  },
+  "primary": {
+    "name": "Multi-Factor",
+    "version": "v3.0.3",
+    "weights": {
+      "computing": 0.2941,
+      "communications": 0.2353,
+      "energy": 0.2941,
+      "transportation": 0.1765
+    },
+    "total": 1.0,
+    "methodology": "Balances three factors: GDP contribution, enabling effect, and deflationary force",
+    "results": {
+      "di_2024": 3.74,
+      "annual_rate_pct": -9.21,
+      "cumulative_pct": -96.25
+    },
+    "file": "master_deflation_index_v3.0.2.xlsx",
+    "use_case": "Recommended default for analysis and publication"
+  },
+  "baseline": {
+    "name": "Equal-Weighted",
+    "version": "v3.0.3",
+    "weights": {
+      "computing": 0.25,
+      "communications": 0.25,
+      "energy": 0.25,
+      "transportation": 0.25
+    },
+    "total": 1.0,
+    "methodology": "Simple equal weighting with zero assumptions about relative importance",
+    "results": {
+      "di_2024": 4.96,
+      "annual_rate_pct": -8.45,
+      "cumulative_pct": -95.04
+    },
+    "file": "master_deflation_index_v3.0.1_EQUAL.xlsx",
+    "use_case": "Zero-assumption baseline for robustness verification"
+  },
+  "sensitivity_summary": {
+    "annual_rate_range": "-8.45% to -9.21%",
+    "cumulative_range": "-95.04% to -96.25%",
+    "spread_annual_pp": 0.76,
+    "spread_cumulative_pp": 1.21,
+    "interpretation": "Core finding robust across both methodologies. Both confirm massive technological deflation (95-96% cumulative) regardless of weighting assumptions."
+  },
+  "future_roadmap": {
+    "v4.0_target": "2027-2028",
+    "planned_additions": [
+      "Expenditure-weighted (BLS Consumer Expenditure Survey derived)",
+      "GDP-weighted (BEA GDP-by-Industry derived)"
+    ],
+    "requirements": "Expanded sector coverage (7+ sectors) for meaningful implementation"
+  }
+}

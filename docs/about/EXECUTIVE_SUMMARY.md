@@ -1,7 +1,7 @@
 # Executive Summary: The Deflation Index
 ## Measuring Technological Progress and the Missing Abundance (1990-2024)
 
-**Version**: 3.0.2 (M2 Corrected, Language Refined)  
+**Version**: 3.0.3 (Simplified Sensitivity Analysis)  
 **Date**: January 2026  
 **Status**: Publication-Ready | FRED-Verified | Zero Formula Errors
 
@@ -17,7 +17,7 @@
 
 ### Technology Deflation (Deflation Index)
 - **Annual Average**: -9.21% deflation per year
-- **Cumulative**: -96.26% total deflation over 35 years
+- **Cumulative**: -96.25% total deflation over 35 years
 - **Meaning**: What cost $100 in 1990 should cost $3.74 in 2024 (in real terms)
 
 ### M2 Money Supply Expansion (FRED M2SL)
@@ -213,11 +213,11 @@ Consumer prices (CPI) rose only 155%.
 ## 📄 Citation
 
 ```bibtex
-@dataset{deflation_index_2025,
+@dataset{deflation_index_2026,
   title={The Deflation Index: Measuring Technological Progress (1990-2024)},
   author={Deflation Index LLC},
-  year={2025},
-  version={3.0.2},
+  year={2026},
+  version={3.0.3},
   publisher={GitHub},
   url={https://github.com/deflation-index/deflation-index},
   note={M2 data verified against FRED M2SL, zero formula errors}
@@ -227,6 +227,13 @@ Consumer prices (CPI) rose only 155%.
 ---
 
 ## ⚠️ Version Notes
+
+**v3.0.3 (January 2026)**: Simplified Sensitivity Analysis
+- Removed Expenditure-Weighted and GDP-Weighted variants
+- Retained Multi-Factor (Primary) and Equal-Weighted (Baseline) methodologies
+- Both methodologies confirm 95-96% cumulative deflation
+- Core finding unchanged; reduced attack surface for credibility
+- Roadmap for rigorous BLS/BEA-derived variants in v4.0
 
 **v3.0.2 (January 2026)**: M2 Data Correction + Language Refinement
 - Fixed M2 cumulative expansion: 615% → 550.2% (FRED M2SL verified)
