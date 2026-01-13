@@ -14,7 +14,7 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 </p>
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.0.2-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.0.3-blue.svg)](CHANGELOG.md)
 [![Data Points](https://img.shields.io/badge/data%20points-400%2B-green.svg)](#)
 [![Formulas](https://img.shields.io/badge/formulas-700%2B-green.svg)](#)
 
@@ -22,13 +22,13 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 
 ## 📊 Key Findings (1990-2024)
 
-* **Technology deflation**: -96.26% cumulative (-9.21% annual average)
+* **Technology deflation**: -96.25% cumulative (-9.21% annual average)
 * **M2 money supply growth**: +550% cumulative (+5.7% annual average)
 * **The DI-M2 Gap**: 14.9 percentage points annually
 
 ---
 
-## 🎯 Current Scope (v3.0.2)
+## 🎯 Current Scope (v3.0.3)
 
 **Four Sectors Covered:**
 1. **Computing (29.41%)**: Cost per billion floating-point operations per second ($/GFLOPS) - 99.88% deflation
@@ -72,7 +72,7 @@ deflation-index/
 ├── assets/                     # Brand assets and images
 │   └── logo/                   # Official logos (see assets/logo/README.md)
 ├── data/                       # Source data and calculations
-│   ├── constants.json          # Single source of truth (v3.0.2)
+│   ├── constants.json          # Single source of truth (v3.0.3)
 │   ├── excel/                  # Excel workbooks with formulas
 │   ├── csv/                    # Exported CSV files
 │   └── sources/                # Raw source documents
@@ -103,7 +103,7 @@ deflation-index/
 
 ### Current Scope Limitations
 
-**Sectors Covered (v3.0.2)**:
+**Sectors Covered (v3.0.3)**:
 - ✅ Computing, Communications, Energy, Transportation
 - ❌ Healthcare, Education, Housing, Agriculture, Materials, Software-as-Service
 
@@ -116,12 +116,11 @@ deflation-index/
 **Weighting System**:
 - Current weights (29.41%, 23.53%, 29.41%, 17.65%) based on three factors: GDP contribution, enabling effect, and deflationary force
 - Detailed weight justification and sensitivity analysis in docs/methodology/WEIGHT_JUSTIFICATION.md
-- Alternative weighting schemes tested (equal-weight, GDP-weighted, expenditure-weighted)
-- Results robust across methods (8.37-9.21% annual, ~10% relative variation)
+- Equal-weighted baseline tested to confirm robustness (see sensitivity analysis below)
+- Results robust across methodologies (8.45-9.21% annual deflation)
 
 **Index Construction**:
 - Weighted averages used to capture sector contributions
-- Alternative methods (arithmetic, expenditure-weighted) documented for comparison
 - Cost-per-performance focus doesn't capture adoption friction or network effects
 
 **Conservative Assumptions**:
@@ -173,13 +172,14 @@ These weights reflect relative economic importance across three dimensions:
 
 **Sensitivity Analysis**:
 
-We tested alternative weighting schemes (all verified against Excel files):
-- Equal weights (25% each): DI = -8.45% annual average
-- GDP-weighted: DI = -8.37% annual average
-- Expenditure-weighted: DI = -8.43% annual average
-- Current method (multi-factor): DI = -9.21% annual average
+We provide two weighting methodologies to demonstrate robustness:
 
-**Result**: Annual rates range from -8.37% to -9.21% (0.84pp spread). Core finding robust to weighting choice. Current weights produce highest deflation because they emphasize Computing and Communications (fastest-deflating sectors).
+| Methodology | Annual Rate | Cumulative | 2024 DI |
+|-------------|-------------|------------|---------|
+| **Multi-Factor (Primary)** | -9.21% | -96.25% | 3.74 |
+| Equal-Weighted (Baseline) | -8.45% | -95.04% | 4.96 |
+
+**Result**: Both methodologies confirm massive technological deflation (95-96% cumulative). The core finding is robust regardless of weighting choice. Future versions (v4.0+) will implement rigorous BLS/BEA-derived sensitivity analyses when sector coverage expands.
 
 Full methodology documentation: [docs/methodology/](docs/methodology/)
 
@@ -202,24 +202,9 @@ This measures the annual divergence between technological deflation and monetary
 
 ---
 
-## 📊 Data Sources
+## ✅ Data Quality & Verification
 
-All data comes from authoritative, publicly available sources:
-
-| Source | What We Use | Reliability |
-|--------|-------------|-------------|
-| **Federal Reserve (FRED)** | M2 money supply, CPI data | 100/100 (A+) |
-| **Bureau of Labor Statistics** | Consumer Price Index | 100/100 (A-) |
-| **IRENA** | Solar LCOE data | 95/100 (A) |
-| **BloombergNEF** | Battery cost data | 95/100 (A) |
-| **AI Impacts** | Computing cost data | 90/100 (A-) |
-| **ITU/FCC** | Communications cost data | 90/100 (A-) |
-
-Every data point includes source citations in Excel cell comments. Full source documentation: [data/sources/SOURCES.md](data/sources/SOURCES.md)
-
----
-
-## 📈 Quality Standards
+**Every number is verifiable. Every formula is transparent. Every source is cited.**
 
 ### The Numbers
 
@@ -248,16 +233,13 @@ Every Excel file includes:
 
 **Anyone can verify our work. That's the standard we hold ourselves to.**
 
-### v3.0.2 Rebuild (December 2025)
+### Version History
 
-This version represents a complete rebuild of the Deflation Index:
-- All calculations now use formulas (previously hard-coded values)
-- Weights referenced from single source for consistency
-- 4-decimal precision (weights sum to exactly 1.0000)
-- Fully reproducible and verifiable
-- More accurate deflation measurements from source data
+**v3.0.3 (January 2026)**: Simplified sensitivity analysis from 4 variants to 2 methodologies (Multi-Factor + Equal-Weighted). Removed Expenditure and GDP variants pending rigorous BLS/BEA derivation in v4.0.
 
-**Why numbers changed from v3.0**: Previous version used externally calculated values. v3.0.2 calculates directly from raw source data, revealing more accurate (and more dramatic) deflation rates.
+**v3.0.2 (December 2025)**: Complete rebuild with formula-based calculations, M2 data correction from FRED M2SL, 4-decimal weight precision.
+
+**Why numbers are trustworthy**: All calculations derive directly from raw source data. Every value is traceable to authoritative sources.
 
 ---
 
@@ -301,12 +283,12 @@ We welcome formal peer review from:
 
 ## 🚀 Roadmap
 
-### v3.0.2 (Current - December 2025)
+### v3.0.3 (Current - January 2026)
 - ✅ Four sectors: Computing, Communications, Energy, Transportation
 - ✅ 35 years of data (1990-2024)
 - ✅ 700+ verified formulas
 - ✅ Complete methodology documentation
-- ✅ Formula-based calculations (fully reproducible)
+- ✅ Simplified sensitivity analysis (2 methodologies)
 - ✅ 4-decimal weight precision
 
 ### v3.1 (Q2-Q3 2026)
@@ -324,7 +306,7 @@ We welcome formal peer review from:
 - Education sector: Online learning, digital textbooks, MOOCs
 - Housing sector: Construction productivity, modular housing, smart home tech
 - Rebalanced weights across seven sectors
-- Expenditure-weighted methodology option
+- Rigorous BLS/BEA-derived sensitivity analyses
 
 ### Phase 2 (2028+)
 - Real-time dashboard
@@ -369,7 +351,7 @@ The data is currently under a proprietary license, but we strongly encourage:
 
 ```
 The Deflation Index: Measuring Technological Progress (1990-2024)
-Deflation Index LLC, v3.0.2
+Deflation Index LLC, v3.0.3
 Available at: github.com/deflation-index/deflation-index
 ```
 
@@ -422,6 +404,6 @@ The Deflation Index exists to provide objective, transparent, verifiable measure
 
 ---
 
-**Version**: 3.0.2  
+**Version**: 3.0.3  
 **Last Updated**: January 2026  
 **Next Update**: Q2-Q3 2026 (v3.1 with 2025 data)

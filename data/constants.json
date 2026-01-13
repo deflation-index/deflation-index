@@ -1,6 +1,6 @@
 {
-  "version": "3.0.2",
-  "last_updated": "2025-12-30",
+  "version": "3.0.3",
+  "last_updated": "2026-01-10",
   "description": "Single source of truth for Deflation Index statistics",
   
   "sources": {
@@ -16,8 +16,8 @@
       "retrieved": "2025-12-30"
     },
     "di": {
-      "name": "Deflation Index Master v3.0.1",
-      "file": "data/excel/master_deflation_index_v3.0.1.xlsx"
+      "name": "Deflation Index Master v3.0.2",
+      "file": "data/excel/master_deflation_index_v3.0.2.xlsx"
     }
   },
 
@@ -26,7 +26,7 @@
     "base_value": 100.00,
     "end_year": 2024,
     "end_value": 3.74,
-    "cumulative_deflation_percent": -96.26,
+    "cumulative_deflation_percent": -96.25,
     "cagr_percent": -9.21,
     "description": "Technology cost index, 1990=100"
   },
@@ -117,7 +117,7 @@
   "key_statistics_for_display": {
     "hero_numbers": {
       "di_annual": "-9.21%",
-      "di_cumulative": "-96.26%",
+      "di_cumulative": "-96.25%",
       "m2_annual": "+5.7%",
       "m2_cumulative": "+550%",
       "gap_annual": "14.9pp"
