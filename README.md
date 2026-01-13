@@ -16,7 +16,7 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-3.0.3-blue.svg)](CHANGELOG.md)
 [![Data Points](https://img.shields.io/badge/data%20points-400%2B-green.svg)](#)
-[![Formulas](https://img.shields.io/badge/formulas-700%2B-green.svg)](#)
+[![Formulas](https://img.shields.io/badge/formulas-900%2B-green.svg)](#)
 
 ---
 
@@ -38,7 +38,7 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 
 **Time Coverage**: 1990-2024 (35 years)
 **Data Points**: 400+ verified measurements
-**Formulas**: 700+ calculations
+**Formulas**: 900+ calculations
 **Update Frequency**: Annual major updates, quarterly refinements
 
 
@@ -209,7 +209,7 @@ This measures the annual divergence between technological deflation and monetary
 
 ### The Numbers
 
-- **700+ formulas**: Every calculation is formula-driven in Excel
+- **900+ formulas**: Every calculation is formula-driven in Excel
 - **400+ data points**: Comprehensive coverage across 35 years
 - **100% sourced**: Every data point has source citation in cell comments
 - **Fully reproducible**: Download the Excel files and verify every calculation
@@ -287,7 +287,7 @@ We welcome formal peer review from:
 ### v3.0.3 (Current - January 2026)
 - ✅ Four sectors: Computing, Communications, Energy, Transportation
 - ✅ 35 years of data (1990-2024)
-- ✅ 700+ verified formulas
+- ✅ 900+ verified formulas
 - ✅ Complete methodology documentation
 - ✅ Simplified sensitivity analysis (2 methodologies)
 - ✅ 4-decimal weight precision
