@@ -804,38 +804,26 @@
             </thead>
             <tbody>
                 <tr style="background: rgba(255, 215, 0, 0.1);">
-                    <td><strong>Current (Multi-Factor)</strong></td>
+                    <td><strong>Multi-Factor (Primary)</strong></td>
                     <td>29/24/29/18</td>
                     <td><strong>-9.21%</strong></td>
                     <td><strong>-96.25%</strong></td>
                 </tr>
                 <tr>
-                    <td>Equal Weights</td>
+                    <td>Equal-Weighted (Baseline)</td>
                     <td>25/25/25/25</td>
                     <td>-8.45%</td>
                     <td>-95.04%</td>
-                </tr>
-                <tr>
-                    <td>Expenditure-Weighted</td>
-                    <td>25/20/30/25</td>
-                    <td>-8.43%</td>
-                    <td>-94.99%</td>
-                </tr>
-                <tr>
-                    <td>GDP-Only Weights</td>
-                    <td>20/15/40/25</td>
-                    <td>-8.37%</td>
-                    <td>-94.88%</td>
                 </tr>
             </tbody>
         </table>
         </div>
 
-        <p><strong>Result</strong>: The core finding—approximately 94-96% cumulative deflation at 8.3-9.2% annually—is robust across reasonable weighting approaches. The current weighting produces the highest deflation rate because it gives more weight to the fastest-deflating sectors (Computing, Communications).</p>
+        <p><strong>Result</strong>: Both methodologies show massive technological deflation (95-96% cumulative). The core finding is robust regardless of weighting choices.</p>
 
-        <p><strong>Detailed analysis</strong>: See <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">Weight Justification document</a> for complete methodology, derivations, and comparisons to alternative approaches.</p>
+        <p><strong>Detailed analysis</strong>: See <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">Weight Justification document</a> for complete methodology and sensitivity analysis.</p>
 
-        <p><strong>v4.0 Plan</strong>: When healthcare, education, and housing sectors are added (2027-2028), we'll switch to expenditure-weighting as primary method while keeping current multi-factor approach as alternative for comparison.</p>
+        <p><strong>v4.0 Plan</strong>: When we expand to 7+ sectors (healthcare, education, housing), we'll implement rigorous BLS/BEA-derived sensitivity analyses.</p>
         
         <h3>Step 5: Calculate Annual Rates</h3>
         <p>Year-over-year percentage changes show the annual deflation rate. The average annual rate (1990-2024) is -9.21%.</p>
@@ -928,13 +916,13 @@
     <!-- Alternative Methodologies -->
     <section class="variants">
         <div class="variants-toggle" onclick="toggleVariants()">
-            <h3>Advanced: Alternative Weighting Methodologies</h3>
+            <h3>Advanced: Sensitivity Analysis</h3>
             <span class="toggle-icon">▼</span>
         </div>
         
         <div class="variants-content" id="variants-content">
             <div class="variant-intro">
-                <p><strong>Why provide variants?</strong> To demonstrate the robustness of our findings across different methodological approaches. All variants use the same source data and sector indices—only the weights differ.</p>
+                <p><strong>Why provide an alternative?</strong> To demonstrate that our core finding holds regardless of weighting assumptions. We provide our Multi-Factor methodology plus an equal-weighted baseline—the simplest possible approach with zero subjective choices.</p>
             </div>
             
             <!-- Variant 1: Multi-Factor -->
@@ -945,7 +933,7 @@
                 <p><strong>Weights:</strong> Computing 29.4% • Communications 23.5% • Energy 29.4% • Transportation 17.6%</p>
                 
                 <div class="variant-stats">
-                    <strong>Result:</strong> 96.26% cumulative deflation | 2024 DI: 3.74 | Annual avg: -9.21%
+                    <strong>Result:</strong> 96.25% cumulative deflation | 2024 DI: 3.74 | Annual avg: -9.21%
                 </div>
                 
                 <p><strong>Use case:</strong> Recommended default. Most comprehensive approach accounting for both direct and indirect economic impact.</p>
@@ -955,50 +943,18 @@
             
             <!-- Variant 2: Equal -->
             <div class="variant-card">
-                <h4>2. Equal-Weighted</h4>
-                <p><strong>Methodology:</strong> Simple equal weighting across all sectors with no assumptions about relative importance.</p>
+                <h4>2. Equal-Weighted <span class="variant-badge">Baseline</span></h4>
+                <p><strong>Methodology:</strong> Simple equal weighting across all sectors. No assumptions about relative importance—pure mathematical baseline with zero subjective choices.</p>
                 
                 <p><strong>Weights:</strong> Computing 25% • Communications 25% • Energy 25% • Transportation 25%</p>
                 
                 <div class="variant-stats">
-                    <strong>Result:</strong> ~95.8% cumulative deflation | 2024 DI: ~4.2 | Annual avg: ~-9.0%
+                    <strong>Result:</strong> 95.04% cumulative deflation | 2024 DI: 4.96 | Annual avg: -8.45%
                 </div>
                 
-                <p><strong>Use case:</strong> Simple baseline, conservative estimate, easy to explain and defend.</p>
+                <p><strong>Use case:</strong> Zero-assumption baseline. If you disagree with our weighting methodology, this shows the finding still holds.</p>
                 
-                <a href="data/excel/master_deflation_index_v3.0.2_EQUAL.xlsx" class="download-btn" download>Download Equal-Weighted</a>
-            </div>
-            
-            <!-- Variant 3: Expenditure -->
-            <div class="variant-card">
-                <h4>3. Expenditure-Weighted</h4>
-                <p><strong>Methodology:</strong> Weighted by household and business expenditure patterns—where money is actually spent.</p>
-                
-                <p><strong>Weights:</strong> Computing 25% • Communications 20% • Energy 30% • Transportation 25%</p>
-                
-                <div class="variant-stats">
-                    <strong>Result:</strong> ~95.5% cumulative deflation | 2024 DI: ~4.5 | Annual avg: ~-8.8%
-                </div>
-                
-                <p><strong>Use case:</strong> Consumer-centric perspective, "where did my money go?" analysis, policy discussions.</p>
-                
-                <a href="data/excel/master_deflation_index_v3.0.2_EXPENDITURE.xlsx" class="download-btn" download>Download Expenditure-Weighted</a>
-            </div>
-            
-            <!-- Variant 4: GDP -->
-            <div class="variant-card">
-                <h4>4. GDP-Weighted</h4>
-                <p><strong>Methodology:</strong> Weighted by direct GDP contribution—traditional economic weighting.</p>
-                
-                <p><strong>Weights:</strong> Computing 20% • Communications 15% • Energy 40% • Transportation 25%</p>
-                
-                <div class="variant-stats">
-                    <strong>Result:</strong> ~94.2% cumulative deflation | 2024 DI: ~5.8 | Annual avg: ~-8.3%
-                </div>
-                
-                <p><strong>Use case:</strong> Macro-economic analysis, GDP impact studies, conservative estimate.</p>
-                
-                <a href="data/excel/master_deflation_index_v3.0.2_GDP.xlsx" class="download-btn" download>Download GDP-Weighted</a>
+                <a href="data/excel/master_deflation_index_v3.0.1_EQUAL.xlsx" class="download-btn" download>Download Equal-Weighted</a>
             </div>
             
             <!-- Sensitivity Analysis -->
@@ -1008,7 +964,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Variant</th>
+                            <th>Methodology</th>
                             <th>2024 DI</th>
                             <th>Cumulative</th>
                             <th>Annual Avg</th>
@@ -1018,223 +974,30 @@
                         <tr>
                             <td><strong>Multi-Factor (Primary)</strong></td>
                             <td>3.74</td>
-                            <td>-96.26%</td>
+                            <td>-96.25%</td>
                             <td>-9.21%</td>
                         </tr>
                         <tr>
-                            <td>Equal-Weighted</td>
-                            <td>~4.2</td>
-                            <td>~-95.8%</td>
-                            <td>~-9.0%</td>
-                        </tr>
-                        <tr>
-                            <td>Expenditure-Weighted</td>
-                            <td>~4.5</td>
-                            <td>~-95.5%</td>
-                            <td>~-8.8%</td>
-                        </tr>
-                        <tr>
-                            <td>GDP-Weighted</td>
-                            <td>~5.8</td>
-                            <td>~-94.2%</td>
-                            <td>~-8.3%</td>
+                            <td>Equal-Weighted (Baseline)</td>
+                            <td>4.96</td>
+                            <td>-95.04%</td>
+                            <td>-8.45%</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             
             <p style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 215, 0, 0.05); border-left: 4px solid var(--gold);">
-                <strong>Key Finding:</strong> All variants show substantial technological deflation (94-96% cumulative). The core finding is robust across all methodologies. Choice of weights affects magnitude but not direction.
+                <strong>Key Finding:</strong> Both methodologies show massive technological deflation (95-96% cumulative). The core finding is robust regardless of weighting choices.
             </p>
-        </div>
-    </section>
-    
-    <!-- Sector Downloads -->
-    <section>
-        <h2>Individual Sector Data</h2>
-        <p style="margin-bottom: 2rem;">Download sector-specific indices with detailed calculations and source data.</p>
-        
-        <div class="sector-grid">
-            <div class="sector-card">
-                <h4>Computing</h4>
-                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Performance-adjusted price index</p>
-                <a href="data/excel/computing_deflation_index_v1.0.xlsx" class="download-btn" download>Download</a>
-            </div>
             
-            <div class="sector-card">
-                <h4>Communications</h4>
-                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Data transmission cost index</p>
-                <a href="data/excel/communications_deflation_index_v1.0.xlsx" class="download-btn" download>Download</a>
-            </div>
-            
-            <div class="sector-card">
-                <h4>Energy</h4>
-                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Solar + LED cost index</p>
-                <a href="data/excel/energy_deflation_index_v1.0.xlsx" class="download-btn" download>Download</a>
-            </div>
-            
-            <div class="sector-card">
-                <h4>Transportation</h4>
-                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Battery cost index</p>
-                <a href="data/excel/transportation_deflation_index_v1.0.xlsx" class="download-btn" download>Download</a>
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 206, 209, 0.05); border-left: 4px solid var(--cyan);">
+                <h4 style="color: var(--cyan); margin-bottom: 0.5rem;">Future Sensitivity Analysis (v4.0+)</h4>
+                <p>When we expand to 7+ sectors (adding healthcare, education, housing), we plan to implement rigorous expenditure-weighted and GDP-weighted methodologies derived directly from BLS Consumer Expenditure Survey and BEA GDP-by-Industry data. We welcome collaboration from economists interested in helping develop this methodology.</p>
             </div>
         </div>
     </section>
     
-    <!-- Quality Standards -->
-    <section>
-        <h2>Data Quality Standards</h2>
-        
-        <p>Every data point in the Deflation Index is graded, sourced, and verified. We maintain rigorous quality standards:</p>
-        
-        <h3>The Numbers</h3>
-        <ul>
-            <li><strong>700+ verified formulas:</strong> Every calculation is formula-driven in Excel</li>
-            <li><strong>400+ data points:</strong> Comprehensive coverage across 35 years (1990-2024)</li>
-            <li><strong>0 errors:</strong> All formulas verified, no broken links or circular references</li>
-            <li><strong>100% sourced:</strong> Every data point has source citation in cell comments</li>
-        </ul>
-        
-        <h3>Quality Grading System</h3>
-        <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th>Grade</th>
-                    <th>Score</th>
-                    <th>Criteria</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>A (Excellent)</strong></td>
-                    <td>85-100</td>
-                    <td>Government agencies, peer-reviewed research, industry gold standards</td>
-                </tr>
-                <tr>
-                    <td><strong>B (Good)</strong></td>
-                    <td>70-84</td>
-                    <td>Reputable industry reports, academic estimates, established analysts</td>
-                </tr>
-                <tr>
-                    <td><strong>C (Fair)</strong></td>
-                    <td>50-69</td>
-                    <td>Secondary sources, interpolations, reasonable estimates</td>
-                </tr>
-                <tr>
-                    <td><strong>D (Poor)</strong></td>
-                    <td><50</td>
-                    <td>Weak sources, speculative estimates (not used in index)</td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-        
-        <h3>Conservative Assumptions</h3>
-        <p>Where uncertainty exists, we choose the more conservative estimate. This means the true technological deflation is likely <em>higher</em> than we measure. The index understates the gap, not overstates it.</p>
-        
-        <div class="highlight-box">
-            <h3>Transparency Commitment</h3>
-            <p>Every Excel file includes:</p>
-            <ul style="margin-top: 1rem;">
-                <li>Source URLs in cell comments</li>
-                <li>Quality flags for each data point</li>
-                <li>Methodology notes explaining calculations</li>
-                <li>Complete formula transparency (no hidden cells)</li>
-                <li>Color-coded formatting (blue = raw data, black = formulas, yellow = estimates)</li>
-            </ul>
-            <p style="margin-top: 1rem;">Anyone can verify our work. That's the standard we hold ourselves to.</p>
-        </div>
-    </section>
-    
-    <!-- Institutional Review Section -->
-    <section style="background: rgba(0, 0, 0, 0.3); border: 2px solid var(--gold); padding: 4rem 2rem; margin: 4rem auto;">
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <h2 style="text-align: center;">Institutional Review</h2>
-            
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;"><strong>The Deflation Index methodology is open for formal scrutiny.</strong> We believe rigorous measurement improves through expert review, institutional feedback, and collaborative refinement.</p>
-            
-            <h3>Seeking Expert Review</h3>
-            
-            <p>We welcome formal review from:</p>
-            <ul>
-                <li><strong>Financial institutions</strong>: Asset managers, hedge funds, research analysts, investment strategists</li>
-                <li><strong>Academic economists</strong>: Monetary policy specialists, price index experts, hedonic pricing researchers</li>
-                <li><strong>Industry analysts</strong>: Technology sector researchers, energy economists, market intelligence firms</li>
-                <li><strong>Government & policy</strong>: BLS, Federal Reserve, NBER, economic policy researchers</li>
-            </ul>
-            
-            <p><strong>Current Status</strong>:</p>
-            <ul>
-                <li>Methodology documentation available for institutional due diligence</li>
-                <li>Open to data licensing discussions with financial data providers</li>
-                <li>Seeking partnerships for integration into research platforms</li>
-            </ul>
-            
-            <h3>Partnership Opportunities</h3>
-            
-            <p><strong>We're looking for:</strong></p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                <div>
-                    <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Data Integration</h4>
-                    <p style="font-size: 0.95rem;">Bloomberg, Refinitiv, FactSet, and other platforms—let's discuss data feeds and API access</p>
-                </div>
-                
-                <div>
-                    <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Research Partnerships</h4>
-                    <p style="font-size: 0.95rem;">Co-author research, validate methodology, collaborate on sector expansion</p>
-                </div>
-                
-                <div>
-                    <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Sector Expansion</h4>
-                    <p style="font-size: 0.95rem;">Domain experts for v4.0: healthcare economists, education researchers, housing analysts</p>
-                </div>
-                
-                <div>
-                    <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Critical Feedback</h4>
-                    <p style="font-size: 0.95rem;">Challenge assumptions, propose alternatives, identify improvements</p>
-                </div>
-            </div>
-            
-            <h3>How to Engage</h3>
-            
-            <p><strong>Institutional inquiries</strong>: For data licensing, API access, or partnership discussions, contact us directly.</p>
-            
-            <p><strong>Technical feedback</strong>: If you spot errors or have methodology suggestions, <a href="https://github.com/deflation-index/deflation-index/issues" target="_blank" style="color: var(--gold);">open an issue on GitHub</a> with details.</p>
-            
-            <p><strong>Research use</strong>: Cite the Deflation Index in research, analysis, and publications. We encourage independent verification.</p>
-            
-            <div class="highlight-box" style="margin-top: 2rem; text-align: center;">
-                <p><strong>Contact</strong>: <a href="/cdn-cgi/l/email-protection#2c45424a436c48494a404d584543424542484954024f4341" style="color: var(--gold);"><span class="__cf_email__" data-cfemail="11787f777e517574777d7065787e7f787f7574693f727e7c">[email&#160;protected]</span></a></p>
-                
-                <p style="margin-top: 1rem;"><strong>Our commitment</strong>: Precision, transparency, and intellectual honesty. If you see something wrong, we want to know. If you have ideas to improve the work, we're listening.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- The Gap -->
-    <section style="background: var(--black); border-top: 3px solid var(--cyan); border-bottom: 3px solid var(--cyan); padding: 4rem 2rem;">
-        <h2>The DI-M2 Gap</h2>
-        
-        <p>The core measurement reveals a systematic divergence between two opposing forces:</p>
-        
-        <h3>Annual Gap: 14.9 Percentage Points</h3>
-        <div class="formula-box">
-            DI-M2 Gap = |Tech Deflation Rate| + M2 Expansion Rate<br>
-            = 9.21% + 5.7% = 14.9pp annually
-        </div>
-        <p>Technology delivered 9.21% annual deflation across the four sectors. Meanwhile, the money supply expanded 5.7% annually. These opposing forces create a 14.9 percentage point gap every year.</p>
-        
-        <h3>Cumulative Divergence (1990-2024)</h3>
-        <div class="formula-box">
-            DI: 100 → 3.74 (96.26% deflation)<br>
-            M2: 100 → 650.2 (550% expansion)
-        </div>
-        <p>Over 35 years, this annual gap compounds into massive divergence. Technology made these sectors 96% cheaper while the money supply expanded 550%. The question: where does the productivity go?</p>
-        
-        <p style="margin-top: 2rem;"><strong>The answer:</strong> Into asset prices, intermediaries, financial complexity, and system overhead—not into lower prices for consumers.</p>
-    </section>
     
     <!-- Known Limitations Section -->
     <section id="limitations" style="background: rgba(255, 0, 0, 0.03); border-top: 3px solid var(--cyan); border-bottom: 3px solid var(--cyan); padding: 4rem 2rem;">
@@ -1259,9 +1022,9 @@
         <p><strong>Weighting System</strong>:</p>
         <ul>
             <li>Current weights (29.4%, 23.5%, 29.4%, 17.6%) based on three factors: GDP contribution, enabling effect, and deflationary force</li>
-            <li>Alternative schemes tested: equal-weight, GDP-weighted, expenditure-weighted</li>
-            <li>Results robust across methods (±15% variation, see <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">weight justification</a>)</li>
-            <li>v4.0 will use expenditure-weighting when comprehensive coverage achieved</li>
+            <li>Equal-weighted baseline tested to confirm robustness (see <a href="#" onclick="toggleVariants(); return false;" style="color: var(--gold);">sensitivity analysis above</a>)</li>
+            <li>Results robust: both methodologies show 95-96% cumulative deflation</li>
+            <li>v4.0 will add rigorous BLS/BEA-derived sensitivity analyses with expanded sector coverage</li>
         </ul>
         
         <p><strong>Index Construction</strong>:</p>
