@@ -1,4 +1,18 @@
 {
+  "schema": {
+    "version": "1.0",
+    "fields": {
+      "weights": {"type": "object", "description": "Sector weights summing to 1.0"},
+      "di_2024": {"type": "float", "precision": 2, "unit": "index_100"},
+      "annual_rate_pct": {"type": "float", "precision": 2, "unit": "percent"},
+      "cumulative_pct": {"type": "float", "precision": 2, "unit": "percent"}
+    }
+  },
+  "provenance": {
+    "calculation_date": "2026-01-10",
+    "methodology_version": "3.0.3",
+    "primary_sources": ["FRED M2SL", "IRENA", "BloombergNEF", "AI Impacts", "FCC", "DOE"]
+  },
   "metadata": {
     "version": "3.0.3",
     "last_updated": "2026-01-10",
@@ -6,7 +20,6 @@
   },
   "primary": {
     "name": "Multi-Factor",
-    "version": "v3.0.3",
     "weights": {
       "computing": 0.2941,
       "communications": 0.2353,
@@ -25,7 +38,6 @@
   },
   "baseline": {
     "name": "Equal-Weighted",
-    "version": "v3.0.3",
     "weights": {
       "computing": 0.25,
       "communications": 0.25,

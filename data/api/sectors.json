@@ -1,7 +1,26 @@
 {
+  "schema": {
+    "version": "1.0",
+    "fields": {
+      "index_value": {"type": "float", "precision": 4, "unit": "index_100", "description": "Sector index (1990=100 or 2010=100 for Transportation)"},
+      "raw_value": {"type": "float", "unit": "varies", "nullable": true, "description": "Original metric value in native units"},
+      "cumulative_deflation_pct": {"type": "float", "precision": 2, "unit": "percent"},
+      "annual_avg_deflation_pct": {"type": "float", "precision": 2, "unit": "percent"}
+    }
+  },
+  "provenance": {
+    "calculation_date": "2026-01-10",
+    "methodology_version": "3.0.3",
+    "primary_sources": {
+      "computing": ["AI Impacts", "PassMark", "Top500.org"],
+      "communications": ["FCC Reports", "Speedtest.net", "Industry benchmarks"],
+      "energy": ["IRENA", "BloombergNEF", "DOE"],
+      "transportation": ["BloombergNEF", "IEA"]
+    }
+  },
   "metadata": {
-    "version": "3.0.2",
-    "last_updated": "2025-01-04"
+    "version": "3.0.3",
+    "last_updated": "2026-01-10"
   },
   "sectors": [
     {

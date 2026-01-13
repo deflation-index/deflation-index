@@ -1,222 +1,61 @@
 {
+  "schema": {
+    "version": "1.0",
+    "fields": {
+      "m2_billions": {"type": "float", "precision": 1, "unit": "billions_usd"},
+      "index_value": {"type": "float", "precision": 2, "unit": "index_100", "description": "M2 index (1990=100)"},
+      "yoy_change_pct": {"type": "float", "precision": 2, "unit": "percent", "nullable": true}
+    }
+  },
+  "provenance": {
+    "calculation_date": "2026-01-10",
+    "methodology_version": "3.0.3",
+    "primary_sources": ["FRED M2SL"]
+  },
   "metadata": {
+    "version": "3.0.3",
     "source": "Federal Reserve FRED",
     "series_id": "M2SL",
     "frequency": "annual",
     "unit": "billions_usd",
-    "last_updated": "2025-01-04",
+    "last_updated": "2026-01-10",
     "notes": "Annual average of monthly M2 money stock, seasonally adjusted"
   },
   "annual_data": [
-    {
-      "year": 1990,
-      "m2_billions": 3276.8,
-      "index_value": 100.0,
-      "yoy_change_pct": null
-    },
-    {
-      "year": 1991,
-      "m2_billions": 3377.0,
-      "index_value": 103.06,
-      "yoy_change_pct": 3.06
-    },
-    {
-      "year": 1992,
-      "m2_billions": 3430.3,
-      "index_value": 104.68,
-      "yoy_change_pct": 1.58
-    },
-    {
-      "year": 1993,
-      "m2_billions": 3480.9,
-      "index_value": 106.23,
-      "yoy_change_pct": 1.48
-    },
-    {
-      "year": 1994,
-      "m2_billions": 3496.7,
-      "index_value": 106.71,
-      "yoy_change_pct": 0.45
-    },
-    {
-      "year": 1995,
-      "m2_billions": 3640.7,
-      "index_value": 111.11,
-      "yoy_change_pct": 4.12
-    },
-    {
-      "year": 1996,
-      "m2_billions": 3820.1,
-      "index_value": 116.58,
-      "yoy_change_pct": 4.93
-    },
-    {
-      "year": 1997,
-      "m2_billions": 4033.4,
-      "index_value": 123.09,
-      "yoy_change_pct": 5.58
-    },
-    {
-      "year": 1998,
-      "m2_billions": 4377.4,
-      "index_value": 133.59,
-      "yoy_change_pct": 8.53
-    },
-    {
-      "year": 1999,
-      "m2_billions": 4640.5,
-      "index_value": 141.62,
-      "yoy_change_pct": 6.01
-    },
-    {
-      "year": 2000,
-      "m2_billions": 4922.2,
-      "index_value": 150.21,
-      "yoy_change_pct": 6.07
-    },
-    {
-      "year": 2001,
-      "m2_billions": 5435.1,
-      "index_value": 165.87,
-      "yoy_change_pct": 10.42
-    },
-    {
-      "year": 2002,
-      "m2_billions": 5780.9,
-      "index_value": 176.42,
-      "yoy_change_pct": 6.36
-    },
-    {
-      "year": 2003,
-      "m2_billions": 6060.5,
-      "index_value": 184.95,
-      "yoy_change_pct": 4.84
-    },
-    {
-      "year": 2004,
-      "m2_billions": 6410.8,
-      "index_value": 195.64,
-      "yoy_change_pct": 5.78
-    },
-    {
-      "year": 2005,
-      "m2_billions": 6674.0,
-      "index_value": 203.67,
-      "yoy_change_pct": 4.11
-    },
-    {
-      "year": 2006,
-      "m2_billions": 7022.5,
-      "index_value": 214.31,
-      "yoy_change_pct": 5.22
-    },
-    {
-      "year": 2007,
-      "m2_billions": 7466.8,
-      "index_value": 227.87,
-      "yoy_change_pct": 6.33
-    },
-    {
-      "year": 2008,
-      "m2_billions": 8194.0,
-      "index_value": 250.06,
-      "yoy_change_pct": 9.74
-    },
-    {
-      "year": 2009,
-      "m2_billions": 8493.4,
-      "index_value": 259.2,
-      "yoy_change_pct": 3.65
-    },
-    {
-      "year": 2010,
-      "m2_billions": 8777.4,
-      "index_value": 267.86,
-      "yoy_change_pct": 3.34
-    },
-    {
-      "year": 2011,
-      "m2_billions": 9604.3,
-      "index_value": 293.1,
-      "yoy_change_pct": 9.42
-    },
-    {
-      "year": 2012,
-      "m2_billions": 10425.0,
-      "index_value": 318.15,
-      "yoy_change_pct": 8.55
-    },
-    {
-      "year": 2013,
-      "m2_billions": 10992.0,
-      "index_value": 335.45,
-      "yoy_change_pct": 5.44
-    },
-    {
-      "year": 2014,
-      "m2_billions": 11670.0,
-      "index_value": 356.14,
-      "yoy_change_pct": 6.17
-    },
-    {
-      "year": 2015,
-      "m2_billions": 12317.0,
-      "index_value": 375.89,
-      "yoy_change_pct": 5.54
-    },
-    {
-      "year": 2016,
-      "m2_billions": 13195.0,
-      "index_value": 402.68,
-      "yoy_change_pct": 7.13
-    },
-    {
-      "year": 2017,
-      "m2_billions": 13843.0,
-      "index_value": 422.45,
-      "yoy_change_pct": 4.91
-    },
-    {
-      "year": 2018,
-      "m2_billions": 14351.0,
-      "index_value": 437.96,
-      "yoy_change_pct": 3.67
-    },
-    {
-      "year": 2019,
-      "m2_billions": 15315.0,
-      "index_value": 467.38,
-      "yoy_change_pct": 6.72
-    },
-    {
-      "year": 2020,
-      "m2_billions": 19105.0,
-      "index_value": 583.04,
-      "yoy_change_pct": 24.75
-    },
-    {
-      "year": 2021,
-      "m2_billions": 21574.0,
-      "index_value": 658.39,
-      "yoy_change_pct": 12.92
-    },
-    {
-      "year": 2022,
-      "m2_billions": 21443.0,
-      "index_value": 654.39,
-      "yoy_change_pct": -0.61
-    },
-    {
-      "year": 2023,
-      "m2_billions": 20867.0,
-      "index_value": 636.81,
-      "yoy_change_pct": -2.69
-    },
-    {
-      "year": 2024,
-      "m2_billions": 21300.0,
-      "index_value": 650.02,
-      "yoy_change_pct": 2.08
-    }
+    {"year": 1990, "m2_billions": 3276.8, "index_value": 100.0, "yoy_change_pct": null},
+    {"year": 1991, "m2_billions": 3377.0, "index_value": 103.06, "yoy_change_pct": 3.06},
+    {"year": 1992, "m2_billions": 3430.3, "index_value": 104.68, "yoy_change_pct": 1.58},
+    {"year": 1993, "m2_billions": 3480.9, "index_value": 106.23, "yoy_change_pct": 1.48},
+    {"year": 1994, "m2_billions": 3496.7, "index_value": 106.71, "yoy_change_pct": 0.45},
+    {"year": 1995, "m2_billions": 3640.7, "index_value": 111.11, "yoy_change_pct": 4.12},
+    {"year": 1996, "m2_billions": 3820.1, "index_value": 116.58, "yoy_change_pct": 4.93},
+    {"year": 1997, "m2_billions": 4033.4, "index_value": 123.09, "yoy_change_pct": 5.58},
+    {"year": 1998, "m2_billions": 4377.4, "index_value": 133.59, "yoy_change_pct": 8.53},
+    {"year": 1999, "m2_billions": 4640.5, "index_value": 141.62, "yoy_change_pct": 6.01},
+    {"year": 2000, "m2_billions": 4922.2, "index_value": 150.21, "yoy_change_pct": 6.07},
+    {"year": 2001, "m2_billions": 5435.1, "index_value": 165.87, "yoy_change_pct": 10.42},
+    {"year": 2002, "m2_billions": 5780.9, "index_value": 176.42, "yoy_change_pct": 6.36},
+    {"year": 2003, "m2_billions": 6060.5, "index_value": 184.95, "yoy_change_pct": 4.84},
+    {"year": 2004, "m2_billions": 6410.8, "index_value": 195.64, "yoy_change_pct": 5.78},
+    {"year": 2005, "m2_billions": 6674.0, "index_value": 203.67, "yoy_change_pct": 4.11},
+    {"year": 2006, "m2_billions": 7022.5, "index_value": 214.31, "yoy_change_pct": 5.22},
+    {"year": 2007, "m2_billions": 7466.8, "index_value": 227.87, "yoy_change_pct": 6.33},
+    {"year": 2008, "m2_billions": 8194.0, "index_value": 250.06, "yoy_change_pct": 9.74},
+    {"year": 2009, "m2_billions": 8493.4, "index_value": 259.2, "yoy_change_pct": 3.65},
+    {"year": 2010, "m2_billions": 8777.4, "index_value": 267.86, "yoy_change_pct": 3.34},
+    {"year": 2011, "m2_billions": 9604.3, "index_value": 293.1, "yoy_change_pct": 9.42},
+    {"year": 2012, "m2_billions": 10425.0, "index_value": 318.15, "yoy_change_pct": 8.55},
+    {"year": 2013, "m2_billions": 10992.0, "index_value": 335.45, "yoy_change_pct": 5.44},
+    {"year": 2014, "m2_billions": 11670.0, "index_value": 356.14, "yoy_change_pct": 6.17},
+    {"year": 2015, "m2_billions": 12317.0, "index_value": 375.89, "yoy_change_pct": 5.54},
+    {"year": 2016, "m2_billions": 13195.0, "index_value": 402.68, "yoy_change_pct": 7.13},
+    {"year": 2017, "m2_billions": 13843.0, "index_value": 422.45, "yoy_change_pct": 4.91},
+    {"year": 2018, "m2_billions": 14351.0, "index_value": 437.96, "yoy_change_pct": 3.67},
+    {"year": 2019, "m2_billions": 15315.0, "index_value": 467.38, "yoy_change_pct": 6.72},
+    {"year": 2020, "m2_billions": 19105.0, "index_value": 583.04, "yoy_change_pct": 24.75},
+    {"year": 2021, "m2_billions": 21574.0, "index_value": 658.39, "yoy_change_pct": 12.92},
+    {"year": 2022, "m2_billions": 21443.0, "index_value": 654.39, "yoy_change_pct": -0.61},
+    {"year": 2023, "m2_billions": 20867.0, "index_value": 636.81, "yoy_change_pct": -2.69},
+    {"year": 2024, "m2_billions": 21300.0, "index_value": 650.02, "yoy_change_pct": 2.08}
   ]
 }

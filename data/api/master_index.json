@@ -1,293 +1,63 @@
 {
+  "schema": {
+    "version": "1.0",
+    "fields": {
+      "di_value": {"type": "float", "precision": 2, "unit": "index_100", "description": "Deflation Index value (1990=100)"},
+      "di_yoy_change": {"type": "float", "precision": 2, "unit": "percent", "nullable": true},
+      "m2_index": {"type": "float", "precision": 2, "unit": "index_100", "description": "M2 index value (1990=100)"},
+      "m2_yoy_change": {"type": "float", "precision": 2, "unit": "percent", "nullable": true},
+      "gap_pp": {"type": "float", "precision": 2, "unit": "percentage_points", "nullable": true}
+    }
+  },
+  "provenance": {
+    "calculation_date": "2026-01-10",
+    "methodology_version": "3.0.3",
+    "primary_sources": ["FRED M2SL", "IRENA", "BloombergNEF", "AI Impacts", "FCC", "DOE"]
+  },
   "metadata": {
-    "version": "3.0.2",
+    "version": "3.0.3",
     "base_year": 1990,
     "base_value": 100,
-    "last_updated": "2025-01-04",
+    "last_updated": "2026-01-10",
     "methodology": "weighted_composite",
     "source": "Federal Reserve FRED, sector-specific sources"
   },
   "annual_data": [
-    {
-      "year": 1990,
-      "di_value": 100.0,
-      "di_yoy_change": null,
-      "m2_index": 100.0,
-      "m2_yoy_change": null,
-      "gap_pp": null
-    },
-    {
-      "year": 1991,
-      "di_value": 80.46,
-      "di_yoy_change": -19.54,
-      "m2_index": 103.06,
-      "m2_yoy_change": 3.06,
-      "gap_pp": 22.6
-    },
-    {
-      "year": 1992,
-      "di_value": 67.53,
-      "di_yoy_change": -16.06,
-      "m2_index": 104.68,
-      "m2_yoy_change": 1.58,
-      "gap_pp": 17.64
-    },
-    {
-      "year": 1993,
-      "di_value": 58.69,
-      "di_yoy_change": -13.09,
-      "m2_index": 106.23,
-      "m2_yoy_change": 1.48,
-      "gap_pp": 14.57
-    },
-    {
-      "year": 1994,
-      "di_value": 52.4,
-      "di_yoy_change": -10.72,
-      "m2_index": 106.71,
-      "m2_yoy_change": 0.45,
-      "gap_pp": 11.17
-    },
-    {
-      "year": 1995,
-      "di_value": 49.47,
-      "di_yoy_change": -5.59,
-      "m2_index": 111.11,
-      "m2_yoy_change": 4.12,
-      "gap_pp": 9.71
-    },
-    {
-      "year": 1996,
-      "di_value": 45.54,
-      "di_yoy_change": -7.93,
-      "m2_index": 116.58,
-      "m2_yoy_change": 4.93,
-      "gap_pp": 12.86
-    },
-    {
-      "year": 1997,
-      "di_value": 42.4,
-      "di_yoy_change": -6.91,
-      "m2_index": 123.09,
-      "m2_yoy_change": 5.58,
-      "gap_pp": 12.49
-    },
-    {
-      "year": 1998,
-      "di_value": 39.84,
-      "di_yoy_change": -6.02,
-      "m2_index": 133.59,
-      "m2_yoy_change": 8.53,
-      "gap_pp": 14.55
-    },
-    {
-      "year": 1999,
-      "di_value": 37.7,
-      "di_yoy_change": -5.37,
-      "m2_index": 141.62,
-      "m2_yoy_change": 6.01,
-      "gap_pp": 11.38
-    },
-    {
-      "year": 2000,
-      "di_value": 42.83,
-      "di_yoy_change": 13.61,
-      "m2_index": 150.21,
-      "m2_yoy_change": 6.07,
-      "gap_pp": 19.68
-    },
-    {
-      "year": 2001,
-      "di_value": 38.44,
-      "di_yoy_change": -10.26,
-      "m2_index": 165.87,
-      "m2_yoy_change": 10.42,
-      "gap_pp": 20.68
-    },
-    {
-      "year": 2002,
-      "di_value": 35.08,
-      "di_yoy_change": -8.74,
-      "m2_index": 176.42,
-      "m2_yoy_change": 6.36,
-      "gap_pp": 15.1
-    },
-    {
-      "year": 2003,
-      "di_value": 32.45,
-      "di_yoy_change": -7.48,
-      "m2_index": 184.95,
-      "m2_yoy_change": 4.84,
-      "gap_pp": 12.32
-    },
-    {
-      "year": 2004,
-      "di_value": 30.34,
-      "di_yoy_change": -6.51,
-      "m2_index": 195.64,
-      "m2_yoy_change": 5.78,
-      "gap_pp": 12.29
-    },
-    {
-      "year": 2005,
-      "di_value": 35.16,
-      "di_yoy_change": 15.9,
-      "m2_index": 203.67,
-      "m2_yoy_change": 4.11,
-      "gap_pp": 20.01
-    },
-    {
-      "year": 2006,
-      "di_value": 31.48,
-      "di_yoy_change": -10.48,
-      "m2_index": 214.31,
-      "m2_yoy_change": 5.22,
-      "gap_pp": 15.7
-    },
-    {
-      "year": 2007,
-      "di_value": 28.8,
-      "di_yoy_change": -8.52,
-      "m2_index": 227.87,
-      "m2_yoy_change": 6.33,
-      "gap_pp": 14.85
-    },
-    {
-      "year": 2008,
-      "di_value": 26.81,
-      "di_yoy_change": -6.92,
-      "m2_index": 250.06,
-      "m2_yoy_change": 9.74,
-      "gap_pp": 16.66
-    },
-    {
-      "year": 2009,
-      "di_value": 25.32,
-      "di_yoy_change": -5.56,
-      "m2_index": 259.2,
-      "m2_yoy_change": 3.65,
-      "gap_pp": 9.21
-    },
-    {
-      "year": 2010,
-      "di_value": 24.08,
-      "di_yoy_change": -4.88,
-      "m2_index": 267.86,
-      "m2_yoy_change": 3.34,
-      "gap_pp": 8.22
-    },
-    {
-      "year": 2011,
-      "di_value": 19.16,
-      "di_yoy_change": -20.44,
-      "m2_index": 293.1,
-      "m2_yoy_change": 9.42,
-      "gap_pp": 29.86
-    },
-    {
-      "year": 2012,
-      "di_value": 15.55,
-      "di_yoy_change": -18.87,
-      "m2_index": 318.15,
-      "m2_yoy_change": 8.55,
-      "gap_pp": 27.42
-    },
-    {
-      "year": 2013,
-      "di_value": 13.35,
-      "di_yoy_change": -14.14,
-      "m2_index": 335.45,
-      "m2_yoy_change": 5.44,
-      "gap_pp": 19.58
-    },
-    {
-      "year": 2014,
-      "di_value": 10.1,
-      "di_yoy_change": -24.29,
-      "m2_index": 356.14,
-      "m2_yoy_change": 6.17,
-      "gap_pp": 30.46
-    },
-    {
-      "year": 2015,
-      "di_value": 8.73,
-      "di_yoy_change": -13.65,
-      "m2_index": 375.89,
-      "m2_yoy_change": 5.54,
-      "gap_pp": 19.19
-    },
-    {
-      "year": 2016,
-      "di_value": 7.29,
-      "di_yoy_change": -16.49,
-      "m2_index": 402.68,
-      "m2_yoy_change": 7.13,
-      "gap_pp": 23.62
-    },
-    {
-      "year": 2017,
-      "di_value": 6.05,
-      "di_yoy_change": -17.02,
-      "m2_index": 422.45,
-      "m2_yoy_change": 4.91,
-      "gap_pp": 21.93
-    },
-    {
-      "year": 2018,
-      "di_value": 5.32,
-      "di_yoy_change": -12.0,
-      "m2_index": 437.96,
-      "m2_yoy_change": 3.67,
-      "gap_pp": 15.67
-    },
-    {
-      "year": 2019,
-      "di_value": 4.77,
-      "di_yoy_change": -10.42,
-      "m2_index": 467.38,
-      "m2_yoy_change": 6.72,
-      "gap_pp": 17.14
-    },
-    {
-      "year": 2020,
-      "di_value": 4.46,
-      "di_yoy_change": -6.34,
-      "m2_index": 583.04,
-      "m2_yoy_change": 24.75,
-      "gap_pp": 31.09
-    },
-    {
-      "year": 2021,
-      "di_value": 4.14,
-      "di_yoy_change": -7.16,
-      "m2_index": 658.39,
-      "m2_yoy_change": 12.92,
-      "gap_pp": 20.08
-    },
-    {
-      "year": 2022,
-      "di_value": 4.2,
-      "di_yoy_change": 1.22,
-      "m2_index": 654.39,
-      "m2_yoy_change": -0.61,
-      "gap_pp": 0.61
-    },
-    {
-      "year": 2023,
-      "di_value": 4.02,
-      "di_yoy_change": -4.24,
-      "m2_index": 636.81,
-      "m2_yoy_change": -2.69,
-      "gap_pp": 1.55
-    },
-    {
-      "year": 2024,
-      "di_value": 3.75,
-      "di_yoy_change": -6.7,
-      "m2_index": 650.02,
-      "m2_yoy_change": 2.08,
-      "gap_pp": 8.78
-    }
+    {"year": 1990, "di_value": 100.0, "di_yoy_change": null, "m2_index": 100.0, "m2_yoy_change": null, "gap_pp": null},
+    {"year": 1991, "di_value": 80.46, "di_yoy_change": -19.54, "m2_index": 103.06, "m2_yoy_change": 3.06, "gap_pp": 22.6},
+    {"year": 1992, "di_value": 67.53, "di_yoy_change": -16.06, "m2_index": 104.68, "m2_yoy_change": 1.58, "gap_pp": 17.64},
+    {"year": 1993, "di_value": 58.69, "di_yoy_change": -13.09, "m2_index": 106.23, "m2_yoy_change": 1.48, "gap_pp": 14.57},
+    {"year": 1994, "di_value": 52.4, "di_yoy_change": -10.72, "m2_index": 106.71, "m2_yoy_change": 0.45, "gap_pp": 11.17},
+    {"year": 1995, "di_value": 49.47, "di_yoy_change": -5.59, "m2_index": 111.11, "m2_yoy_change": 4.12, "gap_pp": 9.71},
+    {"year": 1996, "di_value": 45.54, "di_yoy_change": -7.93, "m2_index": 116.58, "m2_yoy_change": 4.93, "gap_pp": 12.86},
+    {"year": 1997, "di_value": 42.4, "di_yoy_change": -6.91, "m2_index": 123.09, "m2_yoy_change": 5.58, "gap_pp": 12.49},
+    {"year": 1998, "di_value": 39.84, "di_yoy_change": -6.02, "m2_index": 133.59, "m2_yoy_change": 8.53, "gap_pp": 14.55},
+    {"year": 1999, "di_value": 37.7, "di_yoy_change": -5.37, "m2_index": 141.62, "m2_yoy_change": 6.01, "gap_pp": 11.38},
+    {"year": 2000, "di_value": 42.83, "di_yoy_change": 13.61, "m2_index": 150.21, "m2_yoy_change": 6.07, "gap_pp": 19.68},
+    {"year": 2001, "di_value": 38.44, "di_yoy_change": -10.26, "m2_index": 165.87, "m2_yoy_change": 10.42, "gap_pp": 20.68},
+    {"year": 2002, "di_value": 35.08, "di_yoy_change": -8.74, "m2_index": 176.42, "m2_yoy_change": 6.36, "gap_pp": 15.1},
+    {"year": 2003, "di_value": 32.45, "di_yoy_change": -7.48, "m2_index": 184.95, "m2_yoy_change": 4.84, "gap_pp": 12.32},
+    {"year": 2004, "di_value": 30.34, "di_yoy_change": -6.51, "m2_index": 195.64, "m2_yoy_change": 5.78, "gap_pp": 12.29},
+    {"year": 2005, "di_value": 35.16, "di_yoy_change": 15.9, "m2_index": 203.67, "m2_yoy_change": 4.11, "gap_pp": 20.01},
+    {"year": 2006, "di_value": 31.48, "di_yoy_change": -10.48, "m2_index": 214.31, "m2_yoy_change": 5.22, "gap_pp": 15.7},
+    {"year": 2007, "di_value": 28.8, "di_yoy_change": -8.52, "m2_index": 227.87, "m2_yoy_change": 6.33, "gap_pp": 14.85},
+    {"year": 2008, "di_value": 26.81, "di_yoy_change": -6.92, "m2_index": 250.06, "m2_yoy_change": 9.74, "gap_pp": 16.66},
+    {"year": 2009, "di_value": 25.32, "di_yoy_change": -5.56, "m2_index": 259.2, "m2_yoy_change": 3.65, "gap_pp": 9.21},
+    {"year": 2010, "di_value": 24.08, "di_yoy_change": -4.88, "m2_index": 267.86, "m2_yoy_change": 3.34, "gap_pp": 8.22},
+    {"year": 2011, "di_value": 19.16, "di_yoy_change": -20.44, "m2_index": 293.1, "m2_yoy_change": 9.42, "gap_pp": 29.86},
+    {"year": 2012, "di_value": 15.55, "di_yoy_change": -18.87, "m2_index": 318.15, "m2_yoy_change": 8.55, "gap_pp": 27.42},
+    {"year": 2013, "di_value": 13.35, "di_yoy_change": -14.14, "m2_index": 335.45, "m2_yoy_change": 5.44, "gap_pp": 19.58},
+    {"year": 2014, "di_value": 10.1, "di_yoy_change": -24.29, "m2_index": 356.14, "m2_yoy_change": 6.17, "gap_pp": 30.46},
+    {"year": 2015, "di_value": 8.73, "di_yoy_change": -13.65, "m2_index": 375.89, "m2_yoy_change": 5.54, "gap_pp": 19.19},
+    {"year": 2016, "di_value": 7.29, "di_yoy_change": -16.49, "m2_index": 402.68, "m2_yoy_change": 7.13, "gap_pp": 23.62},
+    {"year": 2017, "di_value": 6.05, "di_yoy_change": -17.02, "m2_index": 422.45, "m2_yoy_change": 4.91, "gap_pp": 21.93},
+    {"year": 2018, "di_value": 5.32, "di_yoy_change": -12.0, "m2_index": 437.96, "m2_yoy_change": 3.67, "gap_pp": 15.67},
+    {"year": 2019, "di_value": 4.77, "di_yoy_change": -10.42, "m2_index": 467.38, "m2_yoy_change": 6.72, "gap_pp": 17.14},
+    {"year": 2020, "di_value": 4.46, "di_yoy_change": -6.34, "m2_index": 583.04, "m2_yoy_change": 24.75, "gap_pp": 31.09},
+    {"year": 2021, "di_value": 4.14, "di_yoy_change": -7.16, "m2_index": 658.39, "m2_yoy_change": 12.92, "gap_pp": 20.08},
+    {"year": 2022, "di_value": 4.2, "di_yoy_change": 1.22, "m2_index": 654.39, "m2_yoy_change": -0.61, "gap_pp": 0.61},
+    {"year": 2023, "di_value": 4.02, "di_yoy_change": -4.24, "m2_index": 636.81, "m2_yoy_change": -2.69, "gap_pp": 1.55},
+    {"year": 2024, "di_value": 3.75, "di_yoy_change": -6.7, "m2_index": 650.02, "m2_yoy_change": 2.08, "gap_pp": 8.78}
   ],
   "summary": {
     "cumulative_deflation_pct": -96.25,
