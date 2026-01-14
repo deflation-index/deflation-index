@@ -411,7 +411,7 @@ Contact for early access or partnerships.
 
 ## 📜 License
 
-© 2024-2026 Deflation Index LLC. All rights reserved.
+© 2026 Deflation Index LLC. All rights reserved.
 
 ### Data & Methodology
 Data sources are publicly available. Calculations and methodology are original work subject to proprietary license with academic/journalistic use permitted with attribution.
