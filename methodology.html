@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Methodology & Data | The Deflation Index</title>
-    <meta name="description" content="How the Deflation Index is calculated - methodology, data sources, sector weights, downloads, and quality standards.">
+    <title>How We Calculate It | The Deflation Index</title>
+    <meta name="description" content="Complete methodology for measuring the 646pp gap. All calculations, sources, and formulas transparent. Download the data.">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deflationindex.com/methodology.html">
-    <meta property="og:title" content="Methodology & Data | The Deflation Index">
-    <meta property="og:description" content="Complete methodology and data downloads: 4 sectors, normalized weights, 900+ formulas verified, 400+ data points.">
+    <meta property="og:title" content="How We Calculate It | The Deflation Index">
+    <meta property="og:description" content="Transparent methodology tracking technological deflation vs monetary expansion. 900+ formulas, 400+ verified data points.">
     <meta property="og:image" content="https://deflationindex.com/assets/logo/di_logo_og.png">
     
     <!-- Favicon -->
@@ -621,6 +621,13 @@
             .nav {
                 padding: 1rem 1rem;
             }
+            
+            /* Mobile table overflow fix */
+            table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
     </style>
@@ -653,9 +660,9 @@
     
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Methodology & Data</h1>
+        <h1>How We Calculate It</h1>
         <p class="hero-subtitle">
-            How the Deflation Index is calculated, plus complete data downloads and alternative weighting methodologies.
+            Complete transparency. All formulas verifiable. All sources cited. Download everything.
         </p>
     </section>
     
@@ -1098,12 +1105,17 @@
     </section>
     
     <!-- Footer -->
-    <footer>
-        <img src="/assets/logo/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto;">
+    <footer style="background: var(--black); border-top: 3px solid var(--gold); padding: 2rem; text-align: center; color: var(--light-gray); font-size: 0.9rem;">
+        <img src="/assets/logo/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin: 0 auto 1rem;">
         <p>&copy; 2026 Deflation Index LLC. All rights reserved.</p>
-        <p style="margin-top: 0.5rem;">
-            <a href="faq.html">FAQ</a> | <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a>
+        <p style="margin-top: 1rem;">
+            <a href="index.html" style="color: var(--gold); text-decoration: none;">Home</a> | 
+            <a href="about.html" style="color: var(--gold); text-decoration: none;">About</a> | 
+            <a href="faq.html" style="color: var(--gold); text-decoration: none;">FAQ</a> | 
+            <a href="methodology.html" style="color: var(--gold); text-decoration: none;">Methodology</a> | 
+            <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="color: var(--gold); text-decoration: none;">GitHub</a>
         </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Tracking where the abundance goes.</p>
     </footer>
     
     <!-- Menu and Theme Scripts -->
