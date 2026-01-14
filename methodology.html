@@ -688,15 +688,8 @@
             <li><strong>Transportation (17.6%):</strong> The movement of goods and people - cost per kilowatt-hour of battery storage</li>
         </ul>
         
-        <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--light-gray);">
-            <strong>Current Scope</strong>: These weights represent v3.0.2 composition with four sectors. 
-            Future versions (v4.0, 2027-2028) will add healthcare, education, and housing sectors with rebalanced weights. 
-            <a href="#limitations" style="color: var(--gold);">See limitations section</a> for full methodology discussion.
-        </p>
-        
-        <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--light-gray);">
-            <strong>Note:</strong> These weights represent the current v3.0.2 composition with four sectors. 
-            Future versions will add healthcare, education, and housing sectors with rebalanced weights.
+        <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,215,0,0.05); border-left: 3px solid var(--gold);">
+            <strong>Current Scope (v3.0.2):</strong> Four sectors covering approximately 40% of technological impact. Future versions will add healthcare, education, and housing sectors with rebalanced weights. <a href="#limitations" style="color: var(--gold);">See expansion roadmap →</a>
         </p>
     </section>
     
@@ -749,91 +742,75 @@
     <section>
         <h2>Calculation Method</h2>
         
-        <h3>Step 1: Measure Cost-Per-Performance</h3>
-        <p>For each component within each sector, we track the cost per unit of performance over time:</p>
-        <ul>
-            <li><strong>Computing:</strong> Cost per billion floating-point operations per second ($/GFLOPS)</li>
-            <li><strong>Communications:</strong> Cost per gigabyte of data transmission ($/GB)</li>
-            <li><strong>Energy:</strong> Levelized cost of electricity from solar ($/kWh)</li>
-            <li><strong>Transportation:</strong> Battery pack cost per kilowatt-hour ($/kWh)</li>
+        <h3>The Process</h3>
+        <ol style="margin: 1.5rem 0 1.5rem 2rem; line-height: 2; font-size: 1.05rem;">
+            <li><strong>Track cost-per-performance</strong> for each component ($/GFLOPS, $/GB, $/kWh)</li>
+            <li><strong>Index to base year</strong> (1990 = 100). As costs fall, the index falls proportionally</li>
+            <li><strong>Weight components</strong> within sectors using geometric means</li>
+            <li><strong>Combine sectors</strong> into DI using the weighted geometric mean formula</li>
+        </ol>
+        
+        <div class="formula-box" style="margin: 2rem 0;">
+            DI = Computing^0.294 × Communications^0.235 × Energy^0.294 × Transport^0.176
+        </div>
+        
+        <p style="margin-top: 2rem;"><strong>Why geometric mean?</strong> Technological improvements multiply (compound), they don't add. A geometric mean captures this multiplicative relationship.</p>
+        
+        <h3 style="margin-top: 3rem;">Why These Weights?</h3>
+        <p>Sector weights (29.4%, 23.5%, 29.4%, 17.6%) reflect three factors:</p>
+        <ul style="margin: 1rem 0 1rem 2rem; line-height: 1.8;">
+            <li><strong>GDP Contribution:</strong> Share of US economy (from Bureau of Economic Analysis data)</li>
+            <li><strong>Enabling Effect:</strong> How much other sectors depend on this technology</li>
+            <li><strong>Deflationary Force:</strong> Magnitude of cost reduction</li>
         </ul>
         
-        <h3>Step 2: Calculate Component Indices</h3>
-        <p>Each component is indexed to 100 in the base year (1990 for most, 2010 for energy/transport). As costs fall, the index falls proportionally.</p>
+        <p style="margin-top: 1.5rem;">
+            <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">
+                See detailed BEA analysis and complete methodology on GitHub →
+            </a>
+        </p>
+    </section>
+    
+    <!-- Robustness Analysis - PROMINENT SECTION -->
+    <section style="background: rgba(0,206,209,0.05); border: 3px solid var(--cyan); padding: 3rem 2rem; margin: 2rem 0;">
+        <h2 style="color: var(--cyan); text-align: center; margin-bottom: 2rem;">Is This Finding Robust?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
+            To ensure our findings aren't artifacts of weight choices, we tested multiple methodologies:
+        </p>
         
-        <div class="formula-box">
-            Component Index = (Cost in Current Year / Cost in Base Year) × 100
-        </div>
-        
-        <h3>Step 3: Weight Components Within Sectors</h3>
-        <p>Multiple components within each sector are combined using geometric means and their respective weights. For example, Computing = (GFLOPS^0.60 × Storage^0.30 × RAM^0.10).</p>
-        
-        <h3>Step 4: Combine Sectors Into DI</h3>
-        <p>The four sector indices are combined using the DI formula shown above, producing a single comprehensive measure of technological deflation.</p>
-        
-        <h3>Sector Weight Justification</h3>
-
-        <p><strong>Why these specific weights?</strong> The current weights (29.4%, 23.5%, 29.4%, 17.6%) reflect relative economic importance across three dimensions:</p>
-
-        <ol style="margin: 1.5rem 0 1.5rem 2rem;">
-            <li><strong>GDP Contribution</strong>: Share of US GDP from these sectors</li>
-            <li><strong>Enabling Effect</strong>: Degree to which other sectors depend on this technology</li>
-            <li><strong>Deflationary Force</strong>: Magnitude of cost reduction in sector</li>
-        </ol>
-
-        <div class="formula-box" style="margin: 2rem 0;">
-            <strong>Weight Rationale by Sector:</strong><br><br>
-            
-            <strong>Computing (29.4%)</strong>: High enabling effect (powers nearly everything), moderate GDP share, extreme deflationary force (99.9%+ reduction)<br><br>
-            
-            <strong>Energy (29.4%)</strong>: High GDP share (universal input), extreme enabling effect (literally powers economy), high deflationary force (90% solar reduction)<br><br>
-            
-            <strong>Communications (23.5%)</strong>: Moderate GDP share, high enabling effect (essential infrastructure), extreme deflationary force (99.8% data cost reduction)<br><br>
-            
-            <strong>Transportation (17.6%)</strong>: Moderate GDP share, moderate-high enabling effect (critical for goods movement), high deflationary force (88% battery reduction, shorter time series)
-        </div>
-
-        <h3>Sensitivity Analysis: Are Results Robust?</h3>
-
-        <p><strong>We tested four alternative weighting schemes</strong> to ensure our findings aren't artifacts of weight choices:</p>
-
         <div class="table-wrapper">
-        <h4>Robustness Check: Alternative Weightings</h4>
-        <p>To test sensitivity, we calculated results under alternative weighting schemes:</p>
-        <table style="margin: 2rem 0;">
+        <table style="margin: 2rem auto; max-width: 800px;">
             <thead>
                 <tr>
-                    <th>Weighting Approach</th>
+                    <th>Methodology</th>
                     <th>Weights (C/Co/E/T)</th>
-                    <th>Annual DI</th>
-                    <th>Cumulative DI</th>
+                    <th>Cumulative Deflation</th>
                 </tr>
             </thead>
             <tbody>
                 <tr style="background: rgba(255, 215, 0, 0.1);">
                     <td><strong>Multi-Factor (Primary)</strong></td>
                     <td>29/24/29/18</td>
-                    <td><strong>-9.21%</strong></td>
                     <td><strong>-96.25%</strong></td>
                 </tr>
                 <tr>
                     <td>Equal-Weighted (Baseline)</td>
                     <td>25/25/25/25</td>
-                    <td>-8.45%</td>
                     <td>-95.04%</td>
                 </tr>
             </tbody>
         </table>
         </div>
-
-        <p><strong>Result</strong>: Both methodologies show massive technological deflation (95-96% cumulative). The core finding is robust regardless of weighting choices.</p>
-
-        <p><strong>Detailed analysis</strong>: See <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold);">Weight Justification document</a> for complete methodology and sensitivity analysis.</p>
-
-        <p><strong>v4.0 Plan</strong>: When we expand to 7+ sectors (healthcare, education, housing), we'll implement rigorous BLS/BEA-derived sensitivity analyses.</p>
         
-        <h3>Step 5: Calculate Annual Rates</h3>
-        <p>Year-over-year percentage changes show the annual deflation rate. The average annual rate (1990-2024) is -9.21%.</p>
+        <p style="margin-top: 2rem; font-size: 1.1rem; padding: 1.5rem; background: rgba(255,215,0,0.1); border-left: 4px solid var(--gold); text-align: center;">
+            <strong>Key Finding:</strong> Both methodologies show massive technological deflation (95-96% cumulative). The core finding is robust regardless of weighting choices.
+        </p>
+        
+        <p style="margin-top: 1.5rem; text-align: center;">
+            <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md" target="_blank" style="color: var(--gold); font-size: 1.05rem;">
+                See complete sensitivity analysis on GitHub →
+            </a>
+        </p>
     </section>
     
     <!-- Data Sources -->
@@ -897,28 +874,6 @@
         </div>
         
         <p style="margin-top: 1.5rem;"><strong>Average source reliability:</strong> 92/100 (A-grade). We prioritize government agencies, international organizations, and industry leaders with transparent methodologies.</p>
-    </section>
-    
-    <!-- Downloads -->
-    <section>
-        <h2>Download the Data</h2>
-        
-        <p style="margin-bottom: 2rem;">All data is open and free. Download the Excel files, verify every formula, and build your own analysis.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-            <div style="background: rgba(255, 215, 0, 0.05); border: 2px solid var(--gold); padding: 2rem; text-align: center;">
-                <h3 style="color: var(--gold); margin-bottom: 1rem;">Complete Dataset</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">DI v3.0.2 with all sectors, M2, and gap analysis</p>
-                <a href="data/excel/master_deflation_index_v3.0.2.xlsx" download style="display: inline-block; background: var(--gold); color: var(--black); padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">Download Excel</a>
-            </div>
-            
-            <div style="background: rgba(0, 206, 209, 0.05); border: 2px solid var(--cyan); padding: 2rem; text-align: center;">
-                <h3 style="color: var(--cyan); margin-bottom: 1rem;">GitHub Repository</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">All source data, scripts, and documentation</p>
-                <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="display: inline-block; background: var(--cyan); color: var(--black); padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">View on GitHub</a>
-            </div>
-        </div>
-    </section>
     
     <!-- Alternative Methodologies -->
     <section class="variants">
