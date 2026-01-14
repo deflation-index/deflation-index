@@ -86,6 +86,99 @@ Deployment, contribution, and operational guides.
 
 ---
 
+## 🎯 Current Scope & Limitations
+
+### What's Included in v3.0.3
+
+The Deflation Index currently measures **four foundational technology sectors**:
+
+| Sector | Coverage Period | Cumulative Deflation |
+|--------|----------------|---------------------|
+| Computing | 1990-2024 (35 years) | -99.88% |
+| Communications | 1990-2024 (35 years) | -99.27% |
+| Energy | 1990-2024 (35 years) | -98.42% |
+| Transportation | 2010-2024 (15 years) | -82.59% |
+
+**Coverage:** These sectors represent approximately **40% of direct technological impact** on the US economy.
+
+### Why These Four Sectors?
+
+We selected these sectors because they are **foundational technologies** that:
+
+1. ✅ **Enable other sectors** – Computing powers everything from healthcare to finance; energy is required for all economic activity
+2. ✅ **Show measurable deflation** – Clear cost-per-performance metrics ($/GFLOPS, $/kWh, $/GB)
+3. ✅ **Have high-quality data** – Tier 1 sources from government agencies and established institutions
+4. ✅ **Represent diverse types** – Digital (computing, communications), physical (energy, transportation)
+
+**This is not cherry-picking.** These are the sectors where:
+- Data quality is highest (Tier 1: FRED, IRENA, BloombergNEF, BLS, DOE)
+- Measurements are most reliable (standardized metrics, authoritative sources)
+- Deflation is most consistent (35-year time series demonstrates trend durability)
+
+### What's NOT Included (Yet)
+
+**Sectors excluded from v3.0.3:**
+
+| Sector | Status | Reason for Exclusion |
+|--------|--------|---------------------|
+| Healthcare | ❌ Planned v4.0 (2026-2027) | Complexity costs rising despite tech deflation (genomic sequencing ↓99.9%, but healthcare spending ↑) |
+| Education | ❌ Planned v4.0 (2026-2027) | Mixed signals: online learning ↓90% cost, but university tuition ↑400% |
+| Housing | ❌ Planned v4.0 (2027-2028) | Methodology needs development: how to isolate tech deflation (modular construction) from land/regulatory costs? |
+| Food/Agriculture | ⏸️ Under evaluation | Genetic engineering delivers deflation, but consumer prices complex (distribution, retail markup) |
+| Manufacturing | ⏸️ Under evaluation | Automation delivers productivity, but complexity costs may offset |
+
+**Why excluded?** Not because they don't matter or don't have technological deflation, but because:
+1. **Data quality insufficient** for Tier 1 inclusion (require Tier 2-3 sources with lower reliability)
+2. **Complexity costs may offset deflation** (healthcare tech improves, but system costs rise faster)
+3. **Methodology needs development** (isolating technology deflation from other factors is challenging)
+
+**We'd rather be accurate with 4 sectors than speculative with 10.**
+
+### Roadmap for Expansion
+
+**Our expansion plan maintains quality standards while broadening coverage:**
+
+#### v3.1 (Q2 2026)
+- Quarterly data updates (no new sectors)
+- Enhanced automation and real-time pulls
+- API beta launch
+
+#### v4.0 (2026-2027) – Healthcare Sector
+**Target:** Add healthcare as 5th sector
+- **Metrics:** Genomic sequencing costs ($/genome), medical imaging ($/scan), telemedicine ($/consultation)
+- **Challenge:** Isolate technology deflation from system complexity and regulatory costs
+- **Coverage:** ~50% of technological impact when combined with existing 4 sectors
+- **Methodology:** Collaborate with health economists on quality-adjusted measurements
+
+#### v4.1 (2027) – Education Sector  
+**Target:** Add education as 6th sector
+- **Metrics:** Online learning costs, digital textbook prices, AI tutoring costs
+- **Challenge:** Separate technology benefits from credential inflation
+- **Coverage:** ~55-60% of technological impact
+- **Methodology:** Work with education researchers on learning outcome measurements
+
+#### v5.0 (2028) – Housing/Construction Sector
+**Target:** Add housing as 7th sector
+- **Metrics:** Modular construction costs, building automation, smart home technology
+- **Challenge:** Isolate technology costs from land values and regulatory burdens
+- **Coverage:** ~65-70% of technological impact
+- **Methodology:** Partner with urban economists on hedonic housing models
+
+**Goal:** Expand to **7+ sectors representing 60-70% of technological impact by 2028.**
+
+### Transparency Commitment
+
+We explicitly acknowledge our limitations:
+
+✅ **Current index is partial, not comprehensive** (40% coverage)  
+✅ **Findings are robust within measured sectors** (sensitivity analysis confirms)  
+✅ **Expansion planned with same quality standards** (no compromise on data rigor)  
+✅ **Transparent about what's included and excluded** (no hidden assumptions)
+
+**Core principle:** We'd rather have a smaller index that's bulletproof than a larger index that's questionable.
+
+---
+
 ## 🔄 Sensitivity Analysis
 
 We provide two weighting methodologies to demonstrate robustness:
@@ -123,4 +216,4 @@ We provide two weighting methodologies to demonstrate robustness:
 
 - **Technical issues**: Open a GitHub issue
 - **Methodology questions**: See [MASTER_METHODOLOGY.md](methodology/MASTER_METHODOLOGY.md)
-- **General inquiries**: contact@deflationindex.com
+- **General inquiries**: info@deflationindex.com

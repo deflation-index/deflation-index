@@ -248,7 +248,7 @@ Never commit secrets to GitHub!
 ## Next Steps After Deployment
 
 1. ✅ Verify site loads at deflationindex.com
-2. Set up email forwarding (contact@deflationindex.com)
+2. Set up email forwarding (info@deflationindex.com)
 3. Add analytics
 4. Set up social media accounts
 5. Submit to Google Search Console
@@ -259,9 +259,9 @@ Never commit secrets to GitHub!
 **Cloudflare Documentation**: https://developers.cloudflare.com/pages/  
 **Community**: https://community.cloudflare.com/
 
-**For project-specific issues**: Check GitHub issues or email contact@deflationindex.com
+**For project-specific issues**: Check GitHub issues or email info@deflationindex.com
 
 ---
 
-**Last Updated**: December 2024  
+**Last Updated**: January 2026  
 **Status**: Ready for deployment ✅
