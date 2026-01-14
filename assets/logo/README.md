@@ -8,7 +8,7 @@
 
 ## Copyright
 
-© 2024-2026 Deflation Index LLC. All rights reserved.
+© 2026 Deflation Index LLC. All rights reserved.
 
 The Deflation Index name, logo, and brand assets are proprietary trademarks of Deflation Index LLC.
 
@@ -36,14 +36,31 @@ The logo design represents **revealing hidden abundance**—the shadow layer sym
 
 ### PNG Formats
 - **`di_logo_512.png`** (512×512px, ~7KB)
-  - Social media profile images
-  - Twitter, LinkedIn, GitHub avatar
+  - Legacy transparent version
+  - Use for overlays on dark backgrounds
   - Transparent background
+
+- **`di_logo_social_profile.png`** (512×512px, ~6KB)
+  - **USE THIS for X/Twitter, LinkedIn, Substack profile images**
+  - Dark background (#0A0A0A) with cyan logo
+  - Maintains brand identity on white/light platform backgrounds
+  - Perfect contrast (21:1 ratio) on any background color
 
 - **`di_logo_og.png`** (1200×630px, ~9KB)
   - Open Graph images for link previews
   - Social sharing cards
   - Transparent background
+
+### Black Logo Variant
+- **`di_logo_black.svg`** (517 bytes)
+  - Black version for light backgrounds
+  - Use for print materials, documents, contexts requiring monochrome
+  - Same design, black (#000000) instead of cyan
+  - Serves as official grayscale version
+
+- **`di_logo_black_512.png`** (512×512px, ~6KB)
+  - Black version in PNG format
+  - Alternative for light backgrounds when dark background block not appropriate
 
 ### Minimum Sizes
 - **Digital**: 32px height minimum
@@ -196,11 +213,27 @@ Always include alt text:
 | Use Case | Recommended File | Notes |
 |----------|------------------|-------|
 | GitHub README | `di_logo_primary.svg` | Scalable, small file |
-| Website footer | `di_logo_primary.svg` | Best quality |
-| Social profile | `di_logo_512.png` | Standard size |
-| Link preview | `di_logo_og.png` | Open Graph standard |
-| Documentation | `di_logo_primary.svg` | High quality |
-| Print | `di_logo_primary.svg` | Convert to PDF/EPS |
+| Website header | `di_logo_primary.svg` | Best quality, infinite scale |
+| **X/Twitter profile** | **`di_logo_social_profile.png`** | **Dark background for visibility** |
+| **LinkedIn profile** | **`di_logo_social_profile.png`** | **Dark background for visibility** |
+| **Substack profile** | **`di_logo_social_profile.png`** | **Dark background for visibility** |
+| Open Graph/link preview | `di_logo_og.png` | Standard 1200×630 size |
+| Documentation | `di_logo_primary.svg` | High quality, scalable |
+| Print (color) | `di_logo_primary.svg` | Convert to PDF/EPS |
+| Print (B&W) | `di_logo_black.svg` | Grayscale version |
+| Light backgrounds (alt) | `di_logo_black.svg` | When dark block not appropriate |
+
+### Important: Social Media Profile Images
+
+**Use `di_logo_social_profile.png` (dark background baked in) for:**
+- ✅ X/Twitter profile pictures
+- ✅ LinkedIn company logos
+- ✅ Substack publication logos
+- ✅ Any platform with white/light backgrounds
+
+**Why?** Cyan (#00FFFF) on white has only 1.5:1 contrast (unreadable). The dark background version maintains brand identity while ensuring perfect visibility.
+
+**Don't use** `di_logo_512.png` (transparent) for profiles on platforms with light backgrounds - the cyan logo will be nearly invisible.
 
 ---
 
@@ -300,7 +333,13 @@ Download the complete brand package from the [latest release](../../releases).
 
 ## Updates
 
-These guidelines may be updated periodically. Current version: 1.0 (January 2026)
+These guidelines may be updated periodically. Current version: 1.1 (January 2026)
+
+**Version 1.1 changes:**
+- Added social media profile image with dark background
+- Added black logo variant documentation
+- Updated file format guide with platform-specific recommendations
+- Clarified when to use transparent vs. dark background versions
 
 Check this file for the most current usage policies.
 
@@ -314,6 +353,6 @@ Check this file for the most current usage policies.
 
 ---
 
-© 2024-2026 Deflation Index LLC. All rights reserved.
+© 2026 Deflation Index LLC. All rights reserved.
 
 *The Deflation Index logo is a proprietary trademark. Use is permitted for attribution and citation under the terms described above.*
