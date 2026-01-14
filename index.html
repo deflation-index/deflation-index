@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>The Deflation Index | Quantifying Technological Deflation</title>
-    <meta name="description" content="The Deflation Index measures 96.26% technological deflation across computing, communications, energy, and transportation from 1990-2024.">
+    <title>The Deflation Index | Where Your Productivity Went</title>
+    <meta name="description" content="Technology got 20x cheaper. Life didn't. Track the 646pp gap between tech deflation and your cost of living.">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deflationindex.com">
-    <meta property="og:title" content="The Deflation Index | Measuring Technological Deflation">
-    <meta property="og:description" content="Technology delivered 96.26% deflation. Money supply expanded 550%. Measuring where the productivity goes.">
+    <meta property="og:title" content="The Deflation Index | Where Your Productivity Went">
+    <meta property="og:description" content="Technology got 20x cheaper. Life didn't. Someone captured the 646pp gap.">
     <meta property="og:image" content="https://deflationindex.com/assets/logo/di_logo_og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -20,8 +20,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://deflationindex.com">
-    <meta name="twitter:title" content="The Deflation Index | 14.9pp Annual Divergence">
-    <meta name="twitter:description" content="Technology: -96.26% deflation. M2: +550% expansion. The gap: measuring where technological productivity flows.">
+    <meta name="twitter:title" content="Where Did the Abundance Go?">
+    <meta name="twitter:description" content="Technology: -96% deflation. You: +3% inflation. The gap: 646 percentage points captured elsewhere.">
     <meta name="twitter:image" content="https://deflationindex.com/assets/logo/di_logo_og.png">
     
     <!-- Performance -->
@@ -576,6 +576,53 @@
             line-height: 1.6;
         }
         
+        /* Use Cases Section */
+        .use-cases {
+            background: var(--bg-dark);
+            padding: 6rem 2rem;
+            border-top: 3px solid var(--gold);
+        }
+        
+        .use-cases h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--gold);
+            margin-bottom: 3rem;
+        }
+        
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .use-case {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid var(--gray);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .use-case:hover {
+            border-color: var(--gold);
+            background: rgba(255, 215, 0, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .use-case h3 {
+            font-size: 1.4rem;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+        }
+        
+        .use-case p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--light-gray);
+        }
+        
         /* CTA Section */
         .cta {
             background: rgba(255,0,0,0.1);
@@ -689,24 +736,22 @@
     <!-- Menu Dropdown -->
     <div class="menu-dropdown" id="menuDropdown">
         <nav>
-            <a href="about.html" onclick="toggleMenu()">About</a>
+            <a href="about.html" onclick="toggleMenu()">About & FAQ</a>
             <a href="methodology.html" onclick="toggleMenu()">Methodology & Data</a>
-            <a href="faq.html" onclick="toggleMenu()">FAQ</a>
             <a href="collaborate.html" onclick="toggleMenu()">Collaborate</a>
-            <a href="products.html" onclick="toggleMenu()">Products</a>
         </nav>
     </div>
     
     <!-- Hero Section -->
     <section class="hero">
         <h1>
-            <span class="the">The</span>
-            <span class="deflation">Deflation</span>
-            <span class="index">Index</span>
+            <span class="the">Technology Got</span>
+            <span class="deflation">20x Cheaper</span>
+            <span class="index" style="font-size: 0.7em; color: var(--light-gray);">Life Didn't</span>
         </h1>
         
-        <p class="subtitle">
-            Measuring where technological productivity flows.
+        <p class="subtitle" style="font-size: 1.4rem; margin-top: 2rem;">
+            Where did the abundance go?
         </p>
         
         <div class="scroll-indicator">
@@ -714,17 +759,21 @@
         </div>
     </section>
     
-    <!-- The Big Picture -->
+    <!-- The Problem Everyone Feels -->
     <section style="background: var(--bg-dark); padding: 5rem 2rem; border-top: 3px solid var(--gold);">
         <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <h2 style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 2rem; color: var(--white);">What is the Deflation Index?</h2>
+            <h2 style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 2rem; color: var(--white);">The Problem Everyone Feels</h2>
             
-            <p style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); line-height: 1.9; margin-bottom: 2rem; color: var(--light-gray);">
-                Technology has delivered <span style="color: #00CED1; font-weight: 600;">massive cost reductions</span> across computing, communications, energy, and transportation. Meanwhile, the money supply expanded <span style="color: #00FF00; font-weight: 600;">dramatically</span>.
+            <p style="font-size: clamp(1.15rem, 2.5vw, 1.35rem); line-height: 1.9; margin-bottom: 2rem; color: var(--light-gray);">
+                You know technology got radically better and cheaper. Your iPhone has more computing power than NASA in 1990. Solar panels cost 90% less. Data is nearly free.
             </p>
             
-            <p style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); line-height: 1.9; color: var(--white);">
-                The Deflation Index measures this divergence—and tracks where the productivity goes.
+            <p style="font-size: clamp(1.15rem, 2.5vw, 1.35rem); line-height: 1.9; margin-bottom: 2rem; color: var(--light-gray);">
+                So why does life feel <span style="color: var(--gold); font-weight: 600;">MORE expensive</span>? Why doesn't your paycheck go further? Where did all that productivity go?
+            </p>
+            
+            <p style="font-size: clamp(1.3rem, 3vw, 1.6rem); line-height: 1.6; color: var(--gold); font-weight: 600; margin-top: 3rem;">
+                The Deflation Index measures the gap: 646 percentage points.
             </p>
         </div>
     </section>
@@ -951,23 +1000,50 @@
         </div>
     </section>
     
+    <!-- Who This Is For -->
+    <section class="use-cases">
+        <h2>Who Uses This</h2>
+        
+        <div class="use-cases-grid">
+            <div class="use-case">
+                <h3>Investors</h3>
+                <p>Identify which sectors have real deflation vs monetary distortion. Understand where to allocate capital based on fundamental cost trends, not just nominal prices.</p>
+            </div>
+            
+            <div class="use-case">
+                <h3>Businesses</h3>
+                <p>See which sectors are experiencing sustainable cost reduction. Build where technology delivers real abundance, not just monetary inflation.</p>
+            </div>
+            
+            <div class="use-case">
+                <h3>Individuals</h3>
+                <p>Understand why rent tripled while computing collapsed. See the data behind why life feels more expensive despite obvious technological progress.</p>
+            </div>
+            
+            <div class="use-case">
+                <h3>Researchers</h3>
+                <p>Access rigorous methodology and verifiable data. All calculations transparent, all sources cited, all assumptions documented on GitHub.</p>
+            </div>
+        </div>
+    </section>
+    
     <!-- CTA Section -->
     <section class="cta">
-        <h2>The Data Speaks</h2>
+        <h2>See It For Yourself</h2>
         
         <p style="font-size: 1.5rem; margin: 2rem auto; max-width: 800px; line-height: 1.7;">
-            Technology delivered 96.26% deflation. The money supply expanded 550%. These two forces—one pushing prices down, one pushing them up—diverge by 14.9 percentage points every year. This is measurement, not theory.
+            Technology delivered 96% deflation. The money supply expanded 550%. These two forces—one pushing prices down, one pushing them up—diverge by 15 percentage points every year. This is measurement, not theory.
         </p>
         
         <div class="cta-buttons">
-            <a href="data/excel/master_deflation_index_v3_0_1.xlsx" class="btn" download>Download Data</a>
-            <a href="methodology.html" class="btn">Methodology</a>
-            <a href="https://github.com/deflation-index/deflation-index" class="btn" target="_blank">GitHub</a>
+            <a href="data/excel/master_deflation_index_v3_0_1.xlsx" class="btn" download>Get The Data</a>
+            <a href="methodology.html" class="btn">See How We Measure It</a>
+            <a href="https://github.com/deflation-index/deflation-index" class="btn" target="_blank">View on GitHub</a>
         </div>
         
         <p style="margin-top: 4rem; font-size: 0.9rem; opacity: 0.8;">
-            Independent analysis tracking technological deflation across four fundamental sectors.
-            <br>900+ verified formulas. 400+ data points. 35 years (1990-2024).
+            Real data from four fundamental technology sectors.
+            <br>900+ verified calculations. 400+ data points. 35 years (1990-2024).
             <br><span style="font-size: 0.85rem; opacity: 0.8;">Data reflects year-end 2024. Next update: Q2 2026 with 2025 data.</span>
             <br>Data from Federal Reserve, BLS, IRENA, BloombergNEF, AI Impacts, DOE, FCC.
         </p>
@@ -1254,7 +1330,7 @@
             <a href="faq.html" style="color: var(--gold); text-decoration: none;">FAQ</a> | 
             <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="color: var(--gold); text-decoration: none;">GitHub</a>
         </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">Measuring where technological productivity flows.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Tracking where the abundance goes.</p>
     </footer>
     
     <!-- Scroll Animation Script -->
