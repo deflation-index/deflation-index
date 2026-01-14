@@ -3,14 +3,14 @@
 </p>
 
 <h1 align="center">The Deflation Index</h1>
-<h3 align="center">Measuring where technological productivity flows</h3>
+<h3 align="center">Tracking where the abundance goes</h3>
 
 <p align="center">
-Technology is the primary driver of human productivity. The Deflation Index tracks cost reductions in computing, communications, energy, and transportation, then compares them to monetary expansion.
+Technology got dramatically cheaper. Computing power increased 100,000x. Solar panels fell 90%. Data became nearly free. But life didn't get cheaper.
 </p>
 
 <p align="center">
-<strong>The gap between technological deflation and monetary expansion reveals where productivity gains are captured—and where they're not.</strong>
+<strong>The Deflation Index measures this gap across four fundamental sectors—and reveals where the abundance went.</strong>
 </p>
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -22,9 +22,27 @@ Technology is the primary driver of human productivity. The Deflation Index trac
 
 ## 📊 Key Findings (1990-2024)
 
-* **Technology deflation**: -96.25% cumulative (-9.21% annual average)
-* **M2 money supply growth**: +550% cumulative (+5.7% annual average)
-* **The DI-M2 Gap**: 14.9 percentage points annually
+* **Technology deflation**: -96% cumulative (-9% annual average)
+* **M2 money supply growth**: +550% cumulative (+6% annual average)  
+* **Cumulative gap**: 646 percentage points (15pp annually)
+
+*Note: Narrative values rounded for readability; precise values maintained in datasets.*
+
+---
+
+## 👥 Who Uses This
+
+The Deflation Index serves four primary audiences:
+
+**📊 Investors** — Identify which sectors have real deflation vs monetary distortion. Allocate capital based on fundamental cost trends, not just nominal prices.
+
+**🏢 Businesses** — See which sectors are experiencing sustainable cost reduction. Build where technology delivers real abundance, not just monetary inflation.
+
+**👤 Individuals** — Understand why rent tripled while computing collapsed. See the data behind why life feels more expensive despite obvious technological progress.
+
+**📚 Researchers** — Access rigorous methodology with transparent calculations. All data sourced, all formulas verifiable, all assumptions documented.
+
+The core question: "Technology got cheaper—where did the abundance go?"
 
 ---
 
@@ -248,12 +266,22 @@ Every Excel file includes:
 
 **The Deflation Index methodology is open for academic scrutiny.**
 
-### Seeking Peer Review
+### Seeking Review & Collaboration
 
-We welcome formal peer review from:
-- Academic economists (monetary policy, price indices, hedonic methods)
-- Statisticians (quality adjustment, index construction)
-- Sector experts (energy economists, computing historians, communications researchers)
+We welcome engagement from multiple perspectives:
+
+**Practitioners:**
+- Investment analysts evaluating technology sectors
+- Business strategists making allocation decisions
+- Policy analysts studying economic trends
+
+**Academics:**
+- Economists studying monetary policy and price indices
+- Statisticians specializing in quality adjustment and index construction
+- Sector experts in energy, computing, communications, or transportation
+
+**Critical Feedback:**
+We especially value constructive criticism on methodology, data quality, and assumptions.
 
 ### Collaboration Opportunities
 
