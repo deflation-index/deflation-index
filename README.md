@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo/di_logo_primary.svg" alt="The Deflation Index" height="80">
+  <img src="assets/logo/icon/di_logo_primary.svg" alt="The Deflation Index" height="80">
 </p>
 
 <h1 align="center">The Deflation Index</h1>

@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://deflationindex.com/methodology.html">
     <meta property="og:title" content="How We Calculate It | The Deflation Index">
     <meta property="og:description" content="Transparent methodology tracking technological deflation vs monetary expansion. 900+ formulas, 400+ verified data points.">
-    <meta property="og:image" content="https://deflationindex.com/assets/logo/di_logo_og.png">
+    <meta property="og:image" content="https://deflationindex.com/assets/logo/icon/di_logo_og.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1060,7 +1060,7 @@
     
     <!-- Footer -->
     <footer style="background: var(--black); border-top: 3px solid var(--gold); padding: 2rem; text-align: center; color: var(--light-gray); font-size: 0.9rem;">
-        <img src="/assets/logo/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin: 0 auto 1rem;">
+        <img src="/assets/logo/icon/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin: 0 auto 1rem;">
         <p>&copy; 2026 Deflation Index LLC. All rights reserved.</p>
         <p style="margin-top: 1rem;">
             <a href="index.html" style="color: var(--gold); text-decoration: none;">Home</a> | 
@@ -1071,6 +1071,27 @@
         </p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">Tracking where the abundance goes.</p>
     </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" style="
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--gold);
+        color: var(--black);
+        border: none;
+        padding: 1rem 1.2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: none;
+        z-index: 999;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    " onmouseover="this.style.background='var(--cyan)'" onmouseout="this.style.background='var(--gold)'" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
+        ↑
+    </button>
     
     <!-- Menu and Theme Scripts -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
@@ -1097,6 +1118,16 @@
             content.classList.toggle('active');
             toggle.classList.toggle('active');
         }
+        
+        // Back to Top Button functionality
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            if (window.pageYOffset > 500) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
     </script>
     
     <!-- Scroll Animation Script -->
