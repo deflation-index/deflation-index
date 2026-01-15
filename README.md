@@ -105,11 +105,11 @@ deflation-index/
 ├── di_logo_32.png              # Favicon 32x32
 ├── di_logo_64.png              # Favicon 64x64
 ├── index.html                  # Homepage
-├── about.html                  # About page
+├── about.html                  # About page (includes collaboration section)
 ├── methodology.html            # Methodology page
 ├── faq.html                    # FAQ page
-├── collaborate.html            # Collaboration page
-├── products.html               # Products/API page
+├── products.html               # Data access and API information
+├── collaborate.html            # Redirects to about.html#collaborate
 ├── LICENSE                     # Proprietary license
 └── README.md                   # This file
 ```
