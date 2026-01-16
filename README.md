@@ -109,7 +109,6 @@ deflation-index/
 ├── methodology.html            # Methodology page
 ├── faq.html                    # FAQ page
 ├── products.html               # Data access and API information
-├── collaborate.html            # Redirects to about.html#collaborate
 ├── LICENSE                     # Proprietary license
 └── README.md                   # This file
 ```
