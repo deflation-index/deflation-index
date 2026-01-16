@@ -702,6 +702,27 @@
         <p style="margin-top: 1rem; font-size: 0.8rem;">Tracking where the abundance goes.</p>
     </footer>
     
+    <!-- Back to Top Button -->
+    <button id="backToTop" style="
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--gold);
+        color: var(--black);
+        border: none;
+        padding: 1rem 1.2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: none;
+        z-index: 999;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    " onmouseover="this.style.background='var(--cyan)'" onmouseout="this.style.background='var(--gold)'" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
+        ↑
+    </button>
+    
     <!-- Menu and Theme Scripts -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
                 function toggleMenu() {
@@ -718,6 +739,16 @@
             if (menuDropdown && !menuDropdown.contains(e.target) && !hamburger.contains(e.target) && menuDropdown.classList.contains('active')) {
                 menuDropdown.classList.remove('active');
                 hamburger.classList.remove('active');
+            }
+        });
+        
+        // Back to Top Button functionality
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            if (window.pageYOffset > 500) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
             }
         });
         
