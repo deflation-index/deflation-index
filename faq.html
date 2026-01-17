@@ -169,7 +169,15 @@
             justify-content: center;
             align-items: center;
             padding: 8rem 2rem 4rem;
-            background: var(--bg-dark);
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(255,255,255,0.03) 41px
+                ),
+                var(--bg-dark);
             border-bottom: 3px solid var(--gold);
         }
         
@@ -648,7 +656,7 @@
                     </ul>
                     <p><strong>Why not housing/healthcare/education yet?</strong></p>
                     <p>These sectors show <em>inflation</em> (costs rising) despite technological improvements. They're critical to understanding the full picture, but require different analytical frameworks. We're developing methodologies to incorporate them in v4.0.</p>
-                    <p><strong>Future roadmap:</strong> Version 4.0 (planned for 2027-2028) will add healthcare, education, and housing sectors with rebalanced weights across all seven sectors.</p>
+                    <p><strong>Future roadmap:</strong> Version 4.0 (planned for 2026-2027) will add healthcare, education, and housing sectors with rebalanced weights across all seven sectors.</p>
                 </div>
             </div>
         </div>
@@ -729,7 +737,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p><strong>Current status:</strong> The Deflation Index v3.0.2 is complete through 2024 with zero formula errors and comprehensive 1990-2024 coverage.</p>
+                    <p><strong>Current status:</strong> The Deflation Index v3.0.3 is complete through 2024 with zero formula errors and comprehensive 1990-2024 coverage.</p>
                     <p><strong>Update schedule:</strong></p>
                     <ul>
                         <li><strong>Annual updates:</strong> Full recalculation with new year's data (typically released Q1 of following year)</li>
@@ -794,7 +802,7 @@
                     </ul>
                     <p><strong>Required attribution:</strong></p>
                     <p style="padding: 1rem; background: rgba(255,255,255,0.05); border-left: 3px solid var(--gold); margin: 1rem 0;">
-                        "The Deflation Index: Measuring Technological Progress (1990-2024), Deflation Index LLC, v3.0.2, available at github.com/deflation-index/deflation-index"
+                        "The Deflation Index: Measuring Technological Progress (1990-2024), Deflation Index LLC, v3.0.3, available at github.com/deflation-index/deflation-index"
                     </p>
                     <p><strong>Not permitted without permission:</strong></p>
                     <ul>
@@ -845,15 +853,15 @@
     </section>
     
     <!-- Footer -->
-    <footer style="background: var(--black); border-top: 3px solid var(--gold); padding: 2rem; text-align: center; color: var(--light-gray); font-size: 0.9rem;">
-        <img src="/assets/logo/icon/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin: 0 auto 1rem;">
+    <footer>
+        <img src="/assets/logo/icon/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto;">
         <p>&copy; 2026 Deflation Index LLC. All rights reserved.</p>
         <p style="margin-top: 1rem;">
-            <a href="index.html" style="color: var(--gold); text-decoration: none;">Home</a> | 
-            <a href="about.html" style="color: var(--gold); text-decoration: none;">About</a> | 
-            <a href="faq.html" style="color: var(--gold); text-decoration: none;">FAQ</a> | 
-            <a href="methodology.html" style="color: var(--gold); text-decoration: none;">Methodology</a> | 
-            <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="color: var(--gold); text-decoration: none;">GitHub</a>
+            <a href="index.html">Home</a> | 
+            <a href="about.html">About</a> | 
+            <a href="faq.html">FAQ</a> | 
+            <a href="methodology.html">Methodology</a> | 
+            <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a>
         </p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">Tracking where the abundance goes.</p>
     </footer>
@@ -909,5 +917,11 @@
             });
         }, observerOptions);
         
-        document.addEventListener('DOMContentLoaded', () => {
-            const secti
+            document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.faq-container, .contact-cta');
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+    
+</body>
+</html>
