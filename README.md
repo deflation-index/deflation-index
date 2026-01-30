@@ -3,14 +3,14 @@
 </p>
 
 <h1 align="center">The Deflation Index</h1>
-<h3 align="center">Tracking where the abundance goes</h3>
+<h3 align="center">Measuring technological deflation</h3>
 
 <p align="center">
-Technology got dramatically cheaper. Computing power increased 100,000x. Solar panels fell 90%. Data became nearly free. But life didn't get cheaper.
+Technology got dramatically cheaper. Computing power increased 100,000x. Solar panels fell 90%. Data became nearly free.
 </p>
 
 <p align="center">
-<strong>The Deflation Index measures this gap across four fundamental sectors—and reveals where the abundance went.</strong>
+<strong>The Deflation Index measures technological cost reduction across four fundamental sectors, helping you understand where the productivity gains flow.</strong>
 </p>
 
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -23,8 +23,8 @@ Technology got dramatically cheaper. Computing power increased 100,000x. Solar p
 ## 📊 Key Findings (1990-2024)
 
 * **Technology deflation**: -96% cumulative (-9% annual average)
-* **M2 money supply growth**: +550% cumulative (+6% annual average)  
-* **Cumulative gap**: 646 percentage points (15pp annually)
+* **Compare to:** CPI +2.8% annually | M2 +5.7% annually | Asset prices vary widely
+* **Distribution question**: Where did the productivity gains flow?
 
 *Note: Narrative values rounded for readability; precise values maintained in datasets.*
 
@@ -34,15 +34,15 @@ Technology got dramatically cheaper. Computing power increased 100,000x. Solar p
 
 The Deflation Index serves four primary audiences:
 
-**📊 Investors** — Identify which sectors have real deflation vs monetary distortion. Allocate capital based on fundamental cost trends, not just nominal prices.
+**📊 Investors** - Identify which sectors have real deflation vs monetary distortion. Allocate capital based on fundamental cost trends, not just nominal prices.
 
-**🏢 Businesses** — See which sectors are experiencing sustainable cost reduction. Build where technology delivers real abundance, not just monetary inflation.
+**🏢 Businesses** - See which sectors are experiencing sustainable cost reduction. Build where technology delivers real abundance, not just monetary inflation.
 
-**👤 Individuals** — Understand why rent tripled while computing collapsed. See the data behind why life feels more expensive despite obvious technological progress.
+**👤 Individuals** - Understand why rent tripled while computing collapsed. See the data behind why life feels more expensive despite obvious technological progress.
 
-**📚 Researchers** — Access rigorous methodology with transparent calculations. All data sourced, all formulas verifiable, all assumptions documented.
+**📚 Researchers** - Access rigorous methodology with transparent calculations. All data sourced, all formulas verifiable, all assumptions documented.
 
-The core question: "Technology got cheaper—where did the abundance go?"
+The core question: "Technology got cheaper - where did the abundance go?"
 
 ---
 
@@ -63,7 +63,7 @@ The core question: "Technology got cheaper—where did the abundance go?"
 
 ## 💡 Why Focus on Technology?
 
-Technology is the primary driver of long-term productivity growth. This isn't ideology—it's historical fact.
+Technology is the primary driver of long-term productivity growth. This isn't ideology - it's historical fact.
 
 **The Evidence:**
 - GDP per capita was flat for 2,000 years until the Industrial Revolution
@@ -74,9 +74,9 @@ Technology is the primary driver of long-term productivity growth. This isn't id
 
 If technology sectors show exponential cost reductions, why don't consumer prices fall proportionally?
 
-The Deflation Index measures this divergence. We track cost-per-performance in four technology sectors, compare to M2, and calculate the gap: **14.9 percentage points annually.**
+The Deflation Index measures technological cost reduction rigorously and transparently. We track cost-per-performance in four technology sectors and compare to multiple economic indicators (CPI, M2, wage growth) to understand where productivity gains flow.
 
-**This gap represents captured productivity.** It went somewhere. This index exists to measure where.
+**The core insight:** Technology delivered massive deflation, but the benefits distributed unevenly, concentrating in asset prices and financial complexity rather than broad-based consumer price reductions.
 
 **Full context:** [Why Technology Matters](docs/WHY_TECHNOLOGY_MATTERS.md)
 
@@ -216,7 +216,7 @@ DI-M2 Gap = |DI Annual Rate| + M2 Annual Rate
           = 9.21% + 5.7% = 14.9 percentage points annually
 ```
 
-This measures the annual divergence between technological deflation and monetary expansion. Over 35 years, this compounds dramatically—technology pushed costs down while money supply expansion pushed them up. The gap represents productivity gains that didn't reach consumers as lower prices.
+This measures the annual divergence between technological deflation and monetary expansion. Over 35 years, this compounds dramatically - technology pushed costs down while money supply expansion pushed them up. The gap represents productivity gains that didn't reach consumers as lower prices.
 
 ---
 
@@ -426,7 +426,7 @@ See [LICENSE](LICENSE) for full terms.
 
 **Built to measure the force of technological progress and track where the abundance goes.**
 
-Technology is the primary driver of human prosperity. Understanding where those gains flow—to consumers, to capital holders, to asset prices, to complexity costs—is essential for economic policy and social equity.
+Technology is the primary driver of human prosperity. Understanding where those gains flow (to consumers, to capital holders, to asset prices, to complexity costs) is essential for economic policy and social equity.
 
 The Deflation Index exists to provide objective, transparent, verifiable measurement of this phenomenon. Not as theory, but as data. Not as advocacy, but as economics. Not as accusation, but as measurement.
 
