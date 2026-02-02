@@ -89,6 +89,7 @@ The Deflation Index measures technological cost reduction rigorously and transpa
 deflation-index/
 ├── assets/                     # Brand assets and images
 │   └── logo/                   # Official logos (see assets/logo/README.md)
+├── blog/                       # Blog posts
 ├── data/                       # Source data and calculations
 │   ├── constants.json          # Single source of truth (v3.0.3)
 │   ├── api/                    # JSON data for API/integrations
@@ -106,6 +107,7 @@ deflation-index/
 ├── di_logo_64.png              # Favicon 64x64
 ├── index.html                  # Homepage
 ├── about.html                  # About page (includes collaboration section)
+├── blog.html                   # Blog landing page
 ├── methodology.html            # Methodology page
 ├── faq.html                    # FAQ page
 ├── products.html               # Data access and API information
@@ -433,5 +435,5 @@ The Deflation Index exists to provide objective, transparent, verifiable measure
 ---
 
 **Version**: 3.0.3  
-**Last Updated**: January 2026  
+**Last Updated**: February 2026  
 **Next Update**: Q2-Q3 2026 (v3.1 with 2025 data)
