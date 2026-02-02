@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Technology is the Variable That Changes Everything | The Deflation Index</title>
+    <meta name="description" content="Technology makes things cheaper. But do we really understand how much cheaper, and why that matters for everything else in the economy?">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Why Technology is the Variable That Changes Everything">
+    <meta property="og:description" content="Technology makes things cheaper. But do we really understand how much cheaper, and why that matters for everything else in the economy?">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://deflationindex.com/blog/why-technology-matters">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Technology is the Variable That Changes Everything">
+    <meta name="twitter:description" content="The case for measuring what actually got cheaper.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #000000;
+            --soft-black: #121212;
+            --white: #FFFFFF;
+            --cyan: #00CED1;
+            --gold: #FFD700;
+            --green: #00FF00;
+            --light-gray: #E0E0E0;
+            --gray: #333333;
+            --bg-dark: #0F0F0F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--bg-dark);
+            color: var(--light-gray);
+            line-height: 1.9;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--gold);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .hamburger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        /* Menu Dropdown */
+        .menu-dropdown {
+            position: fixed;
+            top: 60px;
+            right: 1rem;
+            background: rgba(18, 18, 18, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            min-width: 200px;
+            backdrop-filter: blur(20px);
+        }
+        
+        .menu-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .menu-dropdown nav {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-dropdown a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 1rem 1.5rem;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .menu-dropdown a:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-dropdown a:hover {
+            color: var(--gold);
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        /* Article Header */
+        .article-header {
+            padding: 8rem 2rem 4rem;
+            background: var(--black);
+            border-bottom: 3px solid var(--gold);
+            text-align: center;
+        }
+        
+        .article-header .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--cyan);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .article-header .breadcrumb a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+        
+        .article-header .breadcrumb a:hover {
+            color: var(--gold);
+        }
+        
+        .article-header h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            line-height: 1.2;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .article-header .meta {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+        
+        .article-header .meta span {
+            color: var(--gold);
+        }
+        
+        /* Article Content */
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .article-content p {
+            font-size: 1.05rem;
+            margin-bottom: 1.8rem;
+            color: var(--light-gray);
+        }
+        
+        .article-content h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin: 3.5rem 0 1.5rem;
+        }
+        
+        .article-content h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        .article-content strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .article-content em {
+            color: var(--cyan);
+            font-style: italic;
+        }
+        
+        .article-content a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .article-content a:hover {
+            color: var(--cyan);
+            border-color: var(--cyan);
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0 2rem 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.8rem;
+            color: var(--light-gray);
+        }
+        
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .data-table th {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--gold);
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid var(--gray);
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 1rem;
+            border: 1px solid var(--gray);
+            color: var(--light-gray);
+        }
+        
+        .data-table td:last-child {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.05);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Author Box */
+        .author-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid var(--gray);
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .author-box .author-name {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .author-box .author-bio {
+            font-size: 0.95rem;
+            color: var(--light-gray);
+        }
+        
+        .author-box .author-links {
+            margin-top: 1rem;
+        }
+        
+        .author-box .author-links a {
+            color: var(--gold);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Email Signup */
+        .email-signup {
+            background: var(--soft-black);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .email-signup h3 {
+            color: var(--gold);
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .email-signup p {
+            color: var(--light-gray);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .email-signup iframe {
+            border: 2px solid var(--gold);
+            max-width: 480px;
+            width: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--black);
+            border-top: 3px solid var(--gold);
+            padding: 2rem;
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        footer img {
+            height: 40px;
+            margin-bottom: 1rem;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        footer .nav-links {
+            margin-top: 1rem;
+        }
+        
+        footer .tagline {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-header {
+                padding: 7rem 1.5rem 3rem;
+            }
+            
+            .article-content {
+                padding: 3rem 1.5rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .data-table {
+                font-size: 0.85rem;
+            }
+            
+            .data-table th, .data-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="../index.html" class="nav-logo">THE DEFLATION INDEX</a>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Menu Dropdown -->
+    <div class="menu-dropdown" id="menuDropdown">
+        <nav>
+            <a href="../about.html" onclick="toggleMenu()">About</a>
+            <a href="../methodology.html" onclick="toggleMenu()">Methodology</a>
+            <a href="../faq.html" onclick="toggleMenu()">FAQ</a>
+            <a href="../blog.html" onclick="toggleMenu()">Blog</a>
+            <a href="../products.html" onclick="toggleMenu()">Get the Data</a>
+        </nav>
+    </div>
+    
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="breadcrumb">
+            <a href="../blog.html">Blog</a> / Why Technology Matters
+        </div>
+        <h1>Why Technology is the Variable That Changes Everything</h1>
+        <p class="subtitle">The case for measuring what actually got cheaper</p>
+        <p class="meta">
+            By <span>Israel Muñoz</span> • February 2026 • 8 min read
+        </p>
+    </header>
+    
+    <!-- Article Content -->
+    <article class="article-content">
+        
+        <p>Technology makes things cheaper. Everyone knows this. But do we really understand how much cheaper, and why that matters for everything else in the economy?</p>
+        
+        <p>For me, this has been a culmination of moments, each growing in magnitude. From studying economic theory and monetary expansion, to tinkering with cutting-edge technologies such as 3D printing and peer-to-peer global networks, to reading <em>The Price of Tomorrow</em>, technological progress is in our face. But our purchasing power and living standards didn't quite add up to this progress. Why?</p>
+        
+        <p>This is the first in a series explaining what The Deflation Index measures and why. Today, I want to go deep on why technology, specifically, <em>technological deflation</em>, deserves its own measurement.</p>
+        
+        <h2>The Productivity Paradox Nobody Talks About</h2>
+        
+        <p>Here's a puzzle that should bother anyone who thinks about economics:</p>
+        
+        <p>In 1990, a computer that could perform one billion floating-point operations per second cost around $42 million. Today, that same computing power costs less than a cent. That's a 99.9% cost reduction.</p>
+        
+        <p>Similar stories exist across technology:</p>
+        
+        <ul>
+            <li>Data transmission went from expensive and metered to essentially unlimited</li>
+            <li>Solar electricity dropped from $359/MWh to under $30/MWh</li>
+            <li>LED lighting uses 90% less energy for the same brightness</li>
+            <li>Battery storage for electric vehicles fell 83% per kilowatt-hour</li>
+        </ul>
+        
+        <p>This is real. These aren't projections or estimates. They're documented cost reductions from government agencies, international energy organizations, and peer-reviewed research.</p>
+        
+        <p>I remember when the first personal computers were a bit of a luxury, available only to those who could afford it. The first breakthrough in international calls I experienced was pay-per-use plans with an internet connection on Skype. Now even the most modest income can purchase an unlimited data plan on a mobile phone that has an AI assistant at the click of a button, and international calling is essentially free. That's not a step change. That is a <em>leap</em> in abundance.</p>
+        
+        <p>Yet here's the paradox: if technology delivered such dramatic improvements, why doesn't everyday life feel proportionally more affordable?</p>
+        
+        <h2>Why Existing Metrics Miss This</h2>
+        
+        <p>We have plenty of economic measurements. The Consumer Price Index (CPI) tracks what households pay for goods and services. GDP measures total economic output. The stock market tracks asset values. M2 measures money supply.</p>
+        
+        <p>But none of these isolate what technology actually did.</p>
+        
+        <p><strong>The CPI problem:</strong> Consumer prices include everything: rent, food, healthcare, education. These sectors have their own dynamics, regulations, and market structures. The technology contribution gets diluted and obscured by hedonic adjustments that are notoriously opaque.</p>
+        
+        <p><strong>The GDP problem:</strong> Total output doesn't tell you whether gains came from more stuff or better technology. A trillion-dollar economy could be inefficient or hyper-efficient. GDP alone doesn't distinguish.</p>
+        
+        <p><strong>The market problem:</strong> Stock prices reflect expectations, sentiment, and monetary conditions as much as underlying value creation. Tech stocks can rise while consumers see minimal benefit.</p>
+        
+        <p>What's missing is a clean measurement: <em>How much did the core technologies powering modern life actually deflate, measured by cost-per-performance?</em></p>
+        
+        <p>That's what The Deflation Index provides.</p>
+        
+        <h2>The Four Sectors That Power Everything</h2>
+        
+        <p>We focus on four foundational technology sectors. Not because they're the only ones that matter, but because they underpin virtually everything else in the modern economy.</p>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Sector</th>
+                    <th>What It Powers</th>
+                    <th>Deflation (1990-2024)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Computing</strong></td>
+                    <td>AI, software, digital economy</td>
+                    <td>-99%</td>
+                </tr>
+                <tr>
+                    <td><strong>Communications</strong></td>
+                    <td>Work, commerce, connection</td>
+                    <td>-99%</td>
+                </tr>
+                <tr>
+                    <td><strong>Energy</strong></td>
+                    <td>Solar, LEDs, efficiency</td>
+                    <td>-90%</td>
+                </tr>
+                <tr>
+                    <td><strong>Transportation</strong></td>
+                    <td>EVs, mobility, logistics</td>
+                    <td>-88%</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>Computing</strong> powers AI, software, the digital economy, and increasingly every industry from healthcare to agriculture. When compute gets cheaper, innovation accelerates across every domain.</p>
+        
+        <p><strong>Communications</strong> enables work, commerce, social connection, and information flow. The cost of transmitting a gigabyte shapes everything from how businesses operate to how families stay connected.</p>
+        
+        <p><strong>Energy</strong> is the foundation of civilization. The cost of electricity, especially from solar and efficient technologies like LEDs, determines the economic feasibility of countless activities.</p>
+        
+        <p><strong>Transportation</strong> moves goods and people. Battery costs for electric vehicles represent the future of mobility and logistics.</p>
+        
+        <div class="highlight-box">
+            <p>These four sectors experienced <strong>96% cumulative deflation</strong> from 1990 to 2024. The technologies that power modern life got <em>96% cheaper</em> when measured by what you get for your dollar.</p>
+        </div>
+        
+        <h2>Why "Cost-Per-Performance" Matters</h2>
+        
+        <p>A 2024 smartphone costs roughly the same as a 1990 computer. But it's not the same product.</p>
+        
+        <p>The 2024 device is thousands of times more powerful, fits in your pocket, connects to a global network, and includes a camera, GPS, and countless sensors.</p>
+        
+        <p>Measuring only the sticker price misses the story. The real measure is <em>what you get for your money</em>: cost-per-performance.</p>
+        
+        <p>This is where The Deflation Index differs from standard price metrics. We measure:</p>
+        
+        <ul>
+            <li><strong>Cost per billion floating-point operations</strong> (computing)</li>
+            <li><strong>Cost per gigabyte transmitted</strong> (communications)</li>
+            <li><strong>Cost per kilowatt-hour</strong> (energy)</li>
+            <li><strong>Cost per kilowatt-hour of battery storage</strong> (transportation)</li>
+        </ul>
+        
+        <p>This approach captures the actual economic value delivered by technology. And it reveals just how much abundance has been created.</p>
+        
+        <p>I chose to use cost-per-performance specifically from a pure first-principles approach. These are the input costs that power absolutely all our activity. Cost-per-performance is the backbone of society, and it is creating abundance.</p>
+        
+        <h2>The Question That Follows</h2>
+        
+        <p>If technology created this much abundance, 96% deflation in foundational sectors, where did it go?</p>
+        
+        <p>This isn't a rhetorical question. It's measurable.</p>
+        
+        <p>Some went to consumers: Your smartphone is more powerful and costs less relative to capability. Data plans give unlimited bandwidth versus metered pricing. LED bulbs last longer for the same price.</p>
+        
+        <p>Some funded more innovation: Lower tech costs enabled more R&D investment. Cheaper compute powered AI breakthroughs. These create future deflation cycles.</p>
+        
+        <p>Some went to asset prices: Tech companies became trillion-dollar valuations. Real estate in tech hubs skyrocketed.</p>
+        
+        <p>Some went to wages, unevenly: Tech workers saw substantial salary growth, but not proportional to productivity gains.</p>
+        
+        <p>The distribution was uneven. Understanding <em>where</em> technological abundance flowed is essential to understanding why life feels expensive despite obvious progress.</p>
+        
+        <p>To me, this represents the opportunity for us to measure the problem and use our collective genius to reshape our monetary systems going forward. This has a direct link to how we distribute our collective abundance.</p>
+        
+        <h2>What's Next</h2>
+        
+        <p>This post is about <em>why</em> we measure technological deflation. The next posts will go deeper:</p>
+        
+        <ul>
+            <li><strong>Computing: The 99.9% Deflation Story</strong>: Breaking down exactly how computing costs fell and what it means</li>
+            <li><strong>Tech Deflation vs. CPI: Two Measurements, Different Stories</strong>: What consumer prices capture versus what technology delivered</li>
+            <li><strong>How We Verify Data Quality</strong>: Methodology transparency and the sources behind the numbers</li>
+        </ul>
+        
+        <p>The data is free. The methodology is documented on GitHub. The question matters.</p>
+        
+        <div class="highlight-box">
+            <p>We are at the cusp of a productivity revolution the likes of which has been unseen since the Industrial Revolution. The price to pay is far too great if we mess this up.</p>
+        </div>
+        
+        <!-- Author Box -->
+        <div class="author-box">
+            <p class="author-name">Israel Muñoz</p>
+            <p class="author-bio">Founder of The Deflation Index. Measuring technological deflation to understand where the abundance goes.</p>
+            <div class="author-links">
+                <a href="https://deflationindex.substack.com" target="_blank">Substack</a> |
+                <a href="https://deflationindex.com" target="_blank">deflationindex.com</a>
+            </div>
+        </div>
+        
+    </article>
+    
+    <!-- Email Signup -->
+    <section class="email-signup">
+        <h3>Get the Next Post</h3>
+        <p>Monthly insights on technological deflation and where productivity flows.</p>
+        <iframe 
+            src="https://deflationindex.substack.com/embed" 
+            width="480" 
+            height="150" 
+            frameborder="0" 
+            scrolling="no">
+        </iframe>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <img src="../assets/logo/di_logo_primary.svg" alt="The Deflation Index" onerror="this.style.display='none'">
+        
+        <p>&copy; 2026 Deflation Index LLC. All rights reserved.</p>
+        
+        <p class="nav-links">
+            <a href="../index.html">Home</a> | 
+            <a href="../about.html">About</a> | 
+            <a href="../faq.html">FAQ</a> | 
+            <a href="../methodology.html">Methodology</a> |
+            <a href="../blog.html">Blog</a> |
+            <a href="https://github.com/deflation-index/deflation-index" target="_blank">GitHub</a>
+        </p>
+        
+        <p class="tagline">Tracking where the abundance goes.</p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menuDropdown');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('menuDropdown');
+            const hamburger = document.querySelector('.hamburger');
+            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+                menu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
