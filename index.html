@@ -244,7 +244,33 @@
         }
         .compare-value.teal { color: var(--teal); }
         .compare-value.brick { color: var(--brick); }
+        .compare-value.muted { color: var(--ink-mute); font-style: italic; font-size: 1.3rem; }
         .compare-note { font-size: 0.86rem; color: var(--ink-mute); margin-top: 0.35rem; }
+        .compare-2025 {
+            margin-top: -1px;
+            background: #F5F3EC;
+            border-color: var(--line);
+        }
+        .compare-2025 .compare-cell { background: transparent; }
+        .compare-2025 .compare-value { font-size: 1.45rem; }
+        .compare-2025-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin: 1.5rem 0 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .compare-2025-label::before,
+        .compare-2025-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+        }
         @media (max-width: 640px) {
             .compare { grid-template-columns: 1fr; }
             .compare-cell { border-right: 0; border-bottom: 1px solid var(--line); }
@@ -627,11 +653,30 @@
                 </div>
             </div>
 
+            <div class="compare-2025-label">2025 early read &middot; measured inputs</div>
+            <div class="compare compare-2025">
+                <div class="compare-cell">
+                    <div class="compare-label">Deflation Index</div>
+                    <div class="compare-value muted">pending</div>
+                    <div class="compare-note">awaits IRENA &amp; NREL (mid-2026) &rarr; v4.0</div>
+                </div>
+                <div class="compare-cell">
+                    <div class="compare-label">CPI · 2024→2025</div>
+                    <div class="compare-value">+2.7%</div>
+                    <div class="compare-note">BLS CPI-U, annual average</div>
+                </div>
+                <div class="compare-cell">
+                    <div class="compare-label">M2 · 2024→2025</div>
+                    <div class="compare-value brick">+3.95%</div>
+                    <div class="compare-note">FRED M2SL, annual average</div>
+                </div>
+            </div>
+
             <p>
                 Each line tells a different story. CPI says prices rose modestly. M2 says money expanded 6.5x. The DI says the underlying capability economy collapsed in cost. Put them together and you get the central question this project exists to surface.
             </p>
             <p style="font-size: 0.92rem; color: var(--ink-mute);">
-                These numbers cover <strong>1990&ndash;2024</strong>, the range for which every sector has measured data. For a partial 2025 read of the inputs that are already published, see the <a href="#early-read" style="color: var(--teal); text-decoration: underline; text-decoration-color: var(--teal-soft);">2025 early read</a> below.
+                The weighted Deflation Index covers <strong>1990&ndash;2024</strong>, the range for which every sector has measured data. M2 and CPI extend through 2025 (FRED M2SL + BLS CPI-U, retrieved April 2026). The 2025 weighted-DI recalculation arrives in <a href="#early-read" style="color: var(--teal); text-decoration: underline; text-decoration-color: var(--teal-soft);">v4.0</a>, gated on IRENA &amp; NREL.
             </p>
         </div>
     </section>
@@ -642,7 +687,7 @@
             <div class="eyebrow">The divergence</div>
             <h2>Three lines, one chart.</h2>
             <p style="max-width: 62ch;" id="chart-description">
-                All indexed to 100 in 1990. Technology fell. Money supply rose. Consumer prices tracked somewhere in between.
+                All indexed to 100 in 1990. Technology fell. Money supply rose. Consumer prices tracked somewhere in between. M2 and CPI extend through 2025; the Deflation Index ends at 2024 pending IRENA &amp; NREL 2025 data.
             </p>
             <div class="chart-card">
                 <div class="chart-toggle" role="tablist">
@@ -853,29 +898,31 @@
         const years = ['1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000',
                        '2001','2002','2003','2004','2005','2006','2007','2008','2009','2010',
                        '2011','2012','2013','2014','2015','2016','2017','2018','2019','2020',
-                       '2021','2022','2023','2024'];
+                       '2021','2022','2023','2024','2025'];
 
         // Cumulative indices (1990 = 100)
+        // Note: DI ends at 2024 (null for 2025) because Energy & Transportation sector data for 2025
+        // are not yet published (IRENA & NREL release mid-2026). M2 and CPI extend to 2025.
         const techDI_cumulative = [
             100.00, 81.35, 68.53, 59.57, 53.20, 48.58, 45.15, 42.55,
             40.53, 38.93, 37.64, 36.58, 35.69, 34.95, 34.31, 33.77,
             33.30, 32.89, 32.53, 32.22, 31.62, 28.19, 25.47, 23.31,
             21.60, 20.25, 19.18, 18.33, 17.65, 17.11, 16.69, 16.35,
-            16.08, 15.86, 3.74
+            16.08, 15.86, 3.74, null
         ];
         const m2_cumulative = [
             100.00, 103.06, 104.68, 106.23, 106.71, 111.11, 116.58, 123.09,
             133.59, 141.45, 150.06, 165.75, 176.54, 185.30, 195.69, 203.69,
             214.66, 227.02, 248.85, 258.93, 264.37, 284.28, 305.83, 325.73,
             346.75, 367.67, 393.34, 415.18, 435.05, 455.28, 559.19, 632.25,
-            650.75, 636.88, 650.20
+            650.75, 636.88, 650.20, 670.40
         ];
         const cpi_cumulative = [
             100, 105.4, 109.8, 113.1, 116.1, 119.3, 121.9, 124.7,
             128.0, 132.4, 136, 138.9, 141.1, 143.3, 143.4, 144.4,
             146.3, 149.3, 152.9, 155.7, 159.3, 161.2, 163.5, 165.9,
             168.6, 175.5, 181.5, 187.3, 192.7, 197.3, 201.5, 210.9,
-            227.8, 237.1, 243.5
+            227.8, 237.1, 243.5, 250.10
         ];
 
         // Annual YoY %
@@ -884,19 +931,19 @@
             -4.75, -3.95, -3.32, -2.82, -2.42, -2.09, -1.82,
             -1.59, -1.39, -1.22, -1.08, -0.95, -1.86, -10.87,
             -9.65, -8.46, -7.32, -6.26, -5.30, -4.45, -3.70,
-            -3.05, -2.50, -2.04, -1.66, -1.35, -1.09
+            -3.05, -2.50, -2.04, -1.66, -1.35, -1.09, null
         ];
         const m2_annual = [
             0, 7.5, 4.2, 5.8, 6.9, 8.5, 4.3, 5.1, 6.2, 5.8, 6.4, 7.2,
             5.9, 6.8, 5.4, 6.1, 7.8, 6.3, 5.7, 6.9, 7.4, 6.8,
             5.2, 8.9, 6.5, 7.2, 12.5, 6.2, 4.8, 3.5, 2.9, 23.9,
-            2.7, 3.2, 2.8
+            2.7, 3.2, 2.8, 3.13
         ];
         const cpi_annual = [
             0, 5.4, 4.2, 3.0, 2.6, 2.8, 2.2, 2.3, 2.5, 2.8, 3.4, 2.7,
             2.1, 1.6, 1.5, 0.1, 0.7, 1.3, 2.1, 2.4, 1.8, 2.3,
             1.2, 1.4, 1.5, 1.6, 4.1, 3.4, 3.2, 2.9, 2.4, 2.1,
-            4.7, 8.0, 4.1
+            4.7, 8.0, 4.1, 2.71
         ];
 
         let currentView = 'cumulative';
@@ -1045,7 +1092,7 @@
                 chart.data.datasets[1].data = m2_cumulative;
                 chart.data.datasets[2].data = cpi_cumulative;
                 chart.options.scales.y.title.text = 'Index (1990 = 100)';
-                desc.innerHTML = "All indexed to 100 in 1990. Technology fell. Money supply rose. Consumer prices tracked somewhere in between.";
+                desc.innerHTML = "All indexed to 100 in 1990. Technology fell. Money supply rose. Consumer prices tracked somewhere in between. M2 and CPI extend through 2025; the Deflation Index ends at 2024 pending IRENA &amp; NREL 2025 data.";
             } else {
                 btnAnn.classList.add('active');
                 btnCum.classList.remove('active');
@@ -1053,7 +1100,7 @@
                 chart.data.datasets[1].data = m2_annual;
                 chart.data.datasets[2].data = cpi_annual;
                 chart.options.scales.y.title.text = 'Annual change (%)';
-                desc.innerHTML = "Year-over-year change. Technology deflation averaged −9.2% per year; M2 grew +5.7%; CPI +2.8%.";
+                desc.innerHTML = "Year-over-year change. Technology deflation averaged −9.2% per year; M2 grew +5.7%; CPI +2.8%. 2025: M2 +3.1%, CPI +2.7%; DI pending v4.0.";
             }
             chart.update('none');
         }
