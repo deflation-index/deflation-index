@@ -1,8 +1,12 @@
 # Deflation Index Source Documentation
 
-**Version**: 3.0.2  
-**Last Updated**: December 2025  
+**Version**: 3.1.1
+**Last Updated**: April 2026
 **Purpose**: Complete bibliography and source verification for independent reproducibility
+
+> **v3.1 changes**: Added a 2025 early-read block of measured 2025 inputs (M2 Dec 2025, CPI YoY, BNEF battery survey, Epoch AI trends). The weighted Deflation Index 1990–2024 is unchanged from v3.0.3. See `docs/operations/v3.1_release_notes.md` for the full diff and the v4.0 gating sources.
+>
+> **v3.1.1 update**: Live FRED CSV retrieval (M2SL + CPIAUCSL, 2026-04-20) replaced the earlier press-release-only figures. Full 2025 monthly series and annual averages now in `data/constants.json.supplemental_2025`; raw CSVs preserved under `data/sources/fred/`.
 
 ---
 

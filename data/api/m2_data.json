@@ -8,18 +8,19 @@
     }
   },
   "provenance": {
-    "calculation_date": "2026-01-10",
-    "methodology_version": "3.0.3",
-    "primary_sources": ["FRED M2SL"]
+    "calculation_date": "2026-04-20",
+    "methodology_version": "3.1.1",
+    "primary_sources": ["FRED M2SL"],
+    "notes_2025": "2025 annual average computed from FRED M2SL monthly series (retrieved 2026-04-20) and rebased to the existing 1990 anchor ($3,276.8B) to preserve series continuity with the 1990-2024 data. FRED's live 1990 anchor is $3,222.2B (seasonal-factor revisions); full rebase deferred to v4.0."
   },
   "metadata": {
-    "version": "3.0.3",
+    "version": "3.1.1",
     "source": "Federal Reserve FRED",
     "series_id": "M2SL",
     "frequency": "annual",
     "unit": "billions_usd",
-    "last_updated": "2026-01-10",
-    "notes": "Annual average of monthly M2 money stock, seasonally adjusted"
+    "last_updated": "2026-04-20",
+    "notes": "Annual average of monthly M2 money stock, seasonally adjusted. 2025 added in v3.1.1 from live FRED CSV."
   },
   "annual_data": [
     {"year": 1990, "m2_billions": 3276.8, "index_value": 100.0, "yoy_change_pct": null},
@@ -56,6 +57,7 @@
     {"year": 2021, "m2_billions": 21574.0, "index_value": 658.39, "yoy_change_pct": 12.92},
     {"year": 2022, "m2_billions": 21443.0, "index_value": 654.39, "yoy_change_pct": -0.61},
     {"year": 2023, "m2_billions": 20867.0, "index_value": 636.81, "yoy_change_pct": -2.69},
-    {"year": 2024, "m2_billions": 21300.0, "index_value": 650.02, "yoy_change_pct": 2.08}
+    {"year": 2024, "m2_billions": 21300.0, "index_value": 650.02, "yoy_change_pct": 2.08},
+    {"year": 2025, "m2_billions": 21967.7, "index_value": 670.4, "yoy_change_pct": 3.13}
   ]
 }

@@ -3,770 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>The Story Behind the Data | The Deflation Index</title>
-    <meta name="description" content="We built the Deflation Index to answer one question: Technology got cheaper - where did the abundance go? See our mission and approach.">
-    
+
+    <!-- SEO -->
+    <title>About | The Deflation Index</title>
+    <meta name="description" content="An open research project measuring technological progress and the gap between what technology delivered and what consumers experienced from 1990 to 2024.">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deflationindex.com/about.html">
-    <meta property="og:title" content="The Story Behind the Data | The Deflation Index">
-    <meta property="og:description" content="Measuring technological cost reduction across computing, communications, energy, and transportation. Rigorous methodology, transparent data, open-source.">
+    <meta property="og:title" content="About | The Deflation Index">
+    <meta property="og:description" content="Why this exists, how it's measured, and who it's for.">
     <meta property="og:image" content="https://deflationindex.com/assets/logo/icon/di_logo_og.png">
-    
-    <!-- Favicon -->
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About | The Deflation Index">
+    <meta name="twitter:description" content="Why this exists, how it's measured, and who it's for.">
+    <meta name="twitter:image" content="https://deflationindex.com/assets/logo/icon/di_logo_og.png">
+
+    <!-- Fonts & favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/di_logo_32.png">
     <link rel="icon" type="image/png" sizes="64x64" href="/di_logo_64.png">
     <link rel="apple-touch-icon" href="/di_logo_64.png">
-    
-    <!-- Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
-        
         :root {
-            --black: #000000;
-            --soft-black: #121212;
-            --white: #FFFFFF;
-            --cyan: #00CED1;
-            --gold: #FFD700;
-            --muted-gold: #E5C100;
-            --gray: #333333;
-            --light-gray: #E0E0E0;
-            --bg-dark: #0F0F0F;
+            --paper: #FAFAF6;
+            --paper-tint: #F2F0E8;
+            --ink: #1B1B1B;
+            --ink-soft: #4A4A47;
+            --ink-mute: #6E6E6B;
+            --line: #E3E1D8;
+            --line-strong: #C9C6B8;
+            --gold: #B88A2B;
+            --gold-soft: #F5E9C9;
+            --teal: #2F7A7A;
+            --teal-soft: #DDECEA;
+            --brick: #A64A3F;
+            --brick-soft: #F2DDD8;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'IBM Plex Mono', monospace;
-            background: var(--bg-dark);
-            color: var(--light-gray);
-            line-height: 1.8;
-            font-weight: 400;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 17px;
+            line-height: 1.65;
+            color: var(--ink);
+            background: var(--paper);
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
         }
-        
-        /* Navigation */
+
+        a { color: var(--teal); text-decoration: none; }
+        a:hover { color: var(--ink); }
+
+        /* --- Navigation --- */
         .nav {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            border-bottom: 2px solid var(--gold);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
+            background: rgba(250, 250, 246, 0.92);
+            backdrop-filter: saturate(180%) blur(10px);
+            -webkit-backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid var(--line);
+            z-index: 100;
         }
-        
-        .nav-content {
-            max-width: 1400px;
+        .nav-inner {
+            max-width: 1120px;
             margin: 0 auto;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
-        .nav-logo {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1.2rem;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
-        
-        .nav-controls {
-            display: flex;
-            gap: 1.5rem;
+        .brand {
+            display: inline-flex;
             align-items: center;
-        }
-        
-        .hamburger {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            z-index: 1002;
-        }
-        
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--gold);
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        
-                /* Menu Dropdown (compact) */
-        .menu-dropdown {
-            position: fixed;
-            top: 60px;
-            right: 1rem;
-            background: rgba(18, 18, 18, 0.98);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-            min-width: 200px;
-            backdrop-filter: blur(20px);
-        }
-        
-        .menu-dropdown.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .menu-dropdown nav {
-            display: flex;
-            flex-direction: column;
-            padding: 0.5rem 0;
-        }
-        
-        .menu-dropdown a {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.95rem;
-            color: var(--light-gray);
+            gap: 0.6rem;
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: -0.01em;
+            color: var(--ink);
             text-decoration: none;
-            padding: 0.85rem 1.5rem;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
         }
-        
-        .menu-dropdown a:hover {
-            color: var(--gold);
-            background: rgba(255, 255, 255, 0.05);
-            border-left-color: var(--gold);
+        .brand img { height: 28px; width: auto; display: block; }
+        .brand .brand-text em { font-style: italic; color: var(--gold); }
+        .nav-links { display: flex; gap: 2rem; font-size: 0.95rem; }
+        .nav-links a { color: var(--ink-soft); transition: color 0.15s ease; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a.active { color: var(--ink); font-weight: 500; }
+        @media (max-width: 640px) {
+            .nav-links { gap: 1.1rem; font-size: 0.88rem; }
+            .nav-links a.hide-mobile { display: none; }
+            .brand-text { display: none; }
         }
-        /* Light Mode - Dark sections keep light text */
 
-        
-        .nav-links { display: none; }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 8rem 2rem 4rem;
-            background: var(--bg-dark);
-            border-bottom: 3px solid var(--gold);
+        /* --- Layout --- */
+        .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+        .wrap-wide { max-width: 920px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* --- Page header --- */
+        .page-head {
+            padding: 5rem 0 3rem;
+            border-bottom: 1px solid var(--line);
         }
-        
-        h1 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            text-align: center;
-            line-height: 1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--ink-mute);
+            margin-bottom: 1.25rem;
         }
-        
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            text-align: center;
-            max-width: 900px;
-            color: var(--white);
+        h1.page-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(2.1rem, 4.5vw, 3rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+        }
+        h1.page-title em { font-style: italic; color: var(--gold); font-weight: 500; }
+        .page-lede {
+            font-size: 1.15rem;
             line-height: 1.6;
-            font-weight: 600;
+            color: var(--ink-soft);
+            max-width: 60ch;
         }
-        
-        /* Content Sections */
-        section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-        }
-        
-        section h2 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: var(--gold);
-            margin-bottom: 2rem;
+
+        /* --- Sections --- */
+        section.body { padding: 4rem 0 1rem; }
+        section.body + section.body { border-top: 1px solid var(--line); }
+        .section-kicker {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            border-bottom: 3px solid var(--gold);
-            padding-bottom: 1rem;
-        }
-        
-        section p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--light-gray);
-            margin-bottom: 2rem;
-        }
-        
-        section p strong {
-            color: var(--white);
-            font-weight: 600;
-        }
-        
-        section ul {
-            margin: 1.5rem 0;
-            padding-left: 2rem;
-        }
-        
-        section li {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--light-gray);
-            margin-bottom: 1rem;
-        }
-        
-        section li strong {
-            color: var(--white);
-        }
-        
-        /* Highlight Box */
-        .highlight-box {
-            background: rgba(255, 215, 0, 0.05);
-            border-left: 5px solid var(--gold);
-            padding: 2rem;
-            margin: 2rem 0;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--white);
-        }
-        
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-        
-        .stat-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid var(--gray);
-            padding: 1.5rem 1rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .stat-box:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-family: 'Space Mono', monospace;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gold);
+            color: var(--ink-mute);
             margin-bottom: 0.5rem;
         }
-        
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--light-gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        h2.section-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.85rem;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            margin-bottom: 1rem;
         }
-        
-        /* Principles Section */
-        .principles {
-            background: var(--black);
-            border-top: 3px solid var(--cyan);
-            border-bottom: 3px solid var(--cyan);
-            padding: 4rem 2rem;
+        h2.section-title em { font-style: italic; color: var(--gold); font-weight: 500; }
+        section.body p {
+            color: var(--ink-soft);
+            margin-bottom: 1.1rem;
+            max-width: 64ch;
         }
-        
-        .principles-grid {
-            max-width: 1200px;
-            margin: 0 auto;
+        section.body p strong { color: var(--ink); font-weight: 600; }
+        section.body ul { margin: 1rem 0 1.5rem 1.4rem; color: var(--ink-soft); }
+        section.body li { margin-bottom: 0.5rem; max-width: 64ch; }
+        section.body li strong { color: var(--ink); font-weight: 600; }
+        section.body a {
+            color: var(--teal);
+            border-bottom: 1px solid var(--teal-soft);
+        }
+        section.body a:hover { border-bottom-color: var(--teal); }
+
+        /* --- Pullquote / callout --- */
+        .callout {
+            background: var(--paper-tint);
+            border-left: 3px solid var(--gold);
+            padding: 1.4rem 1.6rem;
+            margin: 1.5rem 0;
+            border-radius: 0 2px 2px 0;
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--ink);
+        }
+        .callout p { color: var(--ink); margin: 0; max-width: none; }
+
+        /* --- Stats strip --- */
+        .stats-strip {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+            padding: 1.5rem 1.25rem;
+            background: var(--paper-tint);
+            border: 1px solid var(--line);
+            border-radius: 2px;
         }
-        
-        .principle {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid var(--gray);
-            padding: 2rem;
+        .stat-box { text-align: left; padding: 0 0.5rem; }
+        .stat-num {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            line-height: 1;
         }
-        
-        .principle h3 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1.3rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
+        .stat-lbl {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-top: 0.5rem;
         }
-        
-        .principle p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--light-gray);
-        }
-        
-        /* Team Section */
-        .team-section {
-            background: rgba(255, 215, 0, 0.03);
-            border-top: 3px solid var(--gold);
-            padding: 4rem 2rem;
-        }
-        
-        /* CTA Section */
-        .cta {
-            background: rgba(255, 0, 0, 0.1);
-            border-top: 3px solid var(--cyan);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            border: none;
-            padding: 0;
-        }
-        
-        .cta p {
-            font-size: 1.2rem;
-            color: var(--light-gray);
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--black);
-            border-top: 3px solid var(--gold);
-            padding: 2rem;
-            text-align: center;
-            color: var(--light-gray);
-            font-size: 0.9rem;
-        }
-        
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            color: var(--white);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.8rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .principles-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Scroll Animations - Subtle fade-ins */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    
-        /* Mobile nav spacing fix */
-        @media (max-width: 768px) {
-            .nav-controls {
-                gap: 0.5rem;
-            }
-            
-            .nav-logo {
-                font-size: 0.9rem;
-            }
-            
-            .nav {
-                padding: 1rem 1rem;
-            }
+        @media (max-width: 640px) {
+            .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
         }
 
+        /* --- Principles --- */
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .principle {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            padding: 1.5rem;
+            border-radius: 2px;
+        }
+        .principle h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        .principle p {
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        /* --- CTA row --- */
+        .cta-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 0.75rem 1.3rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .cta-btn.primary {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+        .cta-btn.primary:hover { background: var(--teal); border-color: var(--teal); }
+        .cta-btn.ghost {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--line-strong);
+        }
+        .cta-btn.ghost:hover { border-color: var(--ink); }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 3rem 0 4rem;
+            margin-top: 4rem;
+        }
+        .foot-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .foot-brand .brand { font-size: 1.05rem; }
+        .foot-brand .brand img { height: 32px; }
+        .foot-brand p {
+            font-size: 0.88rem;
+            color: var(--ink-mute);
+            margin-top: 0.5rem;
+            max-width: 30ch;
+        }
+        .foot-links { display: flex; gap: 2.5rem; font-size: 0.9rem; }
+        .foot-col h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 0.85rem;
+            font-weight: 500;
+        }
+        .foot-col a {
+            display: block;
+            color: var(--ink-soft);
+            margin-bottom: 0.4rem;
+            border: none;
+        }
+        .foot-col a:hover { color: var(--gold); }
+        .foot-meta {
+            max-width: 1040px;
+            margin: 2rem auto 0;
+            padding: 0 1.5rem;
+            font-size: 0.82rem;
+            color: var(--ink-mute);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .foot-meta a { color: var(--ink-mute); border: none; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="nav">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo">THE DEFLATION INDEX</a>
-            <div class="nav-controls">
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+        <div class="nav-inner">
+            <a href="/" class="brand"><img src="/assets/logo/icon/di_logo_primary.svg" alt="DI"><span class="brand-text">The <em>Deflation</em> Index</span></a>
+            <div class="nav-links">
+                <a href="/about.html" class="active">About</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/faq.html" class="hide-mobile">FAQ</a>
+                <a href="/blog.html" class="hide-mobile">Writing</a>
+                <a href="/data.html">Data</a>
             </div>
         </div>
     </nav>
-    
-    <!-- Menu Dropdown -->
-    <div class="menu-dropdown" id="menuDropdown">
-        <nav>
-            <a href="about.html" onclick="toggleMenu()">About</a>
-            <a href="methodology.html" onclick="toggleMenu()">Methodology</a>
-            <a href="faq.html" onclick="toggleMenu()">FAQ</a>
-            <a href="blog.html" onclick="toggleMenu()">Blog</a>
-            <a href="products.html" onclick="toggleMenu()">Get the Data</a>
-        </nav>
-    </div>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Why We Built This</h1>
-        <p class="hero-subtitle" style="font-size: 1.6rem; max-width: 800px;">
-            Technology got dramatically cheaper. We built The Deflation Index to measure exactly how much and help you understand where the productivity gains went.
-        </p>
-    </section>
-    
-    <!-- Mission Section -->
-    <section>
-        <h2>The Question Everyone Asks</h2>
-        
-        <p style="font-size: 1.15rem;">Computing power increased 100,000x. Solar panels fell 98%. Data transmission became nearly free. These aren't opinions - they're verifiable cost reductions measured in $/GFLOPS, $/kWh, $/GB.</p>
-        
-        <p style="font-size: 1.15rem;">So why don't living standards reflect this proportionally? Where did the productivity gains flow?</p>
-        
-        <div class="highlight-box">
-            <strong>The Deflation Index measures technological cost reduction:</strong> 96% deflation across computing, communications, energy, and transportation from 1990-2024. We then compare this to economic indicators (CPI, M2, wages) to understand distribution patterns.
+
+    <header class="page-head">
+        <div class="wrap">
+            <div class="eyebrow">About</div>
+            <h1 class="page-title">Why this <em>exists</em>.</h1>
+            <p class="page-lede">
+                Technology got dramatically cheaper over the last three decades. Life didn't. The Deflation Index is an open research project that measures the first half of that sentence rigorously, so we can think more clearly about the second.
+            </p>
         </div>
-        
-        <p><strong>This is measurement, not theory.</strong> Every data point is sourced from government agencies and international organizations. Every formula is verifiable on GitHub. Every calculation is transparent.</p>
-    </section>
-    
-    <!-- The Question Section -->
-    <section style="background: var(--black); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 4rem 2rem;">
-        <h2>The Central Question</h2>
-        
-        <p>Technology delivered massive cost reductions. Yet living standards didn't improve proportionally. Where did the productivity gains go?</p>
-        
-        <p>From 1990-2024, core technology sectors showed dramatic deflation. Computing fell 99%, communications 99%, energy 90%, and transportation 88%. These are exponential improvements measured by cost-per-performance.</p>
-        
-        <p>Yet consumers experienced different outcomes. Some benefits reached them (cheaper devices, unlimited data). But much of the productivity gain concentrated elsewhere, in asset prices, financial markets, real estate, and system complexity.</p>
-        
-        <p><strong>The Deflation Index measures technological cost reduction rigorously, then compares to economic indicators to understand distribution patterns.</strong></p>
-    </section>
-    
-    <!-- Who Uses This -->
-    <section style="background: var(--bg-dark); padding: 4rem 2rem;">
-        <h2>Who Uses This</h2>
-        
-        <p><strong>Investors</strong> use it to identify sectors with real deflation vs monetary distortion.</p>
-        
-        <p><strong>Businesses</strong> use it to see which sectors have sustainable cost reduction.</p>
-        
-        <p><strong>Individuals</strong> use it to understand why life feels expensive despite technological progress.</p>
-        
-        <p><strong>Researchers</strong> use it to access rigorous methodology with transparent calculations.</p>
-        
-        <p style="margin-top: 2rem;">See the full breakdown on our <a href="index.html#who-uses-this" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold);">homepage</a>.</p>
-    </section>
-    
-    <!-- How We Work -->
-    <section>
-        <h2>How We Work</h2>
-        
-        <p><strong>Rigorous methodology:</strong> We track cost-per-performance metrics ($/GFLOPS, $/GB, $/kWh, $/kWh battery) across four sectors, weighted by economic importance. The Master Deflation Index is calculated using a geometric mean to properly capture compounding effects.</p>
-        
-        <p><strong>Complete transparency:</strong> All data, formulas, and source citations are public on GitHub. 900+ verified formulas. 400+ data points. 35 years of coverage (1990-2024). Anyone can download the Excel files, verify every calculation, and reproduce the results.</p>
-        
-        <p><strong>Authoritative sources:</strong> Federal Reserve (M2), Bureau of Labor Statistics (CPI), IRENA (solar), BloombergNEF (batteries), DOE (energy), FCC (communications), AI Impacts (computing). Average source reliability: 92/100 (A-grade).</p>
-        
-        <p><strong>Conservative estimates:</strong> Where uncertainty exists, we choose the more conservative assumption. The true technological deflation is likely higher than we measure. This index understates the gap, not overstates it.</p>
-        
-        <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-number">900+</div>
-                <div class="stat-label">Verified Formulas</div>
+    </header>
+
+    <!-- The question -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">01 · The question</div>
+            <h2 class="section-title">What happened to the <em>abundance</em>?</h2>
+
+            <p>Computing power increased about 100,000x since 1990. Solar electricity fell roughly 90%. Data transmission became nearly free. These aren't opinions &mdash; they're measurable cost reductions in dollars per unit of capability: $/GFLOPS, $/kWh, $/GB.</p>
+
+            <p>And yet living standards don't feel like they reflect a hundred-thousand-fold improvement in anything. That's the gap this project is interested in.</p>
+
+            <div class="callout">
+                <p>From 1990 to 2024, technology delivered roughly 96% cumulative deflation across computing, communications, energy, and transportation. Over the same period, consumer prices rose about 155% and the broad money supply expanded 550%. The distance between those three numbers is the story.</p>
             </div>
-            <div class="stat-box">
-                <div class="stat-number">400+</div>
-                <div class="stat-label">Data Points</div>
+
+            <p>This is measurement, not theory. Every number is sourced from a government agency, an international body, or an industry survey. Every formula is in a public Excel workbook. Every assumption is documented so you can disagree with it precisely instead of in general.</p>
+        </div>
+    </section>
+
+    <!-- How it's measured -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">02 · How it's measured</div>
+            <h2 class="section-title">Four sectors, <em>tracked</em> for 35 years.</h2>
+
+            <p>The index tracks cost-per-performance across four fundamental sectors &mdash; computing, communications, energy, and transportation &mdash; weighted by economic importance and combined using a geometric mean to capture compounding progress. <a href="/methodology.html">Full methodology is here</a>.</p>
+
+            <div class="stats-strip">
+                <div class="stat-box">
+                    <div class="stat-num">900+</div>
+                    <div class="stat-lbl">Verified formulas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">400+</div>
+                    <div class="stat-lbl">Data points</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">15+</div>
+                    <div class="stat-lbl">Primary sources</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">35</div>
+                    <div class="stat-lbl">Years of coverage</div>
+                </div>
             </div>
-            <div class="stat-box">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Data Sources</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">35</div>
-                <div class="stat-label">Years (1990-2024)</div>
+
+            <p><strong>Primary sources:</strong> Federal Reserve (M2), Bureau of Labor Statistics (CPI), IRENA (solar), BloombergNEF (batteries), DOE (energy, transportation), FCC (communications), Epoch AI and AI Impacts (computing). Average reliability grade across sources: 92/100.</p>
+
+            <p><strong>Conservative by design.</strong> Where uncertainty exists, the more conservative number wins. The true technological deflation is almost certainly higher than measured. The index understates the gap, not the other way around.</p>
+        </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="body">
+        <div class="wrap-wide">
+            <div class="section-kicker">03 · Principles</div>
+            <h2 class="section-title">Four things this <em>tries</em> to be.</h2>
+
+            <div class="principles">
+                <div class="principle">
+                    <h3>Measurement over theory</h3>
+                    <p>Track the data, not a narrative. The index captures systematic patterns across decades, not cherry-picked moments. When the numbers change, the conclusion changes.</p>
+                </div>
+                <div class="principle">
+                    <h3>Transparency over authority</h3>
+                    <p>Every source cited, every formula visible, every assumption documented. Trust should come from verification, not credentials.</p>
+                </div>
+                <div class="principle">
+                    <h3>Analysis over accusation</h3>
+                    <p>Describe mechanisms, not motives. The system can be measured without being moralized. Let the data speak and let readers draw their own conclusions.</p>
+                </div>
+                <div class="principle">
+                    <h3>Open over closed</h3>
+                    <p>Public research, accessible data. Academic use, journalistic citation, policy analysis, critical scrutiny &mdash; all encouraged. Knowledge compounds when shared.</p>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- Principles Section -->
-    <section class="principles">
-        <div style="max-width: 900px; margin: 0 auto; margin-bottom: 3rem;">
-            <h2 style="text-align: center; border: none; padding: 0;">Our Principles</h2>
-        </div>
-        
-        <div class="principles-grid">
-            <div class="principle">
-                <h3>Measurement Over Theory</h3>
-                <p>We track data, not narratives. The index captures systematic patterns across decades, not cherry-picked examples or anecdotes. If the numbers change, we change the conclusion. Precision over persuasion.</p>
-            </div>
-            
-            <div class="principle">
-                <h3>Transparency Over Authority</h3>
-                <p>Every source is cited. Every formula is visible. Every assumption is documented. Trust comes from verification, not credentials. Anyone can download the data, check the calculations, and challenge the work.</p>
-            </div>
-            
-            <div class="principle">
-                <h3>Analysis Over Accusation</h3>
-                <p>We describe mechanisms, not motives. Monetary policy is a counterforce to technological deflation - that's an observable pattern, not a judgment. The system can be measured without being moralized. Let the data speak.</p>
-            </div>
-            
-            <div class="principle">
-                <h3>Open Over Closed</h3>
-                <p>The research is public. The data is accessible. We encourage academic use, journalistic citation, policy analysis, and critical scrutiny. Knowledge compounds when shared. This work improves through collaboration, not defensiveness.</p>
-            </div>
+
+    <!-- Vision -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">04 · Vision</div>
+            <h2 class="section-title">What this <em>could</em> become.</h2>
+
+            <p>CPI measures consumer inflation. The Deflation Index is an attempt to measure technological deflation with comparable rigor &mdash; and the gap between the two is a useful signal for investment, policy, and political economy.</p>
+
+            <p>Technology is one of the primary drivers of human prosperity. Understanding where those gains flow &mdash; to consumers, to capital, to asset prices, to the accumulated complexity of daily life &mdash; matters. The index is never finished, but it's designed to compound: more sectors, better data, stronger methodology, refined by critical feedback.</p>
         </div>
     </section>
-    
-    <!-- Vision Section -->
-    <section>
-        <h2>The Vision</h2>
-        
-        <p>The Deflation Index should become the standard measure for tracking technological progress and its economic distribution.</p>
-        
-        <p>Just as CPI measures consumer inflation, the DI should measure technological deflation, and the gap between them should inform monetary policy, investment strategy, and political economy.</p>
-        
-        <p><strong>Why this matters:</strong> Technology is the primary driver of human prosperity. Understanding where those gains flow (to consumers, to capital holders, to asset prices, to complexity costs) is essential for economic policy and social equity.</p>
-        
-        <p><strong>What we're building:</strong> The infrastructure for rigorous, transparent measurement. Clean data. Robust methodology. Open documentation. Collaborative refinement. A foundation for understanding the economics of technological progress.</p>
-        
-        <p>This work will expand to additional sectors, improve with better data, and evolve through critical feedback. The index is never finished, but it's built to compound over time.</p>
-    </section>
-    
-    <!-- Team Section -->
-    <section class="team-section">
-        <h2>The Team</h2>
-        
-        <p>The Deflation Index is an independent analytical initiative combining economics, data science, and systems thinking. We're a small team committed to rigorous analysis and transparent methodology.</p>
-        
-        <p><strong>Current focus:</strong> Building the most comprehensive, verifiable measure of technological deflation available. Ensuring every number is defensible, every source is credible, and every conclusion follows from the data.</p>
-        
-        <p><strong>We're looking for:</strong></p>
-        <ul>
-            <li><strong>Domain experts:</strong> Healthcare economists, education researchers, housing analysts for v4.0 expansion</li>
-            <li><strong>Data scientists:</strong> Help automate pipelines, build API infrastructure, improve visualization</li>
-            <li><strong>Research collaborators:</strong> Academics working on related questions - let's combine efforts</li>
-            <li><strong>Critics:</strong> If you see methodological flaws, challenge our assumptions, or have better data - tell us</li>
-        </ul>
-        
-        <p>Interested? Email us at <strong style="color: var(--gold);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="721b1c141d321617141e13061b1d1c1b1c16170a5c111d1f">[email&#160;protected]</a></strong></p>
-    </section>
-    
-    
-    <!-- Collaborate Section (merged from collaborate.html) -->
-    <section id="collaborate" style="background: var(--soft-black); padding: 4rem 2rem;">
-        <h2>Collaborate With Us</h2>
-        
-        <p style="margin-bottom: 2rem;">The Deflation Index is an open research project. We welcome collaborators who want to improve, extend, or challenge our work.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-            <div style="background: rgba(255, 215, 0, 0.05); border: 1px solid var(--gold); padding: 2rem;">
-                <h3 style="color: var(--gold); margin-bottom: 1rem;">Researchers & Academics</h3>
-                <p>Economists, data scientists, and researchers interested in technological deflation, monetary policy, or price measurement. We welcome peer review, methodological critiques, and academic partnerships.</p>
-            </div>
-            
-            <div style="background: rgba(255, 215, 0, 0.05); border: 1px solid var(--gold); padding: 2rem;">
-                <h3 style="color: var(--gold); margin-bottom: 1rem;">Data Scientists</h3>
-                <p>Help us improve data quality, extend coverage, or build better visualization tools. All our data is public and our methodology is transparent.</p>
-            </div>
-            
-            <div style="background: rgba(255, 215, 0, 0.05); border: 1px solid var(--gold); padding: 2rem;">
-                <h3 style="color: var(--gold); margin-bottom: 1rem;">Industry Experts</h3>
-                <p>Domain experts in computing, communications, energy, or transportation who can help us validate assumptions, identify new data sources, or refine our metrics.</p>
-            </div>
-            
-            <div style="background: rgba(255, 215, 0, 0.05); border: 1px solid var(--gold); padding: 2rem;">
-                <h3 style="color: var(--gold); margin-bottom: 1rem;">Critics & Skeptics</h3>
-                <p>We actively welcome thoughtful criticism. If you see flaws in our methodology, gaps in our data, or errors in our calculations, we want to hear from you.</p>
-            </div>
+
+    <!-- Who's behind this -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">05 · Who's behind this</div>
+            <h2 class="section-title">A small, <em>open</em> research effort.</h2>
+
+            <p>The Deflation Index is an independent analytical initiative combining economics, data science, and systems thinking. It's currently a small effort focused on making every number defensible and every source credible.</p>
+
+            <p>The project is actively looking for:</p>
+            <ul>
+                <li><strong>Domain experts.</strong> Healthcare economists, education researchers, housing analysts for the v4.0 sector expansion.</li>
+                <li><strong>Data contributors.</strong> Anyone who can help extend coverage or improve a source citation.</li>
+                <li><strong>Research collaborators.</strong> Academics working on adjacent questions &mdash; combining efforts is better than parallel ones.</li>
+                <li><strong>Critics.</strong> If you see methodological flaws or have better data, open an issue or pull request.</li>
+            </ul>
         </div>
-        
-        <div style="margin-top: 3rem;">
-            <h3 style="color: var(--cyan); margin-bottom: 1.5rem;">How to Contribute</h3>
-            
-            <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Report Issues</h4>
-                <p>Found an error? See something that doesn't look right? <a href="https://github.com/deflation-index/deflation-index/issues" target="_blank" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold);">Open an issue on GitHub</a> for data errors, formula mistakes, missing citations, or website bugs.</p>
-            </div>
-            
-            <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Submit Pull Requests</h4>
-                <p>Want to fix something yourself? We accept pull requests for data corrections, documentation improvements, new data sources, and methodology refinements. <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold);">View the repository</a>.</p>
-            </div>
-            
-            <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--gold); margin-bottom: 0.5rem;">Propose New Sectors</h4>
-                <p>We're planning to expand to healthcare, education, and housing in v4.0. If you have expertise in these areas or want to propose other sectors, email us with your proposed sector definition, available data sources, suggested metrics, and relevant background.</p>
-            </div>
-            
-            <div style="padding: 1.5rem; background: rgba(255, 215, 0, 0.1); border-left: 4px solid var(--gold); margin-top: 2rem;">
-                <p><strong style="color: var(--gold);">Contribution Standards:</strong> All contributions must include source citations. We prioritize high-quality, quantifiable, and independently verifiable data. Speculative or promotional content will not be accepted.</p>
+    </section>
+
+    <!-- Contribute -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">06 · Contribute</div>
+            <h2 class="section-title">How to get <em>involved</em>.</h2>
+
+            <p>Everything is on GitHub. <strong>Found an error?</strong> Open an issue. <strong>Want to fix something yourself?</strong> Send a pull request. <strong>Have expertise in a new sector or better primary data?</strong> Email the project or start a discussion on the repo.</p>
+
+            <p>Contributions should include source citations. High-quality, quantifiable, and independently verifiable data is the bar &mdash; speculative or promotional content isn't a fit.</p>
+
+            <div class="cta-row">
+                <a href="https://github.com/deflation-index/deflation-index" target="_blank" rel="noopener" class="cta-btn primary">View on GitHub &rarr;</a>
+                <a href="/faq.html" class="cta-btn ghost">Read the FAQ</a>
+                <a href="/methodology.html" class="cta-btn ghost">See the methodology</a>
             </div>
         </div>
     </section>
-    
-    <section class="cta">
-        <h2>Get Involved</h2>
-        <p>The Deflation Index is built on transparency. The data is public, the methodology is documented, and the work benefits from scrutiny.</p>
-        
-        <div class="cta-buttons">
-            <a href="https://github.com/deflation-index/deflation-index" class="btn" target="_blank">View on GitHub</a>
-            <a href="/cdn-cgi/l/email-protection#fe97909891be9a9b98929f8a97919097909a9b86d09d9193" class="btn">Contact Us</a>
-            <a href="faq.html" class="btn">Read FAQ</a>
+
+    <footer>
+        <div class="foot-inner">
+            <div class="foot-brand">
+                <a href="/" class="brand"><img src="/assets/logo/icon/di_logo_primary.svg" alt="DI"><span class="brand-text">The <em>Deflation</em> Index</span></a>
+                <p>An open research project measuring the gap between technological progress and monetary expansion.</p>
+            </div>
+            <div class="foot-links">
+                <div class="foot-col">
+                    <h4>Read</h4>
+                    <a href="/about.html">About</a>
+                    <a href="/methodology.html">Methodology</a>
+                    <a href="/faq.html">FAQ</a>
+                    <a href="/blog.html">Writing</a>
+                </div>
+                <div class="foot-col">
+                    <h4>Use</h4>
+                    <a href="/data.html">Data</a>
+                    <a href="https://github.com/deflation-index/deflation-index" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer style="background: var(--black); border-top: 3px solid var(--gold); padding: 2rem; text-align: center; color: var(--light-gray); font-size: 0.9rem;">
-        <img src="/assets/logo/icon/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin: 0 auto 1rem;">
-        <p>&copy; 2026 Deflation Index LLC. All rights reserved.</p>
-        <p style="margin-top: 1rem;">
-            <a href="index.html" style="color: var(--gold); text-decoration: none;">Home</a> | 
-            <a href="about.html" style="color: var(--gold); text-decoration: none;">About</a> | 
-            <a href="faq.html" style="color: var(--gold); text-decoration: none;">FAQ</a> | 
-            <a href="methodology.html" style="color: var(--gold); text-decoration: none;">Methodology</a> | 
-            <a href="blog.html" style="color: var(--gold); text-decoration: none;">Blog</a> | 
-            <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="color: var(--gold); text-decoration: none;">GitHub</a>
-        </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">Tracking where the abundance goes.</p>
+        <div class="foot-meta">
+            <div>&copy; 2026 Deflation Index. CC BY 4.0 with attribution.</div>
+            <div>v3.1 · weighted DI through 2024 · <a href="/data.html#versions">update schedule</a></div>
+        </div>
     </footer>
-    
-    <!-- Back to Top Button -->
-    <button id="backToTop" style="
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        background: var(--gold);
-        color: var(--black);
-        border: none;
-        padding: 1rem 1.2rem;
-        cursor: pointer;
-        font-size: 1.5rem;
-        font-weight: 700;
-        display: none;
-        z-index: 999;
-        transition: all 0.3s ease;
-        border-radius: 4px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    " onmouseover="this.style.background='var(--cyan)'" onmouseout="this.style.background='var(--gold)'" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
-        ↑
-    </button>
-    
-    <!-- Menu and Theme Scripts -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-                function toggleMenu() {
-            const hamburger = document.querySelector('.hamburger');
-            const menuDropdown = document.getElementById('menuDropdown');
-            hamburger.classList.toggle('active');
-            menuDropdown.classList.toggle('active');
-        }
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const menuDropdown = document.getElementById('menuDropdown');
-            const hamburger = document.querySelector('.hamburger');
-            if (menuDropdown && !menuDropdown.contains(e.target) && !hamburger.contains(e.target) && menuDropdown.classList.contains('active')) {
-                menuDropdown.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-        
-        // Back to Top Button functionality
-        window.addEventListener('scroll', function() {
-            const btn = document.getElementById('backToTop');
-            if (window.pageYOffset > 500) {
-                btn.style.display = 'block';
-            } else {
-                btn.style.display = 'none';
-            }
-        });
-        
-    </script>
-    
-    <!-- Scroll Animation Script -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, observerOp
+
+</body>
+</html>

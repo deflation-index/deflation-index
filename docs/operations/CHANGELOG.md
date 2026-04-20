@@ -5,6 +5,63 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.1] - 2026-04-19
+
+### Changed - LIVE FRED CSV REFRESH
+
+- Live FRED CSV download of M2SL and CPIAUCSL replaced the v3.1.0 press-release-only figures. All 2025 monthly values are now measured, not summarized.
+- `data/constants.json` bumped `3.1.0 → 3.1.1`. The `supplemental_2025` block now contains the full 12-month 2025 series for both M2 and CPI plus 2025 annual averages:
+  - M2 2025 annual avg: **$21,967.7B** (+3.95% vs 2024 avg of $21,133.9B as currently reported by FRED)
+  - M2 Dec 2025: **$22,386.9B** (live FRED, was $22,366.2B from press release)
+  - M2 Jan 2026: **$22,469.1B**
+  - CPI-U 2025 annual avg: **322.186** (+2.71% vs 2024 avg of 313.689)
+  - CPI-U Dec 2025: **326.031** (with revised seasonal factors)
+  - CPI-U Oct 2025: **324.654** (linear interpolation between Sep 2025 = 324.245 and Nov 2025 = 325.063; only Oct was missing due to the appropriations lapse)
+- `data/api/m2_data.json` bumped `3.0.3 → 3.1.1`; added 2025 annual entry `{year: 2025, m2_billions: 21967.7, index_value: 670.4, yoy_change_pct: 3.13}` rebased to the existing 1990 anchor ($3,276.8B) so the 1990–2025 series is internally continuous.
+- `index.html` 2025 early-read panel: M2 Dec 2025 updated from `$22.37T` to `$22.39T`; note updated to cite the 2024→2025 annual-average YoY (+3.95%) and to reflect that only Oct 2025 CPI required interpolation.
+- Added `note_on_rebasing` field in `supplemental_2025.m2` documenting the ~1.7% gap between the FRED-live 1990 anchor ($3,222.2B) and the existing v3.0.3 series anchor ($3,276.8B), deferred to v4.0 for full rebase.
+
+### Not Changed
+
+- The 1990–2024 weighted Deflation Index is still `DI = 3.74` at 2024.
+- Excel workbooks, sector weights, and 1990–2024 M2/CPI time series are unchanged.
+- v4.0 blockers (IRENA 2025, NREL ATB 2025, FCC 2025) remain.
+
+---
+
+## [3.1.0] - 2026-04-19
+
+### Added - 2025 EARLY READ (additive release)
+
+- `docs/operations/v3.1_release_notes.md` — full release notes documenting 2025 sources and v4.0 blockers.
+- `supplemental_2025` block in `data/constants.json` with measured 2025 headline values:
+  - M2 Dec 2025: $22,366.20B (FRED M2SL)
+  - M2 Jan 2026: $22,442.10B
+  - CPI-U 12-month change Dec 2025: +2.7% (BLS)
+  - Battery pack 2025 avg: $108/kWh (BNEF); BEV $99/kWh, stationary $70/kWh
+  - AI compute price-performance: −37%/yr (Epoch AI); doubling every 2.2 years
+- "2025 early read" panel on `index.html` clearly separated from the weighted 1990–2024 headline.
+- Versions & updates section on `data.html` showing current / in-progress / planned releases.
+
+### Changed
+
+- `data/constants.json` version bump `3.0.3 → 3.1.0`; DI reference updated to `master_deflation_index_v3.0.3.xlsx`.
+- `data/sources/SOURCES.md` version bump `3.0.2 → 3.1.0` with v3.1 changes note.
+- `index.html` footer stamp `v3.0.3 · data reflects year-end 2024` → `v3.1 · weighted DI through 2024 · 2025 early read`.
+- `data.html` ported to current design system; added versions, update schedule, and improved file inventory.
+- `about.html`, `faq.html`, `methodology.html`, `blog.html` ported to current design system (paper/ink palette; Fraunces / Inter / IBM Plex Mono).
+
+### Not Changed
+
+- Weighted Deflation Index 1990–2024 (`DI = 3.74` at 2024) is unchanged.
+- Excel workbooks (`master_deflation_index_v3.0.3.xlsx`, EQUAL variant, sector files) are unchanged.
+- `m2_money_supply.annual_data` series and sector weights are unchanged. Full 2025 integration is deferred to v4.0 (target Q3 2026), gated on IRENA *Renewable Power Generation Costs in 2025* and NREL ATB 2025.
+
+### Known limitations
+
+- 2025 monthly M2 and CPI time series are not yet reflected in `data/m2_data.json`. Headline Dec-2025 and YoY figures are published in `supplemental_2025` with the monthly extension deferred pending direct FRED CSV access.
+- CPI Oct & Nov 2025 monthly values are unpublished due to the 2025 appropriations lapse; when the annual 2025 average is eventually computed, they will be filled by linear interpolation between Sep 2025 and Dec 2025 values per the v3.1 update plan.
+
 ## [3.0.3] - 2026-01-10
 
 ### Changed - SIMPLIFIED SENSITIVITY ANALYSIS

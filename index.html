@@ -3,1220 +3,859 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>The Deflation Index | Measuring Technological Deflation</title>
-    <meta name="description" content="Measuring technological cost reduction across computing, communications, energy, and transportation (1990-2024). Rigorous data on where productivity gains flow.">
-    
-    <!-- Open Graph / Social Media -->
+
+    <!-- SEO -->
+    <title>The Deflation Index — measuring technological progress (1990–2024)</title>
+    <meta name="description" content="An open research project measuring how much cheaper technology got between 1990 and 2024, and comparing that to the money supply and consumer prices.">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deflationindex.com">
-    <meta property="og:title" content="The Deflation Index | Measuring Technological Deflation">
-    <meta property="og:description" content="Rigorous measurement of technological cost reduction across core sectors. Computing: -99%. Communications: -99%. Energy: -90%. Transportation: -88%.">
+    <meta property="og:title" content="The Deflation Index — measuring technological progress">
+    <meta property="og:description" content="Computing, communications, energy, and transportation fell ~96% in cost from 1990–2024. M2 rose 550%. We measure the gap.">
     <meta property="og:image" content="https://deflationindex.com/assets/logo/icon/di_logo_og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://deflationindex.com">
-    <meta name="twitter:title" content="Measuring Technological Deflation">
-    <meta name="twitter:description" content="Computing, communications, energy, and transportation costs fell 96% from 1990-2024. We measure where the productivity gains went.">
+    <meta name="twitter:title" content="Measuring technological progress, 1990–2024">
+    <meta name="twitter:description" content="An open research project. Free data, open methodology.">
     <meta name="twitter:image" content="https://deflationindex.com/assets/logo/icon/di_logo_og.png">
-    
-    <!-- Performance -->
+
+    <!-- Fonts & favicon -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/di_logo_32.png">
     <link rel="icon" type="image/png" sizes="64x64" href="/di_logo_64.png">
     <link rel="apple-touch-icon" href="/di_logo_64.png">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
-        
-        :root {
-            --black: #000000;
-            --soft-black: #121212;
-            --white: #FFFFFF;
-            --cyan: #00CED1;
-            --gold: #FFD700;
-            --muted-gold: #E5C100;
-            --gray: #333333;
-            --light-gray: #E0E0E0;
-            --bg-dark: #0F0F0F;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'IBM Plex Mono', monospace;
-            background: var(--bg-dark);
-            color: var(--light-gray);
-            line-height: 1.8;
-            font-weight: 400;
-            overflow-x: hidden;
-        }
-        
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            border-bottom: 2px solid var(--gold);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        
-        .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-logo {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1.2rem;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
-        
-        .nav-controls {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-        
-        /* Hamburger Menu Button */
-        .hamburger {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            z-index: 1002;
-        }
-        
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--gold);
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        
-        /* Menu Overlay */
-                /* Menu Dropdown (compact) */
-        .menu-dropdown {
-            position: fixed;
-            top: 60px;
-            right: 1rem;
-            background: rgba(18, 18, 18, 0.98);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-            min-width: 200px;
-            backdrop-filter: blur(20px);
-        }
-        
-        .menu-dropdown.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .menu-dropdown nav {
-            display: flex;
-            flex-direction: column;
-            padding: 0.5rem 0;
-        }
-        
-        .menu-dropdown a {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.95rem;
-            color: var(--light-gray);
-            text-decoration: none;
-            padding: 0.85rem 1.5rem;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-        
-        .menu-dropdown a:hover {
-            color: var(--gold);
-            background: rgba(255, 255, 255, 0.05);
-            border-left-color: var(--gold);
-        }
-        
-        /* Light Mode Styles */
-        
-        
-        
-        
-        
-        
-        /* Light Mode Improvements */
-        
-        
-        
-        
-        /* Light Mode - Dark sections keep their styling */
-        
-        
-        /* Chart section stays dark for contrast */
-        
-        
-        /* Data Speaks section */
-        /* Timeline improvements */
-        
-        /* Footer stays dark */
-        
-        /* Hide old nav-links */
-        .nav-links {
-            display: none;
-        }
-        
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 6rem 2rem 2rem 2rem;
-            background: var(--bg-dark);
-            position: relative;
-            border-bottom: 3px solid var(--cyan);
-        }
-        
-        .hero::before {
-            content: 'BASE YEAR: 1990';
-            position: absolute;
-            top: 80px;
-            left: 20px;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            color: var(--gold);
-            font-weight: 700;
-            opacity: 0.8;
-        }
-        
 
-        h1 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5.5rem);
-            text-align: center;
-            line-height: 0.95;
-            margin-bottom: 1.5rem;
-            margin-top: 0;
-            letter-spacing: -2px;
-            text-transform: uppercase;
+    <style>
+        :root {
+            --paper: #FAFAF6;
+            --paper-tint: #F2F0E8;
+            --ink: #1B1B1B;
+            --ink-soft: #4A4A47;
+            --ink-mute: #6E6E6B;
+            --line: #E3E1D8;
+            --line-strong: #C9C6B8;
+            --gold: #B88A2B;
+            --gold-soft: #F5E9C9;
+            --teal: #2F7A7A;
+            --teal-soft: #DDECEA;
+            --brick: #A64A3F;
+            --brick-soft: #F2DDD8;
         }
-        
-        h1 span {
-            display: block;
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 17px;
+            line-height: 1.65;
+            color: var(--ink);
+            background: var(--paper);
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
         }
-        
-        .the {
-            font-size: clamp(1.5rem, 5vw, 3rem);
-            opacity: 0.5;
+
+        /* --- Navigation --- */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 250, 246, 0.92);
+            backdrop-filter: saturate(180%) blur(10px);
+            -webkit-backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid var(--line);
+            z-index: 100;
         }
-        
-        .deflation {
-            color: var(--white);
-            animation: slideInLeft 1s ease-out;
-        }
-        
-        .index {
-            color: var(--gold);
-            animation: slideInRight 1s ease-out 0.2s both;
-        }
-        
-        @keyframes slideInLeft {
-            from { transform: translateX(-100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideInRight {
-            from { transform: translateX(100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .subtitle {
-            font-size: clamp(0.95rem, 2vw, 1.2rem);
-            text-align: center;
-            max-width: 800px;
-            margin: 1.5rem auto;
-            line-height: 1.7;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.5s forwards;
-        }
-        
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-        
-        .hero-stat {
-            margin-top: 2.5rem;
-            text-align: center;
-            padding: 1.5rem 2.5rem;
-            border: 2px solid var(--cyan);
-            background: rgba(0, 206, 209, 0.05);
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.8s forwards;
-            max-width: 400px;
-        }
-        
-        .hero-stat-label {
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            margin-bottom: 0.5rem;
-            color: var(--light-gray);
-        }
-        
-        .hero-stat-value {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            color: var(--cyan);
-            font-family: 'Space Mono', monospace;
-            line-height: 1;
-        }
-        
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(10px); }
-        }
-        
-        .scroll-arrow {
-            width: 30px;
-            height: 30px;
-            border-right: 3px solid var(--gold);
-            border-bottom: 3px solid var(--gold);
-            transform: rotate(45deg);
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 8rem 2rem;
-            max-width: 1400px;
+        .nav-inner {
+            max-width: 1120px;
             margin: 0 auto;
-        }
-        
-        /* Section Label (Forager-inspired) */
-        .section-label {
-            font-size: 0.75rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--muted-gold);
-            opacity: 0.7;
-            margin-bottom: 1rem;
-            display: block;
-            font-weight: 600;
-        }
-        
-        h2 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 3rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            border-bottom: 3px solid var(--gold);
-            padding-bottom: 1rem;
-        }
-        
-        /* Thesis */
-        .thesis {
-            background: var(--black);
-            border-top: 3px solid var(--gold);
-            border-bottom: 3px solid var(--gold);
-        }
-        
-        .thesis-content {
-            font-size: clamp(1.05rem, 2vw, 1.3rem);
-            line-height: 1.9;
-            max-width: 850px;
-            margin: 0 auto;
-            font-weight: 400;
-        }
-        
-        .thesis-content p {
-            margin-bottom: 2.5rem;
-        }
-        
-        .thesis-highlight {
-            color: #00CED1;  /* Cyan for tech deflation */
-            font-weight: 600;
-        }
-        
-        .thesis-green {
-            color: #00FF00;  /* Green for M2/money supply */
-            font-weight: 600;
-        }
-        
-        .thesis-gold {
-            color: var(--gold);
-            font-weight: 600;
-        }
-        
-        /* Data Grid */
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .data-cell {
-            background: rgba(255,255,255,0.03);
-            border: 2px solid var(--gray);
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .data-cell:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-        
-        .data-cell-label {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            color: var(--light-gray);
-            margin-bottom: 1rem;
-        }
-        
-        .data-cell-value {
-            font-size: 3rem;
-            font-weight: 700;
-            font-family: 'Space Mono', monospace;
-        }
-        
-        .data-cell-green { color: #00FF00; }
-        .data-cell-red { color: var(--cyan); }
-        .data-cell-cyan { color: var(--cyan); }
-        .data-cell-gold { color: var(--gold); }
-        
-        /* Viz Cards */
-        .viz-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .viz-card {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid var(--gray);
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .viz-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-        
-        .viz-card h3 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-        
-        .viz-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 1rem 0;
-        }
-        
-        .viz-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--light-gray);
-        }
-        
-        /* Gap Visualization */
-        .gap-viz {
-            background: var(--black);
-            padding: 6rem 2rem;
-            border-top: 3px solid var(--cyan);
-            border-bottom: 3px solid var(--cyan);
-        }
-        
-        .gap-bars {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .bar-row {
-            margin-bottom: 3rem;
-        }
-        
-        .bar-label {
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-        
-        .bar-track {
-            width: 100%;
-            height: 60px;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid var(--gray);
-            position: relative;
-        }
-        
-        .bar-fill {
-            height: 100%;
-            display: flex;
             align-items: center;
-            padding: 0 1rem;
-            font-weight: 700;
-            font-size: 1.2rem;
         }
-        
-        .bar-tech {
-            width: 100%;
-            background: linear-gradient(90deg, var(--gold), var(--gold));
-            animation: fillTech 2s ease-out;
-        }
-        
-        .bar-actual {
-            width: 4%;
-            background: rgba(255,255,255,0.1);
-            animation: fillActual 2s ease-out;
-        }
-        
-        .bar-gap {
-            width: 96%;
-            background: linear-gradient(90deg, var(--cyan), #880000);
-            animation: fillGap 2s ease-out;
-        }
-        
-        @keyframes fillTech { from { width: 0; } }
-        @keyframes fillActual { from { width: 0; } }
-        @keyframes fillGap { from { width: 0; } }
-        
-        /* Timeline */
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--gray);
-        }
-        
-        .timeline-year {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
-        }
-        
-        .timeline-content h4 {
-            color: var(--white);
-            margin-bottom: 0.5rem;
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
             font-size: 1.1rem;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            text-decoration: none;
         }
-        
-        .timeline-content p {
-            color: var(--light-gray);
+        .brand img { height: 28px; width: auto; display: block; }
+        .brand .brand-text em { font-style: italic; color: var(--gold); }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
             font-size: 0.95rem;
+        }
+        .nav-links a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        @media (max-width: 640px) {
+            .nav-links { gap: 1.1rem; font-size: 0.88rem; }
+            .nav-links a.hide-mobile { display: none; }
+            .brand-text { display: none; }
+        }
+
+        /* --- Layout --- */
+        .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+        .wrap-wide { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 7rem 0 5rem;
+            border-bottom: 1px solid var(--line);
+        }
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 1.5rem;
+        }
+        h1.hero-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            max-width: 18ch;
+            margin-bottom: 1.75rem;
+        }
+        h1.hero-title em { font-style: italic; color: var(--gold); font-weight: 500; }
+        .hero-lede {
+            font-size: 1.2rem;
             line-height: 1.6;
+            color: var(--ink-soft);
+            max-width: 58ch;
+            margin-bottom: 2rem;
         }
-        
-        /* Use Cases Section */
-        .use-cases {
-            background: var(--bg-dark);
-            padding: 6rem 2rem;
-            border-top: 3px solid var(--gold);
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.98rem;
+            color: var(--ink);
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            border: 1px solid var(--ink);
+            border-radius: 999px;
+            transition: all 0.2s ease;
         }
-        
-        .use-cases h2 {
-            text-align: center;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: var(--gold);
-            margin-bottom: 3rem;
+        .hero-cta:hover { background: var(--ink); color: var(--paper); }
+        .hero-cta .arrow { transition: transform 0.2s; }
+        .hero-cta:hover .arrow { transform: translateX(3px); }
+
+        /* --- Sections --- */
+        section { padding: 5rem 0; }
+        section + section { border-top: 1px solid var(--line); }
+
+        h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+            line-height: 1.15;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            max-width: 24ch;
         }
-        
-        .use-cases-grid {
+        h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.35rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.6rem;
+            color: var(--ink);
+        }
+        p { margin-bottom: 1.1rem; max-width: 62ch; color: var(--ink-soft); }
+        p.lead { font-size: 1.15rem; color: var(--ink); }
+        a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        a:hover { color: var(--ink); }
+        strong { color: var(--ink); font-weight: 600; }
+
+        /* --- Premise block --- */
+        .premise {
+            background: var(--paper-tint);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        .premise p { max-width: none; }
+        .premise .pull {
+            font-family: 'Fraunces', serif;
+            font-size: 1.35rem;
+            line-height: 1.45;
+            color: var(--ink);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* --- Compare grid --- */
+        .compare {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin: 2rem 0;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .compare-cell {
+            padding: 1.75rem 1.5rem;
+            border-right: 1px solid var(--line);
+        }
+        .compare-cell:last-child { border-right: 0; }
+        .compare-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 0.5rem;
+        }
+        .compare-value {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+        }
+        .compare-value.teal { color: var(--teal); }
+        .compare-value.brick { color: var(--brick); }
+        .compare-note { font-size: 0.86rem; color: var(--ink-mute); margin-top: 0.35rem; }
+        @media (max-width: 640px) {
+            .compare { grid-template-columns: 1fr; }
+            .compare-cell { border-right: 0; border-bottom: 1px solid var(--line); }
+            .compare-cell:last-child { border-bottom: 0; }
+        }
+
+        /* --- Chart card --- */
+        .chart-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin: 2.5rem 0;
+        }
+        .chart-toggle {
+            display: inline-flex;
+            gap: 0;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--line-strong);
+            border-radius: 999px;
+            padding: 3px;
+            background: var(--paper-tint);
+        }
+        .chart-toggle button {
+            background: transparent;
+            border: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            color: var(--ink-soft);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+        }
+        .chart-toggle button.active {
+            background: var(--ink);
+            color: var(--paper);
+        }
+        .chart-wrap {
+            position: relative;
+            height: clamp(280px, 45vw, 420px);
+        }
+        .chart-caption {
+            font-size: 0.88rem;
+            color: var(--ink-mute);
+            margin-top: 1rem;
+            max-width: none;
+        }
+
+        /* --- Sectors --- */
+        .sectors {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            gap: 0;
+            margin: 2.5rem 0;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
         }
-        
-        @media (max-width: 768px) {
-            .use-cases-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-        
-        .use-case {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid var(--gray);
+        .sector {
             padding: 2rem;
-            transition: all 0.3s ease;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
         }
-        
-        .use-case:hover {
-            border-color: var(--gold);
-            background: rgba(255, 215, 0, 0.05);
-            transform: translateY(-5px);
+        .sector:nth-child(2n) { border-right: 0; }
+        .sector:nth-child(n+3) { border-bottom: 0; }
+        .sector-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.75rem;
         }
-        
-        .use-case h3 {
-            font-size: 1.4rem;
-            color: var(--cyan);
+        .sector-name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--ink);
+        }
+        .sector-drop {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: var(--teal);
+        }
+        .sector p { font-size: 0.96rem; color: var(--ink-soft); margin-bottom: 0.5rem; max-width: none; }
+        .sector .weight { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--ink-mute); }
+        @media (max-width: 700px) {
+            .sectors { grid-template-columns: 1fr; }
+            .sector { border-right: 0; border-bottom: 1px solid var(--line); }
+            .sector:last-child { border-bottom: 0; }
+        }
+
+        /* --- Timeline --- */
+        .timeline {
+            position: relative;
+            padding-left: 2.25rem;
+            margin: 2rem 0;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 0.5rem;
+            bottom: 0.5rem;
+            width: 1px;
+            background: var(--line-strong);
+        }
+        .tl-item { margin-bottom: 2rem; position: relative; }
+        .tl-item::before {
+            content: "";
+            position: absolute;
+            left: -1.9rem;
+            top: 0.55rem;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--paper);
+            border: 2px solid var(--gold);
+        }
+        .tl-year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+        .tl-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--ink);
+            margin-bottom: 0.35rem;
+        }
+        .tl-item p { font-size: 0.96rem; max-width: 58ch; margin-bottom: 0; }
+
+        /* --- 2025 early read --- */
+        .early-read {
+            background: var(--paper);
+            border: 1px solid var(--line-strong);
+            border-radius: 12px;
+            padding: 2.5rem 2rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        .early-read::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            right: 2rem;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
+            border-radius: 0 0 2px 2px;
+        }
+        .early-read .er-tag {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--teal);
+            background: var(--teal-soft);
+            padding: 0.3rem 0.65rem;
+            border-radius: 2px;
             margin-bottom: 1rem;
         }
-        
-        .use-case p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--light-gray);
+        .early-read h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
         }
-        
-        /* CTA Section */
-        .cta {
-            background: rgba(255,0,0,0.1);
-            border-top: 3px solid var(--cyan);
-            text-align: center;
+        .early-read h3 em { font-style: italic; color: var(--gold); font-weight: 500; }
+        .early-read > p { color: var(--ink-soft); margin-bottom: 1.5rem; max-width: 62ch; }
+        .early-read .er-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.25rem 0 1rem;
         }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
+        .er-cell {
+            padding: 1.1rem 1.25rem;
+            background: var(--paper-tint);
+            border: 1px solid var(--line);
+            border-radius: 6px;
         }
-        
-        .btn {
-            padding: 1.2rem 2.5rem;
-            background: transparent;
-            border: 3px solid var(--gold);
-            color: var(--gold);
+        .er-cell .er-label {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: inline-block;
-            min-width: 200px;
+            color: var(--ink-mute);
+            margin-bottom: 0.4rem;
+        }
+        .er-cell .er-value {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+        .er-cell .er-note {
+            font-size: 0.82rem;
+            color: var(--ink-mute);
+            line-height: 1.4;
+        }
+        .early-read .er-footnote {
+            font-size: 0.85rem;
+            color: var(--ink-mute);
+            margin-top: 1rem;
+            max-width: none;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+        }
+        .early-read .er-footnote a { color: var(--teal); border-bottom: 1px solid var(--teal-soft); text-decoration: none; }
+        .early-read .er-footnote a:hover { border-bottom-color: var(--teal); }
+        @media (max-width: 640px) {
+            .early-read .er-grid { grid-template-columns: 1fr; }
+            .early-read { padding: 2rem 1.25rem 1.5rem; }
+        }
+
+        /* --- Signup --- */
+        .signup {
+            background: var(--paper-tint);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin: 3rem 0 0;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-        
-        .btn:hover {
-            background: var(--gold);
-            color: var(--black);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
-        }
-        
-        /* Mobile touch targets - minimum 44px */
-
-        /* Mobile nav spacing fix */
-        @media (max-width: 768px) {
-            .nav-controls {
-                gap: 0.5rem;
-            }
-            
-            .nav-logo {
-                font-size: 0.9rem;
-            }
-            
-            .nav {
-                padding: 1rem 1rem;
-            }
+        .signup h3 { margin-bottom: 0.75rem; }
+        .signup p { max-width: 48ch; margin: 0 auto 1.5rem; }
+        .signup iframe {
+            max-width: 480px;
+            width: 100%;
+            border: 1px solid var(--line-strong);
+            border-radius: 8px;
+            background: var(--paper);
         }
 
-        @media (max-width: 768px) {
-            .btn {
-                min-height: 44px;
-                padding: 1rem 2rem;
-                font-size: 0.95rem;
-            }
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 3rem 0 4rem;
+            margin-top: 4rem;
         }
-        
-        /* Scroll Animations - Subtle fade-ins */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .foot-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
-        
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        .foot-brand .brand { font-size: 1.05rem; }
+        .foot-brand .brand img { height: 32px; }
+        .foot-brand p {
+            font-size: 0.88rem;
+            color: var(--ink-mute);
+            margin-top: 0.5rem;
+            max-width: 30ch;
         }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .timeline-item {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .data-grid {
-                grid-template-columns: 1fr !important;
-            }
-            
-            .viz-grid {
-                grid-template-columns: 1fr;
-            }
+        .foot-links {
+            display: flex;
+            gap: 2.5rem;
+            font-size: 0.9rem;
         }
+        .foot-col h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 0.85rem;
+            font-weight: 500;
+        }
+        .foot-col a {
+            display: block;
+            color: var(--ink-soft);
+            text-decoration: none;
+            margin-bottom: 0.4rem;
+        }
+        .foot-col a:hover { color: var(--gold); }
+        .foot-meta {
+            max-width: 1040px;
+            margin: 2rem auto 0;
+            padding: 0 1.5rem;
+            font-size: 0.82rem;
+            color: var(--ink-mute);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .foot-meta a { color: var(--ink-mute); }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="nav">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo">THE DEFLATION INDEX</a>
-            <div class="nav-controls">
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+        <div class="nav-inner">
+            <a href="/" class="brand"><img src="/assets/logo/icon/di_logo_primary.svg" alt="DI"><span class="brand-text">The <em>Deflation</em> Index</span></a>
+            <div class="nav-links">
+                <a href="/about.html">About</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/faq.html" class="hide-mobile">FAQ</a>
+                <a href="/blog.html" class="hide-mobile">Writing</a>
+                <a href="/data.html">Data</a>
             </div>
         </div>
     </nav>
-    
-    <!-- Menu Dropdown -->
-    <div class="menu-dropdown" id="menuDropdown">
-        <nav>
-            <a href="about.html" onclick="toggleMenu()">About</a>
-            <a href="methodology.html" onclick="toggleMenu()">Methodology</a>
-            <a href="faq.html" onclick="toggleMenu()">FAQ</a>
-            <a href="blog.html" onclick="toggleMenu()">Blog</a>
-            <a href="products.html" onclick="toggleMenu()">Get the Data</a>
-        </nav>
-    </div>
-    
-    <!-- Email Capture Sticky Bar -->
-    <div id="emailBar" style="
-        position: fixed;
-        top: 58px;
-        left: 0;
-        right: 0;
-        background: rgba(18, 18, 18, 0.98);
-        color: var(--light-gray);
-        padding: 0.75rem 2rem;
-        z-index: 999;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 2px solid var(--gold);
-        backdrop-filter: blur(10px);
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
-    ">
-        <div style="flex: 1; max-width: 700px;">
-            <strong style="font-size: 0.95rem; color: var(--gold);">Free Monthly Insights:</strong> 
-            <span style="font-size: 0.9rem;">Sector analysis, methodology updates, and early API access</span>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="wrap">
+            <div class="eyebrow">An open research project · 1990 → 2024</div>
+            <h1 class="hero-title">
+                Why does life feel expensive when <em>technology keeps getting cheaper?</em>
+            </h1>
+            <p class="hero-lede">
+                Computing, communications, energy, and transportation got dramatically cheaper over the last 35 years. The money supply went the other way. The Deflation Index measures both, in one place, with every number sourced.
+            </p>
+            <a class="hero-cta" href="#finding">
+                See what we found <span class="arrow">→</span>
+            </a>
         </div>
-        <div style="display: flex; gap: 1rem; align-items: center;">
-            <a href="#email-signup" style="
-                background: var(--gold);
-                color: var(--black);
-                padding: 0.6rem 1.5rem;
-                text-decoration: none;
-                font-weight: 700;
-                font-size: 0.85rem;
-                letter-spacing: 1px;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.background='var(--cyan)'" onmouseout="this.style.background='var(--gold)'" onclick="document.getElementById('emailBar').style.transform='translateY(-100%)'">SUBSCRIBE</a>
-            <button onclick="document.getElementById('emailBar').style.transform='translateY(-100%)'" style="
-                background: transparent;
-                border: none;
-                color: var(--gold);
-                cursor: pointer;
-                font-size: 1.3rem;
-                font-weight: 400;
-                padding: 0 0.5rem;
-                opacity: 0.8;
-                transition: opacity 0.2s ease;
-            " onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">×</button>
-        </div>
-    </div>
-    
-    <style>
-    @media (max-width: 768px) {
-        #emailBar {
-            flex-direction: column;
-            gap: 0.75rem;
-            padding: 1rem;
-            top: 55px;
-        }
-        #emailBar > div:first-child {
-            text-align: center;
-        }
-    }
-    </style>
-    
-    <script>
-    // Show sticky bar after 8 seconds AND 60% scroll (both conditions)
-    let emailBarShown = false;
-    let timeConditionMet = false;
-    let scrollConditionMet = false;
-    
-    function checkAndShowBar() {
-        if (!emailBarShown && timeConditionMet && scrollConditionMet) {
-            document.getElementById('emailBar').style.transform = 'translateY(0)';
-            emailBarShown = true;
-        }
-    }
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 800 || (window.scrollY / document.body.scrollHeight) > 0.6) {
-            scrollConditionMet = true;
-            checkAndShowBar();
-        }
-    });
-    
-    setTimeout(function() {
-        timeConditionMet = true;
-        checkAndShowBar();
-    }, 8000);
-    </script>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>
-            <span class="the">Measuring</span>
-            <span class="deflation">Technological</span>
-            <span class="index">Deflation</span>
-        </h1>
-        
-        <p class="subtitle" style="font-size: 1.25rem; margin-top: 2rem; max-width: 700px;">
-            Computing, communications, energy, and transportation costs fell dramatically from 1990-2024.
-        </p>
-        
-        <p class="subtitle" style="font-size: 1.25rem; margin-top: 1rem; max-width: 700px;">
-            We measure exactly how much and help you understand where the productivity gains went.
-        </p>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+    </header>
+
+    <!-- PREMISE -->
+    <section>
+        <div class="wrap">
+            <div class="eyebrow">The premise</div>
+            <h2>A smartphone is a 1990s supercomputer. A solar panel costs 2% of what it did. Long-distance calls are free.</h2>
+            <p class="lead">
+                And yet rent tripled. Healthcare compounded. College got four times more expensive. If technology is this deflationary, why doesn't daily life reflect it?
+            </p>
+            <div class="premise">
+                <p>
+                    Traditional price indices blend everything into one number. The Deflation Index does something different: it isolates the technological-progress side of the economy — four sectors where we can actually measure cost per unit of capability — and sets it next to monetary expansion (M2) and consumer prices (CPI) so the gap becomes visible.
+                </p>
+                <p class="pull">
+                    It's not a theory of what happened. It's a measurement of where the progress went.
+                </p>
+            </div>
         </div>
     </section>
-    
-    <!-- The Question Everyone Asks -->
-    <section style="background: var(--bg-dark); padding: 5rem 2rem; border-top: 3px solid var(--gold);">
-        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <h2 style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 2rem; color: var(--white);">The Question Everyone Asks</h2>
-            
-            <p style="font-size: clamp(1.15rem, 2.5vw, 1.35rem); line-height: 1.9; margin-bottom: 2rem; color: var(--light-gray);">
-                Technology keeps getting better and cheaper. Your smartphone is more powerful than supercomputers from the 1990s. Solar panels cost 98% less. Data transmission is nearly free.
+
+    <!-- FINDING -->
+    <section id="finding">
+        <div class="wrap">
+            <div class="eyebrow">What we found</div>
+            <h2>Between 1990 and 2024, the weighted cost of core technology fell by roughly 96%.</h2>
+            <p>
+                Computing dropped 99%. Communications 99%. Energy 90%. Transportation 88%. Combined into a weighted index rebased to 100 in 1990, the Deflation Index closed 2024 at <strong>3.74</strong>.
             </p>
-            
-            <p style="font-size: clamp(1.15rem, 2.5vw, 1.35rem); line-height: 1.9; margin-bottom: 2rem; color: var(--light-gray);">
-                Yet life doesn't feel proportionally cheaper. Why doesn't your paycheck stretch further? Where did the productivity gains go?
-            </p>
-            
-            <p style="font-size: clamp(1.3rem, 3vw, 1.6rem); line-height: 1.6; color: var(--gold); font-weight: 600; margin-top: 3rem;">
-                The Deflation Index measures technological cost reduction: rigorously and transparently.
-            </p>
-        </div>
-    </section>
-    
-    <!-- The Findings -->
-    <section class="gap-viz">
-        <p style="text-align: center; font-size: 1.4rem; margin-bottom: 3rem; color: var(--light-gray); font-weight: 500; letter-spacing: 1px;">
-            What We Found (1990-2024)
-        </p>
-        
-        <!-- Core Finding - Tech Deflation -->
-        <div style="max-width: 900px; margin: 0 auto 4rem; padding: 2rem; background: rgba(0,206,209,0.05); border: 2px solid var(--cyan); text-align: center;">
-            <p style="font-size: 1.6rem; line-height: 1.6; color: var(--white); margin-bottom: 1rem;">
-                <span style="color: #00CED1; font-weight: 700;">96% Cumulative Technological Deflation</span>
-            </p>
-            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--light-gray);">
-                Across computing, communications, energy, and transportation, technology delivered dramatic cost reductions measured by cost-per-performance metrics. Computing fell 99%, communications 99%, energy 90%, and transportation 88%.
-            </p>
-        </div>
-        
-        <!-- Comparisons Section -->
-        <div style="max-width: 900px; margin: 0 auto 3rem;">
-            <h3 style="text-align: center; font-size: 1.3rem; margin-bottom: 2rem; color: var(--white);">Compare Tech Deflation To:</h3>
-            
-            <!-- Comparison Grid -->
-            <div class="data-grid" style="max-width: 1000px; margin: 0 auto; grid-template-columns: repeat(3, 1fr);">
-                <div class="data-cell">
-                    <div class="data-cell-label">TECH DEFLATION (DI)</div>
-                    <div class="data-cell-value data-cell-cyan">-9.2% annually</div>
+
+            <div class="compare">
+                <div class="compare-cell">
+                    <div class="compare-label">Deflation Index</div>
+                    <div class="compare-value teal">−9.2%</div>
+                    <div class="compare-note">annual, 1990–2024</div>
                 </div>
-                
-                <div class="data-cell">
-                    <div class="data-cell-label">CPI (CONSUMER PRICES)</div>
-                    <div class="data-cell-value" style="color: var(--light-gray);">+2.8% annually</div>
+                <div class="compare-cell">
+                    <div class="compare-label">CPI</div>
+                    <div class="compare-value">+2.8%</div>
+                    <div class="compare-note">annual, 1990–2024</div>
                 </div>
-                
-                <div class="data-cell">
-                    <div class="data-cell-label">M2 MONEY SUPPLY</div>
-                    <div class="data-cell-value data-cell-green">+5.7% annually</div>
+                <div class="compare-cell">
+                    <div class="compare-label">M2 money supply</div>
+                    <div class="compare-value brick">+5.7%</div>
+                    <div class="compare-note">annual, 1990–2024</div>
                 </div>
             </div>
-            
-            <p style="text-align: center; margin-top: 2rem; color: var(--light-gray); font-size: 1rem;">
-                Each comparison reveals different insights about where productivity gains flow.
+
+            <p>
+                Each line tells a different story. CPI says prices rose modestly. M2 says money expanded 6.5x. The DI says the underlying capability economy collapsed in cost. Put them together and you get the central question this project exists to surface.
             </p>
-        </div>
-        
-        <!-- Summary Box -->
-        <div style="max-width: 900px; margin: 4rem auto; padding: 2rem; background: rgba(255,215,0,0.05); border: 2px solid var(--gold); text-align: center;">
-            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--light-gray);">
-                Technology delivered exponential cost reduction. Yet living standards didn't improve proportionally. The question is: <span style="color: var(--gold); font-weight: 600;">where did the productivity gains go?</span>
-            </p>
-            <p style="font-size: 1.05rem; line-height: 1.6; color: var(--white); margin-top: 1.5rem;">
-                They flowed into asset prices, financial complexity, and intermediaries, not directly to consumers as lower prices.
+            <p style="font-size: 0.92rem; color: var(--ink-mute);">
+                These numbers cover <strong>1990&ndash;2024</strong>, the range for which every sector has measured data. For a partial 2025 read of the inputs that are already published, see the <a href="#early-read" style="color: var(--teal); text-decoration: underline; text-decoration-color: var(--teal-soft);">2025 early read</a> below.
             </p>
         </div>
     </section>
-    
-    <!-- Inline Email Signup (After Main Finding) -->
-    <section id="inline-signup" style="background: var(--bg-dark); padding: 3.5rem 2rem; text-align: center; border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold);">
-        <div style="max-width: 650px; margin: 0 auto;">
-            <h3 style="color: var(--gold); font-size: 1.4rem; margin-bottom: 1rem; font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: 1px;">
-                Track the Deflation Data
-            </h3>
-            <p style="color: var(--light-gray); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.7;">
-                Monthly sector analysis, methodology updates, and early API access. <strong style="color: var(--white);">Be among the first</strong> tracking where productivity flows.
+
+    <!-- CHART -->
+    <section>
+        <div class="wrap-wide">
+            <div class="eyebrow">The divergence</div>
+            <h2>Three lines, one chart.</h2>
+            <p style="max-width: 62ch;" id="chart-description">
+                All indexed to 100 in 1990. Technology fell. Money supply rose. Consumer prices tracked somewhere in between.
             </p>
-            
-            <div style="max-width: 480px; margin: 0 auto;">
-                <iframe 
-                    src="https://deflationindex.substack.com/embed" 
-                    width="100%" 
-                    height="150" 
-                    style="border: 2px solid var(--gold); background: rgba(0,0,0,0.3);" 
-                    frameborder="0" 
+            <div class="chart-card">
+                <div class="chart-toggle" role="tablist">
+                    <button id="btn-cumulative" class="active" onclick="switchChartView('cumulative')">Cumulative</button>
+                    <button id="btn-annual" onclick="switchChartView('annual')">Annual %</button>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="deflationChart"></canvas>
+                </div>
+                <p class="chart-caption">
+                    Deflation Index (teal) vs. M2 money supply (brick) vs. CPI (neutral). Data: FRED (M2SL, CPIAUCSL), IRENA, BNEF, FCC, DOE, Epoch AI. Full sources on the <a href="/data.html">Data page</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTORS -->
+    <section>
+        <div class="wrap-wide">
+            <div class="eyebrow">The four sectors</div>
+            <h2>What's actually inside the index.</h2>
+            <p>
+                Each sector is built from primary sources — FRED, IRENA, FCC, DOE, Epoch AI, BloombergNEF — and weighted by its role in the modern technology economy. Every weight is justified in the <a href="/methodology.html">methodology</a>, and an equal-weighted variant is published alongside for robustness.
+            </p>
+
+            <div class="sectors">
+                <div class="sector">
+                    <div class="sector-head">
+                        <span class="sector-name">Computing</span>
+                        <span class="sector-drop">−99%</span>
+                    </div>
+                    <p>Cost per GFLOPS fell from ~$10,000 to under a cent. Storage went from $10,000/GB to $0.014/GB.</p>
+                    <div class="weight">Weight 29.4%</div>
+                </div>
+
+                <div class="sector">
+                    <div class="sector-head">
+                        <span class="sector-name">Communications</span>
+                        <span class="sector-drop">−99%</span>
+                    </div>
+                    <p>Long-distance calls went from $0.25/min to effectively free. Mobile data from $1,000/GB to $0.02/GB globally.</p>
+                    <div class="weight">Weight 23.5%</div>
+                </div>
+
+                <div class="sector">
+                    <div class="sector-head">
+                        <span class="sector-name">Energy</span>
+                        <span class="sector-drop">−90%</span>
+                    </div>
+                    <p>Solar: $20/watt to $0.20/watt. Batteries: $7,500/kWh to $115/kWh. LEDs produce the same light with a tenth of the electricity.</p>
+                    <div class="weight">Weight 29.4%</div>
+                </div>
+
+                <div class="sector">
+                    <div class="sector-head">
+                        <span class="sector-name">Transportation</span>
+                        <span class="sector-drop">−88%</span>
+                    </div>
+                    <p>Lithium-ion battery costs fell 98% from 1991. Electric vehicles crossed price parity with ICE in China in 2024.</p>
+                    <div class="weight">Weight 17.6%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section>
+        <div class="wrap">
+            <div class="eyebrow">35 years, five inflection points</div>
+            <h2>How we got here.</h2>
+
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-year">1990</div>
+                    <div class="tl-title">The baseline</div>
+                    <p>M2 at $3.3T. Dial-up modems. A GFLOP costs roughly $10,000. Solar power is a novelty.</p>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">2000</div>
+                    <div class="tl-title">Computing bends the curve</div>
+                    <p>Moore's Law in full stride. Broadband begins. M2 reaches $4.9T.</p>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">2010</div>
+                    <div class="tl-title">Energy joins the party</div>
+                    <p>Solar falls below $2/watt. Lithium-ion packs drop 20%+ annually. LEDs reach scale. M2: $8.7T.</p>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">2020</div>
+                    <div class="tl-title">The monetary break</div>
+                    <p>M2 expands 24% in one year — the largest peacetime expansion in history. Technology deflation keeps compounding.</p>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">2024</div>
+                    <div class="tl-title">Where we stand</div>
+                    <p>DI at 3.74 (down 96% since 1990). M2 at $21.3T (up 550%). The gap is the index.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2025 EARLY READ -->
+    <section id="early-read">
+        <div class="wrap">
+            <div class="eyebrow">v3.1 · 2025 early read</div>
+            <h2>Through 2025: <em>partial</em>, but pointing the same way.</h2>
+            <p style="max-width: 64ch;">
+                The weighted Deflation Index above is locked at year-end 2024 because two key sources &mdash; IRENA's renewable cost report and NREL's Annual Technology Baseline &mdash; only publish 2025 data in mid-2026. But several inputs <em>are</em> available now. They're shown here as a separate panel so the headline index stays clean.
+            </p>
+
+            <div class="early-read">
+                <span class="er-tag">Measured 2025 inputs</span>
+                <h3>What the <em>2025</em> data shows so far.</h3>
+                <p>Money kept expanding. Consumer prices rose modestly. Computing and battery costs kept compounding downward.</p>
+
+                <div class="er-grid">
+                    <div class="er-cell">
+                        <div class="er-label">M2 money supply · Dec 2025</div>
+                        <div class="er-value">$22.39T</div>
+                        <div class="er-note">+3.95% 2024&rarr;2025 annual avg. FRED M2SL, retrieved 2026-04-20.</div>
+                    </div>
+                    <div class="er-cell">
+                        <div class="er-label">CPI-U · 12-month, Dec 2025</div>
+                        <div class="er-value">+2.7%</div>
+                        <div class="er-note">BLS. Oct 2025 interpolated (appropriations lapse); Nov &amp; Dec published.</div>
+                    </div>
+                    <div class="er-cell">
+                        <div class="er-label">Lithium-ion battery pack · 2025 avg</div>
+                        <div class="er-value">$108/kWh</div>
+                        <div class="er-note">BloombergNEF 2025 survey. BEV $99/kWh; stationary $70/kWh.</div>
+                    </div>
+                    <div class="er-cell">
+                        <div class="er-label">AI compute price-performance</div>
+                        <div class="er-value">−37% / yr</div>
+                        <div class="er-note">Epoch AI trends, doubling roughly every 2.2 years.</div>
+                    </div>
+                </div>
+
+                <p class="er-footnote">
+                    Why this isn't in the headline index yet: energy and transportation 2025 measurements depend on IRENA &amp; NREL releases (~July 2026) and FCC broadband filings (late 2026). The full v4.0 recalculation lands then. Until then, see the <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/operations/v3.1_2025_update_plan.md" target="_blank" rel="noopener">v3.1 update plan</a> for source-by-source status.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO / PROSE -->
+    <section>
+        <div class="wrap">
+            <div class="eyebrow">Who this is for</div>
+            <h2>People who've noticed the gap.</h2>
+            <p>
+                Economists, journalists, students, engineers, policy wonks, curious readers who keep bumping into the same strange observation: technology is the engine of abundance, but abundance hasn't arrived in most people's monthly budget. This is a reference to help think through that mismatch.
+            </p>
+            <p>
+                Everything here — the data, the methodology, the calculations — is <a href="/data.html">open</a>. Read it, argue with it, use it in your own work. If we got something wrong, the <a href="https://github.com/deflation-index/deflation-index" target="_blank" rel="noopener">repo</a> accepts pull requests.
+            </p>
+        </div>
+    </section>
+
+    <!-- SIGNUP -->
+    <section>
+        <div class="wrap">
+            <div class="signup">
+                <h3>An occasional newsletter.</h3>
+                <p>Monthly sector analysis, methodology updates, and new findings. No pitch, no upsell.</p>
+                <iframe
+                    src="https://deflationindex.substack.com/embed"
+                    width="100%"
+                    height="150"
+                    frameborder="0"
                     scrolling="no">
                 </iframe>
-            </div>
-            
-            <p style="color: var(--light-gray); font-size: 0.85rem; margin-top: 1rem; opacity: 0.7;">
-                Free. Unsubscribe anytime.
-            </p>
-        </div>
-    </section>
-    
-    <!-- Interactive Chart -->
-    <section style="background: var(--black); padding: 8rem 2rem; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold);">
-        <span class="section-label" style="text-align: center; display: block;">THE DATA</span>
-        <h2 style="text-align: center; margin-bottom: 1rem;">The Divergence (1990-2024)</h2>
-        <p style="text-align: center; font-size: 1.05rem; color: var(--light-gray); max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;">
-            <span id="chart-description">All indexed to 100 in 1990. Technology delivers dramatic deflation (cyan), while money supply expands massively (green). The gap between them reveals the divergence.</span>
-        </p>
-        
-        <!-- Chart View Toggle -->
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <div style="display: inline-flex; background: rgba(255,215,0,0.1); border: 2px solid var(--gold); border-radius: 50px; padding: 4px; gap: 4px; flex-wrap: wrap; justify-content: center;">
-                <button id="btn-cumulative" onclick="switchChartView('cumulative')" style="
-                    background: var(--gold);
-                    color: var(--black);
-                    border: none;
-                    padding: 0.9rem 2.2rem;
-                    border-radius: 50px;
-                    font-family: 'IBM Plex Mono', monospace;
-                    font-weight: 700;
-                    font-size: 0.9rem;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    letter-spacing: 1px;
-                    min-height: 44px;
-                    min-width: 140px;
-                ">CUMULATIVE</button>
-                <button id="btn-annual" onclick="switchChartView('annual')" style="
-                    background: transparent;
-                    color: var(--gold);
-                    border: none;
-                    padding: 0.9rem 2.2rem;
-                    border-radius: 50px;
-                    font-family: 'IBM Plex Mono', monospace;
-                    font-weight: 700;
-                    font-size: 0.9rem;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    letter-spacing: 1px;
-                    min-height: 44px;
-                    min-width: 140px;
-                ">ANNUAL</button>
-            </div>
-        </div>
-        
-        <div style="max-width: 1200px; margin: 0 auto; background: rgba(255,255,255,0.03); padding: 2rem; border: 2px solid var(--gray);">
-            <canvas id="deflationChart" style="max-height: 500px;"></canvas>
-        </div>
-        
-        <div style="max-width: 600px; margin: 3rem auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; text-align: center;">
-            <div>
-                <div style="display: inline-block; width: 20px; height: 20px; background: #00CED1; margin-right: 8px; vertical-align: middle;"></div>
-                <span style="font-weight: 700;">DI</span>
-                <div style="font-size: 0.9rem; color: var(--light-gray); margin-top: 0.5rem;">Technological deflation</div>
-            </div>
-            <div>
-                <div style="display: inline-block; width: 20px; height: 20px; background: #00FF00; margin-right: 8px; vertical-align: middle;"></div>
-                <span style="font-weight: 700;">M2</span>
-                <div style="font-size: 0.9rem; color: var(--light-gray); margin-top: 0.5rem;">Monetary expansion</div>
+                <p style="font-size: 0.85rem; color: var(--ink-mute); margin-top: 1rem;">Free. Unsubscribe anytime.</p>
             </div>
         </div>
     </section>
-    
-    <!-- Four Sectors -->
-    <section>
-        <h2>The Four Sectors</h2>
-        
-        <div class="viz-grid">
-            <div class="viz-card">
-                <h3>Computing</h3>
-                <div class="viz-number" style="color: #00CED1;">99%</div>
-                <div class="viz-description">
-                    Cost per GFLOPS collapsed from $10,000 to $0.01. Storage fell from $10,000/GB to $0.014/GB. Computing power that cost millions is now essentially free. <strong>Weight: 29.41%</strong>
-                </div>
+
+    <footer>
+        <div class="foot-inner">
+            <div class="foot-brand">
+                <a href="/" class="brand"><img src="/assets/logo/icon/di_logo_primary.svg" alt="DI"><span class="brand-text">The <em>Deflation</em> Index</span></a>
+                <p>An open research project measuring the gap between technological progress and monetary expansion.</p>
             </div>
-            
-            <div class="viz-card">
-                <h3>Communications</h3>
-                <div class="viz-number" style="color: #00CED1;">99%</div>
-                <div class="viz-description">
-                    Long distance calling went from $0.25/min to $0.00 (WhatsApp, Zoom). Mobile data from $1,000/GB to $0.02/GB globally. Communication is essentially free. <strong>Weight: 23.53%</strong>
+            <div class="foot-links">
+                <div class="foot-col">
+                    <h4>Read</h4>
+                    <a href="/about.html">About</a>
+                    <a href="/methodology.html">Methodology</a>
+                    <a href="/faq.html">FAQ</a>
+                    <a href="/blog.html">Writing</a>
                 </div>
-            </div>
-            
-            <div class="viz-card">
-                <h3>Energy</h3>
-                <div class="viz-number" style="color: #00CED1;">90%</div>
-                <div class="viz-description">
-                    Solar: $20/watt to $0.20/watt (2010-2024). Batteries: $7,500/kWh to $115/kWh. LEDs: 90% less energy. Clean energy now cheapest in history. <strong>Weight: 29.41%</strong>
-                </div>
-            </div>
-            
-            <div class="viz-card">
-                <h3>Transportation</h3>
-                <div class="viz-number" style="color: #00CED1;">88%</div>
-                <div class="viz-description">
-                    Lithium-ion battery costs dropped from $7,500/kWh (1991) to $115/kWh (2024). Electric vehicles transitioning from luxury to mass market. Measured 2010-2024. <strong>Weight: 17.65%</strong>
+                <div class="foot-col">
+                    <h4>Use</h4>
+                    <a href="/data.html">Data</a>
+                    <a href="https://github.com/deflation-index/deflation-index" target="_blank" rel="noopener">GitHub</a>
                 </div>
             </div>
         </div>
-        
-        <p style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,215,0,0.05); border: 2px solid var(--gold); font-size: 1.1rem;">
-            <strong>Weighted Index:</strong> 29.41% Computing + 23.53% Communications + 29.41% Energy + 17.65% Transportation<br>
-            <span style="color: var(--gold);">DI: 100 (1990) → 3.74 (2024) | M2: 100 → 650.2</span>
-        </p>
-    </section>
-    
-    <!-- Timeline -->
-    <section>
-        <h2>35 Years of Deflation</h2>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-year">1990</div>
-                <div class="timeline-content">
-                    <h4>Base Year</h4>
-                    <p>Computing costs astronomical. Mobile phones rare and expensive. Solar power niche. Base year for all calculations. M2: $3.0T.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-year">2000</div>
-                <div class="timeline-content">
-                    <h4>Dot-Com Boom</h4>
-                    <p>Internet adoption accelerates. Computing costs collapse 95% from 1990. Communications revolution begins. M2: $4.9T (+48%).</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-year">2007</div>
-                <div class="timeline-content">
-                    <h4>Smartphone Era</h4>
-                    <p>iPhone launches. Mobile computing becomes universal. HDD storage costs drop to $0.10/GB. Communications essentially free. M2: $7.4T (+124%).</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-year">2010</div>
-                <div class="timeline-content">
-                    <h4>Energy Inflection</h4>
-                    <p>Solar panel costs drop below $2/watt, beginning steep decline. Lithium-ion batteries begin 20%+ annual cost reductions. LED adoption reaches scale. M2: $8.8T (+167%).</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-year">2020</div>
-                <div class="timeline-content">
-                    <h4>COVID Money Printing</h4>
-                    <p>M2 expands 24% in a single year. The largest peacetime expansion in history. Tech deflation accelerates. Gap widens dramatically. M2: $18.4T (+457%).</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-year">2024</div>
-                <div class="timeline-content">
-                    <h4>Current State</h4>
-                    <p>Computing 99.99%+ cheaper than 1990. Communications essentially free. Solar cheapest energy in history. DI: 3.74 (down 96.26%). M2: $21.3T (+550%).</p>
-                </div>
-            </div>
+        <div class="foot-meta">
+            <div>&copy; 2026 Deflation Index. CC BY 4.0 with attribution.</div>
+            <div>v3.1 · weighted DI through 2024 · <a href="#early-read">2025 early read</a> · <a href="/data.html#versions">update schedule</a></div>
         </div>
-    </section>
-    
-    <!-- Who This Is For -->
-    <section class="use-cases">
-        <h2>Who Uses This</h2>
-        
-        <div class="use-cases-grid">
-            <div class="use-case">
-                <h3>Investors</h3>
-                <p>Identify which sectors have real deflation vs monetary distortion. Understand where to allocate capital based on fundamental cost trends, not just nominal prices.</p>
-            </div>
-            
-            <div class="use-case">
-                <h3>Businesses</h3>
-                <p>See which sectors are experiencing sustainable cost reduction. Build where technology delivers real abundance, not just monetary inflation.</p>
-            </div>
-            
-            <div class="use-case">
-                <h3>Individuals</h3>
-                <p>Understand why rent tripled while computing collapsed. See the data behind why life feels more expensive despite obvious technological progress.</p>
-            </div>
-            
-            <div class="use-case">
-                <h3>Researchers</h3>
-                <p>Access rigorous methodology and verifiable data. All calculations transparent, all sources cited, all assumptions documented on GitHub.</p>
-            </div>
-        </div>
-    </section>
-    
-<!-- Email Signup Section - FINAL VERSION -->
-<section class="email-signup" id="email-signup" style="background: var(--soft-black); padding: 5rem 2rem; text-align: center; border-top: 3px solid var(--gold);">
-    <div class="container" style="max-width: 650px; margin: 0 auto;">
-        <h2 style="color: var(--gold); font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: 2px;">
-            Stay Updated
-        </h2>
-        
-        <div style="width: 60px; height: 4px; background: var(--gold); margin: 0 auto 2rem;"></div>
-        
-        <p style="color: var(--light-gray); font-size: clamp(1.05rem, 2.5vw, 1.2rem); margin-bottom: 2.5rem; line-height: 1.7;">
-            Monthly deflation insights, sector-specific analysis, and early API access. <strong style="color: var(--white);">Join investors, researchers, and entrepreneurs</strong> tracking where productivity flows.
-        </p>
-        
-        <!-- Substack Embed -->
-        <div style="max-width: 500px; margin: 0 auto 1.5rem; padding: 2rem; background: rgba(255, 255, 255, 0.08); border-radius: 8px;">
-            <iframe 
-                src="https://deflationindex.substack.com/embed" 
-                width="100%" 
-                height="150" 
-                style="border: 2px solid var(--gold); border-radius: 4px;" 
-                frameborder="0" 
-                scrolling="no">
-            </iframe>
-        </div>
-        
-        <p style="color: var(--light-gray); font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.9;">
-            Free. Unsubscribe anytime. No spam.
-        </p>
-    </div>
-</section>
-    <!-- CTA Section -->
-    <section class="cta">
-        <h2>See It For Yourself</h2>
-        
-        <p style="font-size: 1.5rem; margin: 2rem auto; max-width: 800px; line-height: 1.7;">
-            Technology delivered 96% deflation across core sectors from 1990-2024. We compare this to CPI, M2, and other indicators to understand where productivity gains flowed. This is measurement, not theory.
-        </p>
-        
-        <div class="cta-buttons">
-            <a href="methodology.html" class="btn">See How We Measure It</a>
-            <a href="https://github.com/deflation-index/deflation-index" class="btn" target="_blank">View on GitHub</a>
-        </div>
-        
-        <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">
-            <strong>Free downloads available:</strong> Complete Excel datasets with all formulas, sources, and calculations on the methodology page.
-        </p>
-        
-        <p style="margin-top: 4rem; font-size: 0.9rem; opacity: 0.8;">
-            Real data from four fundamental technology sectors.
-            <br>900+ verified calculations. 400+ data points. 35 years (1990-2024).
-            <br><span style="font-size: 0.85rem; opacity: 0.8;">Data reflects year-end 2024. Next update: Q2 2026 with 2025 data.</span>
-            <br>Data from Federal Reserve, BLS, IRENA, BloombergNEF, AI Impacts, DOE, FCC.
-        </p>
-    </section>
-    
-    <!-- Chart.js Library -->
+    </footer>
+
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
-    
     <script>
-        // Years array (1990-2024)
-        const years = ['1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000',
-                       '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010',
-                       '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020',
-                       '2021', '2022', '2023', '2024'];
-        
-        // CUMULATIVE INDEXED DATA (1990 = 100) - Shows dramatic divergence
-        // DI: Falls from 100 → 3.74 (96.26% deflation)
-        // M2: Rises from 100 → 650.2 (550% expansion)
-        // CPI: Rises from 100 → 255 (155% inflation)
-        
+        const years = ['1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000',
+                       '2001','2002','2003','2004','2005','2006','2007','2008','2009','2010',
+                       '2011','2012','2013','2014','2015','2016','2017','2018','2019','2020',
+                       '2021','2022','2023','2024'];
+
+        // Cumulative indices (1990 = 100)
         const techDI_cumulative = [
             100.00, 81.35, 68.53, 59.57, 53.20, 48.58, 45.15, 42.55,
             40.53, 38.93, 37.64, 36.58, 35.69, 34.95, 34.31, 33.77,
@@ -1224,8 +863,6 @@
             21.60, 20.25, 19.18, 18.33, 17.65, 17.11, 16.69, 16.35,
             16.08, 15.86, 3.74
         ];
-        
-        // M2 indexed (1990 = 100) - FRED M2SL verified December 2025
         const m2_cumulative = [
             100.00, 103.06, 104.68, 106.23, 106.71, 111.11, 116.58, 123.09,
             133.59, 141.45, 150.06, 165.75, 176.54, 185.30, 195.69, 203.69,
@@ -1233,46 +870,49 @@
             346.75, 367.67, 393.34, 415.18, 435.05, 455.28, 559.19, 632.25,
             650.75, 636.88, 650.20
         ];
-        
-        // CPI indexed (1990 = 100)
         const cpi_cumulative = [
             100, 105.4, 109.8, 113.1, 116.1, 119.3, 121.9, 124.7,
             128.0, 132.4, 136, 138.9, 141.1, 143.3, 143.4, 144.4,
             146.3, 149.3, 152.9, 155.7, 159.3, 161.2, 163.5, 165.9,
             168.6, 175.5, 181.5, 187.3, 192.7, 197.3, 201.5, 210.9,
-            227.8, 237.1, 243.5, 250.1
+            227.8, 237.1, 243.5
         ];
-        
-        // ANNUAL RATES DATA - Year-over-year percentage changes
+
+        // Annual YoY %
         const techDI_annual = [
-            0,      // 1990 baseline
-            -18.65, -15.76, -13.07, -10.69, -8.69, -7.06, -5.77,
-            -4.75,  -3.95,  -3.32,  -2.82,  -2.42, -2.09, -1.82,
-            -1.59,  -1.39,  -1.22,  -1.08,  -0.95, -1.86, -10.87,
-            -9.65,  -8.46,  -7.32,  -6.26,  -5.30, -4.45, -3.70,
-            -3.05,  -2.50,  -2.04,  -1.66,  -1.35, -1.09
+            0, -18.65, -15.76, -13.07, -10.69, -8.69, -7.06, -5.77,
+            -4.75, -3.95, -3.32, -2.82, -2.42, -2.09, -1.82,
+            -1.59, -1.39, -1.22, -1.08, -0.95, -1.86, -10.87,
+            -9.65, -8.46, -7.32, -6.26, -5.30, -4.45, -3.70,
+            -3.05, -2.50, -2.04, -1.66, -1.35, -1.09
         ];
-        
         const m2_annual = [
-            0, // 1990 baseline
-            7.5, 4.2, 5.8, 6.9, 8.5, 4.3, 5.1, 6.2, 5.8, 6.4, 7.2,
+            0, 7.5, 4.2, 5.8, 6.9, 8.5, 4.3, 5.1, 6.2, 5.8, 6.4, 7.2,
             5.9, 6.8, 5.4, 6.1, 7.8, 6.3, 5.7, 6.9, 7.4, 6.8,
             5.2, 8.9, 6.5, 7.2, 12.5, 6.2, 4.8, 3.5, 2.9, 23.9,
-            2.7, 3.2, 2.8, 2.6
+            2.7, 3.2, 2.8
         ];
-        
         const cpi_annual = [
-            0, // 1990 baseline
-            5.4, 4.2, 3.0, 2.6, 2.8, 2.2, 2.3, 2.5, 2.8, 3.4, 2.7,
+            0, 5.4, 4.2, 3.0, 2.6, 2.8, 2.2, 2.3, 2.5, 2.8, 3.4, 2.7,
             2.1, 1.6, 1.5, 0.1, 0.7, 1.3, 2.1, 2.4, 1.8, 2.3,
             1.2, 1.4, 1.5, 1.6, 4.1, 3.4, 3.2, 2.9, 2.4, 2.1,
-            4.7, 8.0, 4.1, 2.7
+            4.7, 8.0, 4.1
         ];
-        
-        // Current view state
+
         let currentView = 'cumulative';
-        
-        // Create the chart
+
+        const palette = {
+            teal: '#2F7A7A',
+            tealSoft: 'rgba(47, 122, 122, 0.08)',
+            brick: '#A64A3F',
+            brickSoft: 'rgba(166, 74, 63, 0.08)',
+            neutral: '#6E6E6B',
+            neutralSoft: 'rgba(110, 110, 107, 0.06)',
+            ink: '#1B1B1B',
+            inkMute: '#6E6E6B',
+            line: '#E3E1D8'
+        };
+
         const ctx = document.getElementById('deflationChart').getContext('2d');
         const chart = new Chart(ctx, {
             type: 'line',
@@ -1282,28 +922,43 @@
                     {
                         label: 'Deflation Index',
                         data: techDI_cumulative,
-                        borderColor: '#00CED1',
-                        backgroundColor: 'rgba(0, 206, 209, 0.1)',
-                        borderWidth: 3,
-                        tension: 0.4,
+                        borderColor: palette.teal,
+                        backgroundColor: palette.tealSoft,
+                        borderWidth: 2.25,
+                        tension: 0.35,
                         fill: true,
                         pointRadius: 0,
-                        pointHoverRadius: 6,
-                        pointHoverBackgroundColor: '#00CED1',
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: palette.teal,
                         pointHoverBorderColor: '#FFFFFF',
                         pointHoverBorderWidth: 2
                     },
                     {
-                        label: 'M2 Money Supply',
+                        label: 'M2 money supply',
                         data: m2_cumulative,
-                        borderColor: '#00FF00',
-                        backgroundColor: 'rgba(0, 255, 0, 0.1)',
-                        borderWidth: 3,
-                        tension: 0.4,
+                        borderColor: palette.brick,
+                        backgroundColor: palette.brickSoft,
+                        borderWidth: 2.25,
+                        tension: 0.35,
                         fill: true,
                         pointRadius: 0,
-                        pointHoverRadius: 6,
-                        pointHoverBackgroundColor: '#00FF00',
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: palette.brick,
+                        pointHoverBorderColor: '#FFFFFF',
+                        pointHoverBorderWidth: 2
+                    },
+                    {
+                        label: 'CPI',
+                        data: cpi_cumulative,
+                        borderColor: palette.neutral,
+                        backgroundColor: palette.neutralSoft,
+                        borderWidth: 2,
+                        borderDash: [4, 4],
+                        tension: 0.35,
+                        fill: false,
+                        pointRadius: 0,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: palette.neutral,
                         pointHoverBorderColor: '#FFFFFF',
                         pointHoverBorderWidth: 2
                     }
@@ -1311,66 +966,57 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: true,
-                interaction: {
-                    mode: 'index',
-                    intersect: false
-                },
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
                 plugins: {
                     legend: {
-                        display: false
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            color: palette.ink,
+                            font: { family: "'Inter', sans-serif", size: 12 },
+                            boxWidth: 18,
+                            boxHeight: 2,
+                            padding: 18,
+                            usePointStyle: false
+                        }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                        titleColor: '#FFFFFF',
-                        bodyColor: '#FFFFFF',
-                        borderColor: '#FFD700',
-                        borderWidth: 2,
+                        backgroundColor: '#FFFFFF',
+                        titleColor: palette.ink,
+                        bodyColor: palette.ink,
+                        borderColor: palette.line,
+                        borderWidth: 1,
                         padding: 12,
+                        titleFont: { family: "'Inter', sans-serif", weight: '600', size: 13 },
+                        bodyFont: { family: "'IBM Plex Mono', monospace", size: 12 },
                         displayColors: true,
                         callbacks: {
                             label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.y !== null) {
-                                    if (currentView === 'annual') {
-                                        label += context.parsed.y.toFixed(2) + '%';
-                                    } else {
-                                        label += context.parsed.y.toFixed(2);
-                                    }
-                                }
-                                return label;
+                                const lbl = context.dataset.label || '';
+                                if (context.parsed.y === null) return lbl;
+                                if (currentView === 'annual') return `${lbl}: ${context.parsed.y.toFixed(2)}%`;
+                                return `${lbl}: ${context.parsed.y.toFixed(2)}`;
                             }
                         }
                     }
                 },
                 scales: {
                     x: {
-                        grid: {
-                            display: false
-                        },
+                        grid: { display: false },
                         ticks: {
-                            color: '#E0E0E0',
-                            font: {
-                                family: "'IBM Plex Mono', monospace",
-                                size: 11
-                            },
-                            maxRotation: 45,
-                            minRotation: 45
+                            color: palette.inkMute,
+                            font: { family: "'IBM Plex Mono', monospace", size: 11 },
+                            maxRotation: 0,
+                            autoSkip: true,
+                            maxTicksLimit: 8
                         }
                     },
                     y: {
-                        grid: {
-                            display: false
-                        },
+                        grid: { color: palette.line, drawBorder: false },
                         ticks: {
-                            color: '#E0E0E0',
-                            font: {
-                                family: "'IBM Plex Mono', monospace",
-                                size: 12
-                            },
+                            color: palette.inkMute,
+                            font: { family: "'IBM Plex Mono', monospace", size: 11 },
                             callback: function(value) {
                                 return currentView === 'annual' ? value + '%' : value;
                             }
@@ -1378,164 +1024,39 @@
                         title: {
                             display: true,
                             text: 'Index (1990 = 100)',
-                            color: '#FFD700',
-                            font: {
-                                family: "'IBM Plex Mono', monospace",
-                                size: 13,
-                                weight: 'bold'
-                            }
+                            color: palette.inkMute,
+                            font: { family: "'IBM Plex Mono', monospace", size: 11, weight: '500' }
                         }
                     }
                 }
             }
         });
-        
-        // Chart view switching function
+
         function switchChartView(view) {
             currentView = view;
-            
-            // Update button styles
-            const btnCumulative = document.getElementById('btn-cumulative');
-            const btnAnnual = document.getElementById('btn-annual');
-            
+            const btnCum = document.getElementById('btn-cumulative');
+            const btnAnn = document.getElementById('btn-annual');
+            const desc = document.getElementById('chart-description');
+
             if (view === 'cumulative') {
-                btnCumulative.style.background = 'var(--gold)';
-                btnCumulative.style.color = 'var(--black)';
-                btnAnnual.style.background = 'transparent';
-                btnAnnual.style.color = 'var(--gold)';
-                
-                // Update chart data
+                btnCum.classList.add('active');
+                btnAnn.classList.remove('active');
                 chart.data.datasets[0].data = techDI_cumulative;
                 chart.data.datasets[1].data = m2_cumulative;
-                
-                // Reset point styles to fix toggle bug
-                chart.data.datasets.forEach(dataset => {
-                    dataset.pointRadius = 0;
-                    dataset.pointHoverRadius = 6;
-                    dataset.pointBackgroundColor = undefined;
-                    dataset.pointBorderColor = undefined;
-                });
-                
-                // Update y-axis title
+                chart.data.datasets[2].data = cpi_cumulative;
                 chart.options.scales.y.title.text = 'Index (1990 = 100)';
-                
-                // Update description
-                document.getElementById('chart-description').innerHTML = 
-                    'All indexed to 100 in 1990. Technology delivers dramatic deflation (cyan), while money supply expands massively (green). The gap between them reveals the divergence.';
-                
+                desc.innerHTML = "All indexed to 100 in 1990. Technology fell. Money supply rose. Consumer prices tracked somewhere in between.";
             } else {
-                btnAnnual.style.background = 'var(--gold)';
-                btnAnnual.style.color = 'var(--black)';
-                btnCumulative.style.background = 'transparent';
-                btnCumulative.style.color = 'var(--gold)';
-                
-                // Update chart data
+                btnAnn.classList.add('active');
+                btnCum.classList.remove('active');
                 chart.data.datasets[0].data = techDI_annual;
                 chart.data.datasets[1].data = m2_annual;
-                
-                // Reset point styles to fix toggle bug
-                chart.data.datasets.forEach(dataset => {
-                    dataset.pointRadius = 0;
-                    dataset.pointHoverRadius = 6;
-                    dataset.pointBackgroundColor = undefined;
-                    dataset.pointBorderColor = undefined;
-                });
-                
-                // Update y-axis title
-                chart.options.scales.y.title.text = 'Annual % Change';
-                
-                // Update description
-                document.getElementById('chart-description').innerHTML = 
-                    'Year-over-year percentage changes. Cyan shows tech deflation, green shows M2 growth. Average tech deflation: -9.21% annually.';
+                chart.data.datasets[2].data = cpi_annual;
+                chart.options.scales.y.title.text = 'Annual change (%)';
+                desc.innerHTML = "Year-over-year change. Technology deflation averaged −9.2% per year; M2 grew +5.7%; CPI +2.8%.";
             }
-            
-            // Force complete chart redraw to fix toggle bug
             chart.update('none');
         }
-        
-        // Hamburger Menu Toggle
-                function toggleMenu() {
-            const hamburger = document.querySelector('.hamburger');
-            const menuDropdown = document.getElementById('menuDropdown');
-            hamburger.classList.toggle('active');
-            menuDropdown.classList.toggle('active');
-        }
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const menuDropdown = document.getElementById('menuDropdown');
-            const hamburger = document.querySelector('.hamburger');
-            if (menuDropdown && !menuDropdown.contains(e.target) && !hamburger.contains(e.target) && menuDropdown.classList.contains('active')) {
-                menuDropdown.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-        
-        // Back to Top Button functionality
-        window.addEventListener('scroll', function() {
-            const btn = document.getElementById('backToTop');
-            if (window.pageYOffset > 500) {
-                btn.style.display = 'block';
-            } else {
-                btn.style.display = 'none';
-            }
-        });
-        
     </script>
-    
-    <!-- Footer -->
-    <footer style="background: var(--black); border-top: 3px solid var(--gold); padding: 2rem; text-align: center; color: var(--light-gray); font-size: 0.9rem;">
-        <img src="/assets/logo/icon/di_logo_primary.svg" alt="The Deflation Index" style="height: 40px; margin-bottom: 1rem; display: block; margin: 0 auto 1rem;">
-        <p>&copy; 2026 Deflation Index LLC. All rights reserved.</p>
-        <p style="margin-top: 1rem;">
-            <a href="index.html" style="color: var(--gold); text-decoration: none;">Home</a> | 
-            <a href="about.html" style="color: var(--gold); text-decoration: none;">About</a> | 
-            <a href="faq.html" style="color: var(--gold); text-decoration: none;">FAQ</a> | 
-            <a href="methodology.html" style="color: var(--gold); text-decoration: none;">Methodology</a> | 
-            <a href="blog.html" style="color: var(--gold); text-decoration: none;">Blog</a> | 
-            <a href="https://github.com/deflation-index/deflation-index" target="_blank" style="color: var(--gold); text-decoration: none;">GitHub</a>
-        </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">Tracking where the abundance goes.</p>
-    </footer>
-    
-    <!-- Back to Top Button -->
-    <button id="backToTop" style="
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        background: var(--gold);
-        color: var(--black);
-        border: none;
-        padding: 1rem 1.2rem;
-        cursor: pointer;
-        font-size: 1.5rem;
-        font-weight: 700;
-        display: none;
-        z-index: 999;
-        transition: all 0.3s ease;
-        border-radius: 4px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    " onmouseover="this.style.background='var(--cyan)'" onmouseout="this.style.background='var(--gold)'" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
-        ↑
-    </button>
-    
-    <!-- Scroll Animation Script -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Subtle scroll animations (Forager-inspired)
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all sections except hero
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section:not(.hero)');
-            sections.forEac
+</body>
+</html>

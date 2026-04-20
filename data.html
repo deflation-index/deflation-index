@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Data | The Deflation Index</title>
+    <meta name="description" content="Download the Deflation Index. Excel workbooks with formulas, JSON for scripting, primary sources, full methodology. CC BY 4.0.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deflationindex.com/data.html">
+    <meta property="og:title" content="Data | The Deflation Index">
+    <meta property="og:description" content="Excel, JSON, primary sources. Open research under CC BY 4.0.">
+    <meta property="og:image" content="https://deflationindex.com/assets/logo/icon/di_logo_og.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Data | The Deflation Index">
+    <meta name="twitter:description" content="Excel, JSON, primary sources. Open research under CC BY 4.0.">
+    <meta name="twitter:image" content="https://deflationindex.com/assets/logo/icon/di_logo_og.png">
+
+    <!-- Fonts & favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/di_logo_32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/di_logo_64.png">
+    <link rel="apple-touch-icon" href="/di_logo_64.png">
+
+    <style>
+        :root {
+            --paper: #FAFAF6;
+            --paper-tint: #F2F0E8;
+            --ink: #1B1B1B;
+            --ink-soft: #4A4A47;
+            --ink-mute: #6E6E6B;
+            --line: #E3E1D8;
+            --line-strong: #C9C6B8;
+            --gold: #B88A2B;
+            --gold-soft: #F5E9C9;
+            --teal: #2F7A7A;
+            --teal-soft: #DDECEA;
+            --brick: #A64A3F;
+            --brick-soft: #F2DDD8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 17px;
+            line-height: 1.65;
+            color: var(--ink);
+            background: var(--paper);
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--teal); text-decoration: none; }
+        a:hover { color: var(--ink); }
+
+        /* --- Navigation --- */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 250, 246, 0.92);
+            backdrop-filter: saturate(180%) blur(10px);
+            -webkit-backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid var(--line);
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .brand img { height: 28px; width: auto; display: block; }
+        .brand .brand-text em { font-style: italic; color: var(--gold); }
+        .nav-links { display: flex; gap: 2rem; font-size: 0.95rem; }
+        .nav-links a { color: var(--ink-soft); transition: color 0.15s ease; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a.active { color: var(--ink); font-weight: 500; }
+        @media (max-width: 640px) {
+            .nav-links { gap: 1.1rem; font-size: 0.88rem; }
+            .nav-links a.hide-mobile { display: none; }
+            .brand-text { display: none; }
+        }
+
+        /* --- Layout --- */
+        .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+        .wrap-wide { max-width: 920px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* --- Page header --- */
+        .page-head {
+            padding: 5rem 0 3rem;
+            border-bottom: 1px solid var(--line);
+        }
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 1.25rem;
+        }
+        h1.page-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(2.1rem, 4.5vw, 3rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+        }
+        h1.page-title em { font-style: italic; color: var(--gold); font-weight: 500; }
+        .page-lede {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            max-width: 60ch;
+        }
+
+        /* --- Sections --- */
+        section.body { padding: 4rem 0 1rem; }
+        section.body + section.body { border-top: 1px solid var(--line); }
+        .section-kicker {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 0.5rem;
+        }
+        h2.section-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.85rem;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+        h2.section-title em { font-style: italic; color: var(--gold); font-weight: 500; }
+        section.body p {
+            color: var(--ink-soft);
+            margin-bottom: 1.1rem;
+            max-width: 64ch;
+        }
+        section.body p strong { color: var(--ink); font-weight: 600; }
+        section.body a {
+            color: var(--teal);
+            border-bottom: 1px solid var(--teal-soft);
+        }
+        section.body a:hover { border-bottom-color: var(--teal); }
+
+        /* --- Data cards --- */
+        .data-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            padding: 1.75rem 1.75rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 2px;
+            transition: border-color 0.2s ease;
+        }
+        .data-card:hover { border-color: var(--line-strong); }
+        .data-card h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: var(--ink);
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
+        }
+        .data-card .card-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 0.85rem;
+        }
+        .data-card p {
+            color: var(--ink-soft);
+            margin-bottom: 1rem;
+            max-width: none;
+            font-size: 0.98rem;
+        }
+
+        /* --- Buttons --- */
+        .btn-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.15rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+        }
+        .btn.primary {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+        .btn.primary:hover { background: var(--teal); border-color: var(--teal); color: var(--paper); }
+        .btn.ghost {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--line-strong);
+        }
+        .btn.ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+        /* --- File list --- */
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0.25rem;
+            border-top: 1px solid var(--line);
+        }
+        .file-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 0.94rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .file-list code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.88rem;
+            color: var(--ink);
+            background: var(--paper-tint);
+            padding: 0.15rem 0.45rem;
+            border-radius: 2px;
+        }
+        .file-list .file-desc {
+            color: var(--ink-mute);
+            font-size: 0.88rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        /* --- Version banner --- */
+        .version-banner {
+            background: var(--gold-soft);
+            border: 1px solid var(--gold);
+            padding: 1.1rem 1.4rem;
+            margin: 1.5rem 0;
+            border-radius: 2px;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .version-banner .vb-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: var(--paper);
+            padding: 0.3rem 0.55rem;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+        .version-banner .vb-body {
+            flex: 1;
+            min-width: 240px;
+            color: var(--ink);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+        .version-banner .vb-body strong { color: var(--ink); font-weight: 600; }
+
+        /* --- License callout --- */
+        .license-callout {
+            background: var(--paper-tint);
+            border-left: 3px solid var(--gold);
+            padding: 1.4rem 1.6rem;
+            margin: 1.5rem 0;
+            border-radius: 0 2px 2px 0;
+        }
+        .license-callout .lc-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 0.5rem;
+        }
+        .license-callout .lc-citation {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: var(--ink);
+        }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 3rem 0 4rem;
+            margin-top: 4rem;
+        }
+        .foot-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .foot-brand .brand { font-size: 1.05rem; }
+        .foot-brand .brand img { height: 32px; }
+        .foot-brand p {
+            font-size: 0.88rem;
+            color: var(--ink-mute);
+            margin-top: 0.5rem;
+            max-width: 30ch;
+        }
+        .foot-links { display: flex; gap: 2.5rem; font-size: 0.9rem; }
+        .foot-col h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 0.85rem;
+            font-weight: 500;
+        }
+        .foot-col a {
+            display: block;
+            color: var(--ink-soft);
+            margin-bottom: 0.4rem;
+            border: none;
+        }
+        .foot-col a:hover { color: var(--gold); }
+        .foot-meta {
+            max-width: 1040px;
+            margin: 2rem auto 0;
+            padding: 0 1.5rem;
+            font-size: 0.82rem;
+            color: var(--ink-mute);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .foot-meta a { color: var(--ink-mute); border: none; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="brand"><img src="/assets/logo/icon/di_logo_primary.svg" alt="DI"><span class="brand-text">The <em>Deflation</em> Index</span></a>
+            <div class="nav-links">
+                <a href="/about.html">About</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/faq.html" class="hide-mobile">FAQ</a>
+                <a href="/blog.html" class="hide-mobile">Writing</a>
+                <a href="/data.html" class="active">Data</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-head">
+        <div class="wrap">
+            <div class="eyebrow">Data</div>
+            <h1 class="page-title">Download <em>everything</em>.</h1>
+            <p class="page-lede">
+                The Deflation Index is open. Excel workbooks with formulas intact, JSON files for scripting, primary sources, full methodology &mdash; free to read, use, cite, and build on.
+            </p>
+        </div>
+    </header>
+
+    <!-- Start here -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">01 · Start here</div>
+            <h2 class="section-title">The <em>canonical</em> source.</h2>
+
+            <p>Everything lives on GitHub. The repository is the source of truth &mdash; every Excel file, every JSON, every source citation, every release note. Fork it, clone it, open issues, send pull requests.</p>
+
+            <div class="data-card">
+                <h3>GitHub repository</h3>
+                <div class="card-meta">github.com/deflation-index/deflation-index</div>
+                <p>Current release: <strong>v3.0.3</strong> (1990&ndash;2024, released January 2026). See <a href="#versions">versions</a> for what's coming.</p>
+                <div class="btn-row">
+                    <a href="https://github.com/deflation-index/deflation-index" target="_blank" rel="noopener" class="btn primary">Open on GitHub &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excel -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">02 · Excel workbooks</div>
+            <h2 class="section-title">Formulas <em>preserved</em>, sources in-sheet.</h2>
+
+            <p>The Excel workbooks are the working files. Every cell is traceable: constants, yearly data, sector indices, the weighted composite. Nothing is baked into a value when a formula would do.</p>
+
+            <div class="data-card">
+                <h3>Master Deflation Index v3.0.3</h3>
+                <div class="card-meta">xlsx · 1990&ndash;2024 · all four sectors</div>
+                <p>The full weighted index. Computing, communications, energy, and transportation combined into the headline deflation number, with per-sector sheets, weight calculations, and monetary context (M2, CPI) carried through.</p>
+                <div class="btn-row">
+                    <a href="https://github.com/deflation-index/deflation-index/raw/main/data/excel/master_deflation_index_v3.0.3.xlsx" class="btn primary">Download master .xlsx</a>
+                    <a href="https://github.com/deflation-index/deflation-index/raw/main/data/excel/master_deflation_index_v3.0.3_EQUAL.xlsx" class="btn ghost">Equal-weighted variant</a>
+                </div>
+            </div>
+
+            <div class="data-card">
+                <h3>Individual sector workbooks</h3>
+                <div class="card-meta">xlsx · one file per sector</div>
+                <p>Each of the four sectors is also maintained as a standalone workbook &mdash; useful if you want to inspect a single sector's inputs, weighting, and sources without opening the master.</p>
+                <div class="btn-row">
+                    <a href="https://github.com/deflation-index/deflation-index/tree/main/data/excel" target="_blank" rel="noopener" class="btn ghost">Browse sector files &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JSON -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">03 · JSON &amp; constants</div>
+            <h2 class="section-title">For anyone <em>scripting</em> against the index.</h2>
+
+            <p>If you're building a chart, an API consumer, or just want the numbers without opening Excel, the JSON files under <code>data/</code> are the canonical programmatic source. Each file has a schema, a provenance block, and a retrieval date.</p>
+
+            <ul class="file-list">
+                <li>
+                    <code>data/constants.json</code>
+                    <span class="file-desc">Master statistics: DI, M2, CPI annual values, sector weights, gap analysis, and the v3.1 <code>supplemental_2025</code> block</span>
+                </li>
+                <li>
+                    <code>data/api/master_index.json</code>
+                    <span class="file-desc">Deflation Index values 1990 &rarr; 2024 with annual summary</span>
+                </li>
+                <li>
+                    <code>data/api/m2_data.json</code>
+                    <span class="file-desc">M2 money supply annual time series (FRED M2SL)</span>
+                </li>
+                <li>
+                    <code>data/api/sectors.json</code>
+                    <span class="file-desc">Per-sector breakdown: computing, communications, energy, transportation</span>
+                </li>
+                <li>
+                    <code>data/api/weights.json</code>
+                    <span class="file-desc">Primary and equal-weighted variants with sensitivity summary</span>
+                </li>
+            </ul>
+
+            <div class="btn-row" style="margin-top: 1.5rem;">
+                <a href="https://github.com/deflation-index/deflation-index/tree/main/data" target="_blank" rel="noopener" class="btn primary">Browse data directory &rarr;</a>
+                <a href="https://github.com/deflation-index/deflation-index/tree/main/data/api" target="_blank" rel="noopener" class="btn ghost">JSON API files &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sources -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">04 · Primary sources</div>
+            <h2 class="section-title">Every number <em>traces</em> to a source.</h2>
+
+            <p>No synthetic indices. No blended proprietary estimates. Every data point comes from a government agency, an international body, an industry survey, or peer-reviewed research &mdash; cited at the cell level in the workbooks and consolidated in one file for reference.</p>
+
+            <p><strong>Examples:</strong> FRED (M2, CPI), IRENA (renewable LCOE), BloombergNEF (battery pack prices), FCC (broadband subscriptions and speeds), DOE (transportation energy, solid-state lighting), Epoch AI (GPU price-performance), Nordhaus (long-run computing), Sandberg &amp; Bostrom (compute trends), among others.</p>
+
+            <div class="btn-row">
+                <a href="https://github.com/deflation-index/deflation-index/blob/main/data/sources/SOURCES.md" target="_blank" rel="noopener" class="btn primary">SOURCES.md &rarr;</a>
+                <a href="/methodology.html" class="btn ghost">Methodology page</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Versions -->
+    <section class="body" id="versions">
+        <div class="wrap">
+            <div class="section-kicker">05 · Versions &amp; updates</div>
+            <h2 class="section-title">What's <em>current</em>, what's coming.</h2>
+
+            <p>The Deflation Index follows a two-track release cadence: a major annual refresh when IRENA and NREL publish their year-in-review reports (typically summer), and interim updates as clean primary data becomes available.</p>
+
+            <div class="version-banner">
+                <div class="vb-tag">Current</div>
+                <div class="vb-body">
+                    <strong>v3.0.3</strong> &mdash; released January 2026. Full weighted index 1990&ndash;2024 with measured 2024 data in all four sectors. This is the stable public reference.
+                </div>
+            </div>
+
+            <div class="version-banner" style="background: var(--teal-soft); border-color: var(--teal);">
+                <div class="vb-tag" style="color: var(--teal);">In progress</div>
+                <div class="vb-body">
+                    <strong>v3.1 &mdash; 2025 early read</strong> (target Q2 2026). 2025 monetary data (M2, CPI) plus 2025 measurements for computing (Epoch AI) and batteries (BNEF). Published as a separate panel so the weighted 1990&ndash;2024 headline stays clean.
+                </div>
+            </div>
+
+            <div class="version-banner" style="background: var(--paper-tint); border-color: var(--line-strong);">
+                <div class="vb-tag" style="color: var(--ink-mute);">Planned</div>
+                <div class="vb-body">
+                    <strong>v4.0 &mdash; through 2025</strong> (target Q3 2026). Full recalculation of all four sectors once IRENA <em>Renewable Power Generation Costs in 2025</em> and NREL ATB 2025 publish. Headline DI extends to 2025 with all sectors populated from measured sources.
+                </div>
+            </div>
+
+            <p>Full update plan with source-by-source status: <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/operations/v3.1_2025_update_plan.md" target="_blank" rel="noopener">v3.1 2025 update plan</a>.</p>
+        </div>
+    </section>
+
+    <!-- License -->
+    <section class="body">
+        <div class="wrap">
+            <div class="section-kicker">06 · License &amp; attribution</div>
+            <h2 class="section-title"><em>Free</em> to use, with credit.</h2>
+
+            <p>The Deflation Index is released under <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong>. You can copy, redistribute, adapt, remix, and build on the data &mdash; including for commercial use &mdash; provided you credit the source.</p>
+
+            <div class="license-callout">
+                <div class="lc-label">Suggested citation</div>
+                <div class="lc-citation">
+                    The Deflation Index: Measuring Technological Progress (1990&ndash;2024), v3.0.3. Available at deflationindex.com and github.com/deflation-index/deflation-index. CC BY 4.0.
+                </div>
+            </div>
+
+            <p style="margin-top: 1.5rem;">Found a problem, want to add a sector, or have better primary data? Open an issue or send a pull request on the repo. This is an open research project; it gets better with critical readers.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="foot-inner">
+            <div class="foot-brand">
+                <a href="/" class="brand"><img src="/assets/logo/icon/di_logo_primary.svg" alt="DI"><span class="brand-text">The <em>Deflation</em> Index</span></a>
+                <p>An open research project measuring the gap between technological progress and monetary expansion.</p>
+            </div>
+            <div class="foot-links">
+                <div class="foot-col">
+                    <h4>Read</h4>
+                    <a href="/about.html">About</a>
+                    <a href="/methodology.html">Methodology</a>
+                    <a href="/faq.html">FAQ</a>
+                    <a href="/blog.html">Writing</a>
+                </div>
+                <div class="foot-col">
+                    <h4>Use</h4>
+                    <a href="/data.html">Data</a>
+                    <a href="https://github.com/deflation-index/deflation-index" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="foot-meta">
+            <div>&copy; 2026 Deflation Index. CC BY 4.0 with attribution.</div>
+            <div>v3.1 · weighted DI through 2024 · <a href="/data.html#versions">update schedule</a></div>
+        </div>
+    </footer>
+
+</body>
+</html>

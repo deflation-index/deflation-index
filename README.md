@@ -110,8 +110,9 @@ deflation-index/
 ├── blog.html                   # Blog landing page
 ├── methodology.html            # Methodology page
 ├── faq.html                    # FAQ page
-├── products.html               # Data access and API information
-├── LICENSE                     # Proprietary license
+├── data.html                   # Data, downloads, sources, versions
+├── products.html               # Redirect stub → /data.html (legacy URL)
+├── LICENSE                     # CC BY 4.0
 └── README.md                   # This file
 ```
 

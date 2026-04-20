@@ -1,36 +1,34 @@
 {
-  "version": "3.0.3",
-  "last_updated": "2026-01-10",
-  "description": "Single source of truth for Deflation Index statistics",
-  
+  "version": "3.1.1",
+  "last_updated": "2026-04-19",
+  "description": "Single source of truth for Deflation Index statistics. v3.1.1 updates the 2025 early-read block with live FRED monthly data and adds a 2025 annual average for M2 and CPI; the weighted DI remains 1990-2024 until all four sectors have measured 2025 data (expected v4.0 mid-2026).",
   "sources": {
     "m2": {
       "name": "Federal Reserve FRED Series M2SL",
       "url": "https://fred.stlouisfed.org/series/M2SL",
-      "retrieved": "2025-12-30",
-      "notes": "Seasonally adjusted, monthly data converted to annual averages"
+      "retrieved": "2026-04-20",
+      "notes": "Seasonally adjusted, monthly data. 2025 monthly series in supplemental_2025.m2.monthly_2025_billions."
     },
     "cpi": {
       "name": "Bureau of Labor Statistics CPI-U",
       "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
-      "retrieved": "2025-12-30"
+      "retrieved": "2026-04-20",
+      "notes": "Oct 2025 interpolated per supplemental_2025.cpi.data_quality_note."
     },
     "di": {
-      "name": "Deflation Index Master v3.0.2",
-      "file": "data/excel/master_deflation_index_v3.0.2.xlsx"
+      "name": "Deflation Index Master v3.0.3",
+      "file": "data/excel/master_deflation_index_v3.0.3.xlsx"
     }
   },
-
   "deflation_index": {
     "base_year": 1990,
-    "base_value": 100.00,
+    "base_value": 100.0,
     "end_year": 2024,
     "end_value": 3.74,
     "cumulative_deflation_percent": -96.25,
     "cagr_percent": -9.21,
     "description": "Technology cost index, 1990=100"
   },
-
   "m2_money_supply": {
     "base_year": 1990,
     "base_value_billions": 3276.8,
@@ -43,47 +41,186 @@
     "multiplier": 6.5,
     "description": "M2 money stock index, 1990=100, from FRED M2SL",
     "annual_data": {
-      "1990": {"value_billions": 3276.8, "index": 100.00, "yoy_percent": null},
-      "1991": {"value_billions": 3377.0, "index": 103.06, "yoy_percent": 3.06},
-      "1992": {"value_billions": 3430.3, "index": 104.68, "yoy_percent": 1.58},
-      "1993": {"value_billions": 3480.9, "index": 106.23, "yoy_percent": 1.48},
-      "1994": {"value_billions": 3496.7, "index": 106.71, "yoy_percent": 0.45},
-      "1995": {"value_billions": 3640.7, "index": 111.11, "yoy_percent": 4.12},
-      "1996": {"value_billions": 3820.1, "index": 116.58, "yoy_percent": 4.93},
-      "1997": {"value_billions": 4033.4, "index": 123.09, "yoy_percent": 5.58},
-      "1998": {"value_billions": 4377.4, "index": 133.59, "yoy_percent": 8.53},
-      "1999": {"value_billions": 4635.0, "index": 141.45, "yoy_percent": 5.88},
-      "2000": {"value_billions": 4917.2, "index": 150.06, "yoy_percent": 6.09},
-      "2001": {"value_billions": 5431.2, "index": 165.75, "yoy_percent": 10.45},
-      "2002": {"value_billions": 5784.7, "index": 176.54, "yoy_percent": 6.51},
-      "2003": {"value_billions": 6071.7, "index": 185.30, "yoy_percent": 4.96},
-      "2004": {"value_billions": 6412.2, "index": 195.69, "yoy_percent": 5.61},
-      "2005": {"value_billions": 6674.1, "index": 203.69, "yoy_percent": 4.08},
-      "2006": {"value_billions": 7033.6, "index": 214.66, "yoy_percent": 5.39},
-      "2007": {"value_billions": 7438.4, "index": 227.02, "yoy_percent": 5.76},
-      "2008": {"value_billions": 8153.7, "index": 248.85, "yoy_percent": 9.62},
-      "2009": {"value_billions": 8483.9, "index": 258.93, "yoy_percent": 4.05},
-      "2010": {"value_billions": 8662.3, "index": 264.37, "yoy_percent": 2.10},
-      "2011": {"value_billions": 9314.6, "index": 284.28, "yoy_percent": 7.53},
-      "2012": {"value_billions": 10020.8, "index": 305.83, "yoy_percent": 7.58},
-      "2013": {"value_billions": 10672.7, "index": 325.73, "yoy_percent": 6.51},
-      "2014": {"value_billions": 11361.4, "index": 346.75, "yoy_percent": 6.45},
-      "2015": {"value_billions": 12046.6, "index": 367.67, "yoy_percent": 6.03},
-      "2016": {"value_billions": 12888.0, "index": 393.34, "yoy_percent": 6.98},
-      "2017": {"value_billions": 13603.6, "index": 415.18, "yoy_percent": 5.55},
-      "2018": {"value_billions": 14254.5, "index": 435.05, "yoy_percent": 4.78},
-      "2019": {"value_billions": 14917.2, "index": 455.28, "yoy_percent": 4.65},
-      "2020": {"value_billions": 18321.7, "index": 559.19, "yoy_percent": 22.83},
-      "2021": {"value_billions": 20715.5, "index": 632.25, "yoy_percent": 13.07},
-      "2022": {"value_billions": 21321.9, "index": 650.75, "yoy_percent": 2.93},
-      "2023": {"value_billions": 20867.3, "index": 636.88, "yoy_percent": -2.13},
-      "2024": {"value_billions": 21300.0, "index": 650.20, "yoy_percent": 2.07}
+      "1990": {
+        "value_billions": 3276.8,
+        "index": 100.0,
+        "yoy_percent": null
+      },
+      "1991": {
+        "value_billions": 3377.0,
+        "index": 103.06,
+        "yoy_percent": 3.06
+      },
+      "1992": {
+        "value_billions": 3430.3,
+        "index": 104.68,
+        "yoy_percent": 1.58
+      },
+      "1993": {
+        "value_billions": 3480.9,
+        "index": 106.23,
+        "yoy_percent": 1.48
+      },
+      "1994": {
+        "value_billions": 3496.7,
+        "index": 106.71,
+        "yoy_percent": 0.45
+      },
+      "1995": {
+        "value_billions": 3640.7,
+        "index": 111.11,
+        "yoy_percent": 4.12
+      },
+      "1996": {
+        "value_billions": 3820.1,
+        "index": 116.58,
+        "yoy_percent": 4.93
+      },
+      "1997": {
+        "value_billions": 4033.4,
+        "index": 123.09,
+        "yoy_percent": 5.58
+      },
+      "1998": {
+        "value_billions": 4377.4,
+        "index": 133.59,
+        "yoy_percent": 8.53
+      },
+      "1999": {
+        "value_billions": 4635.0,
+        "index": 141.45,
+        "yoy_percent": 5.88
+      },
+      "2000": {
+        "value_billions": 4917.2,
+        "index": 150.06,
+        "yoy_percent": 6.09
+      },
+      "2001": {
+        "value_billions": 5431.2,
+        "index": 165.75,
+        "yoy_percent": 10.45
+      },
+      "2002": {
+        "value_billions": 5784.7,
+        "index": 176.54,
+        "yoy_percent": 6.51
+      },
+      "2003": {
+        "value_billions": 6071.7,
+        "index": 185.3,
+        "yoy_percent": 4.96
+      },
+      "2004": {
+        "value_billions": 6412.2,
+        "index": 195.69,
+        "yoy_percent": 5.61
+      },
+      "2005": {
+        "value_billions": 6674.1,
+        "index": 203.69,
+        "yoy_percent": 4.08
+      },
+      "2006": {
+        "value_billions": 7033.6,
+        "index": 214.66,
+        "yoy_percent": 5.39
+      },
+      "2007": {
+        "value_billions": 7438.4,
+        "index": 227.02,
+        "yoy_percent": 5.76
+      },
+      "2008": {
+        "value_billions": 8153.7,
+        "index": 248.85,
+        "yoy_percent": 9.62
+      },
+      "2009": {
+        "value_billions": 8483.9,
+        "index": 258.93,
+        "yoy_percent": 4.05
+      },
+      "2010": {
+        "value_billions": 8662.3,
+        "index": 264.37,
+        "yoy_percent": 2.1
+      },
+      "2011": {
+        "value_billions": 9314.6,
+        "index": 284.28,
+        "yoy_percent": 7.53
+      },
+      "2012": {
+        "value_billions": 10020.8,
+        "index": 305.83,
+        "yoy_percent": 7.58
+      },
+      "2013": {
+        "value_billions": 10672.7,
+        "index": 325.73,
+        "yoy_percent": 6.51
+      },
+      "2014": {
+        "value_billions": 11361.4,
+        "index": 346.75,
+        "yoy_percent": 6.45
+      },
+      "2015": {
+        "value_billions": 12046.6,
+        "index": 367.67,
+        "yoy_percent": 6.03
+      },
+      "2016": {
+        "value_billions": 12888.0,
+        "index": 393.34,
+        "yoy_percent": 6.98
+      },
+      "2017": {
+        "value_billions": 13603.6,
+        "index": 415.18,
+        "yoy_percent": 5.55
+      },
+      "2018": {
+        "value_billions": 14254.5,
+        "index": 435.05,
+        "yoy_percent": 4.78
+      },
+      "2019": {
+        "value_billions": 14917.2,
+        "index": 455.28,
+        "yoy_percent": 4.65
+      },
+      "2020": {
+        "value_billions": 18321.7,
+        "index": 559.19,
+        "yoy_percent": 22.83
+      },
+      "2021": {
+        "value_billions": 20715.5,
+        "index": 632.25,
+        "yoy_percent": 13.07
+      },
+      "2022": {
+        "value_billions": 21321.9,
+        "index": 650.75,
+        "yoy_percent": 2.93
+      },
+      "2023": {
+        "value_billions": 20867.3,
+        "index": 636.88,
+        "yoy_percent": -2.13
+      },
+      "2024": {
+        "value_billions": 21300.0,
+        "index": 650.2,
+        "yoy_percent": 2.07
+      }
     }
   },
-
   "cpi": {
     "base_year": 1990,
-    "base_index": 100.00,
+    "base_index": 100.0,
     "end_year": 2024,
     "end_index": 254.65,
     "cumulative_inflation_percent": 154.65,
@@ -91,7 +228,6 @@
     "multiplier": 2.55,
     "description": "Consumer Price Index, rebased to 1990=100"
   },
-
   "gap_analysis": {
     "di_m2_gap": {
       "annual_pp": 14.87,
@@ -105,15 +241,13 @@
       "formula": "|DI cumulative| + M2 cumulative - CPI cumulative = 96 + 550 - 155 = 491"
     }
   },
-
   "sector_weights": {
     "computing": 0.2941,
     "communications": 0.2353,
     "energy": 0.2941,
     "transportation": 0.1765,
-    "total": 1.0000
+    "total": 1.0
   },
-
   "key_statistics_for_display": {
     "hero_numbers": {
       "di_annual": "-9.21%",
@@ -126,6 +260,76 @@
       "di": "Technology made things 96% cheaper (1990-2024)",
       "m2": "Money supply expanded 550% (6.5x) over the same period",
       "gap": "The 14.9 percentage point annual gap reveals where productivity gains flow"
+    }
+  },
+  "supplemental_2025": {
+    "status": "early_read",
+    "description": "Measured 2025 monetary data from live FRED retrieval plus published 2025 sector headlines. The weighted Deflation Index remains 1990-2024; 2025 is integrated into the headline DI in v4.0 when IRENA & NREL publish (mid-2026).",
+    "retrieved": "2026-04-20",
+    "retrieval_method": "FRED CSV direct download (M2SL, CPIAUCSL)",
+    "m2": {
+      "annual_avg_2025_billions": 21967.7,
+      "annual_avg_2024_billions_fred_revised": 21133.9,
+      "yoy_2024_to_2025_percent": 3.95,
+      "index_2025_1990_base_100_fred_live": 681.75,
+      "monthly_2025_billions": {
+        "2025-01": 21547.6,
+        "2025-02": 21613.2,
+        "2025-03": 21693.5,
+        "2025-04": 21775.5,
+        "2025-05": 21833.8,
+        "2025-06": 21938.7,
+        "2025-07": 22019.9,
+        "2025-08": 22086.8,
+        "2025-09": 22169.8,
+        "2025-10": 22250.4,
+        "2025-11": 22296.5,
+        "2025-12": 22386.9
+      },
+      "dec_2025_billions": 22386.9,
+      "jan_2026_billions": 22469.1,
+      "source": "FRED M2SL (seasonally adjusted), retrieved 2026-04-20",
+      "note_on_rebasing": "Index computed against FRED-live 1990 anchor ($3,222.2B). The v3.0.3 series uses $3,276.8B for 1990; the ~1.7% difference reflects routine FRED seasonal-factor revisions and will be reconciled in the v4.0 full rebase."
+    },
+    "cpi": {
+      "annual_avg_2025": 322.186,
+      "yoy_2024_to_2025_percent": 2.71,
+      "yoy_dec_to_dec_percent": 2.7,
+      "monthly_2025": {
+        "2025-01": 318.961,
+        "2025-02": 319.679,
+        "2025-03": 319.785,
+        "2025-04": 320.302,
+        "2025-05": 320.62,
+        "2025-06": 321.435,
+        "2025-07": 322.169,
+        "2025-08": 323.291,
+        "2025-09": 324.245,
+        "2025-10": 324.654,
+        "2025-11": 325.063,
+        "2025-12": 326.031
+      },
+      "oct_2025_interpolated": 324.654,
+      "data_quality_note": "Oct 2025 CPI was not published due to the 2025 appropriations lapse. Value above is a linear interpolation between Sep 2025 (324.245) and Nov 2025 (325.063); Nov was released by BLS in a late-December 2025 update. Dec 2025 = 326.031 with revised seasonal factors.",
+      "source": "FRED CPIAUCSL, retrieved 2026-04-20; BLS CPI news release, Jan 13 2026"
+    },
+    "battery": {
+      "pack_2025_usd_per_kwh": 108,
+      "bev_2025_usd_per_kwh": 99,
+      "stationary_2025_usd_per_kwh": 70,
+      "source": "BloombergNEF 2025 Battery Price Survey, December 2025"
+    },
+    "ai_compute": {
+      "performance_per_dollar_annual_decline_percent": -37,
+      "doubling_years": 2.2,
+      "source": "Epoch AI Trends and 2025 Impact Report"
+    },
+    "pending_for_v4_0": {
+      "irena_renewable_2025": "Expected July 2026",
+      "nrel_atb_2025": "Expected late spring 2026",
+      "fcc_broadband_2025": "Expected late 2026 / early 2027",
+      "doe_transportation_edb_41": "Delayed; TEDB Edition 40 remains latest",
+      "full_rebase": "v4.0 will re-anchor 1990 to current FRED snapshot and recompute the weighted DI with 2025 sector data"
     }
   }
 }
