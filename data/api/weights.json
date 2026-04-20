@@ -33,7 +33,7 @@
       "annual_rate_pct": -9.21,
       "cumulative_pct": -96.25
     },
-    "file": "master_deflation_index_v3.0.2.xlsx",
+    "file": "master_deflation_index_v3.0.3.xlsx",
     "use_case": "Recommended default for analysis and publication"
   },
   "baseline": {
@@ -51,7 +51,7 @@
       "annual_rate_pct": -8.45,
       "cumulative_pct": -95.04
     },
-    "file": "master_deflation_index_v3.0.1_EQUAL.xlsx",
+    "file": "master_deflation_index_v3.0.3_EQUAL.xlsx",
     "use_case": "Zero-assumption baseline for robustness verification"
   },
   "sensitivity_summary": {

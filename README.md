@@ -13,8 +13,8 @@ Technology got dramatically cheaper. Computing power increased 100,000x. Solar p
 <strong>The Deflation Index measures technological cost reduction across four fundamental sectors, helping you understand where the productivity gains flow.</strong>
 </p>
 
-[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.0.3-blue.svg)](CHANGELOG.md)
+[![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-3.1.1-blue.svg)](docs/operations/CHANGELOG.md)
 [![Data Points](https://img.shields.io/badge/data%20points-400%2B-green.svg)](#)
 [![Formulas](https://img.shields.io/badge/formulas-900%2B-green.svg)](#)
 
@@ -46,7 +46,7 @@ The core question: "Technology got cheaper - where did the abundance go?"
 
 ---
 
-## 🎯 Current Scope (v3.0.3)
+## 🎯 Current Scope (v3.1.1)
 
 **Four Sectors Covered:**
 1. **Computing (29.41%)**: Cost per billion floating-point operations per second ($/GFLOPS) - 99.88% deflation
@@ -54,10 +54,10 @@ The core question: "Technology got cheaper - where did the abundance go?"
 3. **Energy (29.41%)**: Levelized cost of electricity from solar ($/kWh) - 98.42% deflation
 4. **Transportation (17.65%)**: Battery pack cost per kilowatt-hour ($/kWh) - 82.59% deflation
 
-**Time Coverage**: 1990-2024 (35 years)
+**Time Coverage**: 1990–2024 weighted index; 2025 early-read for M2 and CPI (full 2025 weighted DI arrives in v4.0, Q3 2026, gated on IRENA & NREL)
 **Data Points**: 400+ verified measurements
 **Formulas**: 900+ calculations
-**Update Frequency**: Annual major updates, quarterly refinements
+**Update Frequency**: Annual major updates, point releases for monetary-data refreshes
 
 
 
@@ -78,7 +78,7 @@ The Deflation Index measures technological cost reduction rigorously and transpa
 
 **The core insight:** Technology delivered massive deflation, but the benefits distributed unevenly, concentrating in asset prices and financial complexity rather than broad-based consumer price reductions.
 
-**Full context:** [Why Technology Matters](docs/WHY_TECHNOLOGY_MATTERS.md)
+**Full context:** [Why Technology Matters](docs/about/WHY_TECHNOLOGY_MATTERS.md)
 
 ---
 ---
@@ -91,7 +91,7 @@ deflation-index/
 │   └── logo/                   # Official logos (see assets/logo/README.md)
 ├── blog/                       # Blog posts
 ├── data/                       # Source data and calculations
-│   ├── constants.json          # Single source of truth (v3.0.3)
+│   ├── constants.json          # Single source of truth (v3.1.1)
 │   ├── api/                    # JSON data for API/integrations
 │   ├── excel/                  # Excel workbooks with formulas
 │   ├── csv/                    # Exported CSV files
@@ -124,7 +124,7 @@ deflation-index/
 
 ### Current Scope Limitations
 
-**Sectors Covered (v3.0.3)**:
+**Sectors Covered (v3.1.1)**:
 - ✅ Computing, Communications, Energy, Transportation
 - ❌ Healthcare, Education, Housing, Agriculture, Materials, Software-as-Service
 
@@ -256,6 +256,10 @@ Every Excel file includes:
 
 ### Version History
 
+**v3.1.1 (April 2026)**: Live FRED CSV retrieval of M2SL and CPIAUCSL replaced v3.1.0 press-release figures. Full 2025 monthly series for M2 and CPI added to `data/constants.json`; `data/api/m2_data.json` extended through 2025.
+
+**v3.1.0 (April 2026)**: Additive 2025 early-read release. Added `supplemental_2025` block with measured 2025 inputs (M2, CPI, battery, AI compute). Weighted DI 1990–2024 unchanged.
+
 **v3.0.3 (January 2026)**: Simplified sensitivity analysis from 4 variants to 2 methodologies (Multi-Factor + Equal-Weighted). Removed Expenditure and GDP variants pending rigorous BLS/BEA derivation in v4.0.
 
 **v3.0.2 (December 2025)**: Complete rebuild with formula-based calculations, M2 data correction from FRED M2SL, 4-decimal weight precision.
@@ -314,36 +318,32 @@ We especially value constructive criticism on methodology, data quality, and ass
 
 ## 🚀 Roadmap
 
-### v3.0.3 (Current - January 2026)
+### v3.1.1 (Current — April 2026)
 - ✅ Four sectors: Computing, Communications, Energy, Transportation
-- ✅ 35 years of data (1990-2024)
+- ✅ 1990–2024 weighted index; 2025 early-read for M2 and CPI
+- ✅ Live FRED CSV retrieval (M2SL + CPIAUCSL)
 - ✅ 900+ verified formulas
 - ✅ Complete methodology documentation
 - ✅ Simplified sensitivity analysis (2 methodologies)
 - ✅ 4-decimal weight precision
 
-### v3.1 (Q2-Q3 2026)
-- 2025 data integration
-- Minor methodology refinements
-- First annual update cycle
+### v4.0 (Q3 2026)
+- Full 2025 weighted DI recalculation
+- Gated on IRENA *Renewable Power Generation Costs in 2025* (~July 2026)
+- Gated on NREL ATB 2025 (late spring 2026)
+- Re-anchor 1990 baseline against current FRED snapshot
 
-### v3.2+ (2027)
-- Annual updates continue
-- Monthly M2/CPI tracking (automated)
-- API v1.0 launch
-
-### v4.0 (2027-2028)
+### v5.0+ (2027–2028)
 - Healthcare sector: Drug costs, medical devices, genomic sequencing
 - Education sector: Online learning, digital textbooks, MOOCs
 - Housing sector: Construction productivity, modular housing, smart home tech
 - Rebalanced weights across seven sectors
 - Rigorous BLS/BEA-derived sensitivity analyses
 
-### Phase 2 (2028+)
-- Real-time dashboard
+### Beyond
 - Geographic breakdowns (US states, international)
 - Additional sectors as methodology permits
-- Advanced API with custom queries
+- Open data API for programmatic access
 
 ---
 
@@ -363,43 +363,39 @@ We especially value constructive criticism on methodology, data quality, and ass
 
 ### Additional Resources
 - **[CHANGELOG](docs/operations/CHANGELOG.md)**: Version history and updates
-- **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute
+- **[Contributing Guidelines](docs/operations/CONTRIBUTING.md)**: How to contribute
 
 ---
 
 ## 💼 Usage & Citation
 
-### Permitted Uses
+The Deflation Index data, calculations, and methodology are licensed under
+[Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+You are free to share and adapt the material — including commercially —
+as long as you give appropriate credit.
 
-The data is currently under a proprietary license, but we strongly encourage:
-- **Academic research**: Cite the Deflation Index in papers, dissertations, publications
-- **Journalism**: Reference findings in articles and reports
-- **Policy analysis**: Use data to inform economic policy recommendations
-- **Education**: Teaching economics, monetary policy, technology trends
-- **Personal analysis**: Blog posts, social media, newsletter content
+Code in this repository is licensed under MIT.
+Brand assets (name, logo) are trademarks and governed separately — see
+[LICENSE](LICENSE) and [assets/logo/README.md](assets/logo/README.md).
 
-### Required Attribution
+### Suggested Citation
 
 ```
-The Deflation Index: Measuring Technological Progress (1990-2024)
-Deflation Index LLC, v3.0.3
-Available at: github.com/deflation-index/deflation-index
+The Deflation Index: Measuring Technological Progress (1990–2024)
+Deflation Index LLC, v3.1.1. CC BY 4.0.
+Available at: deflationindex.com and github.com/deflation-index/deflation-index
 ```
 
-### Not Permitted Without Permission
+### Common Use Cases
 
-- Commercial redistribution or resale of the data
-- Incorporation into proprietary financial products
-- Derivative indices marketed commercially
+- **Academic research** — papers, dissertations, presentations
+- **Journalism** — articles, explainers, reports
+- **Policy analysis** — briefings, testimony, white papers
+- **Education** — teaching economics, monetary policy, technology trends
+- **Commercial analysis** — investment research, sector reports, newsletters
 
-### API Access
-
-**Coming 2026-2027:**
-- Free tier: Basic access, rate-limited
-- Premium tier: Full API access ($99-299/month)
-- Institutional tier: Custom solutions ($10k-50k/year)
-
-Contact for early access or partnerships.
+There are no access tiers, rate limits, or fees. All JSON, CSV, and Excel
+files in this repo are the same data the site uses.
 
 ---
 
@@ -413,13 +409,11 @@ Contact for early access or partnerships.
 
 ## 📜 License
 
-© 2026 Deflation Index LLC. All rights reserved.
+© 2026 Deflation Index LLC. Licensed for open use.
 
-### Data & Methodology
-Data sources are publicly available. Calculations and methodology are original work subject to proprietary license with academic/journalistic use permitted with attribution.
-
-### Brand Assets
-The Deflation Index name, logo, and brand assets (located in `/assets/`) are proprietary trademarks of Deflation Index LLC. Use is permitted for attribution, academic citation, and journalistic reference. See [assets/logo/README.md](assets/logo/README.md) for usage guidelines.
+- **Code** (scripts, HTML, CSS, JS) — [MIT License](LICENSE)
+- **Data, methodology, and documentation** — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **Brand assets** (name, logo) — trademarks reserved; attribution and editorial/academic use permitted. See [assets/logo/README.md](assets/logo/README.md).
 
 See [LICENSE](LICENSE) for full terms.
 
@@ -435,6 +429,6 @@ The Deflation Index exists to provide objective, transparent, verifiable measure
 
 ---
 
-**Version**: 3.0.3  
-**Last Updated**: February 2026  
-**Next Update**: Q2-Q3 2026 (v3.1 with 2025 data)
+**Version**: 3.1.1
+**Last Updated**: April 2026
+**Next Update**: v4.0 — Q3 2026 (full 2025 weighted DI recalculation)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deflation Index - CSV Export Script v3.0.1
+Deflation Index - CSV Export Script v3.0.3
 Exports data from Excel files to CSV format
 """
 
@@ -11,7 +11,7 @@ from pathlib import Path
 def export_master_to_csv():
     """Export Master_Index sheet to CSV"""
     
-    excel_path = Path('data/excel/master_deflation_index_v3.0.1.xlsx')
+    excel_path = Path('data/excel/master_deflation_index_v3.0.3.xlsx')
     csv_path = Path('data/csv/master_di_1990_2024.csv')
     
     # Create csv directory if it doesn't exist
@@ -91,7 +91,7 @@ def main():
     """Export all data to CSV"""
     
     print("="*80)
-    print("DEFLATION INDEX - CSV EXPORT v3.0.1")
+    print("DEFLATION INDEX - CSV EXPORT v3.0.3")
     print("="*80)
     print()
     

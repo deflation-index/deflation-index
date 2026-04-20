@@ -1,7 +1,7 @@
 # Deflation Index Documentation
 
-**Version**: 3.0.3  
-**Last Updated**: January 10, 2026
+**Version**: 3.1.1  
+**Last Updated**: April 2026
 
 Welcome to the Deflation Index documentation. This index helps you navigate our comprehensive methodology, reference materials, and operational guides.
 
@@ -41,15 +41,13 @@ Overview and context documents.
 | [WHY_TECHNOLOGY_MATTERS.md](about/WHY_TECHNOLOGY_MATTERS.md) | Essay on technology as productivity driver |
 
 ### [operations/](operations/)
-Deployment, contribution, and operational guides.
+Version history, contribution, and release documentation.
 
 | Document | Description |
 |----------|-------------|
 | [CHANGELOG.md](operations/CHANGELOG.md) | Version history and changes |
 | [CONTRIBUTING.md](operations/CONTRIBUTING.md) | How to contribute |
-| [DEPLOYMENT.md](operations/DEPLOYMENT.md) | Cloudflare Pages deployment guide |
-| [QUICKSTART.md](operations/QUICKSTART.md) | 30-minute setup guide |
-| [RESEARCH_DASHBOARD.md](operations/RESEARCH_DASHBOARD.md) | Source tracking and evaluation |
+| [v3.1_release_notes.md](operations/v3.1_release_notes.md) | v3.1 / v3.1.1 release notes (2025 early-read) |
 
 ---
 
@@ -65,19 +63,18 @@ Deployment, contribution, and operational guides.
 2. Check [EXCEL_GUIDE.md](reference/EXCEL_GUIDE.md)
 3. Explore sector methodologies in [methodology/](methodology/)
 
-### Want to contribute or deploy?
+### Want to contribute?
 1. Read [CONTRIBUTING.md](operations/CONTRIBUTING.md)
-2. Follow [QUICKSTART.md](operations/QUICKSTART.md)
-3. Use [DEPLOYMENT.md](operations/DEPLOYMENT.md) for production
+2. Open an issue or PR on [GitHub](https://github.com/deflation-index/deflation-index)
 
 ---
 
-## 📊 Key Statistics (v3.0.3)
+## 📊 Key Statistics (v3.1.1, weighted DI 1990–2024)
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| DI Annual Rate | -9.21% | Master DI v3.0.2 |
-| DI Cumulative | -96.25% | Master DI v3.0.2 |
+| DI Annual Rate | -9.21% | Master DI v3.0.3 |
+| DI Cumulative | -96.25% | Master DI v3.0.3 |
 | M2 Annual Rate | +5.66% | FRED M2SL |
 | M2 Cumulative | +550.0% | FRED M2SL |
 | DI-M2 Gap | 14.9pp | Calculated |
@@ -88,7 +85,7 @@ Deployment, contribution, and operational guides.
 
 ## 🎯 Current Scope & Limitations
 
-### What's Included in v3.0.3
+### What's Included in v3.1.1
 
 The Deflation Index currently measures **four foundational technology sectors**:
 
@@ -117,7 +114,7 @@ We selected these sectors because they are **foundational technologies** that:
 
 ### What's NOT Included (Yet)
 
-**Sectors excluded from v3.0.3:**
+**Sectors excluded from v3.1.1:**
 
 | Sector | Status | Reason for Exclusion |
 |--------|--------|---------------------|
@@ -138,26 +135,30 @@ We selected these sectors because they are **foundational technologies** that:
 
 **Our expansion plan maintains quality standards while broadening coverage:**
 
-#### v3.1 (Q2 2026)
-- Quarterly data updates (no new sectors)
-- Enhanced automation and real-time pulls
-- API beta launch
+#### v3.1.1 (Current — April 2026)
+- 2025 early-read panel (M2, CPI, batteries, AI compute) added to site
+- Live FRED CSV retrieval (M2SL + CPIAUCSL)
+- Weighted 1990–2024 DI unchanged
 
-#### v4.0 (2026-2027) – Healthcare Sector
+#### v4.0 (Q3 2026) – Full 2025 recalculation
+- Rebuild weighted DI with 2025 endpoints for all four sectors
+- Gated on IRENA *Renewable Power Generation Costs in 2025* (~July 2026) and NREL ATB 2025
+
+#### v5.0 (2027-2028) – Healthcare Sector
 **Target:** Add healthcare as 5th sector
 - **Metrics:** Genomic sequencing costs ($/genome), medical imaging ($/scan), telemedicine ($/consultation)
 - **Challenge:** Isolate technology deflation from system complexity and regulatory costs
 - **Coverage:** ~50% of technological impact when combined with existing 4 sectors
 - **Methodology:** Collaborate with health economists on quality-adjusted measurements
 
-#### v4.1 (2027) – Education Sector  
+#### v5.1 (2027) – Education Sector  
 **Target:** Add education as 6th sector
 - **Metrics:** Online learning costs, digital textbook prices, AI tutoring costs
 - **Challenge:** Separate technology benefits from credential inflation
 - **Coverage:** ~55-60% of technological impact
 - **Methodology:** Work with education researchers on learning outcome measurements
 
-#### v5.0 (2028) – Housing/Construction Sector
+#### v6.0 (2028) – Housing/Construction Sector
 **Target:** Add housing as 7th sector
 - **Metrics:** Modular construction costs, building automation, smart home technology
 - **Challenge:** Isolate technology costs from land values and regulatory burdens
@@ -197,8 +198,8 @@ We provide two weighting methodologies to demonstrate robustness:
 | File | Location | Description |
 |------|----------|-------------|
 | `constants.json` | `data/constants.json` | Authoritative statistics |
-| Master Index | `data/excel/master_deflation_index_v3.0.2.xlsx` | Primary calculations |
-| Equal-Weighted | `data/excel/master_deflation_index_v3.0.1_EQUAL.xlsx` | Baseline methodology |
+| Master Index | `data/excel/master_deflation_index_v3.0.3.xlsx` | Primary calculations |
+| Equal-Weighted | `data/excel/master_deflation_index_v3.0.3_EQUAL.xlsx` | Baseline methodology |
 | Sector Files | `data/excel/[sector]_deflation_index_v1.0.xlsx` | Sector data |
 | CSV Exports | `data/csv/` | Machine-readable exports |
 

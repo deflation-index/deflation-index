@@ -1,7 +1,7 @@
 # Methodology Documentation
 
-**Version**: 3.0.2  
-**Last Updated**: December 30, 2025
+**Version**: 3.1.1  
+**Last Updated**: April 2026
 
 This folder contains the complete methodology documentation for the Deflation Index.
 
@@ -71,7 +71,7 @@ Where:
 
 ---
 
-## 🔢 Key Statistics (v3.0.2)
+## 🔢 Key Statistics (v3.1.1, weighted DI 1990–2024)
 
 ### Deflation Index
 | Metric | Value |
@@ -100,7 +100,7 @@ Where:
 ## 📁 Related Files
 
 - **Data Source**: `data/constants.json`
-- **Excel Master**: `data/excel/master_deflation_index_v3.0.1.xlsx`
+- **Excel Master**: `data/excel/master_deflation_index_v3.0.3.xlsx`
 - **Verification**: `scripts/verify_statistics.py`
 
 ---

@@ -30,7 +30,7 @@ The Deflation Index provides **two weighting approaches** to demonstrate the rob
 ## 📊 THE TWO METHODOLOGIES
 
 ### 1. DI-Multi-Factor (PRIMARY - RECOMMENDED)
-**File:** `master_deflation_index_v3.0.2.xlsx`
+**File:** `master_deflation_index_v3.0.3.xlsx`
 
 **Weights:**
 - Computing: 29.41%
@@ -64,7 +64,7 @@ The Deflation Index provides **two weighting approaches** to demonstrate the rob
 ---
 
 ### 2. DI-Equal (BASELINE)
-**File:** `master_deflation_index_v3.0.1_EQUAL.xlsx`
+**File:** `master_deflation_index_v3.0.3_EQUAL.xlsx`
 
 **Weights:**
 - Computing: 25.0%
@@ -140,8 +140,8 @@ To test your own weighting assumptions:
 
 ```
 data/excel/
-├── master_deflation_index_v3.0.2.xlsx           # Multi-Factor (Primary)
-├── master_deflation_index_v3.0.1_EQUAL.xlsx     # Equal-Weighted (Baseline)
+├── master_deflation_index_v3.0.3.xlsx           # Multi-Factor (Primary)
+├── master_deflation_index_v3.0.3_EQUAL.xlsx     # Equal-Weighted (Baseline)
 ├── computing_deflation_index_v1.0.xlsx
 ├── communications_deflation_index_v1.0.xlsx
 ├── energy_deflation_index_v1.0.xlsx

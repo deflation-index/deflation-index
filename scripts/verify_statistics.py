@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Deflation Index - Statistics Verification Script v3.0.2
+Deflation Index - Statistics Verification Script v3.0.3
 Verifies that all statistics in documentation match the actual data
 
 UPDATED: 2025-12-30
@@ -15,9 +15,9 @@ import json
 import sys
 from pathlib import Path
 
-# Expected values for v3.0.2 (FRED-verified)
+# Expected values for v3.0.3 (FRED-verified)
 EXPECTED_VALUES = {
-    # DI values (unchanged from v3.0.1)
+    # DI values (unchanged since v3.0.1)
     'cumulative_deflation': -96.26,  # Percentage
     'annual_average': -9.21,  # Percentage
     'master_di_2024': 3.74,  # Index value
@@ -71,7 +71,7 @@ def load_constants_file():
 
 def load_master_file():
     """Load the master Excel file"""
-    excel_path = Path('data/excel/master_deflation_index_v3.0.1.xlsx')
+    excel_path = Path('data/excel/master_deflation_index_v3.0.3.xlsx')
     
     if not excel_path.exists():
         print(f"❌ ERROR: Master file not found at {excel_path}")
@@ -223,7 +223,7 @@ def verify_formulas(wb):
     """Verify that Master_DI uses formulas, not hard-coded values"""
     
     # Load with formulas (not data_only)
-    excel_path = Path('data/excel/master_deflation_index_v3.0.1.xlsx')
+    excel_path = Path('data/excel/master_deflation_index_v3.0.3.xlsx')
     wb_formulas = load_workbook(excel_path, data_only=False)
     ws = wb_formulas['Master_Index']
     
@@ -284,7 +284,7 @@ def main():
     """Run all verification checks"""
     
     print("="*80)
-    print("DEFLATION INDEX v3.0.2 - STATISTICS VERIFICATION")
+    print("DEFLATION INDEX v3.0.3 - STATISTICS VERIFICATION")
     print("="*80)
     print()
     print("This version includes FRED M2SL corrections:")
@@ -348,8 +348,8 @@ def main():
         print("❌ VERIFICATION FAILED")
         print()
         print("Action required:")
-        print("1. Check data/excel/master_deflation_index_v3.0.1.xlsx")
-        print("2. Verify all statistics match expected v3.0.2 values")
+        print("1. Check data/excel/master_deflation_index_v3.0.3.xlsx")
+        print("2. Verify all statistics match expected v3.0.3 values")
         print("3. Update documentation if needed")
         return 1
     elif warnings > 0:
@@ -360,7 +360,7 @@ def main():
     else:
         print("✅ VERIFICATION PASSED")
         print()
-        print("All statistics verified correct for v3.0.2")
+        print("All statistics verified correct for v3.0.3")
         return 0
 
 if __name__ == "__main__":

@@ -528,8 +528,7 @@ deflation-index/
 ├── docs/
 │   ├── MASTER_METHODOLOGY.md
 │   ├── TRANSPORTATION_METHODOLOGY.md
-│   ├── RESEARCH_DASHBOARD.md
-│   ├── DATA_HYGIENE_STANDARDS.md
+│   ├── DATA_STANDARDS.md
 │   └── ...
 ├── public/
 │   └── [website files]
@@ -675,7 +674,7 @@ In QA_Checks sheet, create:
 - [ ] Verify all hardcoded cells have source comments
 - [ ] Check that Changelog is up to date
 - [ ] Ensure Assumptions sheet documents all judgement calls
-- [ ] Update RESEARCH_DASHBOARD.md with any new sources
+- [ ] Update `data/sources/SOURCES.md` with any new sources
 
 ### 7.5 Annual Audit (Full Review)
 

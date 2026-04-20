@@ -1,6 +1,16 @@
-MIT License
+The Deflation Index — License Terms
 
 Copyright (c) 2026 Deflation Index LLC
+
+This repository contains three kinds of material, each under a different
+license. Read the section that applies to what you want to use.
+
+================================================================================
+1. CODE  ·  MIT License
+================================================================================
+
+All source code in this repository (scripts, HTML, CSS, JavaScript, and any
+other executable or markup files) is released under the MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,39 +30,57 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+================================================================================
+2. DATA, METHODOLOGY, AND DOCUMENTATION  ·  Creative Commons Attribution 4.0
+================================================================================
 
-DATA LICENSE
+The Deflation Index data, calculations, methodology, and written documentation
+(including the JSON files under /data/, the Excel workbooks under /data/excel/,
+the Markdown files under /docs/, and the prose content of the HTML pages) are
+licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0).
 
-The Deflation Index data, calculations, and methodology are proprietary work
-of Deflation Index LLC. 
+You are free to:
+  - Share — copy and redistribute the material in any medium or format
+  - Adapt — remix, transform, and build upon the material
+  for any purpose, including commercially.
 
-Data sources cited in the documentation are from publicly available sources.
-Original analysis, calculations, and the composite Deflation Index are 
-copyright Deflation Index LLC.
+Under the following terms:
+  - Attribution — You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made. You may do so in any reasonable
+    manner, but not in any way that suggests the licensor endorses you or
+    your use.
 
-For commercial use of the data or API access, please contact:
-info@deflationindex.com
+Suggested citation:
 
----
+  The Deflation Index: Measuring Technological Progress (1990–2024),
+  Deflation Index LLC, v3.1.1. Available at deflationindex.com and
+  github.com/deflation-index/deflation-index. Licensed CC BY 4.0.
 
-BRAND ASSETS
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
 
-The Deflation Index name, logo, and other brand assets (located in /assets/) 
-are proprietary trademarks of Deflation Index LLC and are NOT covered by the 
-MIT License above.
+Underlying data sources (FRED, BLS, IRENA, NREL, BNEF, FCC, DOE, Epoch AI,
+etc.) are cited in /data/sources/SOURCES.md and retain their original licenses.
+
+================================================================================
+3. BRAND ASSETS  ·  Trademark Reserved
+================================================================================
+
+The name "The Deflation Index", the Deflation Index logo, and other brand
+assets located in /assets/ are proprietary trademarks of Deflation Index LLC
+and are NOT covered by the licenses above.
 
 Permitted uses of brand assets:
-- Attribution when citing The Deflation Index data or research
-- Academic papers, presentations, and educational materials
-- Journalism and news coverage
-- Linking to deflationindex.com or this repository
+  - Attribution when citing Deflation Index data or research
+  - Academic papers, presentations, and educational materials
+  - Journalism and news coverage
+  - Linking to deflationindex.com or this repository
 
 Not permitted without written permission:
-- Commercial use in products or services
-- Creating derivative or modified versions of the logo
-- Use implying official endorsement or affiliation
+  - Commercial use in products or services
+  - Creating derivative or modified versions of the logo
+  - Use implying official endorsement or affiliation
 
-See assets/logo/README.md for detailed usage guidelines.
+See /assets/logo/README.md for detailed usage guidelines.
 
-For brand partnership inquiries: info@deflationindex.com
+For brand-partnership inquiries: info@deflationindex.com

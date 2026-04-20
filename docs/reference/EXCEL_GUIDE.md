@@ -19,8 +19,8 @@
 4. **transportation_deflation_index_v1.0.xlsx** - Transportation sector (template)
 
 **Master Files (2 methodologies):**
-5. **master_deflation_index_v3.0.2.xlsx** - Master index (primary multi-factor weights)
-6. **master_deflation_index_v3.0.1_EQUAL.xlsx** - Equal-weighted baseline (25% each)
+5. **master_deflation_index_v3.0.3.xlsx** - Master index (primary multi-factor weights)
+6. **master_deflation_index_v3.0.3_EQUAL.xlsx** - Equal-weighted baseline (25% each)
 
 ### **Each Sector File Contains 7 Worksheets:**
 
@@ -268,7 +268,7 @@ Component weights are sector-specific and documented in each methodology file.
 
 Once all four sector files are complete (1990-2024):
 
-### **Step 1: Open master_deflation_index_v3.0.2.xlsx**
+### **Step 1: Open master_deflation_index_v3.0.3.xlsx**
 
 ### **Step 2: Link Sector Indices**
 
@@ -416,7 +416,6 @@ These reveal where technological gains flow.
 **Essential Documents:**
 - `MASTER_METHODOLOGY.md` - Cross-sector framework
 - `DATA_STANDARDS.md` - Quality protocols
-- `RESEARCH_DASHBOARD.md` - Source evaluation
 - `COMPUTING.md`, `COMMUNICATIONS.md`, `ENERGY.md`, `TRANSPORTATION.md` - Sector-specific details
 
 **Key Skills:**

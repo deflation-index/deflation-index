@@ -313,7 +313,7 @@ When healthcare, education, and housing are added:
 
 ### Equal-Weighted Baseline
 
-**File**: `master_deflation_index_v3.0.1_EQUAL.xlsx`
+**File**: `master_deflation_index_v3.0.3_EQUAL.xlsx`
 
 **Weights**:
 - Computing: 25%
@@ -474,8 +474,8 @@ The sensitivity analysis shows: even with equal weighting (zero assumptions), th
 info@deflationindex.com
 
 **For detailed calculations and source files, see:**
-- `/data/excel/master_deflation_index_v3.0.2.xlsx` (Primary)
-- `/data/excel/master_deflation_index_v3.0.1_EQUAL.xlsx` (Baseline)
+- `/data/excel/master_deflation_index_v3.0.3.xlsx` (Primary)
+- `/data/excel/master_deflation_index_v3.0.3_EQUAL.xlsx` (Baseline)
 
 **For BEA data sources:**
 - Industry Economic Accounts: https://www.bea.gov/data/industries

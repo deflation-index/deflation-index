@@ -1,153 +1,89 @@
 # Contributing to The Deflation Index
 
-Thank you for your interest in contributing to The Deflation Index!
+Thanks for being here. The Deflation Index is an open research project, and
+contributions — from typo fixes to new sector proposals — are welcome.
 
-## Current Status
+The project is licensed CC BY 4.0 (data, methodology, and documentation) and
+MIT (code). By contributing, you agree your contributions are offered under
+the same terms.
 
-This is currently a solo research project by Deflation Index LLC. We're not accepting code contributions at this time, but we welcome:
+## Ways to contribute
 
-## How You Can Help
+### Pull requests welcome
 
-### 1. Data Corrections
-Found an error in our data or calculations?
-- Open a GitHub issue with:
-  - Specific data point in question
-  - Correct value with source citation
-  - Link to authoritative source
+We accept pull requests for:
 
-### 2. Methodology Feedback
-Have suggestions for improving our methodology?
-- Open a GitHub issue labeled "methodology"
-- Explain the issue
-- Propose alternative approach
-- Cite relevant academic research
+- **Data corrections** — if you can point to a better source for a specific data point, open a PR that updates the underlying CSV/JSON/Excel cell and cites the source in the commit message.
+- **Methodology improvements** — weight justifications, sector definitions, calculation refinements. Back significant changes with a note in the PR description explaining the rationale and any impact on headline numbers.
+- **Code** — scripts, site fixes, visualization improvements, accessibility and performance work. Small PRs merge faster than sprawling ones.
+- **Documentation** — typos, clarifications, reorganization, examples, translations.
+- **Tests & verification** — anything that makes it easier to reproduce or audit the calculations.
 
-### 3. Additional Sectors
-Think we should track another sector?
-- Open a GitHub issue labeled "new sector"
-- Explain why it's important
-- Suggest data sources
-- Outline measurement approach
+Open a PR directly, or open an issue first if you want to scope-check a larger change. We respond in days, not hours, but we do respond.
 
-### 4. Bug Reports
-Found a bug on the website?
-- Open a GitHub issue with:
-  - Browser and version
-  - Steps to reproduce
-  - Expected vs actual behavior
-  - Screenshots if applicable
+### Issues welcome
 
-### 5. Feature Requests
-Have an idea for improvement?
-- Open a GitHub issue labeled "enhancement"
-- Describe the feature
-- Explain the use case
-- Consider implementation complexity
+If you don't want to write code, open a GitHub issue. Useful issues include:
 
-## Data Standards
+- **Bug reports** — something on the site or in the data that's wrong or broken. Include browser/OS if it's a site bug, and the exact cell or path if it's a data bug.
+- **Data concerns** — "I think 2015 solar costs look too low, here's the source I checked against."
+- **Methodology challenges** — "Your weight for transportation ignores X, here's why it matters."
+- **Sector proposals** — "You should measure healthcare / education / housing / agriculture. Here's a candidate data source."
+- **Feature requests** — chart types, data views, API endpoints, integrations.
 
-If proposing data changes:
+## What makes a good data-correction PR
 
-✅ **Good Sources:**
-- Government agencies (BLS, Fed, IEA, etc.)
-- Academic peer-reviewed papers
-- Industry reports from established firms
-- Open data projects with methodology
+Be specific:
 
-❌ **Avoid:**
-- Blog posts without citations
-- Single-source claims
-- Paywalled data we can't verify
-- Politically motivated sources
+- **Which data point** — e.g. `data/excel/energy_deflation_index_v1.0.xlsx`, sheet `Master_Data`, row for year 1995, column `Solar $/W`.
+- **Current value** — `$15.00 / watt`
+- **Proposed value** — `$11.85 / watt`
+- **Source** — IRENA *Renewable Power Generation Costs in 2024*, Table 3.2, page 47. URL if it's online.
+- **Why the current value is wrong** — transcription error? superseded source? methodology shift?
 
-## Code of Conduct
+Changes that move a headline number (annual rate, cumulative deflation, any sector total) should also update `data/constants.json` and the relevant Markdown docs. If that sounds like a lot, it's fine to open an issue instead and let us handle the downstream propagation.
 
-### Be Respectful
-- This is economic analysis, not political advocacy
-- Critique ideas, not people
-- Assume good faith
-- Stay focused on data and methodology
+## Source quality standards
 
-### Be Constructive
-- Propose alternatives, not just criticisms
-- Provide sources for claims
-- Acknowledge limitations
-- Consider feasibility
+Preferred:
 
-### Be Honest
-- Admit uncertainty where it exists
-- Don't cherry-pick data
-- Present conflicting evidence
-- Update views with new information
+- Government agencies (BLS, Federal Reserve/FRED, DOE, FCC, BEA, EIA)
+- International bodies (IRENA, IEA, World Bank, IMF)
+- Peer-reviewed research
+- Industry reports from established firms with transparent methodology (BloombergNEF, NREL, Epoch AI, Wood Mackenzie)
+- Company 10-K filings and SEC disclosures
 
-## Issue Templates
+Avoid:
 
-### Data Correction
-```markdown
-**Data Point**: [e.g., "1995 Solar cost per watt"]
-**Current Value**: [$15/watt]
-**Correct Value**: [$12/watt]
-**Source**: [Link to IRENA report, page XX]
-**Notes**: [Any additional context]
-```
+- Blog posts without primary-source citations
+- Single-source claims where the claim is novel
+- Paywalled data we can't link to or reproduce
+- Politically motivated aggregations
 
-### Methodology Suggestion
-```markdown
-**Current Approach**: [Brief description]
-**Issue**: [What's problematic]
-**Proposed Change**: [Alternative approach]
-**Supporting Research**: [Citations]
-**Impact**: [How it changes results]
-```
+## Code style
 
-### Bug Report
-```markdown
-**Description**: [What's wrong]
-**Browser**: [Chrome 120, Safari 17, etc.]
-**Steps to Reproduce**:
-1. Go to...
-2. Click on...
-3. See error
+- HTML/CSS/JS: match the existing files. Design system uses Fraunces (display), Inter (body), IBM Plex Mono (data/labels) and a paper/ink/gold/teal palette — variables are at the top of each HTML file.
+- Python scripts: follow the conventions in existing scripts under `/scripts/`. Prefer `pandas` for tabular work, keep functions small, and document assumptions inline.
+- Commit messages: short imperative subject line, then a paragraph explaining the why. Reference the issue if one exists.
 
-**Expected**: [What should happen]
-**Actual**: [What actually happens]
-**Screenshots**: [If applicable]
-```
+## Code of conduct
 
-## Response Time
-
-We aim to respond to:
-- **Critical bugs**: Within 24 hours
-- **Data corrections**: Within 1 week
-- **Feature requests**: Within 2 weeks
-- **Methodology discussions**: Ongoing
-
-## Future Collaboration
-
-As The Deflation Index grows, we may open up more opportunities:
-- Guest blog posts
-- Research partnerships
-- API development
-- Additional indices
-
-Interested? Email: contact@deflationindex.com
+- **Critique ideas, not people.** This is economic analysis, not culture war.
+- **Cite your claims.** "I think X" is fine; "X is true because of Y source" is better.
+- **Acknowledge uncertainty.** The index has limitations; we document them and we're honest about them.
+- **Assume good faith.** If a number looks wrong, the likeliest explanation is a mistake, not malice.
 
 ## Recognition
 
-Contributors who provide significant improvements will be credited:
-- In commit messages
-- In CHANGELOG.md
-- On deflationindex.com (if appropriate)
+Significant contributions are credited in:
 
-## License
+- The commit history
+- `docs/operations/CHANGELOG.md`
+- Occasionally the blog and site, when the contribution is of public interest
 
-By contributing, you agree that your contributions will be licensed under the same terms as the project (see LICENSE file).
+## Questions
 
----
+- Technical or methodological: open a GitHub issue.
+- Everything else: `info@deflationindex.com`
 
-## Questions?
-
-**Technical**: Open a GitHub issue  
-**Other**: contact@deflationindex.com
-
-Thank you for helping make The Deflation Index more accurate and useful!
+Thanks for helping make this more accurate, more useful, and more open.
