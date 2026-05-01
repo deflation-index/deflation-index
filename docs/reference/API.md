@@ -30,7 +30,7 @@ All data is available for download in Excel format with full formulas and docume
 - M2 and CPI comparison data
 - Complete methodology and source citations
 
-→ **[Download from data page](https://deflationindex.com/data.html)**
+→ **[Methodology & downloads](https://deflationindex.com/#/method)**
 
 ### Why Downloads May Be Sufficient
 

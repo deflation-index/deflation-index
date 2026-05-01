@@ -31,16 +31,23 @@ Contrast: Ink on Paper = 14.2:1 (WCAG AAA). Gold on Paper = 4.9:1 (WCAG AA for n
 
 ## Files
 
-### Icon (`assets/logo/icon/`)
+### In-product (`assets/logo/`)
 
 | File | Dimensions | Use |
 |------|------------|-----|
-| `di_logo_primary.svg` | 400×400 (scalable) | **Primary** — hero, OG cards, anywhere a framed mark reads well |
-| `di_logo_no_border.svg` | 400×400 (scalable) | Header / nav / inline placements where a border would compete |
+| `di_logo_no_border.svg` | 400×400 (scalable) | **Primary in-product mark** — site nav, footer, inline placements; paper-background variant of the serif mark |
+| `di_logo_32.png` | 32×32 | Small favicon |
+| `di_logo_64.png` | 64×64 | Large favicon, Apple touch icon |
+
+### Marks archive (`assets/logo/marks/`) — for OG cards, social avatars, print, one-color contexts
+
+| File | Dimensions | Use |
+|------|------------|-----|
+| `di_logo_primary.svg` | 400×400 (scalable) | Bordered variant — formal contexts, framed presentations |
 | `di_logo_black.svg` | 400×400 (scalable) | Monochrome (ink-only, transparent) — print, dark backgrounds, one-color contexts |
-| `di_logo_512.png` | 512×512 | Raster of the no-border mark |
+| `di_logo_512.png` | 512×512 | Raster of the bordered mark |
 | `di_logo_social_profile.png` | 512×512 | Social avatars — bordered variant, paper background baked in |
-| `di_logo_og.png` | 1200×1200 | Open Graph / link previews |
+| `di_logo_og.png` | 1200×1200 | Open Graph / link previews (referenced from `index.html` meta tags) |
 | `di_logo_black_512.png` | 512×512 | Raster of the monochrome mark |
 
 ### Favicons (repository root)
@@ -48,25 +55,23 @@ Contrast: Ink on Paper = 14.2:1 (WCAG AAA). Gold on Paper = 4.9:1 (WCAG AA for n
 | File | Size | Use |
 |------|------|-----|
 | `favicon.ico` | Multi-size | Browser tab icon |
-| `di_logo_32.png` | 32×32 | Small favicon |
-| `di_logo_64.png` | 64×64 | Large favicon, Apple touch icon |
 
 ### Implementation
 
 ```html
-<!-- Nav header (no border reads cleaner at small sizes) -->
-<img src="/assets/logo/icon/di_logo_no_border.svg"
+<!-- Site nav / footer / in-product (no border, paper background baked in) -->
+<img src="/assets/logo/di_logo_no_border.svg"
      alt="The Deflation Index" height="40">
 
-<!-- Hero / marketing surface (bordered) -->
-<img src="/assets/logo/icon/di_logo_primary.svg"
+<!-- Hero / marketing surface (bordered, formal) -->
+<img src="/assets/logo/marks/di_logo_primary.svg"
      alt="The Deflation Index" height="120">
 
 <!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/di_logo_32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/di_logo_64.png">
-<link rel="apple-touch-icon" href="/di_logo_64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/di_logo_32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/logo/di_logo_64.png">
+<link rel="apple-touch-icon" href="/assets/logo/di_logo_64.png">
 ```
 
 Minimum display height: 24px digital, 0.35" print.
