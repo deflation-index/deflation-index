@@ -9,8 +9,10 @@ What this does
 3. Linearly interpolates the Oct and Nov 2025 CPI values (they are missing
    from BLS due to the 2025 appropriations lapse). The interpolation uses
    the Sep 2025 and Dec 2025 measured values as endpoints.
-4. Updates data/constants.json and data/m2_data.json in place, bumping
-   version to 3.1 and last_updated to today.
+4. Updates data/constants.json and data/api_legacy_v3.0/m2_data.json in
+   place, bumping version to 3.1 and last_updated to today.
+   (m2_data.json moved into api_legacy_v3.0/ during the site v2 migration;
+   it remains the canonical M2 archive for v3.0/v3.1.)
 5. Writes docs/operations/v3.1_release_notes.md with the new values and
    retrieval timestamps.
 6. Does NOT touch any Excel workbook — those are rebuilt separately.
@@ -43,7 +45,7 @@ except ImportError:
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONSTANTS_PATH = REPO_ROOT / "data" / "constants.json"
-M2_PATH = REPO_ROOT / "data" / "m2_data.json"
+M2_PATH = REPO_ROOT / "data" / "api_legacy_v3.0" / "m2_data.json"
 RELEASE_NOTES_PATH = REPO_ROOT / "docs" / "operations" / "v3.1_release_notes.md"
 
 FRED_M2_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=M2SL"
