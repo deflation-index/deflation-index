@@ -328,7 +328,7 @@ function ExploreV2({ T }) {
 // =====================================================================
 // STORIES INDEX
 // =====================================================================
-function StoriesV2({ T }) {
+function StoriesV2({ T, nav }) {
   return (
     <div style={{background:T.bg, color:T.ink, fontFamily:T.sans, padding:'3rem 1.5rem 5rem'}}>
       <div style={{maxWidth:780, margin:'0 auto'}}>
@@ -342,12 +342,14 @@ function StoriesV2({ T }) {
         <div style={{display:'flex', flexDirection:'column', gap:'1rem'}}>
           {DIp.stories.map((st,i)=>(
             <RevealP key={st.slug} delay={i*60}>
-              <a href="#" onClick={(e)=>e.preventDefault()} style={{
-                display:'block', background:T.bg, border:`1px solid ${T.line}`, borderRadius:14,
-                padding:'1.6rem 1.8rem', textDecoration:'none', color:T.ink, transition:'border-color .2s, transform .2s'
-              }}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor=T.accent;e.currentTarget.style.transform='translateX(4px)';}}
-              onMouseLeave={e=>{e.currentTarget.style.borderColor=T.line;e.currentTarget.style.transform='none';}}>
+              <a href={'#/stories/'+st.slug}
+                 onClick={(e)=>{ if(nav){ e.preventDefault(); nav('stories/'+st.slug); } }}
+                 style={{
+                   display:'block', background:T.bg, border:`1px solid ${T.line}`, borderRadius:14,
+                   padding:'1.6rem 1.8rem', textDecoration:'none', color:T.ink, transition:'border-color .2s, transform .2s'
+                 }}
+                 onMouseEnter={e=>{e.currentTarget.style.borderColor=T.accent;e.currentTarget.style.transform='translateX(4px)';}}
+                 onMouseLeave={e=>{e.currentTarget.style.borderColor=T.line;e.currentTarget.style.transform='none';}}>
                 <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', gap:'1rem', marginBottom:'.5rem'}}>
                   <span style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.1em', textTransform:'uppercase', color:T.accent}}>{st.kicker}</span>
                   <span style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute}}>{st.readMins} min read</span>
@@ -358,6 +360,92 @@ function StoriesV2({ T }) {
             </RevealP>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+// =====================================================================
+// STORY DETAIL — fetches data/stories/<slug>.md and renders via marked
+// =====================================================================
+function StoryDetailV2({ slug, T, nav }) {
+  const story = DIp.stories.find(s => s.slug === slug);
+  const [body, setBody] = React.useState(null);
+  const [err, setErr]   = React.useState(null);
+
+  React.useEffect(() => {
+    let cancelled = false;
+    setBody(null); setErr(null);
+    fetch('data/stories/' + slug + '.md', { cache: 'no-cache' })
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(txt => { if (!cancelled) setBody(txt); })
+      .catch(e   => { if (!cancelled) setErr(String(e.message || e)); });
+    return () => { cancelled = true; };
+  }, [slug]);
+
+  if (!story) {
+    return (
+      <div style={{background:T.bg, color:T.ink, fontFamily:T.sans, padding:'4rem 1.5rem 6rem', textAlign:'center'}}>
+        <div style={{maxWidth:560, margin:'0 auto'}}>
+          <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.6rem'}}>Story not found</div>
+          <h1 style={{fontFamily:T.font, fontSize:'2.2rem', fontWeight:400, letterSpacing:'-.02em', margin:'0 0 1rem'}}>That essay doesn't exist.</h1>
+          <a href="#/stories" onClick={(e)=>{e.preventDefault(); nav && nav('stories');}}
+             style={{color:T.accent, textDecoration:'underline', textUnderlineOffset:'2px'}}>← All stories</a>
+        </div>
+      </div>
+    );
+  }
+
+  const html = (body && window.marked) ? window.marked.parse(body) : '';
+
+  // Scoped prose typography keyed off .di-prose so the markdown HTML inherits
+  // the same Fraunces/Inter rhythm as the rest of the site.
+  const proseStyle = `
+    .di-prose { font-family: ${T.sans}; color: ${T.inkSoft}; font-size: 1.06rem; line-height: 1.75; }
+    .di-prose p { margin: 0 0 1.15rem; }
+    .di-prose strong { color: ${T.ink}; font-weight: 600; }
+    .di-prose em { font-style: italic; }
+    .di-prose h2 { font-family: ${T.font}; color: ${T.ink}; font-size: 1.55rem; font-weight: 500; letter-spacing: -.01em; margin: 2.4rem 0 .8rem; }
+    .di-prose h3 { font-family: ${T.font}; color: ${T.ink}; font-size: 1.2rem; font-weight: 500; margin: 2rem 0 .6rem; }
+    .di-prose ul, .di-prose ol { margin: 0 0 1.2rem; padding-left: 1.4rem; }
+    .di-prose li { margin: .35rem 0; }
+    .di-prose a { color: ${T.accent}; text-decoration: underline; text-underline-offset: 2px; }
+    .di-prose hr { border: 0; border-top: 1px solid ${T.line}; margin: 2rem 0; }
+    .di-prose blockquote { border-left: 3px solid ${T.accent}; margin: 1.4rem 0; padding: .2rem 0 .2rem 1.2rem; color: ${T.inkSoft}; font-style: italic; }
+    .di-prose code { font-family: ${T.mono}; font-size: .9em; background: ${T.bgAlt}; padding: .1rem .35rem; border-radius: 4px; }
+  `;
+
+  return (
+    <div style={{background:T.bg, color:T.ink, fontFamily:T.sans, padding:'2.5rem 1.5rem 5rem'}}>
+      <style>{proseStyle}</style>
+      <div style={{maxWidth:680, margin:'0 auto'}}>
+        <RevealP>
+          <a href="#/stories" onClick={(e)=>{e.preventDefault(); nav && nav('stories');}}
+             style={{display:'inline-block', fontFamily:T.mono, fontSize:'.78rem', color:T.inkMute, textDecoration:'none', letterSpacing:'.04em', marginBottom:'1.6rem'}}
+             onMouseEnter={e=>{e.currentTarget.style.color=T.accent;}}
+             onMouseLeave={e=>{e.currentTarget.style.color=T.inkMute;}}>← All stories</a>
+
+          <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', gap:'1rem', marginBottom:'.8rem'}}>
+            <span style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent}}>{story.kicker}</span>
+            <span style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute}}>{story.readMins} min read</span>
+          </div>
+          <h1 style={{fontFamily:T.font, fontSize:'clamp(2rem,4.5vw,3rem)', fontWeight:400, letterSpacing:'-.02em', margin:'0 0 .8rem', lineHeight:1.15}}>{story.title}</h1>
+          <p style={{color:T.inkSoft, fontSize:'1.15rem', maxWidth:'58ch', margin:'0 0 2.4rem', lineHeight:1.55}}>{story.dek}</p>
+        </RevealP>
+
+        {err && (
+          <div style={{padding:'1.4rem', background:T.bgAlt, borderRadius:12, fontFamily:T.mono, fontSize:'.85rem', color:T.inkSoft}}>
+            Couldn't load this story ({err}). If you're viewing locally, make sure you're serving the folder over HTTP rather than opening index.html directly.
+          </div>
+        )}
+        {!err && body == null && (
+          <div style={{padding:'1.4rem', fontFamily:T.mono, fontSize:'.85rem', color:T.inkMute}}>Loading…</div>
+        )}
+        {!err && body != null && (
+          <RevealP>
+            <div className="di-prose" dangerouslySetInnerHTML={{__html: html}}/>
+          </RevealP>
+        )}
       </div>
     </div>
   );
@@ -472,4 +560,5 @@ window.AbundanceV2Sectors = SectorsIndexV2;
 window.AbundanceV2Sector = SectorPageV2;
 window.AbundanceV2Explore = ExploreV2;
 window.AbundanceV2Stories = StoriesV2;
+window.AbundanceV2Story = StoryDetailV2;
 window.AbundanceV2Method = MethodV2;

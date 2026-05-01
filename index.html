@@ -84,6 +84,9 @@
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
+<!-- marked (markdown → HTML for Stories) -->
+<script src="https://unpkg.com/marked@12.0.2/lib/marked.umd.js" integrity="sha384-1k2MTWjtw1PI6EOZEAvwL3bDoJfybbsEJcaXqsRTurALpMRRfQwza/nvaUQ7S/CQ" crossorigin="anonymous"></script>
+
 <script src="src/data.js"></script>
 <script type="text/babel" src="src/DIChart.jsx"></script>
 <script type="text/babel" src="src/abundance-v2.jsx"></script>
@@ -154,7 +157,8 @@
     else if (page === 'sectors' && sub) content = <window.AbundanceV2Sector id={sub} T={T} nav={nav}/>;
     else if (page === 'sectors') content = <window.AbundanceV2Sectors T={T} nav={nav}/>;
     else if (page === 'explore') content = <window.AbundanceV2Explore T={T}/>;
-    else if (page === 'stories') content = <window.AbundanceV2Stories T={T}/>;
+    else if (page === 'stories' && sub) content = <window.AbundanceV2Story slug={sub} T={T} nav={nav}/>;
+    else if (page === 'stories') content = <window.AbundanceV2Stories T={T} nav={nav}/>;
     else if (page === 'method') content = <window.AbundanceV2Method T={T}/>;
     else content = <window.AbundanceV2Home nav={nav} T={T}/>;
 
