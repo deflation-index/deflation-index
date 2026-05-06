@@ -235,17 +235,20 @@ function NavV2({ route, nav, T, mobile=false }) {
   const [page] = route.split('/');
   const L = [['home','Home'],['sectors','Sectors'],['explore','Explore'],['stories','Stories'],['method','Method']];
   if (mobile) {
+    // Bottom tab bar — visibility controlled by CSS (.di-show-mobile).
     return (
-      <div style={{
+      <div className="di-show-mobile" style={{
         position:'fixed', bottom:0, left:0, right:0, zIndex:50,
         background:T.bg, borderTop:`1px solid ${T.line}`,
-        padding:'.4rem .6rem .7rem', display:'flex', justifyContent:'space-around',
+        padding:'.4rem .4rem max(.7rem, env(safe-area-inset-bottom))',
+        justifyContent:'space-around',
       }}>
         {L.map(([k,lbl])=>(
-          <button key={k} onClick={()=>nav(k)} style={{
+          <button key={k} onClick={()=>nav(k)} className="di-tap" style={{
             border:'none', background:'transparent', color:page===k?T.accent:T.inkMute,
-            fontFamily:T.sans, fontSize:'.72rem', fontWeight:600,
-            display:'flex', flexDirection:'column', alignItems:'center', gap:2, padding:'.3rem .5rem', cursor:'pointer'
+            fontFamily:T.sans, fontSize:'.7rem', fontWeight:600,
+            display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:3,
+            padding:'.4rem .25rem', cursor:'pointer', flex:'1 1 0', minWidth:0
           }}>
             <span style={{
               width:5, height:5, borderRadius:'50%',
@@ -257,14 +260,15 @@ function NavV2({ route, nav, T, mobile=false }) {
       </div>
     );
   }
+  // Top bar — logo always visible; pill nav hides on phones via .di-hide-mobile.
   return (
     <nav style={{position:'sticky', top:0, zIndex:50, background:'rgba(255,248,239,0.92)', backdropFilter:'blur(12px) saturate(160%)', borderBottom:`1px solid ${T.line}`}}>
-      <div style={{maxWidth:1200, margin:'0 auto', padding:'.95rem 1.5rem', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-        <a href="#/home" onClick={(e)=>{e.preventDefault();nav('home');}} style={{display:'flex', alignItems:'center', gap:'.55rem', textDecoration:'none', color:T.ink, fontFamily:T.font, fontWeight:500, fontSize:'1.18rem'}}>
-          <img src="assets/logo/di_logo_no_border.svg" alt="" style={{height:34, width:34, display:'block', borderRadius:6}}/>
-          <span>The Deflation Index</span>
+      <div style={{maxWidth:1200, margin:'0 auto', padding:'.85rem 1.25rem', display:'flex', justifyContent:'space-between', alignItems:'center', gap:'1rem'}}>
+        <a href="#/home" onClick={(e)=>{e.preventDefault();nav('home');}} style={{display:'flex', alignItems:'center', gap:'.55rem', textDecoration:'none', color:T.ink, fontFamily:T.font, fontWeight:500, fontSize:'clamp(1rem, 3.5vw, 1.18rem)', minWidth:0}}>
+          <img src="assets/logo/di_logo_no_border.svg" alt="" style={{height:32, width:32, display:'block', borderRadius:6, flexShrink:0}}/>
+          <span style={{whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>The Deflation Index</span>
         </a>
-        <div style={{display:'flex', alignItems:'center', gap:'.4rem'}}>
+        <div className="di-hide-mobile" style={{alignItems:'center', gap:'.4rem'}}>
           <div style={{display:'flex', gap:'.3rem', background:T.bgAlt, padding:4, borderRadius:999}}>
             {L.map(([k,lbl]) => (
               <a key={k} href={'#/'+k} onClick={(e)=>{e.preventDefault();nav(k);}}
@@ -304,7 +308,7 @@ function ThenNowV2({ entry, T, onClick }) {
           <div style={{fontFamily:T.font, fontSize:'1.5rem', fontWeight:600, color:T.accent2, marginTop:'.15rem'}}>{compact(entry.now)} <span style={{fontSize:'.85rem', color:T.inkMute}}>{entry.unit}</span></div>
         </div>
       </div>
-      <div style={{marginTop:'1rem', fontSize:'.85rem', color:T.inkMute, lineHeight:1.5, display:'grid', gridTemplateColumns:'1fr 1fr', gap:'.5rem'}}>
+      <div className="di-cols-1to2" style={{marginTop:'1rem', fontSize:'.85rem', color:T.inkMute, lineHeight:1.5, gap:'.5rem'}}>
         <div>{entry.thenText}</div>
         <div style={{color:T.accent2}}>{entry.nowText}</div>
       </div>
@@ -320,6 +324,7 @@ function ThenNowV2({ entry, T, onClick }) {
 // ============================================================
 function HomeV2({ nav, T }) {
   const H = DI2.headline;
+  const isMobile = window.AbundanceV2UseIsMobile ? window.AbundanceV2UseIsMobile() : false;
   const [diRef, diVal] = useCountUp(96.25, {decimals:1, suffix:'%'});
   const [m2Ref, m2Val] = useCountUp(550, {suffix:'%'});
   const [cpiRef, cpiVal] = useCountUp(155, {suffix:'%'});
@@ -343,7 +348,7 @@ function HomeV2({ nav, T }) {
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <h1 style={{fontFamily:T.font, fontWeight:400, fontSize:'clamp(2.8rem,6.2vw,5.4rem)', lineHeight:1.0, letterSpacing:'-.025em', margin:'0 0 1.6rem'}}>
+            <h1 style={{fontFamily:T.font, fontWeight:400, fontSize:'clamp(2rem,6.2vw,5.4rem)', lineHeight:1.05, letterSpacing:'-.025em', margin:'0 0 1.6rem'}}>
               Technology got <span style={{fontStyle:'italic', color:T.accent, fontWeight:500}}>radically cheaper.</span><br/>
               Here's where the abundance went.
             </h1>
@@ -355,8 +360,8 @@ function HomeV2({ nav, T }) {
           </Reveal>
           <Reveal delay={220}>
             <div style={{display:'flex', gap:'.7rem', flexWrap:'wrap'}}>
-              <button onClick={()=>nav('explore')} style={{padding:'1rem 1.6rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>Explore the data →</button>
-              <button onClick={()=>nav('method')} style={{padding:'1rem 1.6rem', background:'transparent', color:T.ink, border:`1.5px solid ${T.ink}`, borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>How it's built</button>
+              <button onClick={()=>nav('explore')} className="di-tap-pill" style={{padding:'1rem 1.6rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>Explore the data →</button>
+              <button onClick={()=>nav('method')} className="di-tap-pill" style={{padding:'1rem 1.6rem', background:'transparent', color:T.ink, border:`1.5px solid ${T.ink}`, borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>How it's built</button>
             </div>
           </Reveal>
         </div>
@@ -371,7 +376,7 @@ function HomeV2({ nav, T }) {
             <p style={{color:T.inkSoft, fontSize:'1.1rem', marginTop:'.6rem', maxWidth:'52ch', marginInline:'auto'}}>Same hundred dollars. Different decade. The unit on the box is the same; the multiplier is real.</p>
           </div>
         </Reveal>
-        <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:'1.2rem'}}>
+        <div className="di-cols-1to4" style={{gap:'1.2rem'}}>
           {DI2.sectors.map((s,i)=>{
             const Hero = HEROES[s.id];
             return (
@@ -407,7 +412,7 @@ function HomeV2({ nav, T }) {
               <h2 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0, color:T.bg}}>Four numbers, three decades.</h2>
             </div>
           </Reveal>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:'2rem'}}>
+          <div className="di-cols-1to4" style={{gap:'2rem'}}>
             {[
               {label:'Tech got cheaper', val:'96.5', sym:'−', suffix:'%', color:T.accent2, ref:diRef, anim:diVal, sub:'Deflation Index, weighted'},
               {label:'Money supply', val:'576', sym:'+', suffix:'%', color:T.accent, ref:m2Ref, anim:m2Val, sub:'M2, FRED measured'},
@@ -438,8 +443,8 @@ function HomeV2({ nav, T }) {
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:20, padding:'1.8rem'}}>
-            <DIChart theme={T} height={420} annotations={[{year:2008, label:'GFC'}, {year:2020, label:'M2 +24%'}, {year:2025, label:'2025 ER'}]}/>
+          <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:20, padding: isMobile ? '1.1rem' : '1.8rem'}}>
+            <DIChart theme={T} height={isMobile ? 300 : 420} annotations={[{year:2008, label:'GFC'}, {year:2020, label:'M2 +24%'}, {year:2025, label:'2025 ER'}]}/>
           </div>
         </Reveal>
       </section>
@@ -453,7 +458,7 @@ function HomeV2({ nav, T }) {
             <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch'}}>Same money. Same unit of capability. The multiplier is what technology bought you.</p>
           </div>
         </Reveal>
-        <div style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:'1.1rem'}}>
+        <div className="di-cols-1to2" style={{gap:'1.1rem'}}>
           {DI2.dollarTest.map((it,i)=>(
             <Reveal key={it.id} delay={i*70}>
               <ThenNowV2 entry={it} T={T} onClick={()=>nav('explore')}/>
@@ -471,15 +476,15 @@ function HomeV2({ nav, T }) {
           </div>
         </Reveal>
         <div style={{position:'relative'}}>
-          <div style={{position:'absolute', left:'92px', top:8, bottom:8, width:2, background:T.line}}/>
+          <div className="di-timeline-line" style={{position:'absolute', top:8, bottom:8, width:2, background:T.line}}/>
           {DI2.timeline.map((t, i) => (
             <Reveal key={i} delay={i*60}>
-              <div style={{display:'grid', gridTemplateColumns:'68px 1fr', gap:'2.6rem', marginBottom:'2rem', alignItems:'flex-start'}}>
-                <div style={{fontFamily:T.font, fontSize:'1.7rem', fontWeight:500, color:T.accent, lineHeight:.95, position:'relative', textAlign:'right'}}>
+              <div className="di-timeline-row" style={{marginBottom:'2rem', alignItems:'flex-start'}}>
+                <div style={{fontFamily:T.font, fontSize:'clamp(1.4rem, 4vw, 1.7rem)', fontWeight:500, color:T.accent, lineHeight:.95, position:'relative', textAlign:'right'}}>
                   {t.year}
-                  <div style={{position:'absolute', right:-31, top:8, width:14, height:14, borderRadius:'50%', background:T.bg, border:`3px solid ${T.accent}`}}/>
+                  <div style={{position:'absolute', right:'calc(-50% + 6px)', top:8, width:14, height:14, borderRadius:'50%', background:T.bg, border:`3px solid ${T.accent}`}}/>
                 </div>
-                <div style={{paddingLeft:'1.1rem'}}>
+                <div style={{paddingLeft:'.6rem'}}>
                   <div style={{fontFamily:T.font, fontSize:'1.25rem', fontWeight:500, marginBottom:'.4rem'}}>{t.title}</div>
                   <p style={{color:T.inkSoft, lineHeight:1.6, margin:0}}>{t.text}</p>
                   {t.year === 2025 && <PulseBadge T={T} label="EARLY READ"/>}
@@ -502,14 +507,15 @@ function HomeV2({ nav, T }) {
               <button onClick={()=>nav('stories')} style={{background:'transparent', border:`1px solid ${T.ink}`, padding:'.6rem 1.1rem', borderRadius:999, fontFamily:T.sans, fontWeight:500, color:T.ink, cursor:'pointer'}}>All stories →</button>
             </div>
           </Reveal>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:'1rem'}}>
+          <div className="di-cols-1to2" style={{gap:'1rem'}}>
             {DI2.stories.map((st,i)=>(
               <Reveal key={st.slug} delay={i*60}>
-                <div style={{background:T.bg, border:`1px solid ${T.line}`, borderRadius:14, padding:'1.6rem', cursor:'pointer'}}>
+                <a href={'#/stories/'+st.slug} onClick={(e)=>{e.preventDefault(); nav('stories/'+st.slug);}}
+                   style={{display:'block', background:T.bg, border:`1px solid ${T.line}`, borderRadius:14, padding:'1.6rem', cursor:'pointer', textDecoration:'none', color:'inherit'}}>
                   <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.08em', textTransform:'uppercase', color:T.accent, marginBottom:'.5rem'}}>{st.kicker} · {st.readMins} min</div>
                   <div style={{fontFamily:T.font, fontSize:'1.4rem', fontWeight:500, letterSpacing:'-.005em', lineHeight:1.2, marginBottom:'.5rem'}}>{st.title}</div>
                   <p style={{color:T.inkSoft, fontSize:'.95rem', margin:0, lineHeight:1.55}}>{st.dek}</p>
-                </div>
+                </a>
               </Reveal>
             ))}
           </div>

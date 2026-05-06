@@ -21,6 +21,7 @@ const compactP = (n) => {
 function SectorPageV2({ id, T, nav }) {
   const sector = DIp.sectors.find(s => s.id === id) || DIp.sectors[0];
   const Hero = HEROES_P[sector.id];
+  const isMobileP = window.AbundanceV2UseIsMobile ? window.AbundanceV2UseIsMobile() : false;
   const idx = DIp.sectors.indexOf(sector);
   const next = DIp.sectors[(idx+1) % DIp.sectors.length];
   const prev = DIp.sectors[(idx-1+DIp.sectors.length) % DIp.sectors.length];
@@ -42,7 +43,7 @@ function SectorPageV2({ id, T, nav }) {
     <div style={{background:T.bg, color:T.ink, fontFamily:T.sans, paddingBottom:'5rem'}}>
       {/* Sector hero */}
       <section style={{background:T.bgAlt, padding:'3.5rem 1.5rem 2.5rem'}}>
-        <div style={{maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'1.3fr 1fr', gap:'2.5rem', alignItems:'center'}}>
+        <div className="di-cols-1to-1p3" style={{maxWidth:1100, margin:'0 auto', gap:'2.5rem', alignItems:'center'}}>
           <div>
             <button onClick={()=>nav('sectors')} style={{background:'transparent', border:'none', fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.08em', textTransform:'uppercase', cursor:'pointer', padding:0, marginBottom:'.8rem'}}>← All sectors</button>
             <div style={{fontFamily:T.mono, fontSize:'.74rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.6rem'}}>Sector · weight {(sector.weight*100).toFixed(1)}%</div>
@@ -62,7 +63,7 @@ function SectorPageV2({ id, T, nav }) {
 
       {/* Big stats strip */}
       <section style={{maxWidth:1100, margin:'-1.5rem auto 0', padding:'0 1.5rem', position:'relative', zIndex:2}}>
-        <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:18, padding:'2rem', display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:'1.5rem'}}>
+        <div className="di-cols-1to4" style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:18, padding:'2rem', gap:'1.5rem'}}>
           {[
             {lbl:'Cumulative drop', val: fmtP(sector.drop,false), big:true, color:T.accent2},
             {lbl:'Annual rate', val: fmtP(sector.annualRate,false), big:true, color:T.accent},
@@ -80,7 +81,7 @@ function SectorPageV2({ id, T, nav }) {
       {/* Tangible narrative */}
       <section style={{maxWidth:780, margin:'0 auto', padding:'4rem 1.5rem'}}>
         <RevealP>
-          <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'2rem'}}>
+          <div className="di-cols-1to2" style={{gap:'2rem'}}>
             <div style={{padding:'1.6rem', background:T.bgAlt, borderRadius:14, borderLeft:`4px solid ${T.inkMute}`}}>
               <div style={{fontFamily:T.mono, fontSize:'.7rem', color:T.inkMute, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:'.5rem'}}>Then · {start}</div>
               <p style={{fontFamily:T.font, fontSize:'1.4rem', fontWeight:400, lineHeight:1.35, margin:0, letterSpacing:'-.005em'}}>{sector.tangible.then}</p>
@@ -104,8 +105,8 @@ function SectorPageV2({ id, T, nav }) {
           </div>
         </RevealP>
         <RevealP delay={100}>
-          <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:18, padding:'1.5rem'}}>
-            <DIChart theme={T} height={400} seriesOverride={sectorSeries}/>
+          <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:18, padding: isMobileP ? '1rem' : '1.5rem'}}>
+            <DIChart theme={T} height={isMobileP ? 280 : 400} seriesOverride={sectorSeries}/>
           </div>
         </RevealP>
       </section>
@@ -141,7 +142,7 @@ function SectorPageV2({ id, T, nav }) {
 
       {/* Prev / Next */}
       <section style={{maxWidth:1100, margin:'0 auto', padding:'2rem 1.5rem'}}>
-        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem'}}>
+        <div className="di-cols-1to2" style={{gap:'1rem'}}>
           {[prev, next].map((s,i)=>(
             <button key={s.id} onClick={()=>nav('sectors/'+s.id)} style={{
               textAlign:i===0?'left':'right', background:T.bgAlt, border:`1px solid ${T.line}`,
@@ -172,7 +173,7 @@ function SectorsIndexV2({ T, nav }) {
             <p style={{color:T.inkSoft, fontSize:'1.1rem', maxWidth:'52ch', marginTop:'.6rem'}}>The Deflation Index averages four sectors. Each tells its own story.</p>
           </div>
         </RevealP>
-        <div style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:'1.4rem'}}>
+        <div className="di-cols-1to2" style={{gap:'1.4rem'}}>
           {DIp.sectors.map((s,i)=>{
             const Hero = HEROES_P[s.id];
             return (
@@ -182,7 +183,7 @@ function SectorsIndexV2({ T, nav }) {
                   borderRadius:18, padding:'1.6rem', cursor:'pointer', fontFamily:T.sans,
                   transition:'transform .25s, border-color .25s'
                 }} onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-3px)';e.currentTarget.style.borderColor=T.accent;}} onMouseLeave={e=>{e.currentTarget.style.transform='none';e.currentTarget.style.borderColor=T.line;}}>
-                  <div style={{display:'grid', gridTemplateColumns:'1fr 200px', gap:'1.2rem', alignItems:'center'}}>
+                  <div className="di-cols-1to-fixR" style={{gap:'1.2rem', alignItems:'center'}}>
                     <div>
                       <div style={{fontFamily:T.mono, fontSize:'.7rem', color:T.accent, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:'.4rem'}}>{s.metric}</div>
                       <div style={{fontFamily:T.font, fontSize:'2rem', fontWeight:500, letterSpacing:'-.01em', marginBottom:'.5rem'}}>{s.name}</div>
@@ -226,7 +227,8 @@ function ExploreV2({ T }) {
   const cpiA = DIp.cpi[idxA], cpiB = DIp.cpi[idxB];
   const diA = DIp.di[idxA], diB = DIp.di[idxB];
 
-  const card = {background:T.bg, border:`2px solid ${T.line}`, borderRadius:18, padding:'1.5rem'};
+  const isMobileE = window.AbundanceV2UseIsMobile ? window.AbundanceV2UseIsMobile() : false;
+  const card = {background:T.bg, border:`2px solid ${T.line}`, borderRadius:18, padding: isMobileE ? '1.1rem' : '1.5rem'};
   const lbl = {fontFamily:T.mono, fontSize:'.7rem', color:T.inkMute, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:'.4rem'};
 
   return (
@@ -243,7 +245,7 @@ function ExploreV2({ T }) {
         {/* Big chart */}
         <RevealP>
           <div style={{...card, marginBottom:'1.4rem'}}>
-            <DIChart theme={T} height={460} annotations={[{year:yearA,label:'A'},{year:yearB,label:'B'}]}/>
+            <DIChart theme={T} height={isMobileE ? 320 : 460} annotations={[{year:yearA,label:'A'},{year:yearB,label:'B'}]}/>
           </div>
         </RevealP>
 
@@ -251,7 +253,7 @@ function ExploreV2({ T }) {
         <RevealP>
           <div style={{...card, marginBottom:'1.4rem'}}>
             <div style={lbl}>Year compare · A vs B</div>
-            <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1.5rem', marginBottom:'1.5rem'}}>
+            <div className="di-cols-1to2" style={{gap:'1.5rem', marginBottom:'1.5rem'}}>
               {[['A',yearA,setYearA,T.inkMute],['B',yearB,setYearB,T.accent]].map(([k,v,setV,col])=>(
                 <div key={k}>
                   <div style={{fontFamily:T.font, fontSize:'2.2rem', fontWeight:500, color:col, lineHeight:1, marginBottom:'.5rem'}}>{v}</div>
@@ -259,7 +261,7 @@ function ExploreV2({ T }) {
                 </div>
               ))}
             </div>
-            <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'1rem'}}>
+            <div className="di-cols-1to3" style={{gap:'1rem'}}>
               {[
                 {lab:'Tech (DI)', a:diA, b:diB, color:T.di},
                 {lab:'M2', a:m2A, b:m2B, color:T.m2},
@@ -288,7 +290,7 @@ function ExploreV2({ T }) {
             <div style={lbl}>Dollar calculator</div>
             <h3 style={{fontFamily:T.font, fontSize:'1.6rem', fontWeight:400, margin:'0 0 1.2rem'}}>What does <span style={{color:T.accent}}>${dollars}</span> buy in <span style={{color:T.inkMute}}>{yearA}</span> vs <span style={{color:T.accent2}}>{yearB}</span>?</h3>
 
-            <div style={{display:'grid', gridTemplateColumns:'200px 1fr', gap:'1.5rem', marginBottom:'1.5rem'}}>
+            <div className="di-cols-1to-fixL" style={{gap:'1.5rem', marginBottom:'1.5rem'}}>
               <div>
                 <input type="range" min={1} max={1000} step={1} value={dollars} onChange={e=>setDollars(+e.target.value)} style={{width:'100%', accentColor:T.accent}}/>
                 <div style={{fontFamily:T.mono, fontSize:'.78rem', color:T.inkMute, marginTop:'.4rem'}}>$1 — $1,000</div>
@@ -507,7 +509,7 @@ Sector weights (v3.1.1):
           <p style={{...para, marginTop:'1rem'}}>
             2025 is an <strong style={{color:T.ink}}>early read</strong>, not a published index point. M2 and CPI are measured directly from FRED/BLS (retrieved {DIp.early2025.retrieved}). The DI 2025 figure blends measured sector data — battery packs, AI compute — with trend extrapolation for solar and broadband, which won't publish 2025 numbers until mid-to-late 2026. The full v4.0 weighted index will be published when those are in.
           </p>
-          <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem', marginTop:'1.5rem'}}>
+          <div className="di-cols-1to2" style={{gap:'1rem', marginTop:'1.5rem'}}>
             <div style={{padding:'1.2rem', background:T.bgAlt, borderRadius:12}}>
               <div style={{fontFamily:T.mono, fontSize:'.7rem', color:T.accent, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:'.6rem'}}>Measured for 2025</div>
               <ul style={{margin:0, paddingLeft:'1.2rem', fontSize:'.92rem', color:T.inkSoft, lineHeight:1.7}}>
@@ -535,7 +537,7 @@ Sector weights (v3.1.1):
               ['M2','Federal Reserve via FRED (M2SL)','https://fred.stlouisfed.org/series/M2SL'],
               ['CPI','U.S. Bureau of Labor Statistics (CPIAUCSL)','https://fred.stlouisfed.org/series/CPIAUCSL'],
             ].map(([k,v,url])=>(
-              <li key={k} style={{padding:'.85rem 0', borderBottom:`1px solid ${T.line}`, display:'grid', gridTemplateColumns:'150px 1fr', gap:'1rem', alignItems:'baseline'}}>
+              <li key={k} className="di-cols-1to-fixL" style={{padding:'.85rem 0', borderBottom:`1px solid ${T.line}`, gap:'.4rem', alignItems:'baseline'}}>
                 <span style={{fontFamily:T.font, fontWeight:500}}>{k}</span>
                 <a href={url} target="_blank" rel="noopener" style={{fontFamily:T.mono, fontSize:'.85rem', color:T.inkSoft, textDecoration:'none'}}
                    onMouseEnter={e=>{e.currentTarget.style.color=T.accent;}}
