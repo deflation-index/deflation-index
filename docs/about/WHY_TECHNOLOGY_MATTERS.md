@@ -137,7 +137,7 @@ True, but at a tiny fraction of today's scale. A medieval farmer working 70 hour
 
 ### "Technology sometimes makes us less productive"
 
-Yes, distractions like social media exist. But they are a rounding error compared to the gains. 
+Yes, distractions like social media exist. But they are a rounding error compared to the gains.
 
 **Brynjolfsson, Rock & Syverson (2019)** "Artificial Intelligence and the Modern Productivity Paradox" acknowledge measurement challenges but find:
 - Free digital goods create $300+ billion in unmeasured consumer surplus annually
@@ -165,7 +165,7 @@ Good institutions allow technology to flourish. Bad institutions suppress it. Bu
 
 ## 5. The Literacy Example
 
-**1800:** ~10% global literacy rate  
+**1800:** ~10% global literacy rate
 **2020:** ~87% global literacy rate
 
 **Primary technological drivers:**
@@ -232,7 +232,7 @@ History suggests this will follow the same pattern as previous technological wav
 
 - Computing: 99.88% cost reduction (1990-2024)
 - Communications: 99.27% cost reduction
-- Energy: 98.42% cost reduction  
+- Energy: 98.42% cost reduction
 - Transportation: 82.59% cost reduction (2010-2024)
 
 **Then why does CPI show only 155% cumulative inflation (not deflation)?**
@@ -277,7 +277,7 @@ This is what the data suggests. The technology delivered. The productivity gains
 
 **We're observing:**
 - Technology delivered massive, measurable deflation in core sectors
-- Consumer prices didn't fall proportionally  
+- Consumer prices didn't fall proportionally
 - The gap is 560 percentage points over 35 years
 - This gap represents captured productivity that flowed elsewhere in the economy
 
@@ -326,7 +326,7 @@ The claim that "technology is the primary driver of productivity" is not ideolog
 - **Diewert (1976)**: Index number theory foundation for measuring quality-adjusted prices
 - **Acemoglu & Robinson (2012)**: Institutions enable technology, but technology drives prosperity
 
-### Historical Evidence  
+### Historical Evidence
 - **Maddison (2001)**: GDP per capita flat for 1,800 years, then exponential growth starting ~1800
 - **Clark (2007)**: Real wages stagnant 1200-1800, then sustained growth
 - **Mokyr (1990, 2002, 2009)**: Technological innovation as driver of Great Enrichment
@@ -382,7 +382,7 @@ When technology delivers 96% deflation across measurable sectors and consumer pr
 **The Deflation Index exists to measure where technological productivity flows:**
 - Into consumer prices? (Some, but not proportionally)
 - Into asset prices? (Significantly—stocks +1,500%, housing +400%)
-- Into corporate profits? (Significantly—corporate profits up 300%+)  
+- Into corporate profits? (Significantly—corporate profits up 300%+)
 - Into complexity costs? (Healthcare, education, housing rising faster than wages)
 - Into quality improvements? (Better goods at same nominal price, partially captured by hedonic adjustments)
 

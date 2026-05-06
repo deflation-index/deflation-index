@@ -1,9 +1,9 @@
 # Data Hygiene Standards & Protocols
 ## The Deflation Index - Data Management Framework
 
-**Version**: 1.0  
-**Last Updated**: December 15, 2025  
-**Purpose**: Establish "gold standard" data hygiene practices for The Deflation Index  
+**Version**: 1.0
+**Last Updated**: December 15, 2025
+**Purpose**: Establish "gold standard" data hygiene practices for The Deflation Index
 **Principle**: "Garbage In, Garbage Out" — Pristine data collection is non-negotiable
 
 ---
@@ -37,22 +37,22 @@ If DI becomes a trusted reference (like CPI, M2, or GDP), it will be because:
 
 ### 1.2 Core Principles
 
-**TRANSPARENCY FIRST**: 
+**TRANSPARENCY FIRST**:
 - If we can't explain it, we don't publish it
 - All methodology is public and replicable
 - External researchers should be able to reproduce our results within ±0.5%
 
-**CONSERVATISM**: 
+**CONSERVATISM**:
 - When uncertain, use conservative (lower deflation) estimates
 - Never cherry-pick data to support narrative
 - Document all judgment calls
 
-**CONSISTENCY**: 
+**CONSISTENCY**:
 - Same methodology across all sectors and all years
 - If methodology improves, recalculate entire history
 - Document any deviations with clear justification
 
-**AUDITABILITY**: 
+**AUDITABILITY**:
 - Every cell tells a story (source or formula)
 - Every decision is documented
 - Every version is archived
@@ -86,7 +86,7 @@ These standards are written for:
 - Major version (x.0): Methodology change, new component added, weighting change
 - Minor version (0.x): Data update only, no methodology change
 
-**Date Convention**: 
+**Date Convention**:
 - Do NOT include dates in filename (use version numbers)
 - Include "Last Updated" in file metadata and first worksheet
 
@@ -224,7 +224,7 @@ Year | Metric_1 | Metric_2 | Metric_3 | ...
 - Row 3: Column headers
 - Row 4+: Data
 
-**Freeze Panes**: 
+**Freeze Panes**:
 - Always freeze header rows (View → Freeze Panes → Freeze Top Row)
 - For wide datasets, also freeze first column
 
@@ -291,10 +291,10 @@ Year | Metric_1 | Metric_2 | Metric_3 | ...
 
 **Example Row**:
 ```
-BNEF_2024 | BloombergNEF | Battery Price Survey 2024 | Nov 2024 | 
-https://about.bnef.com/blog/... | Dec 15, 2025 | Free (summary), 
-Full report paid | $5,000/year subscription | Annual | 2010-2024 | 95 | 
-https://about.bnef.com/methodology | data@bloombergnef.com | 
+BNEF_2024 | BloombergNEF | Battery Price Survey 2024 | Nov 2024 |
+https://about.bnef.com/blog/... | Dec 15, 2025 | Free (summary),
+Full report paid | $5,000/year subscription | Annual | 2010-2024 | 95 |
+https://about.bnef.com/methodology | data@bloombergnef.com |
 Industry gold standard for EV battery costs
 ```
 
@@ -413,13 +413,13 @@ Year | Raw_Cost_USD | [Comment: BNEF 2024] | CPI_2024 | Real_Cost_2024_USD | Ene
 
 **CRITICAL RULE: Use formulas, NEVER hardcode calculated values**
 
-**❌ WRONG**:
+**WRONG:**
 ```excel
 Cell B10: 5000  [calculated in Python, pasted as value]
 Cell C5: 0.15   [computed growth rate, hardcoded]
 ```
 
-**✅ CORRECT**:
+**CORRECT:**
 ```excel
 Cell B10: =SUM(B2:B9)  [Excel calculates the sum]
 Cell C5: =(C4-C2)/C2   [Excel calculates growth rate]
@@ -435,8 +435,8 @@ Cell C5: =(C4-C2)/C2   [Excel calculates growth rate]
 
 **Reference Cells, Not Values**:
 ```excel
-❌ =B5*1.05           [hardcoded growth rate]
-✅ =B5*(1+$B$6)       [references assumption cell]
+        =B5*1.05           [hardcoded growth rate]
+        =B5*(1+$B$6)       [references assumption cell]
 ```
 
 **Use Named Ranges for Important Constants**:
@@ -452,12 +452,12 @@ CPI_2024 = 316.2  [named range]
 
 **Break Complex Formulas into Steps**:
 ```excel
-❌ =((B5*(C5/D5))*(1+(E5/F5)))/((G5-H5)*I5)  [too complex]
+        =((B5*(C5/D5))*(1+(E5/F5)))/((G5-H5)*I5)  [too complex]
 
-✅ Step 1 (J5): =B5*(C5/D5)         [intermediate calc]
-✅ Step 2 (K5): =1+(E5/F5)          [intermediate calc]
-✅ Step 3 (L5): =(G5-H5)*I5         [intermediate calc]
-✅ Final (M5): =(J5*K5)/L5          [final result]
+        Step 1 (J5): =B5*(C5/D5)         [intermediate calc]
+        Step 2 (K5): =1+(E5/F5)          [intermediate calc]
+        Step 3 (L5): =(G5-H5)*I5         [intermediate calc]
+        Final (M5): =(J5*K5)/L5          [final result]
 ```
 
 ### 5.3 Formula Documentation
@@ -476,8 +476,8 @@ See Methodology sheet for full explanation"
 
 **Use Descriptive Column Headers**:
 ```excel
-❌ A | B | C | D
-✅ Year | Raw_Cost_USD | CPI_Index | Real_Cost_2024_USD
+AVOID:  A | B | C | D
+PREFER: Year | Raw_Cost_USD | CPI_Index | Real_Cost_2024_USD
 ```
 
 ### 5.4 Formula Testing Protocol
@@ -495,7 +495,7 @@ See Methodology sheet for full explanation"
 QA_Checks sheet:
 Formula: =(B15/$CPI$_2024)*(300/C15)
 Tested: Dec 15, 2025
-Test Cases: 
+Test Cases:
 - B15=$100, C15=200 → Expected: $158.10, Actual: $158.10 ✓
 - B15=$0, C15=300 → Expected: $0, Actual: $0 ✓
 Edge Cases: All pass ✓
@@ -679,7 +679,7 @@ In QA_Checks sheet, create:
 ### 7.5 Annual Audit (Full Review)
 
 **Comprehensive Data Verification** (Q1 each year):
-1. **Source Revalidation**: 
+1. **Source Revalidation**:
    - Re-download all source documents
    - Verify URLs still work (update if changed)
    - Check if sources have issued revisions
@@ -795,7 +795,7 @@ python recalc.py /path/to/file.xlsx
 
 **Monthly Manual Scan**:
 
-1. **Visual Scan**: 
+1. **Visual Scan**:
    - Use Find & Replace to search for: #REF, #DIV, #VALUE, #N/A, #NAME
    - Should find ZERO instances (if recalc.py is used correctly)
 
@@ -920,7 +920,7 @@ python recalc.py /path/to/file.xlsx
 
 All critical knowledge must be documented in writing (not just "tribal knowledge"):
 
-1. **Methodology Documents**: 
+1. **Methodology Documents**:
    - Master Methodology (this document)
    - Sector-specific methodology docs
    - Research Dashboard

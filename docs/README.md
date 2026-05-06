@@ -1,13 +1,13 @@
 # Deflation Index Documentation
 
-**Version**: 3.1.1  
+**Version**: 3.1.1
 **Last Updated**: April 2026
 
 Welcome to the Deflation Index documentation. This index helps you navigate our comprehensive methodology, reference materials, and operational guides.
 
 ---
 
-## 📁 Documentation Structure
+## Documentation Structure
 
 ### [methodology/](methodology/)
 Core methodology and sector-specific documentation.
@@ -51,7 +51,7 @@ Version history, contribution, and release documentation.
 
 ---
 
-## 🚀 Quick Links
+## Quick Links
 
 ### New to the Deflation Index?
 1. Start with [EXECUTIVE_SUMMARY.md](about/EXECUTIVE_SUMMARY.md)
@@ -69,7 +69,7 @@ Version history, contribution, and release documentation.
 
 ---
 
-## 📊 Key Statistics (v3.1.1, weighted DI 1990–2024)
+## Key Statistics (v3.1.1, weighted DI 1990–2024)
 
 | Metric | Value | Source |
 |--------|-------|--------|
@@ -83,7 +83,7 @@ Version history, contribution, and release documentation.
 
 ---
 
-## 🎯 Current Scope & Limitations
+## Current Scope & Limitations
 
 ### What's Included in v3.1.1
 
@@ -102,10 +102,10 @@ The Deflation Index currently measures **four foundational technology sectors**:
 
 We selected these sectors because they are **foundational technologies** that:
 
-1. ✅ **Enable other sectors** – Computing powers everything from healthcare to finance; energy is required for all economic activity
-2. ✅ **Show measurable deflation** – Clear cost-per-performance metrics ($/GFLOPS, $/kWh, $/GB)
-3. ✅ **Have high-quality data** – Tier 1 sources from government agencies and established institutions
-4. ✅ **Represent diverse types** – Digital (computing, communications), physical (energy, transportation)
+1. **Enable other sectors** – Computing powers everything from healthcare to finance; energy is required for all economic activity
+2. **Show measurable deflation** – Clear cost-per-performance metrics ($/GFLOPS, $/kWh, $/GB)
+3. **Have high-quality data** – Tier 1 sources from government agencies and established institutions
+4. **Represent diverse types** – Digital (computing, communications), physical (energy, transportation)
 
 **This is not cherry-picking.** These are the sectors where:
 - Data quality is highest (Tier 1: FRED, IRENA, BloombergNEF, BLS, DOE)
@@ -118,11 +118,11 @@ We selected these sectors because they are **foundational technologies** that:
 
 | Sector | Status | Reason for Exclusion |
 |--------|--------|---------------------|
-| Healthcare | ❌ Planned v4.0 (2026-2027) | Complexity costs rising despite tech deflation (genomic sequencing ↓99.9%, but healthcare spending ↑) |
-| Education | ❌ Planned v4.0 (2026-2027) | Mixed signals: online learning ↓90% cost, but university tuition ↑400% |
-| Housing | ❌ Planned v4.0 (2027-2028) | Methodology needs development: how to isolate tech deflation (modular construction) from land/regulatory costs? |
-| Food/Agriculture | ⏸️ Under evaluation | Genetic engineering delivers deflation, but consumer prices complex (distribution, retail markup) |
-| Manufacturing | ⏸️ Under evaluation | Automation delivers productivity, but complexity costs may offset |
+| Healthcare | Planned v4.0 (2026-2027) | Complexity costs rising despite tech deflation (genomic sequencing ↓99.9%, but healthcare spending ↑) |
+| Education | Planned v4.0 (2026-2027) | Mixed signals: online learning ↓90% cost, but university tuition ↑400% |
+| Housing | Planned v4.0 (2027-2028) | Methodology needs development: how to isolate tech deflation (modular construction) from land/regulatory costs? |
+| Food/Agriculture | Under evaluation | Genetic engineering delivers deflation, but consumer prices complex (distribution, retail markup) |
+| Manufacturing | Under evaluation | Automation delivers productivity, but complexity costs may offset |
 
 **Why excluded?** Not because they don't matter or don't have technological deflation, but because:
 1. **Data quality insufficient** for Tier 1 inclusion (require Tier 2-3 sources with lower reliability)
@@ -151,7 +151,7 @@ We selected these sectors because they are **foundational technologies** that:
 - **Coverage:** ~50% of technological impact when combined with existing 4 sectors
 - **Methodology:** Collaborate with health economists on quality-adjusted measurements
 
-#### v5.1 (2027) – Education Sector  
+#### v5.1 (2027) – Education Sector
 **Target:** Add education as 6th sector
 - **Metrics:** Online learning costs, digital textbook prices, AI tutoring costs
 - **Challenge:** Separate technology benefits from credential inflation
@@ -171,16 +171,16 @@ We selected these sectors because they are **foundational technologies** that:
 
 We explicitly acknowledge our limitations:
 
-✅ **Current index is partial, not comprehensive** (40% coverage)  
-✅ **Findings are robust within measured sectors** (sensitivity analysis confirms)  
-✅ **Expansion planned with same quality standards** (no compromise on data rigor)  
-✅ **Transparent about what's included and excluded** (no hidden assumptions)
+        **Current index is partial, not comprehensive** (40% coverage)
+        **Findings are robust within measured sectors** (sensitivity analysis confirms)
+        **Expansion planned with same quality standards** (no compromise on data rigor)
+        **Transparent about what's included and excluded** (no hidden assumptions)
 
 **Core principle:** We'd rather have a smaller index that's bulletproof than a larger index that's questionable.
 
 ---
 
-## 🔄 Sensitivity Analysis
+## Sensitivity Analysis
 
 We provide two weighting methodologies to demonstrate robustness:
 
@@ -193,7 +193,7 @@ We provide two weighting methodologies to demonstrate robustness:
 
 ---
 
-## 📁 Data Files
+## Data Files
 
 | File | Location | Description |
 |------|----------|-------------|
@@ -205,7 +205,7 @@ We provide two weighting methodologies to demonstrate robustness:
 
 ---
 
-## 🔗 External Links
+## External Links
 
 - **Website**: [deflationindex.com](https://deflationindex.com)
 - **GitHub**: [github.com/deflation-index/deflation-index](https://github.com/deflation-index/deflation-index)
@@ -213,7 +213,7 @@ We provide two weighting methodologies to demonstrate robustness:
 
 ---
 
-## ❓ Questions?
+## Questions?
 
 - **Technical issues**: Open a GitHub issue
 - **Methodology questions**: See [MASTER_METHODOLOGY.md](methodology/MASTER_METHODOLOGY.md)

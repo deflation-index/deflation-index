@@ -1,9 +1,9 @@
 # Computing Sector Methodology
 ## The Deflation Index - Computing Component
 
-**Version**: 1.0  
-**Last Updated**: December 15, 2025  
-**Status**: Production (Existing Sector - Documenting Current Methodology)  
+**Version**: 1.0
+**Last Updated**: December 15, 2025
+**Status**: Production (Existing Sector - Documenting Current Methodology)
 **Current Weight in Master Index**: 25% (reduced from 35% with Transportation addition)
 
 ---
@@ -51,7 +51,7 @@ Year | GFLOPS_Cost_Raw_USD | Source_Document | Compute_Type | Quality_Metric | N
 - **Top500.org**: Twice-yearly list of most powerful supercomputers (price/performance data)
 - **PassMark Software**: Consumer CPU/GPU benchmarks with MSRP data
 - **NVIDIA/AMD/Intel**: Product specifications and pricing at launch
-- **Academic Literature**: 
+- **Academic Literature**:
   - Nordhaus, W.D. (2007) "Two Centuries of Productivity Growth in Computing"
   - Thompson, N.C. et al. (2020) "The Computational Limits of Deep Learning"
 
@@ -149,7 +149,7 @@ Year | RAM_GB_Cost_Raw_USD | Memory_Type | Source | Technology_Node
 
 **Core Formula**:
 ```
-Annual_Deflation_Rate[year] = 
+Annual_Deflation_Rate[year] =
   ((Cost_Per_Unit[year] / Cost_Per_Unit[year-1]) - 1) × 100
 ```
 
@@ -170,11 +170,11 @@ Annual_Deflation_Rate[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_GFLOPS_Cost[year] = 
+Quality_Adjusted_GFLOPS_Cost[year] =
   Raw_Cost[year] × (Perf_Per_Watt[2024] / Perf_Per_Watt[year])^0.3
 ```
 
-**Rationale**: 
+**Rationale**:
 - Energy efficiency matters (30% weight) but not dominant
 - Primary metric (GFLOPS) already captures core capability
 - Conservative adjustment (power efficiency is secondary to raw speed)
@@ -189,11 +189,11 @@ Quality_Adjusted_GFLOPS_Cost[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_Storage_Cost[year] = 
+Quality_Adjusted_Storage_Cost[year] =
   Raw_Cost[year] × (Transfer_Speed[2024] / Transfer_Speed[year])^0.2
 ```
 
-**Rationale**: 
+**Rationale**:
 - Transfer speed is measurable and meaningful
 - MTBF has improved but harder to quantify consistently
 - Primary metric ($/GB) captures most of the value
@@ -209,11 +209,11 @@ Quality_Adjusted_Storage_Cost[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_Memory_Cost[year] = 
+Quality_Adjusted_Memory_Cost[year] =
   Raw_Cost[year] × (Bandwidth[2024] / Bandwidth[year])^0.4
 ```
 
-**Rationale**: 
+**Rationale**:
 - Bandwidth is most important quality metric for memory
 - Clock speed and bandwidth are correlated but bandwidth captures more
 - 40% weight: Memory speed meaningfully affects performance
@@ -227,8 +227,8 @@ Since computing components have clear primary metrics (FLOPS, GB, GB RAM), we us
 
 **Formula**:
 ```
-Hedonic_Deflation_Rate = 
-  ((Nominal_Cost[year] / Nominal_Cost[year-1]) / 
+Hedonic_Deflation_Rate =
+  ((Nominal_Cost[year] / Nominal_Cost[year-1]) /
    (Quality_Index[year] / Quality_Index[year-1])) - 1
 ```
 
@@ -248,7 +248,7 @@ Quality-adjusted: Effective cost reduction even larger
 
 **Formula**:
 ```
-Real_Value[2024_dollars] = 
+Real_Value[2024_dollars] =
   Nominal_Value × (CPI[2024] / CPI[year_of_measurement])
 ```
 
@@ -394,13 +394,13 @@ Real_Value[2024_dollars] =
 
 For each component:
 ```
-Component_Deflation[year] = 
+Component_Deflation[year] =
   (Quality_Adjusted_Cost[year] / Quality_Adjusted_Cost[year-1]) - 1
 ```
 
 **Step 2: Apply Component Weights**
 ```
-Computing_Deflation[year] = 
+Computing_Deflation[year] =
   (Compute_Power_Deflation[year] × 0.60) +
   (Storage_Deflation[year] × 0.30) +
   (Memory_Deflation[year] × 0.10)
@@ -409,7 +409,7 @@ Computing_Deflation[year] =
 **Step 3: Calculate Cumulative Index**
 ```
 Computing_Index[1990] = 100.0
-Computing_Index[year] = 
+Computing_Index[year] =
   Computing_Index[year-1] × (1 + Computing_Deflation[year])
 ```
 
@@ -417,7 +417,7 @@ Computing_Index[year] =
 
 **Current Integration** (with 4 sectors):
 ```
-Master_DI[year] = 
+Master_DI[year] =
   (Computing_Index[year] × 0.25) +
   (Communications_Index[year] × 0.20) +
   (Energy_Index[year] × 0.25) +

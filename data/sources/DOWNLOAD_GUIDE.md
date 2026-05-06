@@ -143,5 +143,5 @@ After downloading, verify these key data points:
 
 ---
 
-**Document Version**: 1.0  
+**Document Version**: 1.0
 **Last Updated**: December 2025

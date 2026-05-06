@@ -1,21 +1,21 @@
 # Executive Summary: The Deflation Index
 ## Measuring Technological Progress and the Missing Abundance (1990-2024)
 
-**Version**: 3.0.3 (Simplified Sensitivity Analysis)  
-**Date**: January 2026  
+**Version**: 3.0.3 (Simplified Sensitivity Analysis)
+**Date**: January 2026
 **Status**: Publication-Ready | FRED-Verified | Zero Formula Errors
 
 > **v3.1.1 update (April 2026):** A 2025 early-read panel has been added to the site (M2 Dec 2025, CPI YoY, lithium-ion battery pack at $108/kWh, AI compute −37%/yr). The weighted Deflation Index 1990–2024 in this document is unchanged. See [`v3.1_release_notes.md`](../operations/v3.1_release_notes.md) for the full diff and `data/constants.json` for the measured 2025 inputs.
 
 ---
 
-## 🎯 The Central Finding
+## The Central Finding
 
 **Technology delivered massive deflation. Money printing created inflation. Consumer prices barely budged. Where did the potential abundance go?**
 
 ---
 
-## 📊 The Numbers (1990-2024)
+## The Numbers (1990-2024)
 
 ### Technology Deflation (Deflation Index)
 - **Annual Average**: -9.21% deflation per year
@@ -44,7 +44,7 @@
 
 ---
 
-## 🔍 What is The Gap?
+## What is The Gap?
 
 **The Gap = Redistribution of Productivity Gains**
 
@@ -61,7 +61,7 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-## 📈 Four Sectors of Technological Deflation
+## Four Sectors of Technological Deflation
 
 ### 1. Computing (29.41% weight)
 - **Cumulative**: 99.91% deflation ($/GFLOPS: $0.11 → $0.0001, 2009-2024)
@@ -89,7 +89,7 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-## 🎯 Key Insights
+## Key Insights
 
 ### 1. Exponential Technology, Linear Thinking
 - Computing: 10x cheaper every 7.7 years (Sandberg & Bostrom confirmed)
@@ -125,15 +125,15 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-## 📊 Data Quality
+## Data Quality
 
 ### Verification Status
-- ✅ **700 formulas verified**: Zero errors across all Excel files
-- ✅ **410 data points**: Fully documented with source citations
-- ✅ **120 years of coverage**: 35+35+35+15 across four sectors
-- ✅ **15+ authoritative sources**: IRENA, BloombergNEF, FRED, DOE, FCC, AI Impacts
-- ✅ **FRED M2 verified**: All M2 data cross-checked against Federal Reserve source
-- ✅ **Complete attribution**: Every data point has source citation
+- **700 formulas verified**: Zero errors across all Excel files
+- **410 data points**: Fully documented with source citations
+- **120 years of coverage**: 35+35+35+15 across four sectors
+- **15+ authoritative sources**: IRENA, BloombergNEF, FRED, DOE, FCC, AI Impacts
+- **FRED M2 verified**: All M2 data cross-checked against Federal Reserve source
+- **Complete attribution**: Every data point has source citation
 
 ### Data Hygiene Standards
 - **Blue text**: Hardcoded data from external sources
@@ -150,7 +150,7 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-## 🚀 Publication Paths
+## Publication Paths
 
 ### Academic
 - **Target**: Journal of Economic Perspectives, American Economic Review
@@ -178,14 +178,14 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-## 🎯 Next Steps
+## Next Steps
 
 ### Immediate (January 2026)
-1. ✅ Complete M2 data correction (DONE)
-2. ✅ Verify zero formula errors (DONE)
-3. ✅ Document comprehensive methodology (DONE)
-4. ✅ Update GitHub repository (DONE)
-5. 🔄 Launch website redesign (IN PROGRESS)
+1. Complete M2 data correction (DONE)
+2. Verify zero formula errors (DONE)
+3. Document comprehensive methodology (DONE)
+4. Update GitHub repository (DONE)
+5. Launch website redesign (IN PROGRESS)
 
 ### Q1 2026
 - [ ] Monthly DI updates (automated data pipeline)
@@ -203,7 +203,7 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-## 📞 Contact
+## Contact
 
 - **Website**: deflationindex.com
 - **GitHub**: github.com/deflation-index/deflation-index
@@ -212,7 +212,7 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-## 📄 Citation
+## Citation
 
 ```bibtex
 @dataset{deflation_index_2026,
@@ -228,7 +228,7 @@ Consumer prices (CPI) rose only 155%.
 
 ---
 
-## ⚠️ Version Notes
+## ️ Version Notes
 
 **v3.0.3 (January 2026)**: Simplified Sensitivity Analysis
 - Removed Expenditure-Weighted and GDP-Weighted variants

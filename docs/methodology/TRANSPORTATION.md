@@ -1,9 +1,9 @@
 # Transportation Sector Methodology
 ## The Deflation Index - Transportation Component
 
-**Version**: 1.0  
-**Last Updated**: December 15, 2025  
-**Status**: Initial Development  
+**Version**: 1.0
+**Last Updated**: December 15, 2025
+**Status**: Initial Development
 **Proposed Weight in Master Index**: 15%
 
 ---
@@ -108,8 +108,8 @@ Year | LIDAR_Cost_USD | Sensor_Suite_Total_USD | AV_System_Cost_USD | Miles_Per_
 
 **Calculation Protocol**:
 ```
-Real_Cost_Per_Mile[year] = 
-  (Average_Fuel_Price_Constant_Dollars[year] / Average_MPG[year]) + 
+Real_Cost_Per_Mile[year] =
+  (Average_Fuel_Price_Constant_Dollars[year] / Average_MPG[year]) +
   (Maintenance_Cost_Per_Mile[year] / Vehicle_Miles_Per_Year[year])
 ```
 
@@ -129,7 +129,7 @@ Year | Avg_MPG | Fuel_Price_Real_2024_USD | Maint_Cost_Per_Mile_Real | Total_Cos
 
 **Metric Calculation**:
 ```
-Cost_Per_Passenger_Mile = 
+Cost_Per_Passenger_Mile =
   (Platform_Fee + Driver_Earnings + Vehicle_Operating_Cost) / Average_Passengers_Per_Trip
 ```
 
@@ -145,13 +145,13 @@ Cost_Per_Passenger_Mile =
 
 **Core Formula**:
 ```
-Annual_Deflation_Rate[year] = 
+Annual_Deflation_Rate[year] =
   ((Cost_Per_Unit[year] / Cost_Per_Unit[year-1]) - 1) × 100
 ```
 
 **Geometric Mean for Period Analysis**:
 ```
-Cumulative_Deflation_Rate[1990-2024] = 
+Cumulative_Deflation_Rate[1990-2024] =
   (Cost_Per_Unit[2024] / Cost_Per_Unit[1990])^(1/34) - 1
 ```
 
@@ -163,7 +163,7 @@ Cumulative_Deflation_Rate[1990-2024] =
 
 #### For EV Batteries:
 ```
-Quality_Adjusted_Cost[year] = 
+Quality_Adjusted_Cost[year] =
   Raw_Cost[year] × (Energy_Density[year] / Energy_Density[2024])
 ```
 
@@ -176,7 +176,7 @@ Quality_Adjusted_Cost[year] =
 
 #### For Autonomous Vehicles:
 ```
-Quality_Adjusted_Cost[year] = 
+Quality_Adjusted_Cost[year] =
   Raw_System_Cost[year] × (Miles_Per_Disengagement[2024] / Miles_Per_Disengagement[year])
 ```
 
@@ -198,7 +198,7 @@ Quality_Adjusted_Cost[year] =
 
 3. **Calculate Hedonic Deflation**
    ```
-   Hedonic_Deflation_Rate = 
+   Hedonic_Deflation_Rate =
      Raw_Deflation_Rate - Quality_Improvement_Rate
    ```
 
@@ -217,7 +217,7 @@ Quality_Adjusted_Cost[year] =
 
 **Formula**:
 ```
-Real_Value[2024_dollars] = 
+Real_Value[2024_dollars] =
   Nominal_Value × (CPI[2024] / CPI[year_of_measurement])
 ```
 
@@ -242,7 +242,7 @@ Real_Value[2024_dollars] =
 - **Consumer Spending**: ~17% of household expenditures (BLS Consumer Expenditure Survey)
 - **DI Weight (15%)**: Geometric mean of GDP (10%) and consumer spending (17%)
 
-**Justification**: 
+**Justification**:
 - Higher weight than GDP alone due to universal impact on consumers
 - Lower than raw spending data due to less dramatic deflation vs. Computing/Communications
 - Balances with existing sectors (Computing 25%, Communications 20%, Energy 25%)
@@ -369,13 +369,13 @@ Every data point must pass 5 checks before inclusion:
 
 For each component (batteries, AV, efficiency, ride-sharing):
 ```
-Component_Deflation[year] = 
+Component_Deflation[year] =
   (Quality_Adjusted_Cost[year] / Quality_Adjusted_Cost[year-1]) - 1
 ```
 
 **Step 2: Apply Component Weights**
 ```
-Transportation_Deflation[year] = 
+Transportation_Deflation[year] =
   (Battery_Deflation[year] × 0.60) +
   (AV_Deflation[year] × 0.25) +
   (Efficiency_Deflation[year] × 0.10) +
@@ -385,7 +385,7 @@ Transportation_Deflation[year] =
 **Step 3: Calculate Cumulative Index**
 ```
 Transportation_Index[1990] = 100.0
-Transportation_Index[year] = 
+Transportation_Index[year] =
   Transportation_Index[year-1] × (1 + Transportation_Deflation[year])
 ```
 
@@ -393,7 +393,7 @@ Transportation_Index[year] =
 
 **Master Index Calculation**:
 ```
-Master_DI[year] = 
+Master_DI[year] =
   (Computing_Index[year] × 0.25) +
   (Communications_Index[year] × 0.20) +
   (Energy_Index[year] × 0.25) +
@@ -405,7 +405,7 @@ Master_DI[year] =
 
 **Annual Capture Rate**:
 ```
-Capture_Rate[year] = 
+Capture_Rate[year] =
   (Actual_Price_Change[year] - DI_Deflation[year]) / DI_Deflation[year]
 ```
 

@@ -1,9 +1,9 @@
 # Master Methodology Document
 ## The Deflation Index - Cross-Sector Standards & Protocols
 
-**Version**: 2.1  
-**Last Updated**: January 2026  
-**Scope**: All sectors in The Deflation Index  
+**Version**: 2.1
+**Last Updated**: January 2026
+**Scope**: All sectors in The Deflation Index
 **Status**: Living Document - Updated with each sector addition
 
 ---
@@ -30,15 +30,15 @@
 **Core Thesis**: The DI quantifies the **technological force of deflation** — the rate at which technology reduces the real cost of fundamental goods and services, measured independently of monetary policy and official inflation metrics.
 
 **What We Track**:
-- ✅ Technological capability per dollar (e.g., computing power, energy storage, data transmission)
-- ✅ Real cost reductions driven by innovation, automation, and efficiency
-- ✅ Quality-adjusted price changes (better product for same/lower price)
+- Technological capability per dollar (e.g., computing power, energy storage, data transmission)
+- Real cost reductions driven by innovation, automation, and efficiency
+- Quality-adjusted price changes (better product for same/lower price)
 
 **What We Explicitly Do NOT Track**:
-- ❌ General price levels (that's CPI's job)
-- ❌ Monetary inflation/deflation (that's M2/Fed's domain)
-- ❌ Asset prices or financial market movements
-- ❌ Wage levels or labor market conditions
+- General price levels (that's CPI's job)
+- Monetary inflation/deflation (that's M2/Fed's domain)
+- Asset prices or financial market movements
+- Wage levels or labor market conditions
 
 ### 1.2 Why This Matters
 
@@ -212,7 +212,7 @@ The 2024 laptop has:
 
 **General Formula**:
 ```
-Quality_Adjusted_Cost[year] = 
+Quality_Adjusted_Cost[year] =
   Nominal_Cost[year] × (Primary_Quality[baseline] / Primary_Quality[year])
 ```
 
@@ -223,9 +223,9 @@ Quality_Adjusted_Cost[year] =
 
 **Multi-Dimensional Quality Adjustment**:
 ```
-Quality_Adjusted_Cost[year] = Nominal_Cost[year] × 
-  (0.70 × Primary_Quality_Ratio + 
-   0.20 × Secondary_Quality_Ratio + 
+Quality_Adjusted_Cost[year] = Nominal_Cost[year] ×
+  (0.70 × Primary_Quality_Ratio +
+   0.20 × Secondary_Quality_Ratio +
    0.10 × Tertiary_Quality_Ratio)
 ```
 
@@ -276,11 +276,11 @@ Price[laptop] = β₀ + β₁(CPU_Speed) + β₂(RAM) + β₃(Storage) + β₄(S
 
 **Hedonic Deflation Rate**:
 ```
-Hedonic_Deflation = 
+Hedonic_Deflation =
   (Predicted_Price[year, constant_quality] / Actual_Price[year]) - 1
 ```
 
-**Interpretation**: 
+**Interpretation**:
 - If a 2024 laptop with 2010 specs would theoretically cost $2,000, but 2024 laptops actually cost $1,000, the hedonic deflation is 50%
 
 ### 5.3 Simplified Hedonic Method (When Regression Not Feasible)
@@ -291,13 +291,13 @@ Hedonic_Deflation =
 
 **Formula**:
 ```
-Hedonic_Price_Index[year] = 
+Hedonic_Price_Index[year] =
   (Raw_Price[year] / Quality_Index[year]) × 100
 ```
 
 **Where**:
 ```
-Quality_Index[year] = 
+Quality_Index[year] =
   Weighted_Average(Attribute_Improvement_Factors[year])
 ```
 
@@ -399,7 +399,7 @@ Sector_Weight = 0.50 × GDP_Share + 0.50 × Consumer_Expenditure_Share
 
 **Formula**:
 ```
-Component_Weight = 
+Component_Weight =
   0.60 × (Component_Market_Size / Sector_Market_Size) +
   0.40 × (Component_Deflation_Rate / Sector_Avg_Deflation_Rate)
 ```
@@ -479,13 +479,13 @@ Component_Weight =
 ### 7.2 Prohibited Practices
 
 **NEVER**:
-- ❌ Use data from single company without independent validation
-- ❌ Cherry-pick years or data points to achieve desired result
-- ❌ Change methodology mid-series without recalculating all prior years
-- ❌ Use proprietary data without documenting access method
-- ❌ Extrapolate >5 years beyond last observed data point
-- ❌ Aggregate components with incompatible units
-- ❌ Use nominal dollars without inflation adjustment
+- Use data from single company without independent validation
+- Cherry-pick years or data points to achieve desired result
+- Change methodology mid-series without recalculating all prior years
+- Use proprietary data without documenting access method
+- Extrapolate >5 years beyond last observed data point
+- Aggregate components with incompatible units
+- Use nominal dollars without inflation adjustment
 
 ### 7.3 Handling Missing Data
 
@@ -493,14 +493,14 @@ Component_Weight =
 
 1. **Linear Interpolation** (if gap is 1-2 years)
    ```
-   Value[year_t] = Value[year_t-1] + 
+   Value[year_t] = Value[year_t-1] +
      ((Value[year_t+1] - Value[year_t-1]) / 2)
    ```
    Flag as "interpolated" in notes
 
 2. **Exponential Interpolation** (for technology costs with expected exponential trends)
    ```
-   Value[year_t] = Value[year_t-1] × 
+   Value[year_t] = Value[year_t-1] ×
      (Value[year_t+1] / Value[year_t-1])^(1/gap_years)
    ```
    Flag as "exponential interpolation" in notes
@@ -514,9 +514,9 @@ Component_Weight =
    Document: "Conservative estimate, range: $X-$Y, used $Y"
 
 **Unacceptable Methods**:
-- ❌ Forward-filling (assuming flat value)
-- ❌ Mean imputation (using average of other years)
-- ❌ Undocumented "estimates"
+- Forward-filling (assuming flat value)
+- Mean imputation (using average of other years)
+- Undocumented "estimates"
 
 ### 7.4 Version Control & Reproducibility
 
@@ -568,7 +568,7 @@ Where:
 
 2. **Apply component weights**
    ```
-   Sector_Index[year] = 
+   Sector_Index[year] =
      (Component_A_Index[year] × Weight_A) +
      (Component_B_Index[year] × Weight_B) + ...
    ```
@@ -585,7 +585,7 @@ Master_DI[year] = Σ(Sector_j[year] × Sector_Weight_j)
 
 **Example (Current 4 Sectors)**:
 ```
-Master_DI[2024] = 
+Master_DI[2024] =
   (Computing_Index[2024] × 0.25) +
   (Communications_Index[2024] × 0.20) +
   (Energy_Index[2024] × 0.25) +
@@ -598,19 +598,19 @@ Master_DI[2024] =
 **For reporting and analysis**:
 
 ```
-Annual_Master_DI_Deflation[year] = 
+Annual_Master_DI_Deflation[year] =
   (Master_DI[year] / Master_DI[year-1]) - 1
 ```
 
 **Cumulative (1990-2024)**:
 ```
-Cumulative_Deflation_1990_2024 = 
+Cumulative_Deflation_1990_2024 =
   (Master_DI[2024] / Master_DI[1990]) - 1
 ```
 
 **Compound Annual Growth Rate (CAGR)**:
 ```
-DI_CAGR_1990_2024 = 
+DI_CAGR_1990_2024 =
   (Master_DI[2024] / Master_DI[1990])^(1/34) - 1
 ```
 
@@ -619,20 +619,20 @@ DI_CAGR_1990_2024 =
 **Gap Analysis**:
 
 ```
-Technology_vs_Monetary_Gap[year] = 
+Technology_vs_Monetary_Gap[year] =
   DI_Deflation_Rate[year] - M2_Growth_Rate[year]
 ```
 
 ```
-Technology_vs_CPI_Gap[year] = 
+Technology_vs_CPI_Gap[year] =
   DI_Deflation_Rate[year] - CPI_Inflation_Rate[year]
 ```
 
 **Capture Rate** (what % of technology deflation actually reaches consumers):
 
 ```
-Capture_Rate[year] = 
-  (CPI_Inflation[year] - Baseline_Inflation) / 
+Capture_Rate[year] =
+  (CPI_Inflation[year] - Baseline_Inflation) /
   (DI_Deflation[year] + CPI_Inflation[year])
 ```
 

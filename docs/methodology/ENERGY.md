@@ -1,9 +1,9 @@
 # Energy Sector Methodology
 ## The Deflation Index - Energy Component
 
-**Version**: 1.0  
-**Last Updated**: December 15, 2025  
-**Status**: Production (Existing Sector - Documenting Current Methodology)  
+**Version**: 1.0
+**Last Updated**: December 15, 2025
+**Status**: Production (Existing Sector - Documenting Current Methodology)
 **Current Weight in Master Index**: 25% (reduced from 35% with Transportation addition)
 
 ---
@@ -77,7 +77,7 @@ Year | Solar_LCOE_USD_kWh | Module_Efficiency_% | Source_Document | Capacity_Fac
 
 **Methodology**:
 ```
-LCOE = (CAPEX × Capital_Recovery_Factor + Annual_O&M) / 
+LCOE = (CAPEX × Capital_Recovery_Factor + Annual_O&M) /
        (Capacity × Capacity_Factor × 8760_hours)
 ```
 
@@ -119,7 +119,7 @@ Year | Stationary_Storage_USD_kWh | EV_Pack_USD_kWh | Technology | Source | Note
 - **DOE Energy Storage Database**: U.S. project-level costs
 - **NREL Storage Cost Benchmarks**: Annual reports on storage costs
 - **Lazard LCOS Analysis**: Levelized cost of storage
-- **Academic Literature**: 
+- **Academic Literature**:
   - Schmidt et al. (2019): "Projecting the future LCOE of batteries"
   - Ziegler & Trancik (2021): "Re-examining rates of lithium-ion battery tech improvement"
 
@@ -196,7 +196,7 @@ Year | LED_Price_USD | Lumens_Output | Efficacy_LPW | Lifetime_Hours | Cost_Per_
 
 **Core Formula**:
 ```
-Annual_Deflation_Rate[year] = 
+Annual_Deflation_Rate[year] =
   ((Cost_Per_Unit[year] / Cost_Per_Unit[year-1]) - 1) × 100
 ```
 
@@ -217,12 +217,12 @@ Annual_Deflation_Rate[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_Solar_Cost[year] = 
-  LCOE[year] × (Module_Efficiency[year] / Module_Efficiency[2024])^0.3 × 
+Quality_Adjusted_Solar_Cost[year] =
+  LCOE[year] × (Module_Efficiency[year] / Module_Efficiency[2024])^0.3 ×
                (Degradation_Rate[2024] / Degradation_Rate[year])^0.1
 ```
 
-**Rationale**: 
+**Rationale**:
 - Module efficiency primarily captured in LCOE calculation already
 - Quality adjustment modest (40% total weight) to avoid double-counting
 - Better modules last longer and produce more (degradation matters)
@@ -245,12 +245,12 @@ Quality_Adjusted_Solar_Cost[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_Battery_Cost[year] = 
-  Raw_Cost[year] × (Cycle_Life[2024] / Cycle_Life[year])^0.5 × 
+Quality_Adjusted_Battery_Cost[year] =
+  Raw_Cost[year] × (Cycle_Life[2024] / Cycle_Life[year])^0.5 ×
                    (Efficiency[2024] / Efficiency[year])^0.2
 ```
 
-**Rationale**: 
+**Rationale**:
 - Cycle life is CRITICAL for stationary storage economics
 - A battery with 5,000 cycles is fundamentally different from 500-cycle battery
 - High weight (50%) on cycle life reflects economic importance
@@ -275,11 +275,11 @@ Quality_Adjusted_Battery_Cost[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_LED_Cost[year] = 
+Quality_Adjusted_LED_Cost[year] =
   Raw_Cost[year] × (Efficacy[year] / Efficacy[2024])^0.4
 ```
 
-**Rationale**: 
+**Rationale**:
 - Efficacy is dominant quality metric (directly affects electricity cost)
 - CRI has improved but subjective
 - Lifetime already accounted for in $/kilolumen-hour calculation
@@ -326,7 +326,7 @@ Cost[deployment] = Cost[initial] × (Cumulative_Deployment[deployment] / Cumulat
 
 **Formula**:
 ```
-Real_Value[2024_dollars] = 
+Real_Value[2024_dollars] =
   Nominal_Value × (CPI[2024] / CPI[year_of_measurement])
 ```
 
@@ -498,13 +498,13 @@ Real_Value[2024_dollars] =
 
 For each component:
 ```
-Component_Deflation[year] = 
+Component_Deflation[year] =
   (Quality_Adjusted_Cost[year] / Quality_Adjusted_Cost[year-1]) - 1
 ```
 
 **Step 2: Apply Component Weights**
 ```
-Energy_Deflation[year] = 
+Energy_Deflation[year] =
   (Solar_Deflation[year] × 0.50) +
   (Battery_Deflation[year] × 0.40) +
   (LED_Deflation[year] × 0.10)
@@ -513,7 +513,7 @@ Energy_Deflation[year] =
 **Step 3: Calculate Cumulative Index**
 ```
 Energy_Index[1990] = 100.0
-Energy_Index[year] = 
+Energy_Index[year] =
   Energy_Index[year-1] × (1 + Energy_Deflation[year])
 ```
 
@@ -523,7 +523,7 @@ Energy_Index[year] =
 
 **Current Integration** (with 4 sectors):
 ```
-Master_DI[year] = 
+Master_DI[year] =
   (Computing_Index[year] × 0.25) +
   (Communications_Index[year] × 0.20) +
   (Energy_Index[year] × 0.25) +

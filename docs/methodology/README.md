@@ -1,13 +1,13 @@
 # Methodology Documentation
 
-**Version**: 3.1.1  
+**Version**: 3.1.1
 **Last Updated**: April 2026
 
 This folder contains the complete methodology documentation for the Deflation Index.
 
 ---
 
-## 📋 Document Overview
+## Document Overview
 
 ### Core Methodology
 
@@ -29,7 +29,7 @@ This folder contains the complete methodology documentation for the Deflation In
 
 ---
 
-## 🎯 Key Methodological Principles
+## Key Methodological Principles
 
 ### 1. Formula-Based Calculations
 Every value in the Deflation Index is calculated via Excel formulas, not hard-coded. This ensures:
@@ -56,7 +56,7 @@ Raw price changes are adjusted for quality improvements:
 
 ---
 
-## 📊 The Master Formula
+## The Master Formula
 
 ```
 Master_DI = Σ (Sector_Index × Sector_Weight)
@@ -71,7 +71,7 @@ Where:
 
 ---
 
-## 🔢 Key Statistics (v3.1.1, weighted DI 1990–2024)
+## Key Statistics (v3.1.1, weighted DI 1990–2024)
 
 ### Deflation Index
 | Metric | Value |
@@ -97,7 +97,7 @@ Where:
 
 ---
 
-## 📁 Related Files
+## Related Files
 
 - **Data Source**: `data/constants.json`
 - **Excel Master**: `data/excel/master_deflation_index_v3.0.3.xlsx`
@@ -105,6 +105,6 @@ Where:
 
 ---
 
-## ❓ Questions?
+## Questions?
 
 For methodology questions, see [MASTER_METHODOLOGY.md](MASTER_METHODOLOGY.md) Section 10 (FAQ) or open a GitHub issue.

@@ -2,13 +2,13 @@
 
 **2 Weighting Approaches for Robust Analysis**
 
-Version: 3.0.3  
-Date: January 2026  
+Version: 3.0.3
+Date: January 2026
 Status: Production
 
 ---
 
-## 🎯 OVERVIEW
+## OVERVIEW
 
 The Deflation Index provides **two weighting approaches** to demonstrate the robustness of our findings:
 
@@ -16,18 +16,17 @@ The Deflation Index provides **two weighting approaches** to demonstrate the rob
 2. **Equal-Weighted (Baseline)**: Zero-assumption reference point
 
 **Both approaches use:**
-- Same source data ✔
-- Same sector indices ✔
-- Same time period (1990-2024) ✔
-- Same formula-based calculations ✔
-
+- Same source data
+- Same sector indices
+- Same time period (1990-2024)
+- Same formula-based calculations
 **Only difference:** Sector weights
 
 **Key Finding:** Both methodologies confirm massive technological deflation (95-96% cumulative). The core finding is robust regardless of weighting choice.
 
 ---
 
-## 📊 THE TWO METHODOLOGIES
+## THE TWO METHODOLOGIES
 
 ### 1. DI-Multi-Factor (PRIMARY - RECOMMENDED)
 **File:** `master_deflation_index_v3.0.3.xlsx`
@@ -94,7 +93,7 @@ The Deflation Index provides **two weighting approaches** to demonstrate the rob
 
 ---
 
-## 📈 SENSITIVITY ANALYSIS SUMMARY
+## SENSITIVITY ANALYSIS SUMMARY
 
 | Methodology | Weights (C/Co/E/T) | 2024 DI | Cumulative | Annual Avg |
 |-------------|-------------------|---------|------------|------------|
@@ -111,7 +110,7 @@ The Deflation Index provides **two weighting approaches** to demonstrate the rob
 
 ---
 
-## 🔧 HOW TO USE
+## HOW TO USE
 
 ### Opening Files
 Each methodology is a complete, standalone Excel file:
@@ -136,7 +135,7 @@ To test your own weighting assumptions:
 
 ---
 
-## 📂 FILE STRUCTURE
+## FILE STRUCTURE
 
 ```
 data/excel/
@@ -150,13 +149,13 @@ data/excel/
 
 ---
 
-## 🎯 API ENDPOINTS
+## API ENDPOINTS
 
 ```
 GET /api/v1/weights
   ?methodology=multi-factor  (default)
   ?methodology=equal
-  
+
 Response:
 {
   "methodology": "multi-factor",
@@ -176,7 +175,7 @@ Response:
 
 ---
 
-## 🔮 FUTURE SENSITIVITY ANALYSIS (v4.0+)
+## FUTURE SENSITIVITY ANALYSIS (v4.0+)
 
 When we expand to 7+ sectors (adding healthcare, education, housing), we plan to implement additional rigorously-sourced sensitivity analyses:
 
@@ -193,7 +192,7 @@ When we expand to 7+ sectors (adding healthcare, education, housing), we plan to
 
 ---
 
-## 🎯 RECOMMENDED MESSAGING
+## RECOMMENDED MESSAGING
 
 **For Website:**
 > "We provide our Multi-Factor methodology plus an equal-weighted baseline with zero assumptions. Both confirm 95-96% cumulative deflation—the core finding is robust regardless of weighting choices."
@@ -206,14 +205,14 @@ When we expand to 7+ sectors (adding healthcare, education, housing), we plan to
 
 ---
 
-## ✅ QUALITY ASSURANCE
+## QUALITY ASSURANCE
 
 **Each file has:**
-- ✔ Correct weights in Sector_Weights sheet
-- ✔ Weights sum to exactly 1.0000
-- ✔ Master_DI formulas reference Sector_Weights
-- ✔ Complete Methodology sheet
-- ✔ All M2, CPI, gap analysis intact
+- Correct weights in Sector_Weights sheet
+- Weights sum to exactly 1.0000
+- Master_DI formulas reference Sector_Weights
+- Complete Methodology sheet
+- All M2, CPI, gap analysis intact
 
 **Verification:**
 - Open each file and press F9 (force recalc)
@@ -222,7 +221,7 @@ When we expand to 7+ sectors (adding healthcare, education, housing), we plan to
 
 ---
 
-**Document Version**: 2.0  
-**Last Updated**: January 2026  
-**Changes**: Simplified from 4 variants to 2 methodologies for v3.0.3  
+**Document Version**: 2.0
+**Last Updated**: January 2026
+**Changes**: Simplified from 4 variants to 2 methodologies for v3.0.3
 **Next Review**: v4.0 development (2027)

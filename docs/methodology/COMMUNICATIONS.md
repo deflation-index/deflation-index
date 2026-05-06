@@ -1,9 +1,9 @@
 # Communications Sector Methodology
 ## The Deflation Index - Communications Component
 
-**Version**: 1.0  
-**Last Updated**: December 15, 2025  
-**Status**: Production (Existing Sector - Documenting Current Methodology)  
+**Version**: 1.0
+**Last Updated**: December 15, 2025
+**Status**: Production (Existing Sector - Documenting Current Methodology)
 **Current Weight in Master Index**: 20% (reduced from 30% with Transportation addition)
 
 ---
@@ -55,7 +55,7 @@ Year | Monthly_Cost_USD | Speed_Mbps | Effective_GB_Month | Cost_Per_GB | Connec
 - **OECD Broadband Portal**: International pricing comparisons
 - **Akamai State of the Internet**: Data delivery costs from major CDN
 - **Sandvine Global Internet Phenomena Report**: Actual usage patterns
-- **Academic Papers**: 
+- **Academic Papers**:
   - Greenstein & McDevitt (2011): "Broadband Internet and Local Network Competition"
   - Downes & Greenstein (2007): "The Evolving Internet Market"
 
@@ -161,7 +161,7 @@ Year | Median_Price_USD | Median_Speed_Mbps | Cost_Per_Mbps | Fiber_Availability
 
 **Core Formula**:
 ```
-Annual_Deflation_Rate[year] = 
+Annual_Deflation_Rate[year] =
   ((Cost_Per_Unit[year] / Cost_Per_Unit[year-1]) - 1) × 100
 ```
 
@@ -182,11 +182,11 @@ Annual_Deflation_Rate[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_Data_Cost[year] = 
+Quality_Adjusted_Data_Cost[year] =
   Raw_Cost[year] × (Latency[year] / Latency[2024])^0.2 × (Reliability[2024] / Reliability[year])^0.1
 ```
 
-**Rationale**: 
+**Rationale**:
 - Lower latency is better (invert ratio)
 - Primary metric ($/GB) captures most value
 - Quality adjustment modest (30% total weight) — speed/price is dominant factor
@@ -209,7 +209,7 @@ Quality_Adjusted_Data_Cost[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_Voice_Cost[year] = 
+Quality_Adjusted_Voice_Cost[year] =
   Raw_Cost[year] × (Quality_Index[2024] / Quality_Index[year])
 ```
 
@@ -231,8 +231,8 @@ Quality_Adjusted_Voice_Cost[year] =
 
 **Quality-Adjusted Formula**:
 ```
-Quality_Adjusted_Access_Cost[year] = 
-  Raw_Cost[year] × (Actual_Speed[year] / Advertised_Speed[year]) / 
+Quality_Adjusted_Access_Cost[year] =
+  Raw_Cost[year] × (Actual_Speed[year] / Advertised_Speed[year]) /
                     (Actual_Speed[2024] / Advertised_Speed[2024])
 ```
 
@@ -248,7 +248,7 @@ Quality_Adjusted_Access_Cost[year] =
 Given multiple quality dimensions that have improved, use:
 
 ```
-Hedonic_Price_Index[year] = 
+Hedonic_Price_Index[year] =
   (Nominal_Price[year] / Quality_Index[year]) × 100
 ```
 
@@ -278,7 +278,7 @@ Hedonic deflation: Price went up 44%, but capability went up >33x = **massive de
 
 **Formula**:
 ```
-Real_Value[2024_dollars] = 
+Real_Value[2024_dollars] =
   Nominal_Value × (CPI[2024] / CPI[year_of_measurement])
 ```
 
@@ -399,7 +399,7 @@ Real_Value[2024_dollars] =
 3. **Usage Pattern Documentation**:
    ```
    Assumptions Sheet entry:
-   "2024 Usage: 1000 GB/month (Netflix 4K: 300GB, YouTube: 200GB, 
+   "2024 Usage: 1000 GB/month (Netflix 4K: 300GB, YouTube: 200GB,
    Web browsing: 100GB, Cloud backup: 200GB, Other: 200GB)
    Source: Sandvine Global Internet Phenomena Report 2024"
    ```
@@ -431,13 +431,13 @@ Real_Value[2024_dollars] =
 
 For each component:
 ```
-Component_Deflation[year] = 
+Component_Deflation[year] =
   (Quality_Adjusted_Cost[year] / Quality_Adjusted_Cost[year-1]) - 1
 ```
 
 **Step 2: Apply Component Weights**
 ```
-Communications_Deflation[year] = 
+Communications_Deflation[year] =
   (Data_Transmission_Deflation[year] × 0.70) +
   (Voice_Deflation[year] × 0.20) +
   (Network_Access_Deflation[year] × 0.10)
@@ -446,7 +446,7 @@ Communications_Deflation[year] =
 **Step 3: Calculate Cumulative Index**
 ```
 Communications_Index[1990] = 100.0
-Communications_Index[year] = 
+Communications_Index[year] =
   Communications_Index[year-1] × (1 + Communications_Deflation[year])
 ```
 
@@ -454,7 +454,7 @@ Communications_Index[year] =
 
 **Current Integration** (with 4 sectors):
 ```
-Master_DI[year] = 
+Master_DI[year] =
   (Computing_Index[year] × 0.25) +
   (Communications_Index[year] × 0.20) +
   (Energy_Index[year] × 0.25) +

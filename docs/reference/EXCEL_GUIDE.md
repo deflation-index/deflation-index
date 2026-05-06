@@ -1,14 +1,14 @@
 # Excel Templates Guide
 ## The Deflation Index - Data Entry & Maintenance
 
-**Created**: December 15, 2025  
-**Updated**: January 2026  
-**Version**: 1.2  
+**Created**: December 15, 2025
+**Updated**: January 2026
+**Version**: 1.2
 **Purpose**: Complete guide for using the Deflation Index Excel templates
 
 ---
 
-## 📦 WHAT YOU HAVE
+## WHAT YOU HAVE
 
 ### **Six Excel Files Ready to Use:**
 
@@ -34,7 +34,7 @@
 
 ---
 
-## 🎯 QUICK START: Your First Data Entry
+## QUICK START: Your First Data Entry
 
 ### **Step 1: Open Computing Template** (has sample data to learn from)
 
@@ -102,7 +102,7 @@ Quality: A (Excellent)
 
 ---
 
-## 📋 COMPLETE DATA ENTRY WORKFLOW
+## COMPLETE DATA ENTRY WORKFLOW
 
 ### **Phase 1: Source Evaluation** (Before Entering Any Data)
 
@@ -231,7 +231,7 @@ python3 recalc.py /path/to/computing_deflation_index_v1.0.xlsx
 
 ---
 
-## 🔄 SECTOR_INDEX CALCULATIONS
+## SECTOR_INDEX CALCULATIONS
 
 Once Master_Data is complete (1990-2024), the Sector_Index sheet calculates:
 
@@ -254,7 +254,7 @@ This compounds each year, creating cumulative index.
 ### **Weighted Sector Index**
 
 ```
-Sector_Index[year] = 
+Sector_Index[year] =
   (Computing_Index × 0.60) +
   (Storage_Index × 0.30) +
   (Memory_Index × 0.10)
@@ -264,7 +264,7 @@ Component weights are sector-specific and documented in each methodology file.
 
 ---
 
-## 🔗 INTEGRATION WITH MASTER INDEX
+## INTEGRATION WITH MASTER INDEX
 
 Once all four sector files are complete (1990-2024):
 
@@ -321,7 +321,7 @@ These reveal where technological gains flow.
 
 ---
 
-## 📆 MAINTENANCE SCHEDULE
+## MAINTENANCE SCHEDULE
 
 ### **Daily** (during active data entry)
 - [ ] Run recalc.py after every Excel session
@@ -411,7 +411,7 @@ These reveal where technological gains flow.
 
 ---
 
-## 📚 ADDITIONAL RESOURCES
+## ADDITIONAL RESOURCES
 
 **Essential Documents:**
 - `MASTER_METHODOLOGY.md` - Cross-sector framework
@@ -428,7 +428,7 @@ These reveal where technological gains flow.
 
 ---
 
-## ✅ FINAL CHECKLIST (Before Publishing)
+## FINAL CHECKLIST (Before Publishing)
 
 ### **Data Quality**
 - [ ] All years 1990-2024 have data (or documented gaps)
