@@ -1,7 +1,7 @@
 # Glossary of Terms
 
-**Version**: 3.0.2  
-**Last Updated**: January 2026
+**Version**: 3.1.1  
+**Last Updated**: April 2026
 
 Key terms and definitions used in the Deflation Index project.
 

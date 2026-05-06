@@ -62,7 +62,7 @@ Avoid:
 
 ## Code style
 
-- HTML/CSS/JS: match the existing files. Design system uses Fraunces (display), Inter (body), IBM Plex Mono (data/labels) and a paper/ink/gold/teal palette — variables are at the top of each HTML file.
+- HTML/JSX/CSS: the site is a single-page React app at `index.html` with JSX components under `src/`. Babel transpiles in the browser — no build step. Design system uses Fraunces (display serif), Inter (body sans), JetBrains Mono (data/labels). Theme palettes (default `citrus`: `#FF7A45` accent on `#FFF8EF` paper) live in `src/abundance-v2.jsx`. Layout uses a small set of mobile-first utility classes (`.di-cols-1to2`, `.di-cols-1to4`, `.di-hide-mobile`, etc.) defined in the `<style>` block of `index.html`.
 - Python scripts: follow the conventions in existing scripts under `/scripts/`. Prefer `pandas` for tabular work, keep functions small, and document assumptions inline.
 - Commit messages: short imperative subject line, then a paragraph explaining the why. Reference the issue if one exists.
 

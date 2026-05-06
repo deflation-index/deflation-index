@@ -1,212 +1,86 @@
-# API Access
+# Programmatic Data Access
 
-**Status**: Under Development
+**Last updated:** May 2026
 
-We're exploring API access for institutional users and researchers who need programmatic access to Deflation Index data.
+The Deflation Index does not currently expose a hosted HTTP API. All data is published as static files in this repository, refreshed on the same cadence as the site itself. For the vast majority of academic, journalism, and dashboard use cases, those files are sufficient — they're version-controlled, attributable, and free to consume directly.
 
----
+This page is the canonical reference for what's available, what shape it's in, and how to cite it.
 
-## Use Cases We're Considering
+## Files you can read directly
 
-Potential applications for API access:
+| File | Format | Description |
+|------|--------|-------------|
+| [`data/constants.json`](../../data/constants.json) | JSON | Single source of truth: headline statistics, source URLs, retrieval dates, the 2025 early-read block. |
+| [`data/master_index.json`](../../data/master_index.json) | JSON | Computed weighted Deflation Index 1990–2024, M2 index, year-over-year deltas, gap. Annual granularity. |
+| [`data/sectors.json`](../../data/sectors.json) | JSON | Per-sector series (computing, communications, energy, transportation) with metadata, weights, and source citations. |
+| [`data/excel/master_deflation_index_v3.0.3.xlsx`](../../data/excel/master_deflation_index_v3.0.3.xlsx) | Excel | Multi-factor weighted index workbook with all formulas exposed. |
+| [`data/excel/master_deflation_index_v3.0.3_EQUAL.xlsx`](../../data/excel/master_deflation_index_v3.0.3_EQUAL.xlsx) | Excel | Equal-weighted baseline workbook. |
+| [`data/excel/{sector}_deflation_index_v1.0.xlsx`](../../data/excel/) | Excel | Per-sector workbooks (computing, communications, energy, transportation). |
+| [`data/api_legacy_v3.0/`](../../data/api_legacy_v3.0/) | JSON | Frozen v3.0 JSON API contract preserved for compatibility with anyone who linked the old paths. |
 
-- **Economic Research & Modeling**: Integrate DI data into econometric models and analysis
-- **Trading Algorithms**: Use as macro indicator for systematic strategies  
-- **Dashboard Integrations**: Embed real-time deflation metrics in internal tools
-- **Policy Analysis**: Track technological deflation for government and think tank research
-- **Financial Modeling**: Incorporate into asset pricing and inflation forecasting models
+The schemas are stable across patch releases. Breaking shape changes only happen at major version boundaries (v3 → v4).
 
----
+## Loading the data
 
-## Current Options
+```python
+import json, urllib.request
 
-### Download the Data
+base = "https://raw.githubusercontent.com/deflation-index/deflation-index/main/data"
+master = json.loads(urllib.request.urlopen(f"{base}/master_index.json").read())
 
-All data is available for download in Excel format with full formulas and documentation. **No API required for most use cases.**
-
-**Available now:**
-- Master Deflation Index (2 weighting methodologies: Multi-Factor + Equal-Weighted)
-- Sector indices (Computing, Communications, Energy, Transportation)
-- M2 and CPI comparison data
-- Complete methodology and source citations
-
-→ **[Methodology & downloads](https://deflationindex.com/#/method)**
-
-### Why Downloads May Be Sufficient
-
-For many use cases, quarterly or annual downloads are adequate:
-- Academic research (annual updates typical)
-- Long-term trend analysis (not time-sensitive)
-- One-time studies or reports
-- Learning and exploration
-
-API access is most valuable when you need:
-- Automated daily/weekly updates
-- Integration into live dashboards
-- Real-time alerts on index changes
-- Bulk historical queries
-
----
-
-## Interested in API Access?
-
-We're having conversations with potential users to understand requirements and use cases before building.
-
-**Email us at api@deflationindex.com with:**
-- Your use case (what would you build with the API?)
-- Your organization (company, university, personal project?)
-- What you'd need from an API (endpoints, update frequency, data format?)
-- Your timeline (when would you need this?)
-
-**No commitment required.** We're just gathering information to build the right product for the right users at the right price point.
-
----
-
-## Why Not Launch Immediately?
-
-We're focused on:
-1. **Getting the methodology right** - establishing credibility with academic and financial communities
-2. **Building an audience** - understanding who actually uses the data and how
-3. **Validating demand** - ensuring we build something people will actually pay for
-
-API access will follow once we've validated demand and established the index as a trusted reference.
-
-**Our approach**: Talk to real users, understand real needs, build the right solution. Not the other way around.
-
----
-
-## Potential Pricing (Preliminary)
-
-These are **exploratory ranges only**, not commitments. Actual pricing will depend on user feedback and infrastructure costs.
-
-### Free Tier (Possible)
-- 100-1,000 API calls/month
-- Daily updates
-- Historical data (annual granularity)
-- Basic endpoints (Master DI, M2, CPI)
-
-### Pro Tier (Estimated $29-99/month)
-- 10,000-50,000 API calls/month
-- Real-time or hourly updates
-- Historical data (monthly granularity)
-- Sector breakdowns
-- Weighting methodologies (Multi-Factor + Equal-Weighted)
-
-### Enterprise Tier (Custom)
-- Unlimited API calls
-- White-label options
-- Custom data cuts
-- SLA guarantees
-- Priority support
-- Dedicated account management
-
-**These are estimates to gauge interest.** If you'd pay $X/month for Y functionality, let us know—that helps us design the right tiers.
-
----
-
-## Technical Considerations (If We Build)
-
-### Likely Endpoints
-
-```
-GET /api/v1/di/current
-GET /api/v1/di/historical?start=1990&end=2024
-GET /api/v1/sectors/{sector}?start=1990&end=2024
-GET /api/v1/weights
-POST /api/v1/calculate/purchasing-power
+print(master["summary"]["cumulative_deflation_pct"])   # -96.25
+print(master["annual_data"][-1])                       # 2024 row
 ```
 
-### Response Format
-- JSON (default)
-- CSV (optional)
-- Historical time series or single point queries
+```javascript
+const r = await fetch(
+  "https://raw.githubusercontent.com/deflation-index/deflation-index/main/data/master_index.json"
+);
+const master = await r.json();
+console.log(master.summary.cumulative_deflation_pct);  // -96.25
+```
 
-### Authentication
-- API Key in header (simple, secure)
-- OAuth 2.0 for Enterprise tier
+```r
+library(jsonlite)
+master <- fromJSON(
+  "https://raw.githubusercontent.com/deflation-index/deflation-index/main/data/master_index.json"
+)
+master$summary$cumulative_deflation_pct  # -96.25
+```
 
-### Rate Limits
-- Tiered based on plan
-- Burst allowance for legitimate use cases
-- Clear error messages when exceeded
+For Excel-based workflows, download the workbooks directly from the `data/excel/` directory and read with `openpyxl`, `pandas.read_excel`, or any standard library.
 
----
+## Versioning and stability
 
-## Timeline
+The index follows semantic versioning. Patch releases (e.g. v3.1.0 → v3.1.1) update headline values and add measured data points without changing the schemas. Minor releases (v3.1 → v3.2) may add fields, never remove them. Major releases (v3 → v4) are reserved for changes that break consumers — for example, a recalculated weighted index with new sectors.
 
-**Current Phase (Q1 2026)**: Validation
-- Gathering user requirements
-- Understanding use cases
-- Testing pricing assumptions
-- Building email list of interested users
+The current release is documented at the top of `data/constants.json` and in [`docs/operations/CHANGELOG.md`](../operations/CHANGELOG.md). The legacy v3.0 JSON files live at `data/api_legacy_v3.0/` and will not change.
 
-**If Demand Validated**: Q2-Q3 2026
-- MVP API development
-- Pilot program with 3-5 early users
-- Iterate based on feedback
-- Public launch when ready
+## License and attribution
 
-**If Demand Unclear**: Revisit in 6 months
-- Focus on website, data downloads, partnerships
-- Continue monitoring download patterns
-- Build API only when clear demand emerges
+Data, methodology, and documentation are released under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You can copy, redistribute, transform, and build upon the data for any purpose, including commercially, provided you attribute the source.
 
----
+A suitable academic citation:
 
-## Questions?
+```
+Deflation Index LLC. (2026). The Deflation Index: Measuring Technological
+Progress (1990–2024) [Data set]. https://github.com/deflation-index/deflation-index
+```
 
-**Technical questions**: api@deflationindex.com  
-**General questions**: research@deflationindex.com  
-**Partnership inquiries**: partnerships@deflationindex.com
+A suitable inline credit:
 
----
+> Source: [The Deflation Index](https://deflationindex.com), CC BY 4.0.
 
-## For Developers
+The repository's [LICENSE](../../LICENSE) file contains the full text and explains how the three-part split (MIT for code, CC BY 4.0 for data and docs, trademark reserved for the brand marks) applies.
 
-If API access launches, we plan to support:
+## What's not on offer
 
-**SDKs** (tentative):
-- Python
-- JavaScript/TypeScript
-- R (for academic users)
-- Julia (for quantitative researchers)
+- A live, authenticated HTTP API with rate limits or pricing tiers. Not currently planned.
+- Real-time streaming. The data refreshes annually for the weighted DI and quarterly for the early-read block.
+- White-label or embed-ready widgets. Build your own from the JSON files; we'd love to see what you make.
 
-**Documentation**:
-- Interactive API explorer
-- Code examples for common use cases
-- Jupyter notebooks for analysis
-- Comprehensive reference docs
+## If you have a use case the static files don't cover
 
-**Community**:
-- Discord or Slack for API users
-- GitHub discussions for feature requests
-- Regular office hours for support
+Open an issue on GitHub describing what you'd want and what you're trying to do. Concrete requests with a worked example are most useful — that's how we decide whether a richer access pattern is worth building.
 
----
-
-## Commitment to Openness
-
-Regardless of whether we launch an API:
-
-- ✅ **Data remains free to download** (Excel files with full formulas)
-- ✅ **Methodology fully transparent** (documented on GitHub)
-- ✅ **No vendor lock-in** (can always use downloads)
-- ✅ **Academic access prioritized** (discounts or free for researchers)
-
-API access would be a **convenience layer**, not a data paywall.
-
----
-
-**Want to help shape what we build?**
-
-Email api@deflationindex.com and tell us:
-- What you'd use an API for
-- What you'd expect to pay
-- What would make it valuable to you
-
-We're listening.
-
----
-
-**Last Updated**: January 2026  
-**Next Review**: Q2 2026 (after analyzing user feedback)
+For general questions: `info@deflationindex.com`.

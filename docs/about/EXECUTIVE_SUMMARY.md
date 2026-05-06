@@ -5,6 +5,8 @@
 **Date**: January 2026  
 **Status**: Publication-Ready | FRED-Verified | Zero Formula Errors
 
+> **v3.1.1 update (April 2026):** A 2025 early-read panel has been added to the site (M2 Dec 2025, CPI YoY, lithium-ion battery pack at $108/kWh, AI compute −37%/yr). The weighted Deflation Index 1990–2024 in this document is unchanged. See [`v3.1_release_notes.md`](../operations/v3.1_release_notes.md) for the full diff and `data/constants.json` for the measured 2025 inputs.
+
 ---
 
 ## 🎯 The Central Finding

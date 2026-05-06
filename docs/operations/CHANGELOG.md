@@ -5,6 +5,49 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.2] - 2026-05-06
+
+Site delivery patch. Substantial frontend rewrite with no changes to the underlying weighted Deflation Index, M2/CPI series, sector weights, or Excel workbooks.
+
+### Changed - SITE V2 (REACT SPA)
+
+- Migrated from a seven-page static HTML site to a single-page React application served from `index.html`. JSX is transpiled in-browser via Babel standalone, so the project remains build-step-free and deployable to any static host. Hash routing covers `home`, `sectors`, `sectors/:id`, `explore`, `stories`, `stories/:slug`, and `method`.
+- Repository layout flattened. Component source under `src/`; runtime data at `data/{constants,master_index,sectors}.json`; in-product logo at `assets/logo/`; archival mark variants at `assets/logo/marks/`.
+- Old multi-page files (`about.html`, `blog.html`, `data.html`, `faq.html`, `methodology.html`, `products.html`, `blog/why-technology-matters.html`) removed — content ported into SPA routes.
+- Legacy v3.0 JSON API contract archived to [`data/api_legacy_v3.0/`](../../data/api_legacy_v3.0/) (formerly `data/api/`). Schemas preserved unchanged for any external consumers.
+- React 18.3.1 production builds and `marked@12.0.2` are served from unpkg with SHA-384 SRI hashes pinned to the npm tarballs.
+
+### Changed - BRAND
+
+- Logo replaced. The cyan-on-dark "DI" wordset has been retired in favor of a serif mark — black roman D + gold italic I on cream paper. New mark at `assets/logo/di_logo_no_border.svg`; bordered, monochrome, OG, and social-profile variants under `assets/logo/marks/`.
+- `assets/logo/README.md` rewritten to describe the new four-color palette (paper / ink / gold / divider) and its current placements.
+
+### Added - STORIES
+
+- Four story essays at `data/stories/{what-is-deflation-index, the-abundance-gap, battery-breakeven, ai-compute-halving}.md`. Each is grounded in v3.1.1 numbers and runs 4–7 minutes.
+- New `StoryDetailV2` component at `src/abundance-v2-pages.jsx` fetches the markdown via `marked.parse`, renders into a scoped `.di-prose` block, and shows a back link. Story index cards now navigate to detail routes (previously inert).
+
+### Changed - MOBILE
+
+- Mobile-first responsive layer added. New `useIsMobile()` hook (matchMedia at 768px) plus a CSS utility set covering grid stacking, nav visibility, and touch-target sizing.
+- Bottom tab bar visible on phones (≤768px); desktop pill nav takes over on tablet+.
+- Hero typography clamp floor lowered from 2.8rem to 2rem so headlines fit a 360px viewport.
+- Chart heights scale with viewport (300/280/320 px on mobile, 420/400/460 px on desktop).
+- Removed the public-facing "DI" floating dev-panel trigger button. The panel itself remains gated behind `__activate_edit_mode` postMessage.
+
+### Changed - LICENSE & DOCS
+
+- License clarified as a three-part split: MIT for code, CC BY 4.0 for data, methodology, and documentation, trademark reserved for the brand marks. Codified in [`LICENSE`](../../LICENSE) and surfaced in the root README.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) rewritten as "PRs welcome" with explicit source-quality standards and a data-correction PR template.
+- Operational docs trimmed: `DEPLOYMENT.md`, `QUICKSTART.md`, `RESEARCH_DASHBOARD.md`, and `v3.1_2025_update_plan.md` removed (superseded by the release notes and the in-app methodology page).
+- [`docs/reference/API.md`](../reference/API.md) rewritten as a concise "Programmatic Data Access" page. The previous version still pitched a paid API with pricing tiers — that direction has been retired in favor of the open CC BY 4.0 license. The static JSON, CSV, and Excel files in this repo are the API.
+
+### Not Changed
+
+- The 1990–2024 weighted Deflation Index remains `DI = 3.74` at 2024.
+- `data/constants.json`, `data/master_index.json`, `data/sectors.json` schemas and headline values match v3.1.1 exactly.
+- M2 / CPI series, sector weights, and all Excel workbooks are unchanged.
+
 ## [3.1.1] - 2026-04-19
 
 ### Changed - LIVE FRED CSV REFRESH
