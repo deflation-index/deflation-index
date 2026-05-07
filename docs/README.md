@@ -15,6 +15,7 @@ Core methodology and sector-specific documentation.
 | Document | Description |
 |----------|-------------|
 | [MASTER_METHODOLOGY.md](methodology/MASTER_METHODOLOGY.md) | Complete methodology (start here) |
+| [INPUT_LAYER_PRINCIPLE.md](methodology/INPUT_LAYER_PRINCIPLE.md) | Why the DI measures input costs, not headline prices |
 | [COMPUTING.md](methodology/COMPUTING.md) | Computing sector methodology |
 | [COMMUNICATIONS.md](methodology/COMMUNICATIONS.md) | Communications sector methodology |
 | [ENERGY.md](methodology/ENERGY.md) | Energy sector methodology |
@@ -112,69 +113,29 @@ We selected these sectors because they are **foundational technologies** that:
 - Measurements are most reliable (standardized metrics, authoritative sources)
 - Deflation is most consistent (35-year time series demonstrates trend durability)
 
-### What's NOT Included (Yet)
+### What's NOT Yet Included
 
-**Sectors excluded from v3.1.1:**
+The four sectors above are the **first generation** of measured input layers — chosen because their data quality is highest and their input-to-headline coupling is tightest. Several other sectors belong in the index conceptually but aren't yet measured to the same standard.
 
-| Sector | Status | Reason for Exclusion |
-|--------|--------|---------------------|
-| Healthcare | Planned v4.0 (2026-2027) | Complexity costs rising despite tech deflation (genomic sequencing ↓99.9%, but healthcare spending ↑) |
-| Education | Planned v4.0 (2026-2027) | Mixed signals: online learning ↓90% cost, but university tuition ↑400% |
-| Housing | Planned v4.0 (2027-2028) | Methodology needs development: how to isolate tech deflation (modular construction) from land/regulatory costs? |
-| Food/Agriculture | Under evaluation | Genetic engineering delivers deflation, but consumer prices complex (distribution, retail markup) |
-| Manufacturing | Under evaluation | Automation delivers productivity, but complexity costs may offset |
+| Sector | Why it belongs | What it would measure |
+|--------|---------------|----------------------|
+| **Healthcare** | Tech-driven input cost reductions are dramatic (genomic sequencing has fallen four orders of magnitude since 2001), but consumer healthcare prices have risen ~300%. The gap is the most important data point in the entire index. | Genomic sequencing cost-per-genome; medical imaging cost-per-scan; telemedicine cost-per-consultation; AI-assisted diagnostic cost. *Not* insurance premiums. |
+| **Education** | Online learning cost has collapsed; AI tutoring is dramatically cheaper than 1:1 instruction; digital materials are near-free. Tuition has gone the opposite direction. | Online-learning cost-per-credit; AI-tutoring cost-per-hour; digital textbook costs. *Not* tuition. |
+| **Housing / Construction** | Modular construction, smart-home technology, energy-efficiency components, and building automation all have measurable cost curves. Headline home prices are driven mostly by land and credit. | Modular-construction cost-per-square-foot; smart-home component costs; building-automation system costs. *Not* home prices. |
+| Food / Agriculture, Manufacturing, others | Real input-cost deflation in genetic engineering, robotic automation, supply-chain logistics — but the path from input layer to consumer headline is more complex. Under active evaluation. | TBD per sector. |
 
-**Why excluded?** Not because they don't matter or don't have technological deflation, but because:
-1. **Data quality insufficient** for Tier 1 inclusion (require Tier 2-3 sources with lower reliability)
-2. **Complexity costs may offset deflation** (healthcare tech improves, but system costs rise faster)
-3. **Methodology needs development** (isolating technology deflation from other factors is challenging)
+The principle behind these expansions is documented in [INPUT_LAYER_PRINCIPLE.md](methodology/INPUT_LAYER_PRINCIPLE.md): the Deflation Index measures the technology input layer of each sector, not headline consumer prices. The fact that a sector's headline rose while its input layer fell is *the reason* to include it — that gap is the project's central observation.
 
-**We'd rather be accurate with 4 sectors than speculative with 10.**
-
-### Roadmap for Expansion
-
-**Our expansion plan maintains quality standards while broadening coverage:**
-
-#### v3.1.1 (Current — April 2026)
-- 2025 early-read panel (M2, CPI, batteries, AI compute) added to site
-- Live FRED CSV retrieval (M2SL + CPIAUCSL)
-- Weighted 1990–2024 DI unchanged
-
-#### v4.0 (Q3 2026) – Full 2025 recalculation
-- Rebuild weighted DI with 2025 endpoints for all four sectors
-- Gated on IRENA *Renewable Power Generation Costs in 2025* (~July 2026) and NREL ATB 2025
-
-#### v5.0 (2027-2028) – Healthcare Sector
-**Target:** Add healthcare as 5th sector
-- **Metrics:** Genomic sequencing costs ($/genome), medical imaging ($/scan), telemedicine ($/consultation)
-- **Challenge:** Isolate technology deflation from system complexity and regulatory costs
-- **Coverage:** ~50% of technological impact when combined with existing 4 sectors
-- **Methodology:** Collaborate with health economists on quality-adjusted measurements
-
-#### v5.1 (2027) – Education Sector
-**Target:** Add education as 6th sector
-- **Metrics:** Online learning costs, digital textbook prices, AI tutoring costs
-- **Challenge:** Separate technology benefits from credential inflation
-- **Coverage:** ~55-60% of technological impact
-- **Methodology:** Work with education researchers on learning outcome measurements
-
-#### v6.0 (2028) – Housing/Construction Sector
-**Target:** Add housing as 7th sector
-- **Metrics:** Modular construction costs, building automation, smart home technology
-- **Challenge:** Isolate technology costs from land values and regulatory burdens
-- **Coverage:** ~65-70% of technological impact
-- **Methodology:** Partner with urban economists on hedonic housing models
-
-**Goal:** Expand to **7+ sectors representing 60-70% of technological impact by 2028.**
+We expand the index when, and only when, the data for a sector reaches the same Tier 1 standard the current four meet. We'd rather wait for measurements we can defend than publish numbers we can't. Timelines are deliberately not pinned: sectors land when their data lands.
 
 ### Transparency Commitment
 
 We explicitly acknowledge our limitations:
 
-        **Current index is partial, not comprehensive** (40% coverage)
-        **Findings are robust within measured sectors** (sensitivity analysis confirms)
-        **Expansion planned with same quality standards** (no compromise on data rigor)
-        **Transparent about what's included and excluded** (no hidden assumptions)
+- **Current index is partial, not comprehensive** (40% coverage)
+- **Findings are robust within measured sectors** (sensitivity analysis confirms)
+- **Expansion planned with same quality standards** (no compromise on data rigor)
+- **Transparent about what's included and excluded** (no hidden assumptions)
 
 **Core principle:** We'd rather have a smaller index that's bulletproof than a larger index that's questionable.
 

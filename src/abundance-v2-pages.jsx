@@ -550,7 +550,18 @@ Sector weights (v3.1.1):
         <RevealP>
           <h2 style={sectionTitle}>What it isn't</h2>
           <p style={para}>
-            This is not a replacement for CPI. It's a counter-narrative: the parts of the economy that <em>did</em> get radically cheaper, plotted against the parts that got more expensive. Most things you spend money on — housing, healthcare, education, services — aren't in the index. That's the point.
+            It is not a replacement for CPI. The Bureau of Labor Statistics measures what people actually pay; the Deflation Index measures what technology made possible. The two together tell a story — but they answer different questions.
+          </p>
+          <p style={para}>
+            It is also not yet complete. The four sectors here are the first generation: computing, communications, energy, and lithium-ion batteries — input layers with the longest time series and the cleanest data. Healthcare, education, housing, and other sectors will follow as the data reaches the same standard. We'd rather wait for measurements we can defend than publish numbers we can't.
+          </p>
+          <p style={para}>
+            When those sectors are added, they will measure the same thing the current four measure: the <em>technology input layer</em> of each sector — genomic sequencing cost, AI-assisted radiology per scan, online-learning cost-per-credit, modular-construction cost-per-square-foot — not insurance premiums, not tuition, not home prices. Those are what CPI measures. The gap between the two is what this index exists to make visible.
+          </p>
+          <p style={{...para, marginTop:'.8rem'}}>
+            <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/INPUT_LAYER_PRINCIPLE.md" target="_blank" rel="noopener" style={{color:T.accent, textDecoration:'underline', textDecorationThickness:1, textUnderlineOffset:'2px', fontFamily:T.mono, fontSize:'.85rem'}}>
+              → Why we measure inputs, not headline prices
+            </a>
           </p>
         </RevealP>
       </div>
