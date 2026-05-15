@@ -326,7 +326,7 @@ function HomeV2({ nav, T }) {
         <svg viewBox="0 0 1440 200" preserveAspectRatio="none" style={{position:'absolute', bottom:-1, left:0, width:'100%', height:120, pointerEvents:'none'}}>
           <path d="M 0,200 C 360,150 720,100 1440,140 L 1440,200 Z" fill={T.bg}/>
         </svg>
-        <div style={{maxWidth:1100, margin:'0 auto', position:'relative', zIndex:1}}>
+        <div style={{maxWidth:1280, margin:'0 auto', position:'relative', zIndex:1}}>
           <Reveal>
             <div style={{display:'inline-flex', gap:'.6rem', alignItems:'center', marginBottom:'1.5rem'}}>
               <PulseBadge T={T}/>
@@ -334,7 +334,7 @@ function HomeV2({ nav, T }) {
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <h1 style={{fontFamily:T.font, fontWeight:400, fontSize:'clamp(2rem,6.2vw,5.4rem)', lineHeight:1.05, letterSpacing:'-.025em', margin:'0 0 1.6rem'}}>
+            <h1 style={{fontFamily:T.font, fontWeight:400, fontSize:'clamp(2rem,5.8vw,4.8rem)', lineHeight:1.05, letterSpacing:'-.025em', margin:'0 0 1.6rem'}}>
               Technology got <span style={{fontStyle:'italic', color:T.accent, fontWeight:500}}>radically cheaper.</span><br/>
               Here's where the abundance went.
             </h1>
