@@ -53,37 +53,23 @@ function Reveal({ children, as='div', style={} }) {
 // THEME — Abundance, with palette variants
 // ============================================================
 const palettes = {
-  warm: {  // default — orange + teal on cream
-    bg:'#FFF8EF', bgAlt:'#FFE9C7', bgDeep:'#1A1C2E',
-    ink:'#1A1C2E', inkSoft:'#4A4E6B', inkMute:'#7C809C',
-    line:'#F0D9B0',
-    accent:'#FF7A45', accent2:'#2EB5A1', accentSoft:'#FFD9C5',
-    di:'#2EB5A1', m2:'#FF7A45', cpi:'#7C809C',
-  },
-  citrus: {  // BRAND — ink + gold on paper (matches DI logo)
-    bg:'#FAFAF6', bgAlt:'#F1EEE2', bgDeep:'#1B1B1B',
-    ink:'#1B1B1B', inkSoft:'#4A4640', inkMute:'#8A867A',
-    line:'#E3E1D8',
-    accent:'#B88A2B', accent2:'#2F7A7A', accentSoft:'#EDE0BF',
-    di:'#2F7A7A', m2:'#B88A2B', cpi:'#8A867A',
-  },
-  forest: {  // green + sand
-    bg:'#F5F1E6', bgAlt:'#E8E0CC', bgDeep:'#1F2A1F',
-    ink:'#1F2A1F', inkSoft:'#3F4D3D', inkMute:'#7A7E72',
-    line:'#DCD3BA',
-    accent:'#C95A3F', accent2:'#3F8358', accentSoft:'#F0CFC0',
-    di:'#3F8358', m2:'#C95A3F', cpi:'#7A7E72',
+  paper: {  // BRAND — committed editorial print: pure white, deep ink, gold + steel-blue accents
+    bg:'#FFFFFF', bgAlt:'#F4F4F1', bgDeep:'#1A1A1A',
+    ink:'#1A1A1A', inkSoft:'#4A4A4A', inkMute:'#9A9A98',
+    line:'#E8E8E5',
+    accent:'#B88A2B', accent2:'#2F5F7A', accentSoft:'#F0E2BD',
+    di:'#2F5F7A', m2:'#B88A2B', cpi:'#6A6A68',
   },
 };
 
 function makeTheme(paletteId) {
-  const p = palettes[paletteId] || palettes.warm;
+  const p = palettes[paletteId] || palettes.paper;
   return {
     ...p,
-    font:"'Fraunces', Georgia, serif",
-    sans:"'Inter', system-ui, sans-serif",
-    mono:"'JetBrains Mono', ui-monospace, monospace",
-    grid:'rgba(26,28,46,0.06)',
+    font:"'Spectral', Georgia, serif",
+    sans:"'Space Grotesk', system-ui, sans-serif",
+    mono:"'Space Mono', ui-monospace, monospace",
+    grid:'rgba(26,26,26,0.06)',
     tooltipBg:'#FFFFFF',
   };
 }
@@ -262,7 +248,7 @@ function NavV2({ route, nav, T, mobile=false }) {
   }
   // Top bar — logo always visible; pill nav hides on phones via .di-hide-mobile.
   return (
-    <nav style={{position:'sticky', top:0, zIndex:50, background:'rgba(255,248,239,0.92)', backdropFilter:'blur(12px) saturate(160%)', borderBottom:`1px solid ${T.line}`}}>
+    <nav style={{position:'sticky', top:0, zIndex:50, background:'rgba(255,255,255,0.92)', backdropFilter:'blur(12px) saturate(160%)', borderBottom:`1px solid ${T.line}`}}>
       <div style={{maxWidth:1200, margin:'0 auto', padding:'.85rem 1.25rem', display:'flex', justifyContent:'space-between', alignItems:'center', gap:'1rem'}}>
         <a href="#/home" onClick={(e)=>{e.preventDefault();nav('home');}} style={{display:'flex', alignItems:'center', gap:'.55rem', textDecoration:'none', color:T.ink, fontFamily:T.font, fontWeight:500, fontSize:'clamp(1rem, 3.5vw, 1.18rem)', minWidth:0}}>
           <img src="assets/logo/di_logo_no_border.svg" alt="" style={{height:32, width:32, display:'block', borderRadius:6, flexShrink:0}}/>

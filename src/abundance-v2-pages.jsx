@@ -401,7 +401,7 @@ function StoryDetailV2({ slug, T, nav }) {
   const html = (body && window.marked) ? window.marked.parse(body) : '';
 
   // Scoped prose typography keyed off .di-prose so the markdown HTML inherits
-  // the same Fraunces/Inter rhythm as the rest of the site.
+  // the same Spectral/Space Grotesk rhythm as the rest of the site.
   const proseStyle = `
     .di-prose { font-family: ${T.sans}; color: ${T.inkSoft}; font-size: 1.06rem; line-height: 1.75; }
     .di-prose p { margin: 0 0 1.15rem; }

@@ -26,22 +26,22 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
   :root { color-scheme: light; --di-bp-md: 768px; }
-  html, body { margin:0; padding:0; background:#FFF8EF; font-family: 'Inter', system-ui, sans-serif; color:#1A1C2E; }
+  html, body { margin:0; padding:0; background:#FFFFFF; font-family: 'Space Grotesk', system-ui, sans-serif; color:#1A1A1A; }
   * { box-sizing: border-box; }
   img { max-width: 100%; height: auto; }
 
   @keyframes pulse {
     0% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
-    70% { box-shadow: 0 0 0 8px rgba(255,122,69,0); opacity: .7; }
-    100% { box-shadow: 0 0 0 0 rgba(255,122,69,0); opacity: 1; }
+    70% { box-shadow: 0 0 0 8px rgba(184,138,43,0); opacity: .7; }
+    100% { box-shadow: 0 0 0 0 rgba(184,138,43,0); opacity: 1; }
   }
 
   /* Custom range slider */
-  input[type=range] { -webkit-appearance: none; height: 4px; background: #F0D9B0; border-radius: 999px; outline: none; }
+  input[type=range] { -webkit-appearance: none; height: 4px; background: #E8E8E5; border-radius: 999px; outline: none; }
   input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none; appearance: none;
     width: 18px; height: 18px; border-radius: 50%;
@@ -124,13 +124,6 @@
   /* Markdown prose styling injected per-render in StoryDetailV2; no global rules needed here */
 </style>
 
-<template id="__bundler_thumbnail">
-  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100" height="100" fill="#FFE9C7"/>
-    <circle cx="50" cy="50" r="18" fill="#FF7A45"/>
-    <text x="50" y="56" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="white" font-weight="600">DI</text>
-  </svg>
-</template>
 </head>
 <body>
 
@@ -138,13 +131,16 @@
 
 <script>
   window.__TWEAKS__ = /*EDITMODE-BEGIN*/{
-    "palette": "citrus",
+    "palette": "paper",
     "device": "desktop"
   }/*EDITMODE-END*/;
-  // Brand-first: clear stale local override so Citrus is the new default
+  // Clear any stale palette overrides from previous designs so Paper is the active default.
   try {
     const saved = JSON.parse(localStorage.getItem('di-v2-tweaks')||'{}');
-    if (saved && saved.palette === 'warm') { saved.palette = 'citrus'; localStorage.setItem('di-v2-tweaks', JSON.stringify(saved)); }
+    if (saved && saved.palette && saved.palette !== 'paper') {
+      saved.palette = 'paper';
+      localStorage.setItem('di-v2-tweaks', JSON.stringify(saved));
+    }
   } catch(e){}
 </script>
 
@@ -267,7 +263,7 @@
           <div className="di-footer-grid" style={{maxWidth:1100, margin:'0 auto', gap:'2rem'}}>
             <div>
               <div style={{display:'flex', alignItems:'center', gap:'.55rem', marginBottom:'.7rem'}}>
-                <img src="assets/logo/di_logo_no_border.svg" alt="" style={{height:32, width:32, display:'block', borderRadius:5, background:'#FAFAF6'}}/>
+                <img src="assets/logo/di_logo_no_border.svg" alt="" style={{height:32, width:32, display:'block', borderRadius:5, background:'#FFFFFF'}}/>
                 <span style={{fontFamily:T.font, fontSize:'1.2rem'}}>The Deflation Index</span>
               </div>
               <p style={{color:'rgba(255,255,255,0.6)', fontSize:'.92rem', maxWidth:'42ch', margin:0, lineHeight:1.6}}>An open record of how technology made things radically cheaper, and where the abundance went.</p>

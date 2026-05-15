@@ -19,17 +19,17 @@ function DIChart({
 }) {
   const DI = window.DI;
   const T = {
-    bg: theme.bg || '#FAFAF6',
-    ink: theme.ink || '#1B1B1B',
-    inkMute: theme.inkMute || '#6E6E6B',
-    line: theme.line || '#E3E1D8',
-    grid: theme.grid || 'rgba(0,0,0,0.06)',
+    bg: theme.bg || '#FFFFFF',
+    ink: theme.ink || '#1A1A1A',
+    inkMute: theme.inkMute || '#9A9A98',
+    line: theme.line || '#E8E8E5',
+    grid: theme.grid || 'rgba(26,26,26,0.06)',
     accent: theme.accent || '#B88A2B',
-    di: theme.di || '#2F7A7A',
-    m2: theme.m2 || '#A64A3F',
-    cpi: theme.cpi || '#6E6E6B',
-    font: theme.font || 'Inter, system-ui, sans-serif',
-    mono: theme.mono || 'IBM Plex Mono, ui-monospace, monospace',
+    di: theme.di || '#2F5F7A',
+    m2: theme.m2 || '#B88A2B',
+    cpi: theme.cpi || '#6A6A68',
+    font: theme.font || "'Spectral', Georgia, serif",
+    mono: theme.mono || "'Space Mono', ui-monospace, monospace",
     tooltipBg: theme.tooltipBg || '#FFFFFF',
     ...theme,
   };
