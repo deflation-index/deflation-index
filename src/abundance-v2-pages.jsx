@@ -2,7 +2,7 @@
 const { useState: useStateP, useEffect: useEffectP, useMemo: useMemoP, useRef: useRefP } = React;
 const DIp = window.DI;
 const RevealP = window.AbundanceV2Reveal;
-const PulseP = window.AbundanceV2Pulse;
+const DatelineP = window.AbundanceV2Dateline;
 const HEROES_P = window.AbundanceV2Heroes;
 
 const fmtP = (v, plus=true) => `${v>0&&plus?'+':''}${v.toFixed(v<10&&v>-10?1:0)}%`;
@@ -505,7 +505,7 @@ Sector weights (v3.1.1):
 
         <RevealP>
           <h2 style={sectionTitle}>What 2025 means</h2>
-          <PulseP T={T}/>
+          <DatelineP T={T} parts={['Early read', '2025 data']}/>
           <p style={{...para, marginTop:'1rem'}}>
             2025 is an <strong style={{color:T.ink}}>early read</strong>, not a published index point. M2 and CPI are measured directly from FRED/BLS (retrieved {DIp.early2025.retrieved}). The DI 2025 figure blends measured sector data — battery packs, AI compute — with trend extrapolation for solar and broadband, which won't publish 2025 numbers until mid-to-late 2026. The full v4.0 weighted index will be published when those are in.
           </p>

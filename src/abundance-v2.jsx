@@ -195,21 +195,24 @@ function HeroChip({ T }) {
 const HEROES = { computing: HeroChip, communications: HeroPhone, energy: HeroSolar, transportation: HeroBattery };
 
 // ============================================================
-// 2025 PULSE BADGE
+// DATELINE — newspaper-style provenance marker (replaces the old PulseBadge)
+// `parts` is an array of strings joined with middots. The first part is set
+// in ink for emphasis; the rest are inkMute. No animation, no border, no badge.
 // ============================================================
-function PulseBadge({ T, label='2025 early read' }) {
+function Dateline({ T, parts = ['Early read', '2025 data'] }) {
   return (
     <span style={{
-      display:'inline-flex', alignItems:'center', gap:'.4rem',
-      padding:'.35rem .8rem', background:T.bg, border:`1px solid ${T.accent}`,
-      borderRadius:999, fontFamily:T.mono, fontSize:'.7rem',
-      letterSpacing:'.06em', textTransform:'uppercase', color:T.accent, fontWeight:600,
+      display:'inline-block',
+      fontFamily:T.mono, fontSize:'.72rem',
+      letterSpacing:'.12em', textTransform:'uppercase',
+      color:T.inkMute, fontWeight:500, lineHeight:1.4,
     }}>
-      <span style={{
-        width:7, height:7, borderRadius:'50%', background:T.accent,
-        boxShadow:`0 0 0 0 ${T.accent}`, animation:'pulse 2s infinite',
-      }}/>
-      {label}
+      {parts.map((p, i) => (
+        <React.Fragment key={i}>
+          {i > 0 && <span style={{margin:'0 .55rem', color:T.line}} aria-hidden="true">·</span>}
+          <span style={i === 0 ? {color:T.ink, fontWeight:600} : null}>{p}</span>
+        </React.Fragment>
+      ))}
     </span>
   );
 }
@@ -328,9 +331,8 @@ function HomeV2({ nav, T }) {
         </svg>
         <div style={{maxWidth:1280, margin:'0 auto', position:'relative', zIndex:1}}>
           <Reveal>
-            <div style={{display:'inline-flex', gap:'.6rem', alignItems:'center', marginBottom:'1.5rem'}}>
-              <PulseBadge T={T}/>
-              <span style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.04em'}}>· retrieved {DI2.early2025.retrieved}</span>
+            <div style={{marginBottom:'1.5rem'}}>
+              <Dateline T={T} parts={['Early read', '2025 data', `Retrieved ${DI2.early2025.retrieved}`]}/>
             </div>
           </Reveal>
           <Reveal delay={80}>
@@ -473,7 +475,7 @@ function HomeV2({ nav, T }) {
                 <div style={{paddingLeft:'.6rem'}}>
                   <div style={{fontFamily:T.font, fontSize:'1.25rem', fontWeight:500, marginBottom:'.4rem'}}>{t.title}</div>
                   <p style={{color:T.inkSoft, lineHeight:1.6, margin:0}}>{t.text}</p>
-                  {t.year === 2025 && <PulseBadge T={T} label="EARLY READ"/>}
+                  {t.year === 2025 && <div style={{marginTop:'.5rem'}}><Dateline T={T} parts={['Early read']}/></div>}
                 </div>
               </div>
             </Reveal>
@@ -526,7 +528,7 @@ function HomeV2({ nav, T }) {
 window.AbundanceV2Home = HomeV2;
 window.AbundanceV2Theme = makeTheme;
 window.AbundanceV2Nav = NavV2;
-window.AbundanceV2Pulse = PulseBadge;
+window.AbundanceV2Dateline = Dateline;
 window.AbundanceV2Reveal = Reveal;
 window.AbundanceV2Heroes = HEROES;
 window.AbundanceV2Palettes = palettes;
