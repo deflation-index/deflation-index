@@ -4,9 +4,9 @@ The first line goes down. It's a weighted average of four technology costs that 
 
 The second line goes up. It's M2 — the broad money supply tracked by the Federal Reserve. Same span. Same starting point. In 1990, M2 was about $3.3 trillion. By the end of 2024 it was $21.3 trillion. On a 1990=100 scale, M2 climbs from 100 to 650.
 
-The third line also goes up, but more slowly. CPI — the prices ordinary people pay for ordinary things — rose 155% over those thirty-four years, an annual average of 2.7%.
+The third line also goes up, but more slowly. CPI — the prices ordinary people pay for ordinary things — rose 143% over those thirty-four years, an annual average of 2.7%.
 
-That's the chart. Three numbers: −96, +550, +155. Hold those in your head.
+That's the chart. Three numbers: −96, +550, +143. Hold those in your head.
 
 ## What the index is, and isn't
 
@@ -18,7 +18,7 @@ The four sectors are weighted by GDP-relevance, with computing and energy carryi
 
 ## Why the gap matters
 
-If technology made the things in this basket 96% cheaper, the abundance went *somewhere*. It didn't all show up as lower CPI — CPI rose 155%. It didn't all show up in wages — median real wages grew about 30% over the same period. It didn't disappear.
+If technology made the things in this basket 96% cheaper, the abundance went *somewhere*. It didn't all show up as lower CPI — CPI rose 143%. It didn't all show up in wages — median real wages grew about 30% over the same period. It didn't disappear.
 
 Most of it was absorbed by sectors *not* in the index: housing, healthcare, education, services. The places where productivity is hard, supply is constrained, and prices rose faster than the dollar fell. The gap between the falling line and the rising lines is, in a literal sense, where the abundance went.
 

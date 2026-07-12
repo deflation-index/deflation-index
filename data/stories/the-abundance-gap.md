@@ -2,13 +2,13 @@ Three numbers, in order:
 
 - Technology in the Deflation Index: **−96%** since 1990.
 - M2 money supply: **+550%** since 1990.
-- CPI: **+155%** since 1990.
+- CPI: **+143%** since 1990.
 
-The arithmetic is the story. If the things technology made are 96% cheaper, and the dollar (broadly measured) is now worth a fraction of what it was, and yet the prices ordinary people pay only rose 155% — *the gap has to live somewhere*. It does. We just don't see it on the headline.
+The arithmetic is the story. If the things technology made are 96% cheaper, and the dollar (broadly measured) is now worth a fraction of what it was, and yet the prices ordinary people pay only rose 143% — *the gap has to live somewhere*. It does. We just don't see it on the headline.
 
 ## The Abundance Gap, defined
 
-We use a simple framing on this site: the **Abundance Gap** is the difference between how cheap technology made things and how expensive everything else got. By 2024 that gap was about 491 percentage points. By the 2025 early read it widened to 522.
+We use a simple framing on this site: the **Abundance Gap** is the difference between how cheap technology made things and how expensive everything else got. By 2024 that gap was about 503 percentage points. By the 2025 early read it widened to 522.
 
 That number is mechanical. It's not inflation-adjusted, not opinion, not vibes. It's the spread between two real, measurable lines on a chart that both started at 100 in 1990. One went to 3.75. The other went to 650. Five hundred points of separation between them is the headroom that *should* have shown up as cheaper goods, lower prices, more income left over at the end of the month.
 
@@ -26,7 +26,7 @@ The honest answer is that the gap absorbed in three uneven ways.
 
 ## What this site is and isn't arguing
 
-It is **not** the case that inflation is fake, or that the cost of living hasn't risen. CPI is a careful measurement of a basket of goods and services that people actually buy, and it rose 155%. Real prices rose. Wages didn't fully keep up. That experience is genuine.
+It is **not** the case that inflation is fake, or that the cost of living hasn't risen. CPI is a careful measurement of a basket of goods and services that people actually buy, and it rose 143%. Real prices rose. Wages didn't fully keep up. That experience is genuine.
 
 It is also the case that — running underneath the inflation story for thirty-five years — there has been a parallel deflation in technology that compounds at about 9% per year. That deflation is also real. Both can be true at once. The question worth asking, in our view, isn't *which line is right*. It's: **why didn't the falling line show up more in everyday prices?**
 
