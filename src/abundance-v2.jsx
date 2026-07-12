@@ -218,6 +218,40 @@ function Dateline({ T, parts = ['Early read', '2025 data'] }) {
 }
 
 // ============================================================
+// NEWSLETTER — styled form that hands off to Substack signup
+// (a direct API POST from this domain is blocked by CORS, so we
+// send the visitor to Substack with the email prefilled)
+// ============================================================
+const SUBSTACK_URL = 'https://deflationindex.substack.com';
+function NewsletterForm({ T }) {
+  const [email, setEmail] = useState('');
+  const [invalid, setInvalid] = useState(false);
+  const submit = (e) => {
+    e.preventDefault();
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    if (!ok) { setInvalid(true); return; }
+    window.location.href = SUBSTACK_URL + '/subscribe?email=' + encodeURIComponent(email.trim());
+  };
+  return (
+    <form onSubmit={submit} noValidate style={{maxWidth:420, margin:'0 auto'}}>
+      <div style={{display:'flex', gap:'.5rem'}}>
+        <input
+          type="email" placeholder="you@domain.com" value={email}
+          aria-label="Email address" aria-invalid={invalid}
+          onChange={(e)=>{ setEmail(e.target.value); if (invalid) setInvalid(false); }}
+          style={{flex:1, padding:'.85rem 1rem', border:`1px solid ${invalid ? T.accent : T.line}`, borderRadius:999, background:T.bg, fontFamily:T.sans, fontSize:'.95rem', outline:'none', color:T.ink}}/>
+        <button type="submit" className="di-tap" style={{padding:'.85rem 1.4rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontFamily:T.sans, fontWeight:500, cursor:'pointer'}}>Subscribe</button>
+      </div>
+      <div style={{fontFamily:T.mono, fontSize:'.7rem', color: invalid ? T.accent : T.inkMute, marginTop:'.6rem', letterSpacing:'.04em'}}>
+        {invalid ? 'That doesn’t look like an email address.' : 'Delivered via Substack. Unsubscribe anytime.'}
+      </div>
+    </form>
+  );
+}
+window.AbundanceV2NewsletterForm = NewsletterForm;
+window.AbundanceV2SubstackUrl = SUBSTACK_URL;
+
+// ============================================================
 // SHARED NAV (top + mobile bottom tabs)
 // ============================================================
 function NavV2({ route, nav, T, mobile=false }) {
@@ -520,10 +554,7 @@ function HomeV2({ nav, T }) {
         <div style={{maxWidth:560, margin:'0 auto', textAlign:'center'}}>
           <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .7rem'}}>An occasional newsletter.</h2>
           <p style={{color:T.inkSoft, fontSize:'1rem', marginBottom:'1.4rem'}}>New sector data, methodology updates, occasional findings. No upsell.</p>
-          <form onSubmit={(e)=>e.preventDefault()} style={{display:'flex', gap:'.5rem', maxWidth:420, margin:'0 auto'}}>
-            <input type="email" placeholder="you@domain.com" style={{flex:1, padding:'.85rem 1rem', border:`1px solid ${T.line}`, borderRadius:999, background:T.bg, fontFamily:T.sans, fontSize:'.95rem', outline:'none', color:T.ink}}/>
-            <button style={{padding:'.85rem 1.4rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontFamily:T.sans, fontWeight:500, cursor:'pointer'}}>Subscribe</button>
-          </form>
+          <NewsletterForm T={T}/>
         </div>
       </section>
     </div>

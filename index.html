@@ -264,15 +264,23 @@
             </div>
             {[
               {h:'Site', l:[['home','Home'],['sectors','Sectors'],['explore','Explore'],['stories','Stories'],['method','Method']]},
-              {h:'Data', l:[['method','Sources'],['method','Methodology'],['method','Changelog']]},
-              {h:'Updates', l:[['#','Newsletter'],['#','RSS']]},
+              {h:'Data', l:[['method','Sources & method'],['https://github.com/deflation-index/deflation-index','Data & code (GitHub)'],['https://github.com/deflation-index/deflation-index/blob/main/docs/operations/CHANGELOG.md','Changelog']]},
+              {h:'Updates', l:[['https://deflationindex.substack.com','Newsletter'],['https://deflationindex.substack.com/feed','RSS']]},
             ].map((col,i)=>(
               <div key={i}>
                 <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.8rem'}}>{col.h}</div>
                 <ul style={{listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'.5rem'}}>
-                  {col.l.map(([k,v])=>(
-                    <li key={v}><a href={k.startsWith('#')?'#':'#/'+k} onClick={(e)=>{if(!k.startsWith('#')){e.preventDefault();nav(k);}}} style={{color:'rgba(255,255,255,0.85)', textDecoration:'none', fontSize:'.92rem'}}>{v}</a></li>
-                  ))}
+                  {col.l.map(([k,v])=>{
+                    const ext = k.startsWith('http');
+                    return (
+                      <li key={v}>
+                        <a href={ext ? k : '#/'+k}
+                           target={ext ? '_blank' : undefined} rel={ext ? 'noopener' : undefined}
+                           onClick={(e)=>{if(!ext){e.preventDefault();nav(k);}}}
+                           style={{color:'rgba(255,255,255,0.85)', textDecoration:'none', fontSize:'.92rem'}}>{v}</a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
