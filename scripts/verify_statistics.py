@@ -129,22 +129,54 @@ def verify_constants_json():
     
     return results
 
+def read_sector_weights(wb):
+    """Read weights from the Sector_Weights sheet, keyed by sector name"""
+    ws = wb['Sector_Weights']
+    weights = {}
+    for row in range(4, 8):
+        sector = ws.cell(row, 1).value
+        weight = ws.cell(row, 2).value
+        if sector and weight is not None:
+            weights[sector] = weight
+    return weights
+
+
 def verify_master_di_values(wb):
-    """Verify Master_DI values in Excel file"""
-    
+    """Verify Master_DI values in Excel file.
+
+    Master_DI (column F) is formula-based. Workbooks saved without cached
+    formula results return None under data_only=True, so when the cache is
+    empty we recompute the weighted value from the sector columns (B-E)
+    using the Sector_Weights sheet — which also verifies the arithmetic
+    rather than trusting a cached number.
+    """
+
     ws = wb['Master_Index']
-    
+    weights = read_sector_weights(wb)
+    # Column order in Master_Index: B=Computing, C=Communications, D=Energy, E=Transportation
+    weight_order = [weights.get('Computing'), weights.get('Communications'),
+                    weights.get('Energy'), weights.get('Transportation')]
+
+    def master_di_at(row):
+        cached = ws.cell(row, 6).value
+        if cached is not None:
+            return cached
+        sector_vals = [ws.cell(row, c).value for c in range(2, 6)]
+        if any(v is None for v in sector_vals) or any(w is None for w in weight_order):
+            return None
+        return sum(w * v for w, v in zip(weight_order, sector_vals))
+
     # Find 1990 and 2024 rows
     master_di_1990 = None
     master_di_2024 = None
-    
-    for row in range(8, 43):  # Typical data range
+
+    for row in range(8, ws.max_row + 1):
         year = ws.cell(row, 1).value
         if year == 1990:
-            master_di_1990 = ws.cell(row, 6).value
+            master_di_1990 = master_di_at(row)
         elif year == 2024:
-            master_di_2024 = ws.cell(row, 6).value
-    
+            master_di_2024 = master_di_at(row)
+
     results = []
     
     # Check 1990 baseline
