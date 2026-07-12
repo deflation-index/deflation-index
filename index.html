@@ -197,12 +197,16 @@
 <!-- marked (markdown → HTML for Stories) -->
 <script src="https://unpkg.com/marked@12.0.2/lib/marked.umd.js" integrity="sha384-1k2MTWjtw1PI6EOZEAvwL3bDoJfybbsEJcaXqsRTurALpMRRfQwza/nvaUQ7S/CQ" crossorigin="anonymous"></script>
 
-<!-- Precompiled from src/*.jsx — run `npm run build` after editing JSX (see README) -->
+<!-- Precompiled from src/*.jsx — run `npm run build` after editing JSX (see README).
+     type="module" is required: each file declares top-level consts (e.g. useState
+     destructured from React), and module scope keeps them from colliding the way
+     plain script tags share one global lexical scope. Modules are deferred and
+     execute in document order, so the dependency chain below is preserved. -->
 <script src="src/data.js"></script>
-<script src="dist/DIChart.js"></script>
-<script src="dist/abundance-v2.js"></script>
-<script src="dist/abundance-v2-pages.js"></script>
-<script src="dist/app.js"></script>
+<script type="module" src="dist/DIChart.js"></script>
+<script type="module" src="dist/abundance-v2.js"></script>
+<script type="module" src="dist/abundance-v2-pages.js"></script>
+<script type="module" src="dist/app.js"></script>
 
 </body>
 </html>
