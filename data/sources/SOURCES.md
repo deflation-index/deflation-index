@@ -75,8 +75,8 @@
 | 2024 | 314.7 | 240.78 |
 
 **Calculation**:
-- Cumulative inflation: 155% (used as context, not in gap calculation)
-- Annual rate: ~2.8%
+- Cumulative inflation: ~141% by the annual averages above; the site series (243.5, 1990=100) shows +143.5% (used as context, not in gap calculation)
+- Annual rate: ~2.7%
 
 **Citation**:
 > U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers: All Items in U.S. City Average [CPIAUCSL], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPIAUCSL

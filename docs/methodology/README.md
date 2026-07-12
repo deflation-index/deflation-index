@@ -93,7 +93,7 @@ Where:
 | Metric | Value |
 |--------|-------|
 | Annual DI-M2 Gap | 14.9pp |
-| Cumulative Gap | ~491pp |
+| Cumulative Gap | ~503pp |
 
 ---
 

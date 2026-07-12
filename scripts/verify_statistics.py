@@ -32,13 +32,14 @@ EXPECTED_VALUES = {
     'm2_annual_rate': 5.66,  # Was 5.9%, actual 5.66%
     'm2_multiplier': 6.5,  # Was 7.15x, actual 6.5x
     
-    # CPI values (unchanged)
-    'cpi_cumulative': 154.65,
-    'cpi_annual_rate': 2.72,
-    
-    # Gap values (RECALCULATED)
-    'di_m2_gap_annual': 14.87,  # Was 15.1pp (|-9.21| + 5.66)
-    'abundance_gap': 491,  # Was 560pp (96 + 550 - 155)
+    # CPI values (CORRECTED v3.1.3: prior 254.65 endpoint mixed a Dec-2024
+    # numerator with a 1989 base; Jan-1990=100 convention gives 243.5)
+    'cpi_cumulative': 143.5,  # Was 154.65
+    'cpi_annual_rate': 2.65,  # Was 2.72 (2.435^(1/34) - 1)
+
+    # Gap values (RECALCULATED v3.1.3 with corrected CPI)
+    'di_m2_gap_annual': 14.87,  # |-9.21| + 5.66 (CPI not in this gap)
+    'abundance_gap': 503,  # Was 491 (96.25 + 550.02 - 143.5 = 502.8)
     
     # Sector weights (4-decimal precision, unchanged)
     'weight_computing': 0.2941,

@@ -1,7 +1,7 @@
 {
-  "version": "3.1.1",
-  "last_updated": "2026-04-19",
-  "description": "Single source of truth for Deflation Index statistics. v3.1.1 updates the 2025 early-read block with live FRED monthly data and adds a 2025 annual average for M2 and CPI; the weighted DI remains 1990-2024 until all four sectors have measured 2025 data (expected v4.0 mid-2026).",
+  "version": "3.1.3",
+  "last_updated": "2026-07-12",
+  "description": "Single source of truth for Deflation Index statistics. v3.1.3 corrects the 2024 CPI endpoint (254.65 -> 243.5; the prior figure mixed a Dec-2024 numerator with a 1989 base) and the derived cumulative inflation, CAGR, multiplier, and abundance gap. v3.1.1 updated the 2025 early-read block with live FRED monthly data; the weighted DI remains 1990-2024 until all four sectors have measured 2025 data (expected v4.0 mid-2026).",
   "sources": {
     "m2": {
       "name": "Federal Reserve FRED Series M2SL",
@@ -222,10 +222,10 @@
     "base_year": 1990,
     "base_index": 100.0,
     "end_year": 2024,
-    "end_index": 254.65,
-    "cumulative_inflation_percent": 154.65,
-    "cagr_percent": 2.72,
-    "multiplier": 2.55,
+    "end_index": 243.5,
+    "cumulative_inflation_percent": 143.5,
+    "cagr_percent": 2.65,
+    "multiplier": 2.44,
     "description": "Consumer Price Index, rebased to 1990=100"
   },
   "gap_analysis": {
@@ -236,9 +236,9 @@
       "formula": "|DI annual rate| + M2 annual rate = |-9.21| + 5.66 = 14.87"
     },
     "abundance_gap": {
-      "cumulative_pp": 491,
+      "cumulative_pp": 503,
       "description": "Cumulative gap: tech savings + monetary expansion - actual inflation",
-      "formula": "|DI cumulative| + M2 cumulative - CPI cumulative = 96 + 550 - 155 = 491"
+      "formula": "|DI cumulative| + M2 cumulative - CPI cumulative = 96 + 550 - 143 = 503"
     }
   },
   "sector_weights": {

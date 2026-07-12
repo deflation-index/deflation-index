@@ -13,7 +13,7 @@
 
 **Quantified impact:** Recent studies show IT capital generates 5-10× the productivity benefit of non-IT capital (Brynjolfsson & Hitt 2003), with information technology contributing 0.5-1.0 percentage points to annual US productivity growth — representing 30-50% of total gains from sectors comprising only ~7% of GDP (Jorgenson et al. 2008).
 
-**The Deflation Index connection:** If technology delivers 96% cost reduction while consumer prices rise 155%, where did the productivity gains flow? This document establishes why technology is *the* engine of productivity, making that question essential to understanding modern economics.
+**The Deflation Index connection:** If technology delivers 96% cost reduction while consumer prices rise 143%, where did the productivity gains flow? This document establishes why technology is *the* engine of productivity, making that question essential to understanding modern economics.
 
 ---
 
@@ -235,7 +235,7 @@ History suggests this will follow the same pattern as previous technological wav
 - Energy: 98.42% cost reduction
 - Transportation: 82.59% cost reduction (2010-2024)
 
-**Then why does CPI show only 155% cumulative inflation (not deflation)?**
+**Then why does CPI show only 143% cumulative inflation (not deflation)?**
 
 ### Three Logical Possibilities
 

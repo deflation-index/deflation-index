@@ -235,7 +235,7 @@ function App() {
       color: 'rgba(255,255,255,0.5)',
       letterSpacing: '.06em'
     }
-  }, React.createElement("span", null, "v3.1.1 · 2025 EARLY READ"), React.createElement("span", null, "data through dec 2025 · retrieved ", window.DI.early2025.retrieved))), editMode && React.createElement("div", {
+  }, React.createElement("span", null, "v3.1.3 · 2025 EARLY READ"), React.createElement("span", null, "data through dec 2025 · retrieved ", window.DI.early2025.retrieved))), editMode && React.createElement("div", {
     style: {
       position: 'fixed',
       bottom: 20,

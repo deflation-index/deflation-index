@@ -90,7 +90,7 @@ window.DI = (function(){
     m2_2025_cumulative_pct: 575.69,
     m2_2025_trillions: 21.97,
     cpi_cumulative_pct: 143.5,
-    cpi_annual_pct: 2.72,
+    cpi_annual_pct: 2.65,
     cpi_2025: 250.10,
     cpi_2025_cumulative_pct: 150.10,
     gap_annual_pp: 14.87,
