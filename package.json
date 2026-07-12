@@ -1,0 +1,16 @@
+{
+  "name": "deflation-index",
+  "version": "3.1.1",
+  "private": true,
+  "description": "The Deflation Index — an open record of how technology made things radically cheaper, and where the abundance went.",
+  "scripts": {
+    "build": "babel src --out-dir dist --extensions .jsx",
+    "watch": "babel src --out-dir dist --extensions .jsx --watch",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.0",
+    "@babel/core": "^7.24.0",
+    "@babel/preset-react": "^7.24.0"
+  }
+}
