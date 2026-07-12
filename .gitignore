@@ -44,7 +44,8 @@ node_modules/
 .env.local
 
 # Build outputs
-dist/
+# NOTE: dist/ is intentionally NOT ignored — it holds the precompiled JSX
+# that static hosting serves. Rebuild with `npm run build` and commit it.
 build/
 *.egg-info/
 

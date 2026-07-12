@@ -4,7 +4,7 @@ An open record of how technology made things radically cheaper, and where the ab
 
 ## Running locally
 
-This is a static site — no build step. Serve the folder over HTTP (the JSX is transpiled in-browser via Babel standalone, and `file://` blocks the script loads).
+This is a static site. Serve the folder over HTTP (`file://` blocks the script loads):
 
 ```bash
 # from the repo root
@@ -14,15 +14,24 @@ python3 -m http.server 8000
 
 Any static server works (`npx serve`, `caddy file-server`, GitHub Pages, Netlify, Cloudflare Pages, etc.).
 
+The JSX in `src/` is precompiled into `dist/` (plain JS, committed to the repo), so deployment needs no build. **If you edit any `.jsx` file**, rebuild and commit `dist/`:
+
+```bash
+npm install        # once
+npm run build      # or: npm run watch
+```
+
 ## Structure
 
 ```
-index.html                    Entry point
+index.html                    Entry point (static SEO fallback + script loading)
 src/
   data.js                     Window-attached DI data (extracted from data/*.json)
   DIChart.jsx                 Reusable chart engine (multi-series, zoom, log/linear)
-  abundance-v2.jsx            Home + shared shell (Reveal, theme, footer, router)
+  abundance-v2.jsx            Home + shared shell (Reveal, theme, newsletter, nav)
   abundance-v2-pages.jsx      Sectors / Sector / Explore / Stories / Method
+  app.jsx                     Router + app shell + footer
+dist/                         Compiled JS served in production (npm run build)
 data/
   constants.json              Single source of truth for series, weights, sources
   master_index.json           Computed weighted index, 1990-2024

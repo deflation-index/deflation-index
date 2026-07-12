@@ -30,16 +30,16 @@
 - **Source**: Federal Reserve FRED Series M2SL (verified December 2025)
 
 ### Consumer Price Inflation (CPI-U)
-- **Annual Average**: +2.7% inflation per year (precise: 2.72%)
-- **Cumulative**: +155% total inflation over 35 years (precise: 154.65%)
-- **Multiplier**: 2.55x increase
+- **Annual Average**: +2.7% inflation per year (precise: 2.65%)
+- **Cumulative**: +143% total inflation over 35 years (precise: 143.5%)
+- **Multiplier**: 2.44x increase
 - **Meaning**: Consumer prices rose modestly despite massive money printing
 
 ### The Gap: Where Did the Abundance Go?
 - **Annual Gap**: 14.9 percentage points per year (DI-M2)
-- **Cumulative Gap**: ~491 percentage points over 35 years
+- **Cumulative Gap**: ~503 percentage points over 35 years
 - **Formula**: |Tech Deflation| + M2 Expansion - CPI Inflation
-  - 96pp (tech savings) + 550pp (money printing) - 155pp (CPI) = **491pp**
+  - 96pp (tech savings) + 550pp (money printing) - 143pp (CPI) = **503pp**
 - **Meaning**: Productivity gains that did not reach consumer prices
 
 ---
@@ -50,9 +50,9 @@
 
 Technology should have made things 96% cheaper. Money printing added 550% inflationary pressure.
 
-Consumer prices (CPI) rose only 155%.
+Consumer prices (CPI) rose only 143%.
 
-**The ~491-point cumulative gap represents productivity gains that flowed elsewhere:**
+**The ~503-point cumulative gap represents productivity gains that flowed elsewhere:**
 1. **Asset Appreciation**: Stocks +1,500%, housing +400% (not captured in CPI)
 2. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
 3. **Complexity Costs**: Healthcare, education, housing rising faster than wages

@@ -89,12 +89,12 @@ window.DI = (function(){
     m2_2025: 675.69,
     m2_2025_cumulative_pct: 575.69,
     m2_2025_trillions: 21.97,
-    cpi_cumulative_pct: 154.65,
-    cpi_annual_pct: 2.72,
+    cpi_cumulative_pct: 143.5,
+    cpi_annual_pct: 2.65,
     cpi_2025: 250.10,
     cpi_2025_cumulative_pct: 150.10,
     gap_annual_pp: 14.87,
-    abundance_gap_pp: 491,
+    abundance_gap_pp: 503,
     abundance_gap_2025_pp: 522
   };
 
@@ -118,19 +118,19 @@ window.DI = (function(){
     {year:2000, title:'Computing bends the curve', text:"The dot-com boom wires the world. Moore's Law is in full stride. M2 reaches $4.9T; a gigabyte of data is down to $1.50."},
     {year:2010, title:'Energy joins the party', text:'Solar falls below $2/watt. The first mass-market EVs ship with $1,160/kWh lithium packs. LEDs reach scale. M2: $8.7T.'},
     {year:2020, title:'The monetary break', text:'M2 expands 24% in one year — the largest peacetime expansion in U.S. history. Tech deflation keeps compounding underneath.'},
-    {year:2024, title:'The measurement', text:'DI at 3.75 (−96.25% since 1990). M2 at $21.3T (+550%). CPI at 254.65 (+155%). The gap between these three lines is the story.'},
+    {year:2024, title:'The measurement', text:'DI at 3.75 (−96.25% since 1990). M2 at $21.3T (+550%). CPI at 243.5 (+143%). The gap between these three lines is the story.'},
     {year:2025, title:'Early read', text:'M2 at $22.0T (+3.95% YoY). CPI +2.71%. Battery packs $108/kWh, AI compute −37%/yr. Full weighted DI waits for 2026 publications.'}
   ];
 
   // The $100 test — what a constant $100 (1990 dollars equivalent) bought then vs now
   const dollarTest = [
-    { id:'data', label:'Mobile data', unit:'GB', then:1.06, now:1724, icon:'📶',
+    { id:'data', label:'Mobile data', unit:'GB', then:1.06, now:1724,
       thenText:'About 1 GB — the size of a CD', nowText:'1.7 terabytes — 400 HD movies' },
-    { id:'compute', label:'Computing power', unit:'GFLOPS', then:0.12, now:1400000, icon:'💻',
+    { id:'compute', label:'Computing power', unit:'GFLOPS', then:0.12, now:1400000,
       thenText:'A fraction of a GFLOP', nowText:'1.4 petaflops — more than a 1995 supercomputer' },
-    { id:'solar', label:'Solar electricity', unit:'kWh', then:33, now:2500, icon:'☀️',
+    { id:'solar', label:'Solar electricity', unit:'kWh', then:33, now:2500,
       thenText:'33 kWh — enough for a few days of lighting', nowText:'2,500 kWh — a year of fridge + lights for a small home' },
-    { id:'battery', label:'Battery capacity (since 2010)', unit:'kWh', then:0.086, now:0.93, icon:'🔋',
+    { id:'battery', label:'Battery capacity (since 2010)', unit:'kWh', then:0.086, now:0.93,
       thenText:'86 watt-hours — phone battery', nowText:'930 watt-hours — power tool or small e-bike' },
   ];
 
@@ -139,7 +139,7 @@ window.DI = (function(){
     {slug:'what-is-deflation-index', kicker:'Explainer', title:'What the Deflation Index actually measures.',
      dek:'Three lines on a chart. One idea you already know but rarely see mapped.', readMins:4},
     {slug:'the-abundance-gap', kicker:'Concept', title:'The Abundance Gap: tech savings, minus inflation.',
-     dek:'Technology fell 96%. Money rose 550%. Prices rose 155%. What happened to the difference?', readMins:6},
+     dek:'Technology fell 96%. Money rose 550%. Prices rose 143%. What happened to the difference?', readMins:6},
     {slug:'battery-breakeven', kicker:'Deep dive', title:'Batteries crossed $100/kWh in 2025 — the EV tipping point.',
      dek:'A pack below $100/kWh means EVs undercut gas cars on sticker price. Here\'s how we got here.', readMins:5},
     {slug:'ai-compute-halving', kicker:'Sector', title:'AI compute is still halving every 2.2 years.',

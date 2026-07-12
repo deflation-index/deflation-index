@@ -3,21 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Deflation Index</title>
+<title>The Deflation Index — where the abundance went</title>
 <meta name="description" content="An open record of how technology made things radically cheaper, and where the abundance went. Weighted index 1990–2024, 2025 early read.">
+<link rel="canonical" href="https://deflationindex.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "The Deflation Index",
+  "description": "A weighted index of technology cost-per-performance across computing ($/GFLOPS), communications ($/GB), energy ($/kWh solar LCOE), and transportation (lithium-ion $/kWh), 1990-2024 with a 2025 early read. Rebased to 1990=100 and compared against M2 money supply and CPI.",
+  "url": "https://deflationindex.com/",
+  "sameAs": "https://github.com/deflation-index/deflation-index",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Organization",
+    "name": "Deflation Index LLC",
+    "url": "https://deflationindex.com/"
+  },
+  "temporalCoverage": "1990/2025",
+  "spatialCoverage": "United States",
+  "keywords": ["technological deflation", "cost per performance", "M2 money supply", "CPI", "productivity", "computing costs", "solar LCOE", "battery prices", "broadband prices"],
+  "isAccessibleForFree": true,
+  "version": "3.1.3",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://github.com/deflation-index/deflation-index/blob/main/data/master_index.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "contentUrl": "https://github.com/deflation-index/deflation-index/blob/main/data/excel/master_deflation_index_v3.0.3.xlsx"
+    }
+  ]
+}
+</script>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://deflationindex.com/">
 <meta property="og:title" content="The Deflation Index">
 <meta property="og:description" content="An open record of how technology made things radically cheaper, and where the abundance went.">
-<meta property="og:image" content="https://deflationindex.com/assets/logo/marks/di_logo_og.png">
+<meta property="og:image" content="https://deflationindex.com/assets/logo/marks/di_og_card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Deflation Index">
 <meta name="twitter:description" content="An open record of how technology made things radically cheaper, and where the abundance went.">
-<meta name="twitter:image" content="https://deflationindex.com/assets/logo/marks/di_logo_og.png">
+<meta name="twitter:image" content="https://deflationindex.com/assets/logo/marks/di_og_card.png">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/di_logo_32.png">
@@ -107,6 +143,13 @@
     .di-tap-pill { min-height: 44px; padding: .8rem 1.1rem; }
   }
 
+  /* Keyboard focus — visible ring on all interactive elements */
+  a:focus-visible, button:focus-visible, input:focus-visible, [role=button]:focus-visible {
+    outline: 2px solid #B88A2B;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
   /* Honor reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -121,7 +164,16 @@
 </head>
 <body>
 
-<div id="app"></div>
+<div id="app">
+  <!-- Static fallback: replaced by the React app on load; read by crawlers and no-JS visitors -->
+  <div style="max-width:720px;margin:0 auto;padding:4rem 1.5rem;font-family:'Space Grotesk',system-ui,sans-serif;color:#1A1A1A">
+    <h1 style="font-family:'Spectral',Georgia,serif;font-weight:400;font-size:2.4rem;line-height:1.1;letter-spacing:-.02em">Technology got <em style="color:#B88A2B">radically cheaper.</em> Here's where the abundance went.</h1>
+    <p style="font-size:1.1rem;line-height:1.6;color:#4A4A4A">Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong>96.5%</strong>. Money supply rose <strong>576%</strong>. Consumer prices rose <strong>150%</strong>. The Deflation Index puts all three on one chart so the divergence is visible at a glance.</p>
+    <p style="font-size:1rem;line-height:1.6;color:#4A4A4A">The index is a weighted average of four technology-cost series, each rebased to 1990&nbsp;=&nbsp;100: computing ($/GFLOPS, −99.9%), communications ($/GB, −99.4%), energy (solar $/kWh, −98.5%), and transportation (lithium-ion battery $/kWh, −86.5% since 2010). Methodology, sources, and all data are open on <a href="https://github.com/deflation-index/deflation-index" style="color:#B88A2B">GitHub</a>.</p>
+    <p style="font-size:1rem;color:#4A4A4A"><a href="#/sectors" style="color:#B88A2B">Sectors</a> · <a href="#/explore" style="color:#B88A2B">Explore the data</a> · <a href="#/stories" style="color:#B88A2B">Stories</a> · <a href="#/method" style="color:#B88A2B">How it's built</a></p>
+    <noscript><p style="font-family:'Space Mono',monospace;font-size:.85rem;color:#9A9A98">The interactive charts need JavaScript. The data itself doesn't — it's all on <a href="https://github.com/deflation-index/deflation-index" style="color:#B88A2B">GitHub</a>.</p></noscript>
+  </div>
+</div>
 
 <script>
   window.__TWEAKS__ = /*EDITMODE-BEGIN*/{
@@ -138,224 +190,19 @@
   } catch(e){}
 </script>
 
-<!-- React + Babel (production builds, SRI-pinned to npm tarball SHA-384) -->
+<!-- React (production builds, SRI-pinned to npm tarball SHA-384) -->
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <!-- marked (markdown → HTML for Stories) -->
 <script src="https://unpkg.com/marked@12.0.2/lib/marked.umd.js" integrity="sha384-1k2MTWjtw1PI6EOZEAvwL3bDoJfybbsEJcaXqsRTurALpMRRfQwza/nvaUQ7S/CQ" crossorigin="anonymous"></script>
 
+<!-- Precompiled from src/*.jsx — run `npm run build` after editing JSX (see README) -->
 <script src="src/data.js"></script>
-<script type="text/babel" src="src/DIChart.jsx"></script>
-<script type="text/babel" src="src/abundance-v2.jsx"></script>
-<script type="text/babel" src="src/abundance-v2-pages.jsx"></script>
-
-<script type="text/babel">
-  const { useState, useEffect, useCallback } = React;
-
-  // Viewport-driven isMobile — single source of truth for layout decisions
-  // that CSS @media queries can't reach (chart height prop, conditional renders).
-  function useIsMobile(maxPx = 768) {
-    const [m, setM] = useState(() =>
-      typeof window !== 'undefined' && window.matchMedia(`(max-width: ${maxPx}px)`).matches);
-    useEffect(() => {
-      const mq = window.matchMedia(`(max-width: ${maxPx}px)`);
-      const onChange = (e) => setM(e.matches);
-      mq.addEventListener('change', onChange);
-      return () => mq.removeEventListener('change', onChange);
-    }, [maxPx]);
-    return m;
-  }
-  // Expose to JSX files loaded as separate scripts.
-  window.AbundanceV2UseIsMobile = useIsMobile;
-
-  function useRoute() {
-    const [route, setRoute] = useState(() => (window.location.hash.replace('#/','')) || 'home');
-    useEffect(() => {
-      const onHash = () => setRoute(window.location.hash.replace('#/','') || 'home');
-      window.addEventListener('hashchange', onHash);
-      return () => window.removeEventListener('hashchange', onHash);
-    }, []);
-    const nav = useCallback((r) => { window.location.hash = '#/' + r; window.scrollTo({top:0, behavior:'smooth'}); }, []);
-    return [route, nav];
-  }
-
-  function loadTweaks() {
-    try {
-      const raw = localStorage.getItem('di-v2-tweaks');
-      if (raw) return { ...window.__TWEAKS__, ...JSON.parse(raw) };
-    } catch {}
-    return window.__TWEAKS__;
-  }
-
-  function App() {
-    const [tw, setTw] = useState(loadTweaks);
-    const [route, nav] = useRoute();
-    const [editMode, setEditMode] = useState(false);
-
-    useEffect(() => {
-      try { localStorage.setItem('di-v2-tweaks', JSON.stringify(tw)); } catch {}
-    }, [tw]);
-
-    useEffect(() => {
-      const onMsg = (e) => {
-        const d = e.data;
-        if (!d || !d.type) return;
-        if (d.type === '__activate_edit_mode') setEditMode(true);
-        if (d.type === '__deactivate_edit_mode') setEditMode(false);
-      };
-      window.addEventListener('message', onMsg);
-      try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch {}
-      return () => window.removeEventListener('message', onMsg);
-    }, []);
-
-    const setTweak = (key, val) => {
-      setTw(prev => {
-        const next = { ...prev, [key]: val };
-        try { window.parent.postMessage({type:'__edit_mode_set_keys', edits:{[key]:val}}, '*'); } catch {}
-        return next;
-      });
-    };
-
-    const T = window.AbundanceV2Theme(tw.palette);
-
-    // Inject root bg color
-    useEffect(() => {
-      document.body.style.background = T.bg;
-    }, [T.bg]);
-
-    const [page, sub] = route.split('/');
-
-    let content;
-    if (page === 'home') content = <window.AbundanceV2Home nav={nav} T={T}/>;
-    else if (page === 'sectors' && sub) content = <window.AbundanceV2Sector id={sub} T={T} nav={nav}/>;
-    else if (page === 'sectors') content = <window.AbundanceV2Sectors T={T} nav={nav}/>;
-    else if (page === 'explore') content = <window.AbundanceV2Explore T={T}/>;
-    else if (page === 'stories' && sub) content = <window.AbundanceV2Story slug={sub} T={T} nav={nav}/>;
-    else if (page === 'stories') content = <window.AbundanceV2Stories T={T} nav={nav}/>;
-    else if (page === 'method') content = <window.AbundanceV2Method T={T}/>;
-    else content = <window.AbundanceV2Home nav={nav} T={T}/>;
-
-    // Two sources of "mobile-ness":
-    //   - viewportMobile reflects the actual screen width (matchMedia)
-    //   - tw.device === 'mobile' is a manual override from the dev panel
-    // Either makes us render the mobile-shaped UI for things CSS can't handle.
-    const viewportMobile = useIsMobile(768);
-    const isMobile = tw.device === 'mobile' || viewportMobile;
-
-    return (
-      <div style={{background:T.bg, minHeight:'100vh'}}>
-        {/* Top nav (always rendered; the pill row hides via .di-hide-mobile on phones) */}
-        <window.AbundanceV2Nav route={route} nav={nav} T={T}/>
-        {content}
-        {/* Bottom tab nav (always rendered; hides via .di-show-mobile on desktop) */}
-        <window.AbundanceV2Nav route={route} nav={nav} T={T} mobile={true}/>
-
-        {/* Footer — extra bottom padding on mobile keeps content above the bottom tab bar */}
-        <footer style={{background:T.bgDeep, color:T.bg, padding:`3rem 1.5rem ${isMobile ? '7rem' : '4rem'}`, marginTop:0}}>
-          <div className="di-footer-grid" style={{maxWidth:1100, margin:'0 auto', gap:'2rem'}}>
-            <div>
-              <div style={{display:'flex', alignItems:'center', gap:'.55rem', marginBottom:'.7rem'}}>
-                <img src="assets/logo/di_logo_no_border.svg" alt="" style={{height:32, width:32, display:'block', borderRadius:5, background:'#FFFFFF'}}/>
-                <span style={{fontFamily:T.font, fontSize:'1.2rem'}}>The Deflation Index</span>
-              </div>
-              <p style={{color:'rgba(255,255,255,0.6)', fontSize:'.92rem', maxWidth:'42ch', margin:0, lineHeight:1.6}}>An open record of how technology made things radically cheaper, and where the abundance went.</p>
-            </div>
-            {[
-              {h:'Site', l:[['home','Home'],['sectors','Sectors'],['explore','Explore'],['stories','Stories'],['method','Method']]},
-              {h:'Data', l:[['method','Sources'],['method','Methodology'],['method','Changelog']]},
-              {h:'Updates', l:[['#','Newsletter'],['#','RSS']]},
-            ].map((col,i)=>(
-              <div key={i}>
-                <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.8rem'}}>{col.h}</div>
-                <ul style={{listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'.5rem'}}>
-                  {col.l.map(([k,v])=>(
-                    <li key={v}><a href={k.startsWith('#')?'#':'#/'+k} onClick={(e)=>{if(!k.startsWith('#')){e.preventDefault();nav(k);}}} style={{color:'rgba(255,255,255,0.85)', textDecoration:'none', fontSize:'.92rem'}}>{v}</a></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div style={{maxWidth:1100, margin:'2.5rem auto 0', paddingTop:'1.4rem', borderTop:'1px solid rgba(255,255,255,0.1)', display:'flex', justifyContent:'space-between', fontFamily:T.mono, fontSize:'.72rem', color:'rgba(255,255,255,0.5)', letterSpacing:'.06em'}}>
-            <span>v3.1.1 · 2025 EARLY READ</span>
-            <span>data through dec 2025 · retrieved {window.DI.early2025.retrieved}</span>
-          </div>
-        </footer>
-
-        {/* Tweaks */}
-        {editMode && (
-          <div style={{
-            position:'fixed', bottom:20, right:20, width:280, zIndex:100,
-            background:T.bg, borderRadius:14, boxShadow:'0 14px 38px rgba(0,0,0,0.2)',
-            border:`1px solid ${T.line}`, fontFamily:T.sans
-          }}>
-            <div style={{padding:'1rem 1.1rem .7rem', borderBottom:`1px solid ${T.line}`, display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-              <h2 style={{margin:0, fontFamily:T.font, fontWeight:500, fontSize:'1.05rem'}}>Tweaks</h2>
-              <span style={{fontFamily:T.mono, fontSize:'.65rem', color:T.inkMute, cursor:'pointer'}} onClick={()=>setEditMode(false)}>close ✕</span>
-            </div>
-            <div style={{padding:'.9rem 1.1rem 1.1rem'}}>
-              <div style={{marginBottom:'.9rem'}}>
-                <label style={{fontFamily:T.mono, fontSize:'.66rem', color:T.inkMute, textTransform:'uppercase', letterSpacing:'.1em', marginBottom:'.45rem', display:'block'}}>Palette</label>
-                <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:4, padding:3, borderRadius:10, background:T.bgAlt}}>
-                  {Object.keys(window.AbundanceV2Palettes).map(k=>{
-                    const p = window.AbundanceV2Palettes[k];
-                    return (
-                      <button key={k} onClick={()=>setTweak('palette',k)} style={{
-                        background: tw.palette===k ? T.ink : 'transparent',
-                        color: tw.palette===k ? T.bg : T.ink,
-                        border:'none', padding:'.55rem .3rem', borderRadius:7, cursor:'pointer',
-                        fontFamily:T.font, fontSize:'.85rem', fontWeight:500, textTransform:'capitalize',
-                        display:'flex', flexDirection:'column', alignItems:'center', gap:4
-                      }}>
-                        <span style={{display:'flex', gap:2}}>
-                          <span style={{width:8,height:8,borderRadius:'50%',background:p.accent}}/>
-                          <span style={{width:8,height:8,borderRadius:'50%',background:p.accent2}}/>
-                        </span>
-                        {k}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-              <div style={{marginBottom:'.9rem'}}>
-                <label style={{fontFamily:T.mono, fontSize:'.66rem', color:T.inkMute, textTransform:'uppercase', letterSpacing:'.1em', marginBottom:'.45rem', display:'block'}}>Device</label>
-                <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:4, padding:3, borderRadius:10, background:T.bgAlt}}>
-                  {[['desktop','Desktop'],['mobile','Mobile']].map(([k,v])=>(
-                    <button key={k} onClick={()=>setTweak('device',k)} style={{
-                      background: tw.device===k ? T.ink : 'transparent',
-                      color: tw.device===k ? T.bg : T.ink,
-                      border:'none', padding:'.55rem .3rem', borderRadius:7, cursor:'pointer',
-                      fontFamily:T.sans, fontSize:'.78rem', fontWeight:500
-                    }}>{v}</button>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <label style={{fontFamily:T.mono, fontSize:'.66rem', color:T.inkMute, textTransform:'uppercase', letterSpacing:'.1em', marginBottom:'.45rem', display:'block'}}>Jump to</label>
-                <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:4, padding:3, borderRadius:10, background:T.bgAlt}}>
-                  {[['home','Home'],['sectors','Sectors'],['explore','Explore'],['stories','Stories'],['method','Method']].map(([k,v])=>(
-                    <button key={k} onClick={()=>nav(k)} style={{
-                      background: route.split('/')[0]===k ? T.ink : 'transparent',
-                      color: route.split('/')[0]===k ? T.bg : T.ink,
-                      border:'none', padding:'.5rem .3rem', borderRadius:7, cursor:'pointer',
-                      fontFamily:T.sans, fontSize:'.78rem', fontWeight:500
-                    }}>{v}</button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-        {/* Dev tweaks panel is gated behind editMode, which only flips on
-            via __activate_edit_mode postMessage from a parent preview frame.
-            The public-facing trigger button has been removed. */}
-      </div>
-    );
-  }
-
-  ReactDOM.createRoot(document.getElementById('app')).render(<App/>);
-</script>
+<script src="dist/DIChart.js"></script>
+<script src="dist/abundance-v2.js"></script>
+<script src="dist/abundance-v2-pages.js"></script>
+<script src="dist/app.js"></script>
 
 </body>
 </html>

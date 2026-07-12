@@ -218,6 +218,40 @@ function Dateline({ T, parts = ['Early read', '2025 data'] }) {
 }
 
 // ============================================================
+// NEWSLETTER — styled form that hands off to Substack signup
+// (a direct API POST from this domain is blocked by CORS, so we
+// send the visitor to Substack with the email prefilled)
+// ============================================================
+const SUBSTACK_URL = 'https://deflationindex.substack.com';
+function NewsletterForm({ T }) {
+  const [email, setEmail] = useState('');
+  const [invalid, setInvalid] = useState(false);
+  const submit = (e) => {
+    e.preventDefault();
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    if (!ok) { setInvalid(true); return; }
+    window.location.href = SUBSTACK_URL + '/subscribe?email=' + encodeURIComponent(email.trim());
+  };
+  return (
+    <form onSubmit={submit} noValidate style={{maxWidth:420, margin:'0 auto'}}>
+      <div style={{display:'flex', gap:'.5rem'}}>
+        <input
+          type="email" placeholder="you@domain.com" value={email}
+          aria-label="Email address" aria-invalid={invalid}
+          onChange={(e)=>{ setEmail(e.target.value); if (invalid) setInvalid(false); }}
+          style={{flex:1, padding:'.85rem 1rem', border:`1px solid ${invalid ? T.accent : T.line}`, borderRadius:999, background:T.bg, fontFamily:T.sans, fontSize:'.95rem', outline:'none', color:T.ink}}/>
+        <button type="submit" className="di-tap" style={{padding:'.85rem 1.4rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontFamily:T.sans, fontWeight:500, cursor:'pointer'}}>Subscribe</button>
+      </div>
+      <div style={{fontFamily:T.mono, fontSize:'.7rem', color: invalid ? T.accent : T.inkMute, marginTop:'.6rem', letterSpacing:'.04em'}}>
+        {invalid ? 'That doesn’t look like an email address.' : 'Delivered via Substack. Unsubscribe anytime.'}
+      </div>
+    </form>
+  );
+}
+window.AbundanceV2NewsletterForm = NewsletterForm;
+window.AbundanceV2SubstackUrl = SUBSTACK_URL;
+
+// ============================================================
 // SHARED NAV (top + mobile bottom tabs)
 // ============================================================
 function NavV2({ route, nav, T, mobile=false }) {
@@ -271,6 +305,55 @@ function NavV2({ route, nav, T, mobile=false }) {
 }
 
 // ============================================================
+// DOLLAR-TEST ICONS — small line motifs in the hero-illustration
+// style (replaces platform-dependent emoji)
+// ============================================================
+function DollarIcon({ id, T }) {
+  const s = { width: 38, height: 38, display: 'block' };
+  if (id === 'data') return (
+    <svg viewBox="0 0 38 38" style={s} aria-hidden="true">
+      {[9, 15, 22, 30].map((h, i) => (
+        <rect key={i} x={4 + i * 8.5} y={33 - h} width="6" height={h} rx="1.5"
+              fill={i === 3 ? T.accent : T.accent2} opacity={0.55 + i * 0.15}/>
+      ))}
+    </svg>
+  );
+  if (id === 'compute') return (
+    <svg viewBox="0 0 38 38" style={s} aria-hidden="true">
+      <rect x="7" y="7" width="24" height="24" rx="3" fill={T.ink}/>
+      <rect x="12" y="12" width="14" height="14" rx="1.5" fill={T.accent2}/>
+      {[0, 1, 2].map(i => (
+        <g key={i}>
+          <rect x={11 + i * 7} y="2" width="3" height="4" fill={T.ink}/>
+          <rect x={11 + i * 7} y="32" width="3" height="4" fill={T.ink}/>
+          <rect x="2" y={11 + i * 7} width="4" height="3" fill={T.ink}/>
+          <rect x="32" y={11 + i * 7} width="4" height="3" fill={T.ink}/>
+        </g>
+      ))}
+    </svg>
+  );
+  if (id === 'solar') return (
+    <svg viewBox="0 0 38 38" style={s} aria-hidden="true">
+      <circle cx="19" cy="19" r="8" fill={T.accent}/>
+      {Array.from({ length: 8 }).map((_, i) => {
+        const a = i * 45 * Math.PI / 180;
+        return <line key={i} x1={19 + Math.cos(a) * 11} y1={19 + Math.sin(a) * 11}
+                     x2={19 + Math.cos(a) * 15} y2={19 + Math.sin(a) * 15}
+                     stroke={T.accent} strokeWidth="2.5" strokeLinecap="round"/>;
+      })}
+    </svg>
+  );
+  // battery
+  return (
+    <svg viewBox="0 0 38 38" style={s} aria-hidden="true">
+      <rect x="3" y="12" width="28" height="14" rx="3" fill={T.ink}/>
+      <rect x="31" y="16" width="4" height="6" rx="1.5" fill={T.ink}/>
+      <rect x="6" y="15" width="19" height="8" rx="1.5" fill={T.accent2}/>
+    </svg>
+  );
+}
+
+// ============================================================
 // THEN→NOW CARD (animated)
 // ============================================================
 function ThenNowV2({ entry, T, onClick }) {
@@ -284,7 +367,7 @@ function ThenNowV2({ entry, T, onClick }) {
     }}
     onMouseEnter={e=>{ e.currentTarget.style.transform='translateY(-3px)'; e.currentTarget.style.boxShadow='0 18px 40px rgba(26,28,46,.08)'; e.currentTarget.style.borderColor=T.accent; }}
     onMouseLeave={e=>{ e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'; e.currentTarget.style.borderColor=T.line; }}>
-      <div style={{fontSize:'2.4rem', marginBottom:'.5rem', lineHeight:1}}>{entry.icon}</div>
+      <div style={{marginBottom:'.7rem', lineHeight:1}}><DollarIcon id={entry.id} T={T}/></div>
       <div style={{fontFamily:T.font, fontSize:'1.4rem', fontWeight:500, letterSpacing:'-.005em', marginBottom:'1rem'}}>{entry.label}</div>
       <div style={{display:'grid', gridTemplateColumns:'1fr auto 1fr', gap:'.6rem', alignItems:'center'}}>
         <div>
@@ -314,12 +397,15 @@ function ThenNowV2({ entry, T, onClick }) {
 function HomeV2({ nav, T }) {
   const H = DI2.headline;
   const isMobile = window.AbundanceV2UseIsMobile ? window.AbundanceV2UseIsMobile() : false;
-  const [diRef, diVal] = useCountUp(96.25, {decimals:1, suffix:'%'});
-  const [m2Ref, m2Val] = useCountUp(550, {suffix:'%'});
-  const [cpiRef, cpiVal] = useCountUp(155, {suffix:'%'});
-  const [gapRef, gapVal] = useCountUp(522, {suffix:'pp'});
-
-  const sectorEmoji = { computing:'💻', communications:'📡', energy:'☀️', transportation:'🔋' };
+  // 2025 early-read set — single source of truth is data.js headline.
+  const diPct  = Math.abs(H.di_2025_cumulative_pct);   // 96.52
+  const m2Pct  = Math.round(H.m2_2025_cumulative_pct); // 576
+  const cpiPct = Math.round(H.cpi_2025_cumulative_pct);// 150
+  const gapPp  = H.abundance_gap_2025_pp;              // 522
+  const [diRef, diVal] = useCountUp(diPct, {decimals:1, suffix:'%'});
+  const [m2Ref, m2Val] = useCountUp(m2Pct, {suffix:'%'});
+  const [cpiRef, cpiVal] = useCountUp(cpiPct, {suffix:'%'});
+  const [gapRef, gapVal] = useCountUp(gapPp, {suffix:'pp'});
 
   return (
     <div style={{background:T.bg, color:T.ink, fontFamily:T.sans}}>
@@ -343,7 +429,7 @@ function HomeV2({ nav, T }) {
           </Reveal>
           <Reveal delay={150}>
             <p style={{fontSize:'1.25rem', lineHeight:1.55, color:T.inkSoft, maxWidth:'58ch', marginBottom:'2rem'}}>
-              Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong style={{color:T.ink}}>96.5%</strong>. Money supply rose <strong style={{color:T.ink}}>576%</strong>. Consumer prices rose <strong style={{color:T.ink}}>150%</strong>. The Deflation Index puts all three on one chart so the divergence is visible at a glance.
+              Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong style={{color:T.ink}}>{diPct.toFixed(1)}%</strong>. Money supply rose <strong style={{color:T.ink}}>{m2Pct}%</strong>. Consumer prices rose <strong style={{color:T.ink}}>{cpiPct}%</strong>. The Deflation Index puts all three on one chart so the divergence is visible at a glance.
             </p>
           </Reveal>
           <Reveal delay={220}>
@@ -402,10 +488,10 @@ function HomeV2({ nav, T }) {
           </Reveal>
           <div className="di-cols-1to4" style={{gap:'2rem'}}>
             {[
-              {label:'Tech got cheaper', val:'96.5', sym:'−', suffix:'%', color:T.accent2, ref:diRef, anim:diVal, sub:'Deflation Index, weighted'},
-              {label:'Money supply', val:'576', sym:'+', suffix:'%', color:T.accent, ref:m2Ref, anim:m2Val, sub:'M2, FRED measured'},
-              {label:'Consumer prices', val:'150', sym:'+', suffix:'%', color:'#FFFFFF', ref:cpiRef, anim:cpiVal, sub:'CPI-U, BLS measured'},
-              {label:'The abundance gap', val:'522', sym:'', suffix:'pp', color:T.accent, ref:gapRef, anim:gapVal, sub:'|Tech| + Money − Prices'},
+              {label:'Tech got cheaper', sym:'−', color:T.accent2, ref:diRef, anim:diVal, sub:'Deflation Index, weighted'},
+              {label:'Money supply', sym:'+', color:T.accent, ref:m2Ref, anim:m2Val, sub:'M2, FRED measured'},
+              {label:'Consumer prices', sym:'+', color:'#FFFFFF', ref:cpiRef, anim:cpiVal, sub:'CPI-U, BLS measured'},
+              {label:'The abundance gap', sym:'', color:T.accent, ref:gapRef, anim:gapVal, sub:'|Tech| + Money − Prices'},
             ].map((s,i)=>(
               <div key={i} ref={s.ref} style={{textAlign:'left', borderTop:`2px solid ${s.color}`, paddingTop:'1.2rem'}}>
                 <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,0.55)', marginBottom:'.6rem'}}>{s.label}</div>
@@ -515,10 +601,7 @@ function HomeV2({ nav, T }) {
         <div style={{maxWidth:560, margin:'0 auto', textAlign:'center'}}>
           <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .7rem'}}>An occasional newsletter.</h2>
           <p style={{color:T.inkSoft, fontSize:'1rem', marginBottom:'1.4rem'}}>New sector data, methodology updates, occasional findings. No upsell.</p>
-          <form onSubmit={(e)=>e.preventDefault()} style={{display:'flex', gap:'.5rem', maxWidth:420, margin:'0 auto'}}>
-            <input type="email" placeholder="you@domain.com" style={{flex:1, padding:'.85rem 1rem', border:`1px solid ${T.line}`, borderRadius:999, background:T.bg, fontFamily:T.sans, fontSize:'.95rem', outline:'none', color:T.ink}}/>
-            <button style={{padding:'.85rem 1.4rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontFamily:T.sans, fontWeight:500, cursor:'pointer'}}>Subscribe</button>
-          </form>
+          <NewsletterForm T={T}/>
         </div>
       </section>
     </div>

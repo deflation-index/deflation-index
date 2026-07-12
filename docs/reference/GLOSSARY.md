@@ -10,7 +10,7 @@ Key terms and definitions used in the Deflation Index project.
 ## A
 
 ### Abundance Gap
-The cumulative difference between technological deflation, monetary expansion, and consumer price inflation. Represents productivity gains that did not reach consumers. Currently ~491 percentage points (1990-2024).
+The cumulative difference between technological deflation, monetary expansion, and consumer price inflation. Represents productivity gains that did not reach consumers. Currently ~503 percentage points (1990-2024).
 
 **Formula**: |DI Cumulative| + M2 Cumulative - CPI Cumulative
 

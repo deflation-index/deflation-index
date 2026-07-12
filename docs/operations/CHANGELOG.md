@@ -5,6 +5,25 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.3] - 2026-07-12
+
+Data correction and site delivery patch. No changes to the weighted Deflation Index, M2 series, sector data, or Excel workbooks.
+
+### Fixed - CPI 2024 ENDPOINT (ERRATUM)
+
+- **CORRECTED** CPI 2024 index: 254.65 → **243.5** (1990 = 100). The prior figure mixed a Dec-2024 numerator with a 1989 annual-average base. On the series' Jan-1990-base convention (see `data/sources/fred/CPIAUCSL_1990-2024.csv`), the 2024 endpoint is 243.5.
+- **CORRECTED** CPI cumulative inflation 1990–2024: +155% → **+143.5%**; CAGR 2.72% → **2.65%**; multiplier 2.55× → **2.44×**.
+- **CORRECTED** Abundance gap (cumulative, 1990–2024): 491pp → **503pp** (96.25 + 550.02 − 143.5 ≈ 503). The annual DI–M2 gap (14.9pp) is unaffected — CPI is not part of that calculation.
+- Propagated through `data/constants.json`, `src/data.js`, story essays, `docs/about/`, `docs/reference/GLOSSARY.md`, `docs/methodology/README.md`, `data/sources/SOURCES.md`, and `scripts/verify_statistics.py`. The 2025 early-read figures (CPI +150.1%, gap 522pp) were already on the correct base and are unchanged.
+
+### Changed - SITE DELIVERY
+
+- Homepage stats now derive from `data.js` `headline` (single source of truth) instead of hardcoded JSX literals; hero prose and the Four Numbers section use the 2025 early-read set consistently.
+- JSX precompiled to `dist/` via `npm run build` (@babel/cli, classic runtime); Babel standalone removed from the browser. Static SEO fallback, canonical link, and schema.org Dataset JSON-LD added to `index.html`.
+- Newsletter form now hands off to Substack signup with the email prefilled; footer Newsletter/RSS/Data links point to real destinations.
+- New 1200×630 OG/Twitter card (`assets/logo/marks/di_og_card.png`) replaces the square image that `summary_large_image` cropped.
+- Accessibility: keyboard `:focus-visible` ring, aria-labels on Explore sliders; $100-test emoji replaced with SVG motif icons.
+
 ## [3.1.2] - 2026-05-06
 
 Site delivery patch. Substantial frontend rewrite with no changes to the underlying weighted Deflation Index, M2/CPI series, sector weights, or Excel workbooks.

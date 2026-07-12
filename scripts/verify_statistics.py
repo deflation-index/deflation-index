@@ -32,13 +32,14 @@ EXPECTED_VALUES = {
     'm2_annual_rate': 5.66,  # Was 5.9%, actual 5.66%
     'm2_multiplier': 6.5,  # Was 7.15x, actual 6.5x
     
-    # CPI values (unchanged)
-    'cpi_cumulative': 154.65,
-    'cpi_annual_rate': 2.72,
-    
-    # Gap values (RECALCULATED)
-    'di_m2_gap_annual': 14.87,  # Was 15.1pp (|-9.21| + 5.66)
-    'abundance_gap': 491,  # Was 560pp (96 + 550 - 155)
+    # CPI values (CORRECTED v3.1.3: prior 254.65 endpoint mixed a Dec-2024
+    # numerator with a 1989 base; Jan-1990=100 convention gives 243.5)
+    'cpi_cumulative': 143.5,  # Was 154.65
+    'cpi_annual_rate': 2.65,  # Was 2.72 (2.435^(1/34) - 1)
+
+    # Gap values (RECALCULATED v3.1.3 with corrected CPI)
+    'di_m2_gap_annual': 14.87,  # |-9.21| + 5.66 (CPI not in this gap)
+    'abundance_gap': 503,  # Was 491 (96.25 + 550.02 - 143.5 = 502.8)
     
     # Sector weights (4-decimal precision, unchanged)
     'weight_computing': 0.2941,
@@ -128,22 +129,54 @@ def verify_constants_json():
     
     return results
 
+def read_sector_weights(wb):
+    """Read weights from the Sector_Weights sheet, keyed by sector name"""
+    ws = wb['Sector_Weights']
+    weights = {}
+    for row in range(4, 8):
+        sector = ws.cell(row, 1).value
+        weight = ws.cell(row, 2).value
+        if sector and weight is not None:
+            weights[sector] = weight
+    return weights
+
+
 def verify_master_di_values(wb):
-    """Verify Master_DI values in Excel file"""
-    
+    """Verify Master_DI values in Excel file.
+
+    Master_DI (column F) is formula-based. Workbooks saved without cached
+    formula results return None under data_only=True, so when the cache is
+    empty we recompute the weighted value from the sector columns (B-E)
+    using the Sector_Weights sheet — which also verifies the arithmetic
+    rather than trusting a cached number.
+    """
+
     ws = wb['Master_Index']
-    
+    weights = read_sector_weights(wb)
+    # Column order in Master_Index: B=Computing, C=Communications, D=Energy, E=Transportation
+    weight_order = [weights.get('Computing'), weights.get('Communications'),
+                    weights.get('Energy'), weights.get('Transportation')]
+
+    def master_di_at(row):
+        cached = ws.cell(row, 6).value
+        if cached is not None:
+            return cached
+        sector_vals = [ws.cell(row, c).value for c in range(2, 6)]
+        if any(v is None for v in sector_vals) or any(w is None for w in weight_order):
+            return None
+        return sum(w * v for w, v in zip(weight_order, sector_vals))
+
     # Find 1990 and 2024 rows
     master_di_1990 = None
     master_di_2024 = None
-    
-    for row in range(8, 43):  # Typical data range
+
+    for row in range(8, ws.max_row + 1):
         year = ws.cell(row, 1).value
         if year == 1990:
-            master_di_1990 = ws.cell(row, 6).value
+            master_di_1990 = master_di_at(row)
         elif year == 2024:
-            master_di_2024 = ws.cell(row, 6).value
-    
+            master_di_2024 = master_di_at(row)
+
     results = []
     
     # Check 1990 baseline
