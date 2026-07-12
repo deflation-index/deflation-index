@@ -257,7 +257,7 @@ function ExploreV2({ T }) {
               {[['A',yearA,setYearA,T.inkMute],['B',yearB,setYearB,T.accent]].map(([k,v,setV,col])=>(
                 <div key={k}>
                   <div style={{fontFamily:T.font, fontSize:'2.2rem', fontWeight:500, color:col, lineHeight:1, marginBottom:'.5rem'}}>{v}</div>
-                  <input type="range" min={1990} max={2025} step={1} value={v} onChange={e=>setV(+e.target.value)} style={{width:'100%', accentColor:col}}/>
+                  <input type="range" min={1990} max={2025} step={1} value={v} aria-label={'Comparison year '+k} onChange={e=>setV(+e.target.value)} style={{width:'100%', accentColor:col}}/>
                 </div>
               ))}
             </div>
@@ -292,7 +292,7 @@ function ExploreV2({ T }) {
 
             <div className="di-cols-1to-fixL" style={{gap:'1.5rem', marginBottom:'1.5rem'}}>
               <div>
-                <input type="range" min={1} max={1000} step={1} value={dollars} onChange={e=>setDollars(+e.target.value)} style={{width:'100%', accentColor:T.accent}}/>
+                <input type="range" min={1} max={1000} step={1} value={dollars} aria-label="Dollar amount" onChange={e=>setDollars(+e.target.value)} style={{width:'100%', accentColor:T.accent}}/>
                 <div style={{fontFamily:T.mono, fontSize:'.78rem', color:T.inkMute, marginTop:'.4rem'}}>$1 — $1,000</div>
               </div>
               <div style={{display:'flex', gap:'.5rem', flexWrap:'wrap'}}>

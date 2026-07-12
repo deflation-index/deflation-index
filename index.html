@@ -143,6 +143,13 @@
     .di-tap-pill { min-height: 44px; padding: .8rem 1.1rem; }
   }
 
+  /* Keyboard focus — visible ring on all interactive elements */
+  a:focus-visible, button:focus-visible, input:focus-visible, [role=button]:focus-visible {
+    outline: 2px solid #B88A2B;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
   /* Honor reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {

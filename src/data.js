@@ -124,13 +124,13 @@ window.DI = (function(){
 
   // The $100 test — what a constant $100 (1990 dollars equivalent) bought then vs now
   const dollarTest = [
-    { id:'data', label:'Mobile data', unit:'GB', then:1.06, now:1724, icon:'📶',
+    { id:'data', label:'Mobile data', unit:'GB', then:1.06, now:1724,
       thenText:'About 1 GB — the size of a CD', nowText:'1.7 terabytes — 400 HD movies' },
-    { id:'compute', label:'Computing power', unit:'GFLOPS', then:0.12, now:1400000, icon:'💻',
+    { id:'compute', label:'Computing power', unit:'GFLOPS', then:0.12, now:1400000,
       thenText:'A fraction of a GFLOP', nowText:'1.4 petaflops — more than a 1995 supercomputer' },
-    { id:'solar', label:'Solar electricity', unit:'kWh', then:33, now:2500, icon:'☀️',
+    { id:'solar', label:'Solar electricity', unit:'kWh', then:33, now:2500,
       thenText:'33 kWh — enough for a few days of lighting', nowText:'2,500 kWh — a year of fridge + lights for a small home' },
-    { id:'battery', label:'Battery capacity (since 2010)', unit:'kWh', then:0.086, now:0.93, icon:'🔋',
+    { id:'battery', label:'Battery capacity (since 2010)', unit:'kWh', then:0.086, now:0.93,
       thenText:'86 watt-hours — phone battery', nowText:'930 watt-hours — power tool or small e-bike' },
   ];
 

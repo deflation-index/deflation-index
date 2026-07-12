@@ -700,6 +700,125 @@ function NavV2({
     }
   }, lbl))))));
 }
+function DollarIcon({
+  id,
+  T
+}) {
+  const s = {
+    width: 38,
+    height: 38,
+    display: 'block'
+  };
+  if (id === 'data') return React.createElement("svg", {
+    viewBox: "0 0 38 38",
+    style: s,
+    "aria-hidden": "true"
+  }, [9, 15, 22, 30].map((h, i) => React.createElement("rect", {
+    key: i,
+    x: 4 + i * 8.5,
+    y: 33 - h,
+    width: "6",
+    height: h,
+    rx: "1.5",
+    fill: i === 3 ? T.accent : T.accent2,
+    opacity: 0.55 + i * 0.15
+  })));
+  if (id === 'compute') return React.createElement("svg", {
+    viewBox: "0 0 38 38",
+    style: s,
+    "aria-hidden": "true"
+  }, React.createElement("rect", {
+    x: "7",
+    y: "7",
+    width: "24",
+    height: "24",
+    rx: "3",
+    fill: T.ink
+  }), React.createElement("rect", {
+    x: "12",
+    y: "12",
+    width: "14",
+    height: "14",
+    rx: "1.5",
+    fill: T.accent2
+  }), [0, 1, 2].map(i => React.createElement("g", {
+    key: i
+  }, React.createElement("rect", {
+    x: 11 + i * 7,
+    y: "2",
+    width: "3",
+    height: "4",
+    fill: T.ink
+  }), React.createElement("rect", {
+    x: 11 + i * 7,
+    y: "32",
+    width: "3",
+    height: "4",
+    fill: T.ink
+  }), React.createElement("rect", {
+    x: "2",
+    y: 11 + i * 7,
+    width: "4",
+    height: "3",
+    fill: T.ink
+  }), React.createElement("rect", {
+    x: "32",
+    y: 11 + i * 7,
+    width: "4",
+    height: "3",
+    fill: T.ink
+  }))));
+  if (id === 'solar') return React.createElement("svg", {
+    viewBox: "0 0 38 38",
+    style: s,
+    "aria-hidden": "true"
+  }, React.createElement("circle", {
+    cx: "19",
+    cy: "19",
+    r: "8",
+    fill: T.accent
+  }), Array.from({
+    length: 8
+  }).map((_, i) => {
+    const a = i * 45 * Math.PI / 180;
+    return React.createElement("line", {
+      key: i,
+      x1: 19 + Math.cos(a) * 11,
+      y1: 19 + Math.sin(a) * 11,
+      x2: 19 + Math.cos(a) * 15,
+      y2: 19 + Math.sin(a) * 15,
+      stroke: T.accent,
+      strokeWidth: "2.5",
+      strokeLinecap: "round"
+    });
+  }));
+  return React.createElement("svg", {
+    viewBox: "0 0 38 38",
+    style: s,
+    "aria-hidden": "true"
+  }, React.createElement("rect", {
+    x: "3",
+    y: "12",
+    width: "28",
+    height: "14",
+    rx: "3",
+    fill: T.ink
+  }), React.createElement("rect", {
+    x: "31",
+    y: "16",
+    width: "4",
+    height: "6",
+    rx: "1.5",
+    fill: T.ink
+  }), React.createElement("rect", {
+    x: "6",
+    y: "15",
+    width: "19",
+    height: "8",
+    rx: "1.5",
+    fill: T.accent2
+  }));
+}
 function ThenNowV2({
   entry,
   T,
@@ -733,11 +852,13 @@ function ThenNowV2({
     }
   }, React.createElement("div", {
     style: {
-      fontSize: '2.4rem',
-      marginBottom: '.5rem',
+      marginBottom: '.7rem',
       lineHeight: 1
     }
-  }, entry.icon), React.createElement("div", {
+  }, React.createElement(DollarIcon, {
+    id: entry.id,
+    T: T
+  })), React.createElement("div", {
     style: {
       fontFamily: T.font,
       fontSize: '1.4rem',
@@ -851,12 +972,6 @@ function HomeV2({
   const [gapRef, gapVal] = useCountUp(gapPp, {
     suffix: 'pp'
   });
-  const sectorEmoji = {
-    computing: '💻',
-    communications: '📡',
-    energy: '☀️',
-    transportation: '🔋'
-  };
   return React.createElement("div", {
     style: {
       background: T.bg,

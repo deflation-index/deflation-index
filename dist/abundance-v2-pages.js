@@ -690,6 +690,7 @@ function ExploreV2({
     max: 2025,
     step: 1,
     value: v,
+    "aria-label": 'Comparison year ' + k,
     onChange: e => setV(+e.target.value),
     style: {
       width: '100%',
@@ -794,6 +795,7 @@ function ExploreV2({
     max: 1000,
     step: 1,
     value: dollars,
+    "aria-label": "Dollar amount",
     onChange: e => setDollars(+e.target.value),
     style: {
       width: '100%',
