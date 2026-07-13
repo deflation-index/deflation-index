@@ -1,0 +1,10 @@
+year,usd_per_gb,status,source
+1990,85000,to_verify,"McCallum memory price series (jcmit.net), ~$85/MB; transcribe exact datapoint"
+1995,31000,to_verify,"McCallum, ~$31/MB; transcribe"
+2000,1100,to_verify,"McCallum, ~$1.10/MB; transcribe"
+2005,190,to_verify,"McCallum; transcribe"
+2010,12,to_verify,"McCallum / DRAMeXchange splice; document splice"
+2015,5.5,to_verify,"DRAMeXchange DDR3/DDR4"
+2020,3.2,to_verify,"DRAMeXchange DDR4"
+2024,3.5,to_verify,"DRAMeXchange DDR5 (v3 workbook endpoint plausible; re-verify)"
+2025,3.3,to_verify,"DRAMeXchange latest; confirm"

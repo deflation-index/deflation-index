@@ -1,0 +1,10 @@
+year,usd_per_gb,status,source
+1990,10000,to_verify,"Komorowski series (mkomo.com/cost-per-gigabyte); transcribe exact 1990 datapoint"
+1995,850,to_verify,"Komorowski series; transcribe"
+2000,11,to_verify,"Komorowski series; transcribe"
+2004,1.24,to_verify,"Komorowski series; transcribe"
+2009,0.11,to_verify,"Komorowski/Backblaze splice point; document splice"
+2015,0.035,to_verify,"Backblaze cost-per-GB series"
+2020,0.023,to_verify,"Backblaze cost-per-GB series"
+2024,0.0145,to_verify,"Backblaze cost-per-GB series"
+2025,0.014,to_verify,"Backblaze latest quarterly; confirm"
