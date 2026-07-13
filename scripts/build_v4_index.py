@@ -126,9 +126,18 @@ def main():
         'transportation': extract_array('transportation'),
         'computing_v3': extract_array('computing'),
     }
+    # Communications v4: wholesale IP transit (input-layer decision 2026-07-13).
+    # Series starts 1998; flat-at-100 before its first anchor (log_interp
+    # extends the first anchor backward, so the rebased index is 100 until
+    # 1998 — same late-start convention as transportation/2010).
+    comms_anchors, comms_counts = load_anchors('comms_transit')
+    for s, n in comms_counts.items():
+        status_totals[s] = status_totals.get(s, 0) + n
+    comms_v4 = rebase(log_interp(comms_anchors, YEARS))
+
     sector_indices = {
         'computing': comp_geo,
-        'communications': {y: v3['communications'][y - 1990] for y in YEARS},
+        'communications': comms_v4,
         'energy': {y: v3['energy'][y - 1990] for y in YEARS},
         'transportation': {y: v3['transportation'][y - 1990] for y in YEARS},
     }
@@ -161,9 +170,13 @@ def main():
     print(f'Master CAGR: geometric {cagr(master_geo[2025]):.1f}%/yr '
           f'| arithmetic {cagr(master_arith[2025]):.1f}%/yr | v3 published -9.2%/yr')
 
-    print('\nNOTE: communications/energy/transportation still use v3 series here;')
-    print('their anchor audits may move these numbers further. 2025 sector data')
-    print('(IRENA flat solar, FCC price rise) not yet folded in.')
+    print('\nCommunications (v4 transit vs v3 blend, 1990=100):')
+    v3comm = {y: v3['communications'][y - 1990] for y in YEARS}
+    for y in [1998, 2005, 2015, 2025]:
+        print(f'{y:>6}  v4 transit {comms_v4[y]:>12.4f}   v3 blend {v3comm[y]:>10.4f}')
+
+    print('\nNOTE: energy/transportation still use v3 series here; their')
+    print('single-metric rebuilds (IRENA solar LCOE, BNEF pack) are next.')
 
     out = {
         'status': 'draft' if total_unverified else 'anchors_verified',

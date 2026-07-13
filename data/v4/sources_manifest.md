@@ -36,6 +36,15 @@ Every anchor row in the CSVs traces to an entry here. Status levels:
 
 **Conversion note:** OWID values are inflation-adjusted; nominal anchors were derived as `adj$/TB ÷ 1000 × CPI(year)/CPI(2023)` using the repo's Jan-value CPIAUCSL series. The OWID deflator base year is assumed 2023 pending metadata confirmation — a wrong base shifts all memory anchors by a constant factor, which barely moves the geometric index (levels shift, growth rates don't).
 
+## Communications ($/Mbps/month, wholesale IP transit — nominal)
+
+**Metric decision (founder, 2026-07-13):** wholesale IP transit, per the input-layer principle — the infrastructure cost of moving bits, not consumer plan prices. Series starts **1998** (first surveyed market datapoint; commercial transit did not exist as a market in 1990), same late-start convention as transportation (2010). Display conversion for site copy: $/Mbps/month ÷ ~130 GB (1 Mbps at 40% utilization for a month ≈ 324 GB × 0.40) — a constant factor that cancels out of the rebased index.
+
+| Source | URL | Retrieved | Used for |
+|---|---|---|---|
+| DrPeering (W. Norton), "Internet Transit Pricing: Historical and Projected" — US market survey 1998–2010, projections 2011–2015 | http://drpeering.net/white-papers/Internet-Transit-Pricing-Historical-And-Projected.php | 2026-07-13 | 1998–2015 anchors (cross_checked; projections corroborated by TeleGeography actuals) |
+| TeleGeography IP transit pricing (10GigE, competitive-market low) | https://resources.telegeography.com/ip-transit-price-erosion-significant-regional-differences-remain | 2026-07-13 | 2025 anchor (cross_checked); 2020 datapoint pending (to_verify) |
+
 ## 2025 sector data (for the measured 2025 index point)
 
 | Sector | Source | Status |

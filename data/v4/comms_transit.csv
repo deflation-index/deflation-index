@@ -1,0 +1,12 @@
+year,usd_per_mbps_month,status,source
+1998,1200,cross_checked,"DrPeering (W. Norton) US transit price survey, min-commit market quotes (drpeering.net white paper, retr. 2026-07-13)"
+2000,675,cross_checked,"DrPeering survey"
+2002,200,cross_checked,"DrPeering survey"
+2004,90,cross_checked,"DrPeering survey"
+2006,50,cross_checked,"DrPeering survey"
+2008,12,cross_checked,"DrPeering survey"
+2010,5,cross_checked,"DrPeering survey (last surveyed year of the 2010 paper)"
+2012,2.34,cross_checked,"DrPeering projection, corroborated by TeleGeography actuals"
+2015,0.63,cross_checked,"DrPeering projection, corroborated by TeleGeography actuals"
+2020,0.20,to_verify,"TeleGeography State of the Network archives — needs the exact 10GigE weighted-median datapoint"
+2025,0.07,cross_checked,"TeleGeography 2025: 10GigE lowest price in most competitive markets held at $0.07/Mbps/mo (resources.telegeography.com, retr. 2026-07-13); basis = competitive-market low, consistent with DrPeering's min-commit quotes"
