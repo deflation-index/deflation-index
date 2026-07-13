@@ -96,5 +96,40 @@ Corrected-anchor figures are order-of-magnitude estimates pending v4.0 data work
 ## Interim measures (v3.x, live now)
 
 - "Known limitations" paragraph on the site's Method page disclosing the conservative aggregation (shipped alongside this memo).
-- Outreach copy avoids the unsupported dollar anchors ("$831 per GFLOPS in 1990" stays only where the site's own data requires it; "$42M in 1990" is retired — the supportable claim is "~$42M in 1984").
+- Outreach copy avoids the unsupported dollar anchors ("$831 per GFLOPS in 1990" stays only where the site's own data requires it; "$42M in 1990" is retired — the supportable claim is "~$18.75M in 1984").
 - No changes to published v3.x index values; corrections arrive as v4.0, versioned.
+
+---
+
+# Addendum (2026-07-13): all-sector findings
+
+Extending the audit to the other three sector workbooks confirms the computing findings generalize. Every sector is a **multi-component arithmetic blend** whose construction does not match the single metric the site claims for it, with synthetic early-year data and approximately correct recent endpoints.
+
+## Transportation (`transportation_deflation_index_v1.0.xlsx`)
+
+- **Construction:** EV battery $/kWh (60%), "autonomous tech $/mile capability" (25%), vehicle-efficiency $/mile (10%), ridesharing $/passenger-mile (5%). The site labels this sector "lithium-ion battery pack cost."
+- The autonomous ($2.50→$0.50/mile, 2016–2024) and ridesharing ($1.40→$0.80/passenger-mile, *declining* while real-world rideshare prices rose) series carry no establishable sources.
+- The battery column's 2024 cell holds **$139 — BNEF's 2023 value**; BNEF 2024 was $115.
+- Effect: pure BNEF battery gives a 2024 index of ~9.9–12.0 (2010=100); the published blend sits at 17.41. The slow, unsourced components dominate via arithmetic weighting.
+
+## Energy (`energy_deflation_index_v1.0.xlsx`)
+
+- **Construction:** solar LCOE (50%), battery storage $/kWh (40%), LED $/kilolumen (10%). The site labels this sector "levelized cost of electricity from solar PV."
+- The 1990–1999 solar column is a **synthetic glide** — each year is exactly the prior × 0.90089, to seven significant digits. Not measurements.
+- The battery-storage column begins in 1990, a year before Sony commercialized lithium-ion (1991).
+- The LED column sits flat at $0.08 through 1999, then *jumps* to $0.269 in 2000 — a construction artifact.
+- The 2024 solar endpoint ($0.043/kWh) matches IRENA — recent data is real.
+
+## Communications (`communications_deflation_index_v1.0.xlsx`)
+
+- **Construction:** data transmission $/GB (70%), voice $/min (20%), network access $/Mbps (10%). The site labels this sector "cost per gigabyte of data transmitted."
+- Early transmission data is synthetic: exact ×0.5556 ratios 1991–1994, then exact ×0.6667 1996–1999. The $94.4784 1990 seed has no establishable source.
+
+## Consequence for v4.0
+
+The v3 index is *approximately right at the recent end, invented in the middle, and understated by aggregation throughout*. Two remediation paths:
+
+- **(a) Recommended: rebuild each sector as the single metric the site already claims** — solar LCOE (IRENA 2010–2025 + literature pre-2010), Li-ion pack $/kWh (BNEF, 2010–2025, matching the site's "since 2010" framing), $/GB transmitted (metric definition to be settled — see below), $/GFLOPS (v4 series in `data/v4/`). Honest, simple, matches all public copy.
+- (b) Keep blends but rebuild every sub-series from primary sources — roughly triple the data work for components (autonomous $/mile, ridesharing) that may not have defensible sources at all.
+
+**Open decision (communications metric):** consumer broadband $/GB (plan price ÷ average usage; FCC URS + OpenVault) vs wholesale IP transit $/Mbps converted to $/GB (TeleGeography/DrPeering history). These tell different stories (consumer prices rose in 2025 while usage grew; transit fell steadily). Needs a founder decision before the comms rebuild.
