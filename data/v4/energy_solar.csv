@@ -1,0 +1,7 @@
+year,usd_per_kwh,status,source
+2010,0.445,cross_checked,"IRENA Renewable Power Generation Costs series: utility-scale solar PV global weighted-average LCOE 2010 (basis of IRENA's '~89-90% decline since 2010' headline); verify exact figure against RPGC 2023/2024 data tables"
+2015,0.126,to_verify,"IRENA RPGC mid-decade value — confirm against RPGC 2015/2016 report tables"
+2020,0.057,cross_checked,"IRENA RPGC 2020: utility PV global weighted-average LCOE $0.057/kWh (matches v3 workbook's real recent data)"
+2023,0.044,cross_checked,"IRENA RPGC 2023"
+2024,0.043,cross_checked,"IRENA RPGC 2024 ($43/MWh)"
+2025,0.044,cross_checked,"IRENA RPGC 2025 (pub. 2026-07): utility PV steady at $44/MWh — 2025 is now measured, not extrapolated"

@@ -130,16 +130,26 @@ def main():
     # Series starts 1998; flat-at-100 before its first anchor (log_interp
     # extends the first anchor backward, so the rebased index is 100 until
     # 1998 — same late-start convention as transportation/2010).
-    comms_anchors, comms_counts = load_anchors('comms_transit')
-    for s, n in comms_counts.items():
-        status_totals[s] = status_totals.get(s, 0) + n
-    comms_v4 = rebase(log_interp(comms_anchors, YEARS))
+    def load_v4_sector(csv_name):
+        anchors, counts = load_anchors(csv_name)
+        for s, n in counts.items():
+            status_totals[s] = status_totals.get(s, 0) + n
+        return rebase(log_interp(anchors, YEARS))
+
+    # v4 single-metric sectors. Late-start convention (flat at 100 before the
+    # first anchor — log_interp extends the first anchor backward):
+    #   communications 1998 (commercial IP transit market begins)
+    #   energy 2010 (IRENA RPGC coverage begins; drops the synthetic 1990s glide)
+    #   transportation 2010 (BNEF pack survey begins; unchanged from v3 framing)
+    comms_v4 = load_v4_sector('comms_transit')
+    energy_v4 = load_v4_sector('energy_solar')
+    transport_v4 = load_v4_sector('transportation_battery')
 
     sector_indices = {
         'computing': comp_geo,
         'communications': comms_v4,
-        'energy': {y: v3['energy'][y - 1990] for y in YEARS},
-        'transportation': {y: v3['transportation'][y - 1990] for y in YEARS},
+        'energy': energy_v4,
+        'transportation': transport_v4,
     }
 
     master_geo = geometric(sector_indices, SECTOR_WEIGHTS)
@@ -170,13 +180,21 @@ def main():
     print(f'Master CAGR: geometric {cagr(master_geo[2025]):.1f}%/yr '
           f'| arithmetic {cagr(master_arith[2025]):.1f}%/yr | v3 published -9.2%/yr')
 
-    print('\nCommunications (v4 transit vs v3 blend, 1990=100):')
-    v3comm = {y: v3['communications'][y - 1990] for y in YEARS}
-    for y in [1998, 2005, 2015, 2025]:
-        print(f'{y:>6}  v4 transit {comms_v4[y]:>12.4f}   v3 blend {v3comm[y]:>10.4f}')
+    print('\nSector indices, v4 vs v3 (1990=100):')
+    print(f'{"":>16} {"2010":>10} {"2020":>10} {"2025":>10}   start')
+    v3map = {'communications': 'communications', 'energy': 'energy', 'transportation': 'transportation'}
+    starts = {'computing': 1990, 'communications': 1998, 'energy': 2010, 'transportation': 2010}
+    for k in ['computing', 'communications', 'energy', 'transportation']:
+        s = sector_indices[k]
+        print(f'{k:>16} {s[2010]:>10.4g} {s[2020]:>10.4g} {s[2025]:>10.4g}   {starts[k]}')
+        if k in v3map:
+            v = {y: v3[v3map[k]][y - 1990] for y in YEARS}
+            print(f'{"(v3)":>16} {v[2010]:>10.4g} {v[2020]:>10.4g} {v[2025]:>10.4g}')
 
-    print('\nNOTE: energy/transportation still use v3 series here; their')
-    print('single-metric rebuilds (IRENA solar LCOE, BNEF pack) are next.')
+    print('\nAll four sectors now run on v4 single-metric series.')
+    print('Late-start sectors hold flat at 100 before their first datapoint,')
+    print('so early-period master deflation is driven by computing alone —')
+    print('the honest, defensible reading.')
 
     out = {
         'status': 'draft' if total_unverified else 'anchors_verified',
