@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build dist from src
+        run: npm run build
+
+      - name: Render smoke test
+        run: npm test
+
+      - name: Verify statistics against data
+        run: |
+          pip install openpyxl
+          python3 scripts/verify_statistics.py

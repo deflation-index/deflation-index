@@ -6,11 +6,15 @@
   "scripts": {
     "build": "babel src --out-dir dist --extensions .jsx",
     "watch": "babel src --out-dir dist --extensions .jsx --watch",
+    "test": "node scripts/smoke_test.cjs",
     "serve": "python3 -m http.server 8000"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.0",
     "@babel/core": "^7.24.0",
-    "@babel/preset-react": "^7.24.0"
+    "@babel/preset-react": "^7.24.0",
+    "jsdom": "^24.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   }
 }

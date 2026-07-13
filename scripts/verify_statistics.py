@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """
-Deflation Index - Statistics Verification Script v3.0.3
+Deflation Index - Statistics Verification Script
 Verifies that all statistics in documentation match the actual data
 
-UPDATED: 2025-12-30
-- Corrected M2 values from FRED M2SL
-- M2 expansion: 615% → 550.2%
-- M2 annual rate: 5.9% → 5.66%
-- DI-M2 Gap: 15.1pp → 14.87pp
+UPDATED: 2026-07-12 (v3.1.3)
+- CPI 2024 corrected: cumulative 154.65% → 143.5%, CAGR 2.72% → 2.65%
+- Abundance gap corrected: 491pp → 503pp
+- Master_DI recomputed from sector columns when formula cache is empty
+
+Previous (2025-12-30, v3.0.3): M2 corrected from FRED M2SL
+(expansion 615% → 550.2%, annual 5.9% → 5.66%, DI-M2 gap 15.1pp → 14.87pp)
 """
 
 from openpyxl import load_workbook
@@ -317,13 +319,13 @@ def main():
     """Run all verification checks"""
     
     print("="*80)
-    print("DEFLATION INDEX v3.0.3 - STATISTICS VERIFICATION")
+    print("DEFLATION INDEX v3.1.3 - STATISTICS VERIFICATION")
     print("="*80)
     print()
-    print("This version includes FRED M2SL corrections:")
-    print("  - M2 expansion: 615% → 550.2%")
-    print("  - M2 annual rate: 5.9% → 5.66%")
-    print("  - DI-M2 Gap: 15.1pp → 14.87pp")
+    print("This version includes the CPI 2024 erratum:")
+    print("  - CPI cumulative: 154.65% → 143.5% (endpoint 254.65 → 243.5)")
+    print("  - CPI annual rate: 2.72% → 2.65%")
+    print("  - Abundance gap: 491pp → 503pp")
     print()
     
     all_results = []
@@ -393,7 +395,7 @@ def main():
     else:
         print("✅ VERIFICATION PASSED")
         print()
-        print("All statistics verified correct for v3.0.3")
+        print("All statistics verified correct for v3.1.3")
         return 0
 
 if __name__ == "__main__":
