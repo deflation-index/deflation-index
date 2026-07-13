@@ -564,6 +564,21 @@ Sector weights (v3.1.1):
             </a>
           </p>
         </RevealP>
+
+        <RevealP>
+          <h2 style={sectionTitle}>A known limitation</h2>
+          <p style={para}>
+            The current index combines its component series with weighted <em>arithmetic</em> averages. When one component falls much faster than the rest — computing has fallen further than everything else combined — an arithmetic average is dominated by the slower movers, and the composite understates the steepest declines. The practical effect: the −96% headline is conservative. A geometric average of the same data, the convention for price series spanning orders of magnitude, shows deeper deflation.
+          </p>
+          <p style={para}>
+            The v4.0 revision moves to geometric averaging and re-verifies the historical price anchors against primary sources. Expect the published deflation to get larger, not smaller. We'd rather disclose this before you find it.
+          </p>
+          <p style={{...para, marginTop:'.8rem'}}>
+            <a href="https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md" target="_blank" rel="noopener" style={{color:T.accent, textDecoration:'underline', textDecorationThickness:1, textUnderlineOffset:'2px', fontFamily:T.mono, fontSize:'.85rem'}}>
+              → Read the full audit
+            </a>
+          </p>
+        </RevealP>
       </div>
     </div>
   );
