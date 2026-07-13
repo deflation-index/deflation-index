@@ -1,0 +1,13 @@
+year,usd_per_gflops,status,source
+1984,42800000,to_verify,"Cost-of-computing tables (period dollars); trace to primary via AI Impacts / Nordhaus 2007"
+1990,1800000,to_verify,"Log-linear interpolation 1984-1997 pending a primary 1990 datapoint (Nordhaus 2007 appendix)"
+1997,42000,to_verify,"Cost-of-computing tables; trace to primary"
+2000,1300,to_verify,"Cost-of-computing tables; trace to primary"
+2003,100,to_verify,"Cost-of-computing tables; trace to primary"
+2007,52,to_verify,"Cost-of-computing tables; trace to primary"
+2011,1.80,to_verify,"Cost-of-computing tables; trace to primary"
+2015,0.08,to_verify,"Cost-of-computing tables; trace to primary"
+2017,0.03,to_verify,"Cost-of-computing tables; trace to primary"
+2020,0.0008,to_verify,"v3 workbook value (RTX 3090 era) — recent years plausible; re-verify against Epoch"
+2024,0.0001,to_verify,"v3 workbook value (RTX 4090 era); re-verify against Epoch"
+2025,0.000063,to_verify,"2024 value x Epoch AI 2025 price-performance trend (-37%/yr)"
