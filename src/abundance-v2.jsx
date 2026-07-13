@@ -599,8 +599,8 @@ function HomeV2({ nav, T }) {
       {/* CTA */}
       <section style={{padding:'4rem 1.5rem'}}>
         <div style={{maxWidth:560, margin:'0 auto', textAlign:'center'}}>
-          <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .7rem'}}>An occasional newsletter.</h2>
-          <p style={{color:T.inkSoft, fontSize:'1rem', marginBottom:'1.4rem'}}>New sector data, methodology updates, occasional findings. No upsell.</p>
+          <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .7rem'}}>Major releases, by email.</h2>
+          <p style={{color:T.inkSoft, fontSize:'1rem', marginBottom:'1.4rem'}}>A few emails a year — the v4.0 index revision first. No weekly anything, no upsell.</p>
           <NewsletterForm T={T}/>
         </div>
       </section>

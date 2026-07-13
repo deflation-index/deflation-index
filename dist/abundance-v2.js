@@ -1604,13 +1604,13 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: '0 0 .7rem'
     }
-  }, "An occasional newsletter."), React.createElement("p", {
+  }, "Major releases, by email."), React.createElement("p", {
     style: {
       color: T.inkSoft,
       fontSize: '1rem',
       marginBottom: '1.4rem'
     }
-  }, "New sector data, methodology updates, occasional findings. No upsell."), React.createElement(NewsletterForm, {
+  }, "A few emails a year — the v4.0 index revision first. No weekly anything, no upsell."), React.createElement(NewsletterForm, {
     T: T
   }))));
 }
