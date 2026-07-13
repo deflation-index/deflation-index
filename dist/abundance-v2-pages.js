@@ -1,4 +1,3 @@
-// Compiled from src/abundance-v2-pages.jsx — do not edit directly. Run: npm run build
 const {
   useState: useStateP,
   useEffect: useEffectP,
@@ -80,7 +79,7 @@ function SectorPageV2({
       padding: 0,
       marginBottom: '.8rem'
     }
-  }, "← All sectors"), React.createElement("div", {
+  }, "\u2190 All sectors"), React.createElement("div", {
     style: {
       fontFamily: T.mono,
       fontSize: '.74rem',
@@ -89,7 +88,7 @@ function SectorPageV2({
       color: T.accent,
       marginBottom: '.6rem'
     }
-  }, "Sector · weight ", (sector.weight * 100).toFixed(1), "%"), React.createElement("h1", {
+  }, "Sector \xB7 weight ", (sector.weight * 100).toFixed(1), "%"), React.createElement("h1", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2.4rem,5vw,4rem)',
@@ -122,7 +121,7 @@ function SectorPageV2({
     style: {
       color: T.accent
     }
-  }, "●"), sector.metricLong)), React.createElement("div", null, React.createElement(Hero, {
+  }, "\u25CF"), sector.metricLong)), React.createElement("div", null, React.createElement(Hero, {
     T: T
   })))), React.createElement("section", {
     style: {
@@ -208,7 +207,7 @@ function SectorPageV2({
       textTransform: 'uppercase',
       marginBottom: '.5rem'
     }
-  }, "Then · ", start), React.createElement("p", {
+  }, "Then \xB7 ", start), React.createElement("p", {
     style: {
       fontFamily: T.font,
       fontSize: '1.4rem',
@@ -241,7 +240,7 @@ function SectorPageV2({
       textTransform: 'uppercase',
       marginBottom: '.5rem'
     }
-  }, "Now · 2025"), React.createElement("p", {
+  }, "Now \xB7 2025"), React.createElement("p", {
     style: {
       fontFamily: T.font,
       fontSize: '1.4rem',
@@ -356,7 +355,7 @@ function SectorPageV2({
       fontSize: '2rem',
       color: T.accent
     }
-  }, "→"), React.createElement("div", null, React.createElement("div", {
+  }, "\u2192"), React.createElement("div", null, React.createElement("div", {
     style: {
       fontFamily: T.mono,
       fontSize: '.7rem',
@@ -667,7 +666,7 @@ function ExploreV2({
     }
   }, React.createElement("div", {
     style: lbl
-  }, "Year compare · A vs B"), React.createElement("div", {
+  }, "Year compare \xB7 A vs B"), React.createElement("div", {
     className: "di-cols-1to2",
     style: {
       gap: '1.5rem',
@@ -744,7 +743,7 @@ function ExploreV2({
       style: {
         color: T.inkMute
       }
-    }, "→"), React.createElement("span", {
+    }, "\u2192"), React.createElement("span", {
       style: {
         fontFamily: T.font,
         fontSize: '1.4rem',
@@ -808,7 +807,7 @@ function ExploreV2({
       color: T.inkMute,
       marginTop: '.4rem'
     }
-  }, "$1 — $1,000")), React.createElement("div", {
+  }, "$1 \u2014 $1,000")), React.createElement("div", {
     style: {
       display: 'flex',
       gap: '.5rem',
@@ -863,7 +862,7 @@ function ExploreV2({
       fontSize: '2rem',
       color: T.accent
     }
-  }, "×", compactP(buyB / buyA)), React.createElement("div", {
+  }, "\xD7", compactP(buyB / buyA)), React.createElement("div", {
     style: {
       textAlign: 'center'
     }
@@ -1075,7 +1074,7 @@ function StoryDetailV2({
         textDecoration: 'underline',
         textUnderlineOffset: '2px'
       }
-    }, "← All stories")));
+    }, "\u2190 All stories")));
   }
   const html = body && window.marked ? window.marked.parse(body) : '';
   const proseStyle = `
@@ -1125,7 +1124,7 @@ function StoryDetailV2({
     onMouseLeave: e => {
       e.currentTarget.style.color = T.inkMute;
     }
-  }, "← All stories"), React.createElement("div", {
+  }, "\u2190 All stories"), React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -1180,7 +1179,7 @@ function StoryDetailV2({
       fontSize: '.85rem',
       color: T.inkMute
     }
-  }, "Loading…"), !err && body != null && React.createElement(RevealP, null, React.createElement("div", {
+  }, "Loading\u2026"), !err && body != null && React.createElement(RevealP, null, React.createElement("div", {
     className: "di-prose",
     dangerouslySetInnerHTML: {
       __html: html
@@ -1302,7 +1301,7 @@ Sector weights (v3.1.1):
     style: {
       color: T.ink
     }
-  }, "early read"), ", not a published index point. M2 and CPI are measured directly from FRED/BLS (retrieved ", DIp.early2025.retrieved, "). The DI 2025 figure blends measured sector data — battery packs, AI compute — with trend extrapolation for solar and broadband, which won't publish 2025 numbers until mid-to-late 2026. The full v4.0 weighted index will be published when those are in."), React.createElement("div", {
+  }, "early read"), ", not a published index point. M2 and CPI are measured directly from FRED/BLS (retrieved ", DIp.early2025.retrieved, "). The DI 2025 figure blends measured sector data \u2014 battery packs, AI compute \u2014 with trend extrapolation for solar and broadband, which won't publish 2025 numbers until mid-to-late 2026. The full v4.0 weighted index will be published when those are in."), React.createElement("div", {
     className: "di-cols-1to2",
     style: {
       gap: '1rem',
@@ -1415,15 +1414,15 @@ Sector weights (v3.1.1):
     style: {
       color: T.inkMute
     }
-  }, "↗")))))), React.createElement(RevealP, null, React.createElement("h2", {
+  }, "\u2197")))))), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
   }, "What it isn't"), React.createElement("p", {
     style: para
-  }, "It is not a replacement for CPI. The Bureau of Labor Statistics measures what people actually pay; the Deflation Index measures what technology made possible. The two together tell a story — but they answer different questions."), React.createElement("p", {
+  }, "It is not a replacement for CPI. The Bureau of Labor Statistics measures what people actually pay; the Deflation Index measures what technology made possible. The two together tell a story \u2014 but they answer different questions."), React.createElement("p", {
     style: para
-  }, "It is also not yet complete. The four sectors here are the first generation: computing, communications, energy, and lithium-ion batteries — input layers with the longest time series and the cleanest data. Healthcare, education, housing, and other sectors will follow as the data reaches the same standard. We'd rather wait for measurements we can defend than publish numbers we can't."), React.createElement("p", {
+  }, "It is also not yet complete. The four sectors here are the first generation: computing, communications, energy, and lithium-ion batteries \u2014 input layers with the longest time series and the cleanest data. Healthcare, education, housing, and other sectors will follow as the data reaches the same standard. We'd rather wait for measurements we can defend than publish numbers we can't."), React.createElement("p", {
     style: para
-  }, "When those sectors are added, they will measure the same thing the current four measure: the ", React.createElement("em", null, "technology input layer"), " of each sector — genomic sequencing cost, AI-assisted radiology per scan, online-learning cost-per-credit, modular-construction cost-per-square-foot — not insurance premiums, not tuition, not home prices. Those are what CPI measures. The gap between the two is what this index exists to make visible."), React.createElement("p", {
+  }, "When those sectors are added, they will measure the same thing the current four measure: the ", React.createElement("em", null, "technology input layer"), " of each sector \u2014 genomic sequencing cost, AI-assisted radiology per scan, online-learning cost-per-credit, modular-construction cost-per-square-foot \u2014 not insurance premiums, not tuition, not home prices. Those are what CPI measures. The gap between the two is what this index exists to make visible."), React.createElement("p", {
     style: {
       ...para,
       marginTop: '.8rem'
@@ -1440,11 +1439,11 @@ Sector weights (v3.1.1):
       fontFamily: T.mono,
       fontSize: '.85rem'
     }
-  }, "→ Why we measure inputs, not headline prices"))), React.createElement(RevealP, null, React.createElement("h2", {
+  }, "\u2192 Why we measure inputs, not headline prices"))), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
   }, "A known limitation"), React.createElement("p", {
     style: para
-  }, "The current index combines its component series with weighted ", React.createElement("em", null, "arithmetic"), " averages. When one component falls much faster than the rest — computing has fallen further than everything else combined — an arithmetic average is dominated by the slower movers, and the composite understates the steepest declines. The practical effect: the −96% headline is conservative. A geometric average of the same data, the convention for price series spanning orders of magnitude, shows deeper deflation."), React.createElement("p", {
+  }, "The current index combines its component series with weighted ", React.createElement("em", null, "arithmetic"), " averages. When one component falls much faster than the rest \u2014 computing has fallen further than everything else combined \u2014 an arithmetic average is dominated by the slower movers, and the composite understates the steepest declines. The practical effect: the \u221296% headline is conservative. A geometric average of the same data, the convention for price series spanning orders of magnitude, shows deeper deflation."), React.createElement("p", {
     style: para
   }, "The v4.0 revision moves to geometric averaging and re-verifies the historical price anchors against primary sources. Expect the published deflation to get larger, not smaller. We'd rather disclose this before you find it."), React.createElement("p", {
     style: {
@@ -1463,7 +1462,7 @@ Sector weights (v3.1.1):
       fontFamily: T.mono,
       fontSize: '.85rem'
     }
-  }, "→ Read the full audit")))));
+  }, "\u2192 Read the full audit")))));
 }
 window.AbundanceV2Sectors = SectorsIndexV2;
 window.AbundanceV2Sector = SectorPageV2;

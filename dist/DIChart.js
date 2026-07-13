@@ -1,4 +1,3 @@
-// Compiled from src/DIChart.jsx — do not edit directly. Run: npm run build
 const {
   useState,
   useMemo,
@@ -455,7 +454,7 @@ function DIChart({
       style: {
         letterSpacing: '.06em'
       }
-    }, "2025 · early read"));
+    }, "2025 \xB7 early read"));
   })(), hover != null && React.createElement("g", null, React.createElement("line", {
     x1: x(hover),
     x2: x(hover),
