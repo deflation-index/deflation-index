@@ -5,6 +5,28 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0-rc.1] - 2026-07-13
+
+The audited rebuild. The published index was understating technology deflation — this release corrects the method, the data, and the labels, and moves the headline from **−96.5%** to **−99.97%** (1990–2025). Full findings: [`docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md`](../methodology/AUDIT_2026-07_COMPUTING_SERIES.md).
+
+### Changed - METHOD
+
+- Aggregation moves from weighted arithmetic to weighted **geometric** means at both the sector and master level. Arithmetic means are floored by their slowest components; the retired arithmetic variant is published as a sensitivity in `data/v4/draft_output.json`.
+- Every sector is now the single metric its label claims, from published sources, starting when defensible measurement starts: **computing** = compute ($/GFLOPS) / storage ($/GB) / memory ($/GB) geometric blend, 1990–2025; **communications** = wholesale IP transit $/Mbps·month (DrPeering, TeleGeography), 1998–2025; **energy** = IRENA utility PV LCOE, 2010–2025; **transportation** = BNEF Li-ion pack $/kWh, 2010–2025. Late-start sectors hold at 100 before their first datapoint.
+- Sector weights unchanged (0.2941 / 0.2353 / 0.2941 / 0.1765).
+
+### Changed - DATA
+
+- All anchor datapoints carry per-row provenance and verification status in `data/v4/*.csv`; the build refuses to mark output final while any row is unverified. Retired: the v3 sector workbooks' synthetic early-year series and unsourced blend components.
+- 2025 is a **measured** index year across all four sectors (IRENA 2025, BNEF 2025, TeleGeography 2025, published compute/storage record) — the "early read" framing retires.
+- Headline set: DI 2025 = 0.0303 (−99.97%, −20.7%/yr); abundance gap 526pp (2025); annual DI–M2 gap 26.3pp.
+- Honest movements in both directions: computing deepens to ~−36.7%/yr; communications ~−30%/yr since 1998; energy is now **−89% since 2010** (the −98.5%-since-1990 claim rested on synthetic data and is withdrawn); transportation −91% since 2010. Recorded plateaus and upticks: solar LCOE flat since 2023 (+0.6% in 2024); battery packs flat 2020–2023; storage and memory prices **rose** from late 2025 on AI datacenter demand.
+
+### Changed - SITE
+
+- Homepage, sector pages, Explore, timeline, $100 test, Method page (geometric formula, per-sector sources, verification-ledger status), stories, and static SEO fallback all updated to the v4 set.
+- "Release candidate" labeling throughout (footer, dateline, Method) until the verification ledger clears.
+
 ## [3.1.3] - 2026-07-12
 
 Data correction and site delivery patch. No changes to the weighted Deflation Index, M2 series, sector data, or Excel workbooks.

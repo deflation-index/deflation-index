@@ -959,7 +959,7 @@ function HomeV2({
   const cpiPct = Math.round(H.cpi_2025_cumulative_pct);
   const gapPp = H.abundance_gap_2025_pp;
   const [diRef, diVal] = useCountUp(diPct, {
-    decimals: 1,
+    decimals: 2,
     suffix: '%'
   });
   const [m2Ref, m2Val] = useCountUp(m2Pct, {
@@ -1011,7 +1011,7 @@ function HomeV2({
     }
   }, React.createElement(Dateline, {
     T: T,
-    parts: ['Early read', '2025 data', `Retrieved ${DI2.early2025.retrieved}`]
+    parts: ['v4.0 release candidate', '2025 measured', `Retrieved ${DI2.early2025.retrieved}`]
   }))), React.createElement(Reveal, {
     delay: 80
   }, React.createElement("h1", {
@@ -1043,7 +1043,7 @@ function HomeV2({
     style: {
       color: T.ink
     }
-  }, diPct.toFixed(1), "%"), ". Money supply rose ", React.createElement("strong", {
+  }, diPct.toFixed(2), "%"), ". Money supply rose ", React.createElement("strong", {
     style: {
       color: T.ink
     }
@@ -1229,7 +1229,7 @@ function HomeV2({
     color: T.accent2,
     ref: diRef,
     anim: diVal,
-    sub: 'Deflation Index, weighted'
+    sub: 'Deflation Index, v4 geometric'
   }, {
     label: 'Money supply',
     sym: '+',
@@ -1482,13 +1482,13 @@ function HomeV2({
       lineHeight: 1.6,
       margin: 0
     }
-  }, t.text), t.year === 2025 && React.createElement("div", {
+  }, t.text), t.year === 2026 && React.createElement("div", {
     style: {
       marginTop: '.5rem'
     }
   }, React.createElement(Dateline, {
     T: T,
-    parts: ['Early read']
+    parts: ['v4.0 release candidate']
   })))))))), React.createElement("section", {
     style: {
       background: T.bgAlt,

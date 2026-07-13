@@ -133,7 +133,7 @@ function App() {
           ))}
         </div>
         <div style={{maxWidth:1100, margin:'2.5rem auto 0', paddingTop:'1.4rem', borderTop:'1px solid rgba(255,255,255,0.1)', display:'flex', justifyContent:'space-between', fontFamily:T.mono, fontSize:'.72rem', color:'rgba(255,255,255,0.5)', letterSpacing:'.06em'}}>
-          <span>v3.1.3 · 2025 EARLY READ</span>
+          <span>v4.0.0-rc.1 · 2025 MEASURED</span>
           <span>data through dec 2025 · retrieved {window.DI.early2025.retrieved}</span>
         </div>
       </footer>

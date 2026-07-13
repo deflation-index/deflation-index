@@ -16,7 +16,7 @@ Version 4.0 rebuilds the index on three rules: **every series is the single metr
 
 The corrections cut both ways, and that matters. Computing deflation gets much deeper — the draft rebuild compounds near 37% per year, right where the published record puts it. Connectivity gets far deeper: wholesale internet transit fell from $1,200 to seven cents per megabit-per-second-month since 1998. But energy gets *shallower*: we can defend −90% since 2010 from IRENA's data, and we cannot defend the −98.5%-since-1990 figure our old synthetic series implied, so we're surrendering it. An index that only ever revises in its own favor is advocacy. This one gives back the claims it can't source.
 
-The draft headline, still being verified datapoint by datapoint: technology deflation somewhere near **−99.97% cumulative since 1990 — roughly 21% per year, every year, for thirty-five years** — against money supply growing 5.7% annually. If that draft survives verification, the published gap has been conservative this whole time.
+The headline, still being verified datapoint by datapoint: technology deflation of **−99.97% cumulative since 1990 — roughly 21% per year, every year, for thirty-five years** — against money supply growing 5.7% annually. If that draft survives verification, the published gap has been conservative this whole time.
 
 ## Why tell you now
 
@@ -24,4 +24,4 @@ Because you'd find it anyway, and you should. The audit memo — including the p
 
 Measurement projects earn trust in exactly one way: by being most rigorous about their own numbers. We found the flaw, we published the flaw, and we're fixing it in the open, before the corrected headline ships — not after someone else forced us to.
 
-v4.0 lands when the last datapoint clears verification. The data, the audit, and every intermediate draft are on [GitHub](https://github.com/deflation-index/deflation-index) now. Argue with it.
+v4.0 now runs this site as a release candidate — the headline you see everywhere here is the corrected one. The verification ledger stays open, row by row, until the last datapoint clears against its primary document. The data, the audit, and every intermediate draft are on [GitHub](https://github.com/deflation-index/deflation-index). Argue with it.

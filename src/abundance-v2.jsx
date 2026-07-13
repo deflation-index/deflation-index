@@ -397,12 +397,12 @@ function ThenNowV2({ entry, T, onClick }) {
 function HomeV2({ nav, T }) {
   const H = DI2.headline;
   const isMobile = window.AbundanceV2UseIsMobile ? window.AbundanceV2UseIsMobile() : false;
-  // 2025 early-read set — single source of truth is data.js headline.
-  const diPct  = Math.abs(H.di_2025_cumulative_pct);   // 96.52
+  // 2025 measured set (v4.0-rc) — single source of truth is data.js headline.
+  const diPct  = Math.abs(H.di_2025_cumulative_pct);   // 99.97
   const m2Pct  = Math.round(H.m2_2025_cumulative_pct); // 576
   const cpiPct = Math.round(H.cpi_2025_cumulative_pct);// 150
-  const gapPp  = H.abundance_gap_2025_pp;              // 522
-  const [diRef, diVal] = useCountUp(diPct, {decimals:1, suffix:'%'});
+  const gapPp  = H.abundance_gap_2025_pp;              // 526
+  const [diRef, diVal] = useCountUp(diPct, {decimals:2, suffix:'%'});
   const [m2Ref, m2Val] = useCountUp(m2Pct, {suffix:'%'});
   const [cpiRef, cpiVal] = useCountUp(cpiPct, {suffix:'%'});
   const [gapRef, gapVal] = useCountUp(gapPp, {suffix:'pp'});
@@ -418,7 +418,7 @@ function HomeV2({ nav, T }) {
         <div style={{maxWidth:1280, margin:'0 auto', position:'relative', zIndex:1}}>
           <Reveal>
             <div style={{marginBottom:'1.5rem'}}>
-              <Dateline T={T} parts={['Early read', '2025 data', `Retrieved ${DI2.early2025.retrieved}`]}/>
+              <Dateline T={T} parts={['v4.0 release candidate', '2025 measured', `Retrieved ${DI2.early2025.retrieved}`]}/>
             </div>
           </Reveal>
           <Reveal delay={80}>
@@ -429,7 +429,7 @@ function HomeV2({ nav, T }) {
           </Reveal>
           <Reveal delay={150}>
             <p style={{fontSize:'1.25rem', lineHeight:1.55, color:T.inkSoft, maxWidth:'58ch', marginBottom:'2rem'}}>
-              Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong style={{color:T.ink}}>{diPct.toFixed(1)}%</strong>. Money supply rose <strong style={{color:T.ink}}>{m2Pct}%</strong>. Consumer prices rose <strong style={{color:T.ink}}>{cpiPct}%</strong>. The Deflation Index puts all three on one chart so the divergence is visible at a glance.
+              Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong style={{color:T.ink}}>{diPct.toFixed(2)}%</strong>. Money supply rose <strong style={{color:T.ink}}>{m2Pct}%</strong>. Consumer prices rose <strong style={{color:T.ink}}>{cpiPct}%</strong>. The Deflation Index puts all three on one chart so the divergence is visible at a glance.
             </p>
           </Reveal>
           <Reveal delay={220}>
@@ -488,7 +488,7 @@ function HomeV2({ nav, T }) {
           </Reveal>
           <div className="di-cols-1to4" style={{gap:'2rem'}}>
             {[
-              {label:'Tech got cheaper', sym:'−', color:T.accent2, ref:diRef, anim:diVal, sub:'Deflation Index, weighted'},
+              {label:'Tech got cheaper', sym:'−', color:T.accent2, ref:diRef, anim:diVal, sub:'Deflation Index, v4 geometric'},
               {label:'Money supply', sym:'+', color:T.accent, ref:m2Ref, anim:m2Val, sub:'M2, FRED measured'},
               {label:'Consumer prices', sym:'+', color:'#FFFFFF', ref:cpiRef, anim:cpiVal, sub:'CPI-U, BLS measured'},
               {label:'The abundance gap', sym:'', color:T.accent, ref:gapRef, anim:gapVal, sub:'|Tech| + Money − Prices'},
@@ -561,7 +561,7 @@ function HomeV2({ nav, T }) {
                 <div style={{paddingLeft:'.6rem'}}>
                   <div style={{fontFamily:T.font, fontSize:'1.25rem', fontWeight:500, marginBottom:'.4rem'}}>{t.title}</div>
                   <p style={{color:T.inkSoft, lineHeight:1.6, margin:0}}>{t.text}</p>
-                  {t.year === 2025 && <div style={{marginTop:'.5rem'}}><Dateline T={T} parts={['Early read']}/></div>}
+                  {t.year === 2026 && <div style={{marginTop:'.5rem'}}><Dateline T={T} parts={['v4.0 release candidate']}/></div>}
                 </div>
               </div>
             </Reveal>

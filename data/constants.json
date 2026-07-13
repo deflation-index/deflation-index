@@ -1,7 +1,7 @@
 {
-  "version": "3.1.3",
-  "last_updated": "2026-07-12",
-  "description": "Single source of truth for Deflation Index statistics. v3.1.3 corrects the 2024 CPI endpoint (254.65 -> 243.5; the prior figure mixed a Dec-2024 numerator with a 1989 base) and the derived cumulative inflation, CAGR, multiplier, and abundance gap. v3.1.1 updated the 2025 early-read block with live FRED monthly data; the weighted DI remains 1990-2024 until all four sectors have measured 2025 data (expected v4.0 mid-2026).",
+  "version": "4.0.0-rc.1",
+  "last_updated": "2026-07-13",
+  "description": "Single source of truth for Deflation Index statistics. v4.0.0-rc.1 is the audited rebuild: every sector is a single sourced metric (computing = compute/storage/memory geometric blend since 1990; communications = wholesale IP transit since 1998; energy = IRENA utility PV LCOE since 2010; transportation = BNEF Li-ion pack since 2010), aggregated with weighted geometric means. Late-start sectors hold at 100 before their first datapoint. Anchor provenance and verification status: data/v4/*.csv; arithmetic sensitivity: data/v4/draft_output.json; audit: docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md. 'rc' = numbers live, verification ledger open.",
   "sources": {
     "m2": {
       "name": "Federal Reserve FRED Series M2SL",
@@ -16,18 +16,21 @@
       "notes": "Oct 2025 interpolated per supplemental_2025.cpi.data_quality_note."
     },
     "di": {
-      "name": "Deflation Index Master v3.0.3",
-      "file": "data/excel/master_deflation_index_v3.0.3.xlsx"
+      "name": "Deflation Index v4 anchor ledger",
+      "file": "data/v4/ (anchor CSVs + draft_output.json); legacy v3 workbook: data/excel/master_deflation_index_v3.0.3.xlsx"
     }
   },
   "deflation_index": {
     "base_year": 1990,
     "base_value": 100.0,
-    "end_year": 2024,
-    "end_value": 3.74,
-    "cumulative_deflation_percent": -96.25,
-    "cagr_percent": -9.21,
-    "description": "Technology cost index, 1990=100"
+    "end_year": 2025,
+    "end_value": 0.0303,
+    "cumulative_deflation_percent": -99.97,
+    "cagr_percent": -20.66,
+    "value_2024": 0.033,
+    "cumulative_2024_percent": -99.967,
+    "aggregation": "weighted geometric mean",
+    "description": "Technology cost index, 1990=100, v4 geometric"
   },
   "m2_money_supply": {
     "base_year": 1990,
@@ -230,15 +233,15 @@
   },
   "gap_analysis": {
     "di_m2_gap": {
-      "annual_pp": 14.87,
-      "annual_rounded": 14.9,
+      "annual_pp": 26.32,
+      "annual_rounded": 26.3,
       "description": "Annual gap between DI deflation rate and M2 expansion rate",
-      "formula": "|DI annual rate| + M2 annual rate = |-9.21| + 5.66 = 14.87"
+      "formula": "|DI annual rate| + M2 annual rate = |-20.66| + 5.66 = 26.32"
     },
     "abundance_gap": {
-      "cumulative_pp": 503,
+      "cumulative_pp": 526,
       "description": "Cumulative gap: tech savings + monetary expansion - actual inflation",
-      "formula": "|DI cumulative| + M2 cumulative - CPI cumulative = 96 + 550 - 143 = 503"
+      "formula": "|DI cumulative| + M2 cumulative - CPI cumulative (2025) = 99.97 + 575.69 - 150.10 = 525.6"
     }
   },
   "sector_weights": {
@@ -250,16 +253,16 @@
   },
   "key_statistics_for_display": {
     "hero_numbers": {
-      "di_annual": "-9.21%",
-      "di_cumulative": "-96.25%",
+      "di_annual": "-20.7%",
+      "di_cumulative": "-99.97%",
       "m2_annual": "+5.7%",
-      "m2_cumulative": "+550%",
-      "gap_annual": "14.9pp"
+      "m2_cumulative": "+576% (2025)",
+      "gap_annual": "26.3pp"
     },
     "prose_descriptions": {
-      "di": "Technology made things 96% cheaper (1990-2024)",
-      "m2": "Money supply expanded 550% (6.5x) over the same period",
-      "gap": "The 14.9 percentage point annual gap reveals where productivity gains flow"
+      "di": "Technology made things 99.97% cheaper (1990-2025, v4 geometric)",
+      "m2": "Money supply expanded 576% (6.8x) over the same period",
+      "gap": "Technology deflates ~21% a year against money growing 5.7% - a 26-point annual gap"
     }
   },
   "supplemental_2025": {
