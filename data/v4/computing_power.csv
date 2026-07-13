@@ -1,13 +1,14 @@
 year,usd_per_gflops,status,source
-1984,42800000,to_verify,"Cost-of-computing tables (period dollars); trace to primary via AI Impacts / Nordhaus 2007"
-1990,1800000,to_verify,"Log-linear interpolation 1984-1997 pending a primary 1990 datapoint (Nordhaus 2007 appendix)"
-1997,42000,to_verify,"Cost-of-computing tables; trace to primary"
-2000,1300,to_verify,"Cost-of-computing tables; trace to primary"
-2003,100,to_verify,"Cost-of-computing tables; trace to primary"
-2007,52,to_verify,"Cost-of-computing tables; trace to primary"
-2011,1.80,to_verify,"Cost-of-computing tables; trace to primary"
-2015,0.08,to_verify,"Cost-of-computing tables; trace to primary"
-2017,0.03,to_verify,"Cost-of-computing tables; trace to primary"
-2020,0.0008,to_verify,"v3 workbook value (RTX 3090 era) — recent years plausible; re-verify against Epoch"
-2024,0.0001,to_verify,"v3 workbook value (RTX 4090 era); re-verify against Epoch"
-2025,0.000063,to_verify,"2024 value x Epoch AI 2025 price-performance trend (-37%/yr)"
+1984,18750000,cross_checked,"Cray X-MP/48: $15,000,000 / 0.8 GFLOPS. Wikipedia FLOPS cost table (retr. 2026-07-13); primary: period pricing refs therein"
+1990,963000,interpolated,Log-linear interpolation 1984->1997; no direct 1990 datapoint yet (target: Nordhaus 2007 appendix)
+1997,30000,cross_checked,Two 16-proc Pentium Pro Beowulf clusters. Wikipedia FLOPS table; primary: LANL Loki/Hyglac SC97 paper
+2000,640,cross_checked,"KLAT2 (May 2000). Wikipedia FLOPS table; primary: aggregate.org/KLAT2 (Bunyip Apr 2000 = $1,000)"
+2003,83.86,cross_checked,"KASY0 (Aug 2003), first sub-$100/GFLOPS. Wikipedia FLOPS table; primary: aggregate.org"
+2007,48.31,cross_checked,Microwulf (Aug 2007). Wikipedia FLOPS table; primary: Calvin College project page
+2011,1.8,cross_checked,HPU4Science $30k gamer-GPU cluster (Mar 2011). Wikipedia FLOPS table; primary: Ars Technica build
+2013,0.2168,cross_checked,"Sony PlayStation 4 (Nov 2013), 1.84 TFLOPS @ $399. Wikipedia FLOPS table"
+2015,0.0785,cross_checked,Celeron G1830 + Radeon R9 295X2 (Jan 2015). Wikipedia FLOPS table; primary: pcpartpicker freezepage
+2017,0.0273,cross_checked,Celeron G3930 + 3x RX Vega 64 (Oct 2017). Wikipedia FLOPS table
+2020,0.0314,cross_checked,Ryzen 3600 + 3x RTX 3080 (Nov 2020) — GPU-shortage uptick vs 2017. Wikipedia FLOPS table
+2022,0.0194,cross_checked,"RTX 4090: $1,599 / 82.6 TFLOPS FP32 (Sep 2022). Wikipedia FLOPS table"
+2025,0.0123,cross_checked,Radeon RX 9070 XT: 48.7 TFLOPS FP32 (Mar 2025). Wikipedia FLOPS table
