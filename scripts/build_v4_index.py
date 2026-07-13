@@ -29,16 +29,18 @@ SECTOR_WEIGHTS = {'computing': 0.2941, 'communications': 0.2353,
 
 
 def load_anchors(name):
+    """Statuses: verified (primary) / cross_checked (cited secondary) /
+    interpolated / to_verify. Only 'verified' counts as final."""
     rows = []
-    unverified = 0
+    counts = {}
     with open(V4 / f'{name}.csv') as f:
         for r in csv.DictReader(f):
             price_col = [k for k in r if k.startswith('usd_per')][0]
             rows.append((int(r['year']), float(r[price_col])))
-            if r['status'].strip() != 'verified':
-                unverified += 1
+            s = r['status'].strip()
+            counts[s] = counts.get(s, 0) + 1
     rows.sort()
-    return rows, unverified
+    return rows, counts
 
 
 def log_interp(anchors, years):
@@ -84,12 +86,14 @@ def cagr(index_2025_base100, years=35):
 
 
 def main():
-    total_unverified = 0
+    status_totals = {}
     sub_indices = {}
     for name in COMPUTING_WEIGHTS:
-        anchors, unverified = load_anchors(name)
-        total_unverified += unverified
+        anchors, counts = load_anchors(name)
+        for s, n in counts.items():
+            status_totals[s] = status_totals.get(s, 0) + n
         sub_indices[name] = rebase(log_interp(anchors, YEARS))
+    total_unverified = sum(n for s, n in status_totals.items() if s != 'verified')
 
     comp_geo = geometric(sub_indices, COMPUTING_WEIGHTS)
     comp_arith = arithmetic(sub_indices, COMPUTING_WEIGHTS)
@@ -136,7 +140,8 @@ def main():
     print('v4.0 DRAFT INDEX — geometric aggregation, rebuilt computing anchors')
     print('=' * 76)
     if total_unverified:
-        print(f'\n*** DRAFT: {total_unverified} anchor rows are still status=to_verify ***\n')
+        breakdown = ', '.join(f'{n} {s}' for s, n in sorted(status_totals.items()))
+        print(f'\n*** DRAFT: anchor status — {breakdown} (final requires all verified) ***\n')
 
     print('Computing sector (1990=100):')
     print(f'{"year":>6} {"v4 geometric":>14} {"v4 arithmetic":>14} {"v3 published":>14}')
