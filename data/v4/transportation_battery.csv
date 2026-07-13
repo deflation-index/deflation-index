@@ -1,0 +1,7 @@
+year,usd_per_kwh,status,source
+2010,1160,cross_checked,"BNEF lithium-ion battery price survey, 2010 volume-weighted average pack price (v3 site sourcing; verify against BNEF 2020 retrospective)"
+2015,384,cross_checked,"BNEF survey 2015 — verify against BNEF release"
+2020,137,cross_checked,"BNEF survey 2020: $137/kWh pack (widely cited; note the v3 workbook held $149 here)"
+2023,139,cross_checked,"BNEF survey 2023: $139/kWh pack (the value the v3 workbook mislabeled as 2024)"
+2024,115,cross_checked,"BNEF survey 2024: $115/kWh pack"
+2025,108,cross_checked,"BNEF survey 2025: $108/kWh pack ($99 BEV-specific) — already recorded in data/constants.json supplemental_2025; note BNEF reports recent years in real dollars, basis to document in v4.0 methodology"
