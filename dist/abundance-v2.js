@@ -1,4 +1,3 @@
-// Compiled from src/abundance-v2.jsx — do not edit directly. Run: npm run build
 const {
   useState,
   useEffect,
@@ -253,7 +252,7 @@ function HeroSolar({
     fontSize: "22",
     fontWeight: "500",
     fill: T.ink
-  }, "4¢/kWh"));
+  }, "4\xA2/kWh"));
 }
 function HeroBattery({
   T
@@ -329,14 +328,14 @@ function HeroBattery({
     fill: T.bg,
     letterSpacing: ".1em",
     opacity: "0.85"
-  }, "PER kWh · 2025"), React.createElement("text", {
+  }, "PER kWh \xB7 2025"), React.createElement("text", {
     x: "160",
     y: "290",
     textAnchor: "middle",
     fontFamily: T.mono,
     fontSize: "11",
     fill: T.inkMute
-  }, "2010 · $1,160"), React.createElement("path", {
+  }, "2010 \xB7 $1,160"), React.createElement("path", {
     d: "M 160 300 L 160 330",
     stroke: T.accent2,
     strokeWidth: "2",
@@ -352,7 +351,7 @@ function HeroBattery({
     fontSize: "20",
     fontWeight: "500",
     fill: T.ink
-  }, "−91% in 15 yrs"));
+  }, "\u221291% in 15 yrs"));
 }
 function HeroChip({
   T
@@ -438,7 +437,7 @@ function HeroChip({
     fill: T.bg,
     letterSpacing: ".1em",
     opacity: "0.85"
-  }, "FOR $100 · 2025"), [0, 1, 2, 3, 4, 5].map(i => React.createElement("g", {
+  }, "FOR $100 \xB7 2025"), [0, 1, 2, 3, 4, 5].map(i => React.createElement("g", {
     key: i
   }, React.createElement("rect", {
     x: 92 + i * 24,
@@ -483,7 +482,7 @@ function Dateline({
       color: T.line
     },
     "aria-hidden": "true"
-  }, "·"), React.createElement("span", {
+  }, "\xB7"), React.createElement("span", {
     style: i === 0 ? {
       color: T.ink,
       fontWeight: 600
@@ -899,7 +898,7 @@ function ThenNowV2({
       color: T.accent,
       fontSize: '1.2rem'
     }
-  }, "→"), React.createElement("div", null, React.createElement("div", {
+  }, "\u2192"), React.createElement("div", null, React.createElement("div", {
     style: {
       fontFamily: T.mono,
       fontSize: '.66rem',
@@ -947,7 +946,7 @@ function ThenNowV2({
       fontWeight: 700,
       letterSpacing: '.04em'
     }
-  }, "×", compact(entry.now / entry.then)));
+  }, "\xD7", compact(entry.now / entry.then)));
 }
 function HomeV2({
   nav,
@@ -1074,7 +1073,7 @@ function HomeV2({
       fontSize: '.95rem',
       cursor: 'pointer'
     }
-  }, "Explore the data →"), React.createElement("button", {
+  }, "Explore the data \u2192"), React.createElement("button", {
     onClick: () => nav('method'),
     className: "di-tap-pill",
     style: {
@@ -1181,7 +1180,7 @@ function HomeV2({
         color: T.inkMute,
         letterSpacing: '.06em'
       }
-    }, s.metric, " · ", fmt2(s.drop, false), " since 1990"))));
+    }, s.metric, " \xB7 ", fmt2(s.drop, false), " since 1990"))));
   }))), React.createElement("section", {
     style: {
       background: T.bgDeep,
@@ -1210,7 +1209,7 @@ function HomeV2({
       color: T.accent,
       marginBottom: '.7rem'
     }
-  }, "1990 → 2025"), React.createElement("h2", {
+  }, "1990 \u2192 2025"), React.createElement("h2", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2.4rem,5vw,3.6rem)',
@@ -1328,7 +1327,7 @@ function HomeV2({
       color: T.ink,
       cursor: 'pointer'
     }
-  }, "Open in Explore →"))), React.createElement(Reveal, {
+  }, "Open in Explore \u2192"))), React.createElement(Reveal, {
     delay: 100
   }, React.createElement("div", {
     style: {
@@ -1537,7 +1536,7 @@ function HomeV2({
       color: T.ink,
       cursor: 'pointer'
     }
-  }, "All stories →"))), React.createElement("div", {
+  }, "All stories \u2192"))), React.createElement("div", {
     className: "di-cols-1to2",
     style: {
       gap: '1rem'
@@ -1570,7 +1569,7 @@ function HomeV2({
       color: T.accent,
       marginBottom: '.5rem'
     }
-  }, st.kicker, " · ", st.readMins, " min"), React.createElement("div", {
+  }, st.kicker, " \xB7 ", st.readMins, " min"), React.createElement("div", {
     style: {
       fontFamily: T.font,
       fontSize: '1.4rem',
@@ -1610,7 +1609,7 @@ function HomeV2({
       fontSize: '1rem',
       marginBottom: '1.4rem'
     }
-  }, "A few emails a year — the v4.0 index revision first. No weekly anything, no upsell."), React.createElement(NewsletterForm, {
+  }, "A few emails a year \u2014 the v4.0 index revision first. No weekly anything, no upsell."), React.createElement(NewsletterForm, {
     T: T
   }))));
 }

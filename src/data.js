@@ -134,16 +134,14 @@ window.DI = (function(){
       thenText:'86 watt-hours — phone battery', nowText:'930 watt-hours — power tool or small e-bike' },
   ];
 
-  // Stories — short explainer shelf
+  // Stories — short explainer shelf (three essays, deliberately)
   const stories = [
     {slug:'what-is-deflation-index', kicker:'Explainer', title:'What the Deflation Index actually measures.',
-     dek:'Three lines on a chart. One idea you already know but rarely see mapped.', readMins:4},
+     dek:'Three lines on a chart. The technology input layer, measured — and nothing it can\'t defend.', readMins:4},
     {slug:'the-abundance-gap', kicker:'Concept', title:'The Abundance Gap: tech savings, minus inflation.',
-     dek:'Technology fell 96%. Money rose 550%. Prices rose 143%. What happened to the difference?', readMins:6},
-    {slug:'battery-breakeven', kicker:'Deep dive', title:'Batteries crossed $100/kWh in 2025 — the EV tipping point.',
-     dek:'A pack below $100/kWh means EVs undercut gas cars on sticker price. Here\'s how we got here.', readMins:5},
-    {slug:'ai-compute-halving', kicker:'Sector', title:'AI compute is still halving every 2.2 years.',
-     dek:'Epoch AI\'s 2025 tracking says performance-per-dollar keeps falling. The deflation is accelerating, not slowing.', readMins:7},
+     dek:'Technology fell 96%. Money rose 576%. Prices rose 150%. What happened to the difference?', readMins:6},
+    {slug:'the-honest-index', kicker:'Methodology', title:'We audited our own index. The headline was too small.',
+     dek:'Three flaws, all pointing the same way. What v4.0 changes, and why we\'re telling you before it ships.', readMins:6},
   ];
 
   return { years, di, m2, cpi, sectors, headline, early2025, timeline, dollarTest, stories, dataEndMeasured, dataEndEarly };

@@ -1,4 +1,3 @@
-// Compiled from src/app.jsx — do not edit directly. Run: npm run build
 const {
   useState,
   useEffect,
@@ -235,7 +234,7 @@ function App() {
       color: 'rgba(255,255,255,0.5)',
       letterSpacing: '.06em'
     }
-  }, React.createElement("span", null, "v3.1.3 · 2025 EARLY READ"), React.createElement("span", null, "data through dec 2025 · retrieved ", window.DI.early2025.retrieved))), editMode && React.createElement("div", {
+  }, React.createElement("span", null, "v3.1.3 \xB7 2025 EARLY READ"), React.createElement("span", null, "data through dec 2025 \xB7 retrieved ", window.DI.early2025.retrieved))), editMode && React.createElement("div", {
     style: {
       position: 'fixed',
       bottom: 20,
@@ -271,7 +270,7 @@ function App() {
       cursor: 'pointer'
     },
     onClick: () => setEditMode(false)
-  }, "close ✕")), React.createElement("div", {
+  }, "close \u2715")), React.createElement("div", {
     style: {
       padding: '.9rem 1.1rem 1.1rem'
     }
