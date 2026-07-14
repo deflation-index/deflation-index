@@ -29,7 +29,7 @@ The Bureau of Labor Statistics measure of average change in prices paid by urban
 **Source**: FRED Series CPIAUCSL
 
 ### Cumulative Deflation
-The total percentage decline in the Deflation Index from the 1990 baseline to the current year. Currently -96.26% (meaning technology made things 96% cheaper).
+The total percentage decline in the Deflation Index from the 1990 baseline to the current year. Currently -99.97% (meaning technology made things about 99.97% cheaper), on the v4.0 geometric index (1990–2025).
 
 ---
 
@@ -42,9 +42,9 @@ A decrease in the general price level of goods and services. In the Deflation In
 A composite index measuring the cost of technology across four sectors (Computing, Communications, Energy, Transportation) relative to a 1990 baseline of 100.
 
 ### DI-M2 Gap
-The annual difference between the Deflation Index rate and M2 expansion rate. Currently 14.9 percentage points per year.
+The annual difference between the Deflation Index rate and M2 expansion rate. Currently 26.0 percentage points per year, on the v4.0 geometric index.
 
-**Formula**: |DI Annual Rate| + M2 Annual Rate = |-9.21%| + 5.66% = 14.87pp
+**Formula**: |DI Annual Rate| + M2 Annual Rate = |-20.37%| + 5.66% = 26.03pp
 
 ---
 
