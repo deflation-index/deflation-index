@@ -13,7 +13,7 @@ window.DI = (function(){
   const dataEndEarly = 2025;
 
   // Rebased to 1990=100 (v4 geometric master)
-  const di = [100,88.1275,77.6645,66.5776,57.0734,51.6202,42.0308,34.2228,25.0026,17.0709,11.6554,8.33666,5.9629,4.48967,3.7181,3.28651,2.90806,2.33124,1.59363,1.16244,0.884034,0.612349,0.406871,0.266694,0.192639,0.139148,0.108854,0.085156,0.073657,0.06371,0.055107,0.047972,0.04176,0.037176,0.032985,0.030335];  // v4.0-rc: weighted geometric mean of v4 sector series (data/v4/draft_output.json)
+  const di = [100,88.1275,77.6645,66.5776,57.0734,51.6202,42.0308,34.2228,25.0026,17.0709,11.6554,8.33666,5.9629,4.48967,3.7181,3.28651,2.90806,2.33124,1.59363,1.16244,0.884034,0.615483,0.411047,0.27081,0.196614,0.142746,0.110402,0.085386,0.073018,0.062441,0.053396,0.045744,0.039189,0.035838,0.032814,0.030725];  // v4.0-rc: weighted geometric mean of v4 sector series (data/v4/draft_output.json)
   // M2 real through 2025 (FRED live, 1990-base index)
   const m2 = [100,103.06,104.68,106.23,106.71,111.11,116.58,123.09,133.59,141.62,150.21,165.87,176.42,184.95,195.64,203.67,214.31,227.87,250.06,259.2,267.86,293.1,318.15,335.45,356.14,375.89,402.68,422.45,437.96,467.38,583.04,658.39,654.39,636.81,650.02,
     675.69  // 2025: +3.95% YoY measured, FRED M2SL
@@ -24,9 +24,9 @@ window.DI = (function(){
   ];
 
   // Per-sector indices, 1990=100. 2025 values are early-read where available.
-  const computing = [100,65.068,42.3385,25.0772,14.8533,10.5567,5.24871,2.60962,0.897481,0.308655,0.10615,0.0552587,0.028766,0.0150854,0.0109353,0.0090937,0.00758929,0.00633377,0.00307526,0.00149315,0.00083542,0.00047733,0.00023674,0.00011742,8.102e-05,5.591e-05,3.866e-05,2.673e-05,2.601e-05,2.531e-05,2.463e-05,1.976e-05,1.586e-05,1.373e-05,1.24e-05,1.12e-05];  // v4.0-rc: geometric blend compute/storage/memory 60/30/10 (data/v4)
-  const communications = [100,100,100,100,100,100,100,100,100,75,56.25,30.6186,16.6667,11.1803,7.5,5.59017,4.16667,2.04124,1,0.645497,0.416667,0.285044,0.195,0.125915,0.0813051,0.0525,0.0417347,0.0331768,0.0263738,0.0209658,0.0166667,0.0135102,0.0109516,0.00887748,0.0071962,0.00583333];  // v4.0-rc: wholesale IP transit, series starts 1998 (data/v4/comms_transit.csv)
-  const energy = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,77.6966,60.3676,46.9036,36.4425,28.3146,24.1608,20.6164,17.5919,15.0112,12.809,11.7501,10.7787,9.88764,9.66292,9.88764];  // v4.0-rc: IRENA utility PV LCOE, series starts 2010 (data/v4/energy_solar.csv)
+  const computing = [100,65.068,42.3385,25.0772,14.8533,10.5567,5.24871,2.60962,0.897481,0.308655,0.10615,0.0552587,0.028766,0.0150854,0.0109353,0.0090937,0.00758929,0.00633377,0.00307526,0.00149315,0.00083542,0.00047733,0.00023674,0.00011742,8.102e-05,5.591e-05,3.866e-05,2.673e-05,2.601e-05,2.531e-05,2.463e-05,1.976e-05,1.586e-05,1.36e-05,1.208e-05,1.072e-05];  // v4.0-rc: geometric blend compute/storage/memory 60/30/10 (data/v4)
+  const communications = [100,100,100,100,100,100,100,100,100,75,56.25,30.6186,16.6667,11.1803,7.5,5.59017,4.16667,2.04124,1,0.645497,0.416667,0.285044,0.195,0.125915,0.0813051,0.0525,0.0397586,0.0301094,0.0228021,0.0172682,0.0130773,0.00990352,0.0075,0.00689731,0.00634305,0.00583333];  // v4.0-rc: wholesale IP transit, series starts 1998 (data/v4/comms_transit.csv)
+  const energy = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,79.0573,62.5006,49.4113,39.0632,30.8824,26.3519,22.486,19.1873,16.3725,13.9706,12.8156,11.7562,10.7843,10.7843,10.7843];  // v4.0-rc: IRENA utility PV LCOE (2025 vintage), series starts 2010 (data/v4/energy_solar.csv)
   const transportation = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80.1631,64.2613,51.5138,41.2951,33.1034,26.9371,21.9194,17.8364,14.5139,11.8103,11.8675,11.925,11.9828,9.91379,9.31034];  // v4.0-rc: BNEF pack survey, series starts 2010 (data/v4/transportation_battery.csv)
 
   const sectors = [
@@ -50,10 +50,10 @@ window.DI = (function(){
 
     {id:'energy', name:'Energy', icon:'sun', weight:0.2941, metric:'$/kWh solar LCOE',
      metricLong:'Utility-scale solar PV, global weighted-average levelized cost (IRENA)',
-     drop:-89.4, annualRate:-14.29, data:energy, dataStart:2010,
+     drop:-89.2, annualRate:-13.8, data:energy, dataStart:2010,
      raw1990:'—', raw2025:'$0.044/kWh',
-     buysPer100:{then:'240 kWh of solar (2010)', now:'2,270 kWh of solar'},
-     tangible:{then:'A solar kilowatt-hour cost 42 cents in 2010.', now:'4.4 cents — and the decline has plateaued.'},
+     buysPer100:{then:'245 kWh of solar (2010)', now:'2,270 kWh of solar'},
+     tangible:{then:'A solar kilowatt-hour cost 41 cents in 2010.', now:'4.4 cents — and the decline has plateaued.'},
      narrative:'Ninety percent cheaper in fifteen measured years. And honestly: the curve has flattened — IRENA\'s 2024 LCOE ticked up 0.6%, and 2025 held flat. We report the plateau too.',
      sources:['IRENA']},
 
@@ -70,9 +70,9 @@ window.DI = (function(){
   const headline = {
     // v4.0-rc.1 — geometric master (see data/v4/draft_output.json)
     di_cumulative_pct: -99.967,       // 2024, 1990 base
-    di_annual_pct: -20.66,
-    di_2024: 0.033,
-    di_2025_early: 0.0303,            // key name kept for compatibility; 2025 is measured
+    di_annual_pct: -20.63,
+    di_2024: 0.0328,
+    di_2025_early: 0.0307,            // key name kept for compatibility; 2025 is measured
     di_2025_cumulative_pct: -99.97,
     m2_cumulative_pct: 550.02,
     m2_annual_pct: 5.66,

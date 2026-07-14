@@ -17,6 +17,8 @@ Every anchor row in the CSVs traces to an entry here. Status levels:
 
 **Metric note:** this series is *lowest-cost consumer/cluster FP32-peak $/GFLOPS, nominal period dollars*. Epoch's ML price-performance is a different, faster-falling metric; v4.0 uses the FP32 series for the index and may publish the ML series as a supplementary line. The v3 workbook's endpoints matched neither (1990 ~1,000× too low as a price; 2024 ~200× too low).
 
+**Source caution (documented 2026-07-13):** AI Impacts reviewed the Wikipedia GFLOPS table and called it "dubious" — thin citations, especially pre-1997. Their independent long-run estimate (Sandberg–Bostrom on McCallum CPU data) brackets ~1990 at ~$10⁵–10⁶/GFLOPS, consistent with our interpolation. Verification path: substantiate each post-1997 row from the table's own primary refs (LANL SC97, aggregate.org, pcpartpicker archives, vendor spec sheets — several live, some need Wayback access from a regular browser).
+
 ## Storage ($/GB, nominal)
 
 | Source | URL | Retrieved | Used for |
@@ -34,7 +36,7 @@ Every anchor row in the CSVs traces to an entry here. Status levels:
 | McCallum memory price series (nominal) | https://jcmit.net/memoryprice.htm | pending (blocks automated fetch; transcribe manually) | replaces the CPI back-conversion |
 | DRAMeXchange / TrendForce | https://www.dramexchange.com/ | pending | 2024–2025 datapoints (note: 2025 DRAM prices rose on AI demand) |
 
-**Conversion note:** OWID values are inflation-adjusted; nominal anchors were derived as `adj$/TB ÷ 1000 × CPI(year)/CPI(2023)` using the repo's Jan-value CPIAUCSL series. The OWID deflator base year is assumed 2023 pending metadata confirmation — a wrong base shifts all memory anchors by a constant factor, which barely moves the geometric index (levels shift, growth rates don't).
+**Conversion note:** OWID values are inflation-adjusted in **constant 2020 US$** (confirmed via OWID metadata endpoint, 2026-07-13; series uses a running-minimum convention). Nominal anchors derived as `adj$/TB ÷ 1000 × CPI(year)/CPI(2020)` using the repo's Jan-value CPIAUCSL series.
 
 ## Communications ($/Mbps/month, wholesale IP transit — nominal)
 
@@ -53,3 +55,9 @@ Every anchor row in the CSVs traces to an entry here. Status levels:
 | Communications | FCC 2026 Urban Rate Survey (pub. 2025-12-19) — 100/20 benchmark ~$96/mo, up from $85.85; convert to $/GB with usage data | published |
 | Transportation | BNEF Li-ion survey (pub. 2025-12) — $108/kWh pack | published |
 | Computing | Wikipedia FLOPS table Mar-2025 row + Epoch | published |
+
+## Verification standards (ratified 2026-07-13)
+
+1. **Publisher-of-record = primary.** A survey read directly from its publisher (DrPeering's own white paper, TeleGeography's own pricing page, IRENA's own report PDF, Backblaze's own blog, Komorowski's own table) is a primary document. Secondary compilations (Wikipedia's table, OWID's redistribution) remain cross_checked until traced to their own primaries.
+2. **Bounded interpolation is an acceptable terminal status** when (a) both endpoints are anchored, (b) an independent dataset brackets the interpolated value, and (c) the row is labeled `interpolated`. Applies to compute 1990 ($963k, bracketed by Sandberg–Bostrom).
+3. **Open basis item — real vs nominal.** IRENA reports in constant report-year dollars and revises back-series between vintages; BNEF restates recent surveys in real terms. v4 uses the single latest vintage per source. Before final v4.0: either convert these series to nominal via CPIAUCSL (documented per row, matching the other sectors) or document the mixed basis and its effect (≈1–3pp on sector CAGRs; negligible on the geometric master, which is dominated by computing and comms).

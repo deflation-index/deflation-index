@@ -11,4 +11,4 @@ year,usd_per_gb,status,source
 2009,0.114,verified,"Backblaze avg purchase cost 2009 (backblaze.com/blog/hard-drive-cost-per-gigabyte, retr. 2026-07-13); Komorowski Jul 2009 street = $0.075 — bulk-vs-street basis noted"
 2017,0.033,verified,"Backblaze, end 2017"
 2022,0.0144,verified,"Backblaze, Nov 2022"
-2025,0.011,to_verify,Backblaze projected ~$0.01 mid-2025 with 22-24TB; confirm against Drive Stats / street pricing
+2025,0.010,cross_checked,"24TB street ~$239 pre-surge (Tom's Hardware price tracking, retr. 2026-07-13) = $0.00996/GB, confirming Backblaze's $0.01 mid-2025 projection. NOTE: HDD prices surged ~50% from Sep 2025 on AI datacenter demand (24TB BarraCuda $239->$499); calendar-2025 uses pre-surge street; 2026 will likely show storage INFLATION"
