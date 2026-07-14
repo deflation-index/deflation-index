@@ -1,3 +1,5 @@
+> **Updated for v4.0.0 (2026-07-13).** Headline figures below use the audited v4 geometric index. Sector-level details predating v4 are superseded by [`data/v4/sources_manifest.md`](../../data/v4/sources_manifest.md).
+
 # Executive Summary: The Deflation Index
 ## Measuring Technological Progress and the Missing Abundance (1990-2024)
 
@@ -18,13 +20,13 @@
 ## The Numbers (1990-2024)
 
 ### Technology Deflation (Deflation Index)
-- **Annual Average**: -9.21% deflation per year
-- **Cumulative**: -96.25% total deflation over 35 years
-- **Meaning**: What cost $100 in 1990 should cost $3.74 in 2024 (in real terms)
+- **Annual Average**: -20.4% deflation per year (v4 geometric)
+- **Cumulative**: -99.97% total deflation over 35 years (1990–2025)
+- **Meaning**: What cost $100 in 1990 costs about 3 cents in 2025
 
 ### M2 Money Supply Expansion (FRED M2SL)
 - **Annual Average**: +5.7% growth per year (precise: 5.66%)
-- **Cumulative**: +550% total growth over 35 years (precise: 550.2%)
+- **Cumulative**: +576% total growth 1990–2025 (2024: +550.2%)
 - **Multiplier**: 6.5x increase
 - **Meaning**: Money supply grew from $3.28T to $21.3T
 - **Source**: Federal Reserve FRED Series M2SL (verified December 2025)
@@ -36,10 +38,10 @@
 - **Meaning**: Consumer prices rose modestly despite massive money printing
 
 ### The Gap: Where Did the Abundance Go?
-- **Annual Gap**: 14.9 percentage points per year (DI-M2)
-- **Cumulative Gap**: ~503 percentage points over 35 years
+- **Annual Gap**: 26.0 percentage points per year (DI–M2, v4)
+- **Cumulative Gap**: ~526 percentage points (1990–2025)
 - **Formula**: |Tech Deflation| + M2 Expansion - CPI Inflation
-  - 96pp (tech savings) + 550pp (money printing) - 143pp (CPI) = **503pp**
+  - 100pp (tech savings) + 576pp (money expansion) - 150pp (CPI) = **526pp** (2025)
 - **Meaning**: Productivity gains that did not reach consumer prices
 
 ---
@@ -48,11 +50,11 @@
 
 **The Gap = Redistribution of Productivity Gains**
 
-Technology should have made things 96% cheaper. Money printing added 550% inflationary pressure.
+Technology made its input layer 99.97% cheaper. Money expansion added 576% of pressure.
 
-Consumer prices (CPI) rose only 143%.
+Consumer prices (CPI) rose only 150%.
 
-**The ~503-point cumulative gap represents productivity gains that flowed elsewhere:**
+**The ~526-point cumulative gap represents productivity gains that flowed elsewhere:**
 1. **Asset Appreciation**: Stocks +1,500%, housing +400% (not captured in CPI)
 2. **Corporate Profits**: Up 300%+ since 1990, concentrated in top 10%
 3. **Complexity Costs**: Healthcare, education, housing rising faster than wages

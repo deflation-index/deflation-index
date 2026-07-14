@@ -1,21 +1,55 @@
 {
+  "_status": "SUPERSEDED by v4.0.0 (2026-07-13): sector series are now single sourced metrics in data/v4/*.csv with per-row provenance; runtime series in src/data.js; audit in docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md. This file preserves the v3 sector data for reference.",
   "schema": {
     "version": "1.0",
     "fields": {
-      "index_value": {"type": "float", "precision": 4, "unit": "index_100", "description": "Sector index (1990=100 or 2010=100 for Transportation)"},
-      "raw_value": {"type": "float", "unit": "varies", "nullable": true, "description": "Original metric value in native units"},
-      "cumulative_deflation_pct": {"type": "float", "precision": 2, "unit": "percent"},
-      "annual_avg_deflation_pct": {"type": "float", "precision": 2, "unit": "percent"}
+      "index_value": {
+        "type": "float",
+        "precision": 4,
+        "unit": "index_100",
+        "description": "Sector index (1990=100 or 2010=100 for Transportation)"
+      },
+      "raw_value": {
+        "type": "float",
+        "unit": "varies",
+        "nullable": true,
+        "description": "Original metric value in native units"
+      },
+      "cumulative_deflation_pct": {
+        "type": "float",
+        "precision": 2,
+        "unit": "percent"
+      },
+      "annual_avg_deflation_pct": {
+        "type": "float",
+        "precision": 2,
+        "unit": "percent"
+      }
     }
   },
   "provenance": {
     "calculation_date": "2026-01-10",
     "methodology_version": "3.0.3",
     "primary_sources": {
-      "computing": ["AI Impacts", "PassMark", "Top500.org"],
-      "communications": ["FCC Reports", "Speedtest.net", "Industry benchmarks"],
-      "energy": ["IRENA", "BloombergNEF", "DOE"],
-      "transportation": ["BloombergNEF", "IEA"]
+      "computing": [
+        "AI Impacts",
+        "PassMark",
+        "Top500.org"
+      ],
+      "communications": [
+        "FCC Reports",
+        "Speedtest.net",
+        "Industry benchmarks"
+      ],
+      "energy": [
+        "IRENA",
+        "BloombergNEF",
+        "DOE"
+      ],
+      "transportation": [
+        "BloombergNEF",
+        "IEA"
+      ]
     }
   },
   "metadata": {

@@ -579,10 +579,10 @@ function ExploreV2({
   const idxB = DIp.years.indexOf(yearB);
   const valA = sector.data[idxA];
   const valB = sector.data[idxB];
-  const baseUnit = sector.id === 'computing' ? 0.12 : sector.id === 'communications' ? 1.06 : sector.id === 'energy' ? 33 : 0.086;
+  const baseUnit = sector.id === 'computing' ? 0.000104 : sector.id === 'communications' ? 10.8 : sector.id === 'energy' ? 240 : 0.086;
   const buyA = baseUnit * 100 / valA * (dollars / 100);
   const buyB = baseUnit * 100 / valB * (dollars / 100);
-  const unit = sector.id === 'computing' ? 'GFLOPS' : sector.id === 'communications' ? 'GB' : sector.id === 'energy' ? 'kWh' : 'kWh';
+  const unit = sector.id === 'computing' ? 'GFLOPS' : sector.id === 'communications' ? 'GB moved' : sector.id === 'energy' ? 'kWh' : 'kWh';
   const m2A = DIp.m2[idxA],
     m2B = DIp.m2[idxB];
   const cpiA = DIp.cpi[idxA],
@@ -1257,17 +1257,23 @@ function MethodV2({
       lineHeight: 1.7,
       margin: '1rem 0 1.4rem'
     }
-  }, `DI(t) = Σ wᵢ · Iᵢ(t)
+  }, `DI(t) = Π Iᵢ(t)^wᵢ        (weighted geometric mean)
 
 where:
   wᵢ = sector weight (sum to 1.0)
-  Iᵢ(t) = sector index, 1990 = 100
+  Iᵢ(t) = sector index, 100 at its first measured year;
+          held at 100 before measurement begins
 
-Sector weights (v3.1.1):
-  Computing       0.2941
-  Communications  0.2353
-  Energy          0.2941
-  Transportation  0.1765`)), React.createElement(RevealP, null, React.createElement("h2", {
+Sector weights (v4.0):          Series starts:
+  Computing       0.2941          1990
+  Communications  0.2353          1998
+  Energy          0.2941          2010
+  Transportation  0.1765          2010
+
+A geometric mean treats a halving as a halving wherever
+it happens; an arithmetic mean is dominated by the
+slowest components. The arithmetic variant is published
+as a sensitivity in data/v4/draft_output.json.`)), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
   }, "The three lines"), React.createElement("p", {
     style: para
@@ -1275,7 +1281,7 @@ Sector weights (v3.1.1):
     style: {
       color: T.ink
     }
-  }, "Deflation Index (DI):"), " the weighted average above. A value of 3.75 in 2024 means the basket cost 3.75% of what it cost in 1990."), React.createElement("p", {
+  }, "Deflation Index (DI):"), " the weighted geometric mean above. A value of 0.03 in 2025 means the basket costs three-hundredths of one percent of its 1990 price \u2014 a roughly 3,300-fold decline."), React.createElement("p", {
     style: para
   }, React.createElement("strong", {
     style: {
@@ -1289,19 +1295,26 @@ Sector weights (v3.1.1):
     }
   }, "CPI:"), " the Consumer Price Index for All Urban Consumers, from the Bureau of Labor Statistics (CPIAUCSL). Indexed to 1990 = 100.")), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
-  }, "What 2025 means"), React.createElement(DatelineP, {
+  }, "What v4.0 means"), React.createElement(DatelineP, {
     T: T,
-    parts: ['Early read', '2025 data']
+    parts: ['v4.0', '2025 measured', 'Ledger open']
   }), React.createElement("p", {
     style: {
       ...para,
       marginTop: '1rem'
     }
-  }, "2025 is an ", React.createElement("strong", {
+  }, "Every sector's 2025 point is now ", React.createElement("strong", {
     style: {
       color: T.ink
     }
-  }, "early read"), ", not a published index point. M2 and CPI are measured directly from FRED/BLS (retrieved ", DIp.early2025.retrieved, "). The DI 2025 figure blends measured sector data \u2014 battery packs, AI compute \u2014 with trend extrapolation for solar and broadband, which won't publish 2025 numbers until mid-to-late 2026. The full v4.0 weighted index will be published when those are in."), React.createElement("div", {
+  }, "measured"), " \u2014 IRENA published solar in July 2026, BloombergNEF's battery survey and TeleGeography's transit pricing are in, and M2/CPI come directly from FRED/BLS. The verification ledger stays open by design: every anchor datapoint in ", React.createElement("a", {
+    href: "https://github.com/deflation-index/deflation-index/tree/main/data/v4",
+    target: "_blank",
+    rel: "noopener",
+    style: {
+      color: T.accent
+    }
+  }, "data/v4"), " carries a status \u2014 verified against a primary document, cross-checked against a cited secondary, or interpolated within documented bounds \u2014 and the release standard requires every row to cite a published source. Promoting cross-checked rows against period primaries is continuous maintenance, in public."), React.createElement("div", {
     className: "di-cols-1to2",
     style: {
       gap: '1rem',
@@ -1322,7 +1335,7 @@ Sector weights (v3.1.1):
       textTransform: 'uppercase',
       marginBottom: '.6rem'
     }
-  }, "Measured for 2025"), React.createElement("ul", {
+  }, "Measured, 2025"), React.createElement("ul", {
     style: {
       margin: 0,
       paddingLeft: '1.2rem',
@@ -1347,7 +1360,7 @@ Sector weights (v3.1.1):
       textTransform: 'uppercase',
       marginBottom: '.6rem'
     }
-  }, "Pending publication"), React.createElement("ul", {
+  }, "Verification ledger \u2014 open"), React.createElement("ul", {
     style: {
       margin: 0,
       paddingLeft: '1.2rem',
@@ -1380,7 +1393,7 @@ Sector weights (v3.1.1):
       padding: 0,
       margin: 0
     }
-  }, [['Computing', 'Epoch AI', 'https://epoch.ai/data'], ['Communications', 'FCC Broadband Reports', 'https://www.fcc.gov/reports-research/reports'], ['Energy', 'IRENA — Renewable Power Costs', 'https://www.irena.org/Publications'], ['Transportation', 'BloombergNEF — Li-ion Battery Price Survey', 'https://about.bnef.com/blog/category/transportation/'], ['M2', 'Federal Reserve via FRED (M2SL)', 'https://fred.stlouisfed.org/series/M2SL'], ['CPI', 'U.S. Bureau of Labor Statistics (CPIAUCSL)', 'https://fred.stlouisfed.org/series/CPIAUCSL']].map(([k, v, url]) => React.createElement("li", {
+  }, [['Compute', 'Cost-of-computing record (period primaries)', 'https://en.wikipedia.org/wiki/Floating_point_operations_per_second'], ['Storage', 'Komorowski / Backblaze cost-per-GB', 'https://www.backblaze.com/blog/hard-drive-cost-per-gigabyte/'], ['Memory', 'McCallum series via Our World in Data', 'https://ourworldindata.org/grapher/historical-cost-of-computer-memory-and-storage'], ['Communications', 'DrPeering + TeleGeography — IP transit', 'https://resources.telegeography.com/ip-transit-pricing-data'], ['Energy', 'IRENA — Renewable Power Generation Costs', 'https://www.irena.org/Publications'], ['Transportation', 'BloombergNEF — Li-ion Battery Price Survey', 'https://about.bnef.com/blog/category/transportation/'], ['M2', 'Federal Reserve via FRED (M2SL)', 'https://fred.stlouisfed.org/series/M2SL'], ['CPI', 'U.S. Bureau of Labor Statistics (CPIAUCSL)', 'https://fred.stlouisfed.org/series/CPIAUCSL']].map(([k, v, url]) => React.createElement("li", {
     key: k,
     className: "di-cols-1to-fixL",
     style: {
@@ -1441,11 +1454,11 @@ Sector weights (v3.1.1):
     }
   }, "\u2192 Why we measure inputs, not headline prices"))), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
-  }, "A known limitation"), React.createElement("p", {
+  }, "The correction, shipped"), React.createElement("p", {
     style: para
-  }, "The current index combines its component series with weighted ", React.createElement("em", null, "arithmetic"), " averages. When one component falls much faster than the rest \u2014 computing has fallen further than everything else combined \u2014 an arithmetic average is dominated by the slower movers, and the composite understates the steepest declines. The practical effect: the \u221296% headline is conservative. A geometric average of the same data, the convention for price series spanning orders of magnitude, shows deeper deflation."), React.createElement("p", {
+  }, "In July 2026 we audited our own index and found the published headline was too conservative: arithmetic averaging muted the fastest-falling components, several early-year series were back-extrapolations rather than measurements, and sector labels didn't match their construction. This release candidate is the fix \u2014 geometric averaging, single sourced metrics per sector, and series that start when measurement starts. The corrections cut both ways: computing got much deeper; energy's claim got smaller, because the honest series is shorter."), React.createElement("p", {
     style: para
-  }, "The v4.0 revision moves to geometric averaging and re-verifies the historical price anchors against primary sources. Expect the published deflation to get larger, not smaller. We'd rather disclose this before you find it."), React.createElement("p", {
+  }, "The full audit \u2014 including the unflattering parts \u2014 is public, next to the data it criticizes. The retired arithmetic method is published alongside as a sensitivity. Numbers that survive that kind of scrutiny are the only kind worth publishing."), React.createElement("p", {
     style: {
       ...para,
       marginTop: '.8rem'

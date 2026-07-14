@@ -1,3 +1,5 @@
+> **v4.0.0 (2026-07-13):** The index now uses weighted geometric aggregation over single sourced metrics per sector. Anchor ledger and verification standards: [`data/v4/sources_manifest.md`](../../data/v4/sources_manifest.md). Audit: [`AUDIT_2026-07_COMPUTING_SERIES.md`](AUDIT_2026-07_COMPUTING_SERIES.md). Documents in this folder describing v3 construction carry a superseded banner.
+
 # Methodology Documentation
 
 **Version**: 3.1.1
@@ -92,8 +94,8 @@ Where:
 ### The Gap
 | Metric | Value |
 |--------|-------|
-| Annual DI-M2 Gap | 14.9pp |
-| Cumulative Gap | ~503pp |
+| Annual DI-M2 Gap | 26.0pp (v4) |
+| Cumulative Gap | ~526pp (1990–2025, v4) |
 
 ---
 

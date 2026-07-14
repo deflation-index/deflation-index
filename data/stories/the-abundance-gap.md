@@ -1,16 +1,16 @@
 Three numbers, in order:
 
-- Technology in the Deflation Index: **−96.5%** since 1990.
+- Technology in the Deflation Index: **−99.97%** since 1990.
 - M2 money supply: **+576%** since 1990.
 - CPI: **+150%** since 1990.
 
-The arithmetic is the story. If the things technology makes are twenty-five times cheaper, and there are nearly seven dollars in circulation for every one there used to be, and yet the prices ordinary people pay only rose 150% — *the gap has to live somewhere*. It does. We just don't see it on the headline.
+The arithmetic is the story. If the things technology makes are three thousand times cheaper, and there are nearly seven dollars in circulation for every one there used to be, and yet the prices ordinary people pay only rose 150% — *the gap has to live somewhere*. It does. We just don't see it on the headline.
 
 ## The Abundance Gap, defined
 
-We use a simple framing on this site: the **Abundance Gap** is the difference between how cheap technology made things and how expensive everything else got. By 2025 that gap was about 522 percentage points.
+We use a simple framing on this site: the **Abundance Gap** is the difference between how cheap technology made things and how expensive everything else got. By 2025 that gap was about 526 percentage points.
 
-That number is mechanical. It's not inflation-adjusted, not opinion, not vibes. It's the spread between real, measurable lines on a chart that all started at 100 in 1990. One fell to 3.5. Another rose to 676. Five hundred points of separation is the headroom that *should* have shown up as cheaper goods, lower prices, more income left over at the end of the month.
+That number is mechanical. It's not inflation-adjusted, not opinion, not vibes. It's the spread between real, measurable lines on a chart that all started at 100 in 1990. One fell to 0.03. Another rose to 676. Five hundred points of separation is the headroom that *should* have shown up as cheaper goods, lower prices, more income left over at the end of the month.
 
 Some of it did. Most of it didn't.
 
@@ -28,10 +28,10 @@ The honest answer is that the gap absorbed in three uneven ways.
 
 It is **not** the case that inflation is fake, or that the cost of living hasn't risen. CPI is a careful measurement of a basket of goods and services people actually buy, and it rose 150%. Real prices rose. Wages didn't fully keep up. That experience is genuine.
 
-It is also the case that — running underneath the inflation story for thirty-five years — there has been a parallel deflation in technology that compounds at roughly 9% per year on the published index. That deflation is also real. Both can be true at once. The question worth asking isn't *which line is right*. It's: **why didn't the falling line show up more in everyday prices?**
+It is also the case that — running underneath the inflation story for thirty-five years — there has been a parallel deflation in technology that compounds at roughly 20% per year on the v4 index. That deflation is also real. Both can be true at once. The question worth asking isn't *which line is right*. It's: **why didn't the falling line show up more in everyday prices?**
 
 The answer involves housing supply, healthcare consolidation, monetary policy, the structure of services, and a dozen other forces — none of which this index settles. What the index does is make the gap visible. Once you see it, you can argue about what to do.
 
-One more honest note: our own audit suggests the falling line falls considerably *faster* than the published −96.5% — which would make the gap wider, not narrower. That story is told in full in [the next essay](#/stories/the-honest-index).
+The number on this page is the corrected one: our own audit found the previously published −96.5% was too conservative, and the v4.0 revision replaced it. That story — including what we got wrong — is told in full in [the next essay](#/stories/the-honest-index).
 
-For now, three lines on a chart. A 522-point gap. And a question: **whose money got the productivity?**
+For now, three lines on a chart. A 526-point gap. And a question: **whose money got the productivity?**

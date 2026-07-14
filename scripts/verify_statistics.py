@@ -3,7 +3,10 @@
 Deflation Index - Statistics Verification Script
 Verifies that all statistics in documentation match the actual data
 
-UPDATED: 2026-07-12 (v3.1.3)
+UPDATED: 2026-07-13 (v4.0.0) — constants checks are version-aware; the
+Excel checks below verify the archived v3 workbook as a historical artifact.
+
+Previous update: 2026-07-12 (v3.1.3)
 - CPI 2024 corrected: cumulative 154.65% → 143.5%, CAGR 2.72% → 2.65%
 - Abundance gap corrected: 491pp → 503pp
 - Master_DI recomputed from sector columns when formula cache is empty
@@ -117,18 +120,26 @@ def verify_constants_json():
         else:
             results.append(('✗', f"constants.json {name}: NOT FOUND"))
     
-    # Check gap values
+    # Check gap values (version-aware: v4 uses the geometric CAGR)
     gap = constants.get('gap_analysis', {})
     di_m2_gap = gap.get('di_m2_gap', {})
-    
+    version = str(constants.get('version', '3'))
+    if version.startswith('4'):
+        # v4: recompute expectation from constants' own DI CAGR + M2 CAGR
+        di_cagr = constants.get('deflation_index', {}).get('cagr_percent')
+        m2_cagr = constants.get('m2_money_supply', {}).get('cagr_percent')
+        expected_gap = round(abs(di_cagr) + m2_cagr, 2) if di_cagr and m2_cagr else None
+    else:
+        expected_gap = EXPECTED_VALUES['di_m2_gap_annual']
+
     actual_gap = di_m2_gap.get('annual_pp')
-    if actual_gap:
-        diff = abs(actual_gap - EXPECTED_VALUES['di_m2_gap_annual'])
+    if actual_gap and expected_gap:
+        diff = abs(actual_gap - expected_gap)
         if diff < TOLERANCE:
-            results.append(('✓', f"constants.json DI-M2 gap: {actual_gap}pp"))
+            results.append(('✓', f"constants.json DI-M2 gap ({version}): {actual_gap}pp"))
         else:
-            results.append(('✗', f"constants.json DI-M2 gap: {actual_gap}pp (expected {EXPECTED_VALUES['di_m2_gap_annual']}pp)"))
-    
+            results.append(('✗', f"constants.json DI-M2 gap: {actual_gap}pp (expected {expected_gap}pp)"))
+
     return results
 
 def read_sector_weights(wb):
@@ -393,9 +404,10 @@ def main():
         print("Review warnings and address if needed.")
         return 0
     else:
+        constants = load_constants_file() or {}
         print("✅ VERIFICATION PASSED")
         print()
-        print("All statistics verified correct for v3.1.3")
+        print(f"All statistics verified correct for v{constants.get('version', '?')}")
         return 0
 
 if __name__ == "__main__":

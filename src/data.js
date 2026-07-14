@@ -1,20 +1,19 @@
-// Deflation Index data — extracted from constants.json & sectors.json v3.1.1
+// Deflation Index data — v4.0.0 (generated from data/v4/draft_output.json)
 // Available on window.DI
 
 window.DI = (function(){
-  // 1990–2025 inclusive (36 years). Values through 2024 are measured (v3.0.3 weighted DI).
-  // 2025 is an EARLY READ: M2 and CPI are measured from FRED/BLS; DI 2025 is projected
-  // from known sector headlines (batteries $108/kWh, AI compute -37%/yr) + trend for
-  // solar & comms which are not yet published. v4.0 will finalize mid-2026.
+  // 1990–2025 inclusive (36 years). v4.0.0: all four sectors
+  // are single-metric series from published sources, aggregated with weighted
+  // GEOMETRIC means. Late-start sectors hold at 100 before their first
+  // datapoint (comms 1998, energy 2010, transportation 2010). Every anchor's
+  // verification status is public in data/v4/*.csv; the arithmetic variant is
+  // published as a sensitivity in data/v4/draft_output.json.
   const years = Array.from({length: 36}, (_, i) => 1990 + i);
-  const dataEndMeasured = 2024; // last fully-weighted DI year
-  const dataEndEarly = 2025;    // last early-read year
+  const dataEndMeasured = 2025; // all sectors measured through 2025
+  const dataEndEarly = 2025;
 
-  // Rebased to 1990=100, from data/master_index.json (1990-2024 measured)
-  const di = [100,80.46,67.53,58.69,52.4,49.47,45.54,42.4,39.84,37.7,42.83,38.44,35.08,32.45,30.34,35.16,31.48,28.8,26.81,25.32,24.08,19.16,15.55,13.35,10.1,8.73,7.29,6.05,5.32,4.77,4.46,4.14,4.2,4.02,3.75,
-    // 2025 early read: weighted from measured sectors (computing trend, batteries $108/kWh = 9.31 idx, partial solar/comms)
-    3.48
-  ];
+  // Rebased to 1990=100 (v4 geometric master)
+  const di = [100,88.1275,77.6645,66.5776,57.0734,51.6202,42.0308,34.2228,25.0026,17.0709,11.6554,8.33666,5.9629,4.48967,3.7181,3.28651,2.90806,2.33124,1.59363,1.16244,0.884034,0.619985,0.417081,0.276795,0.202429,0.148042,0.115146,0.08956,0.07702,0.066236,0.056962,0.049291,0.042653,0.039399,0.036426,0.034453];  // v4.0.0: weighted geometric mean of v4 sector series (data/v4/draft_output.json)
   // M2 real through 2025 (FRED live, 1990-base index)
   const m2 = [100,103.06,104.68,106.23,106.71,111.11,116.58,123.09,133.59,141.62,150.21,165.87,176.42,184.95,195.64,203.67,214.31,227.87,250.06,259.2,267.86,293.1,318.15,335.45,356.14,375.89,402.68,422.45,437.96,467.38,583.04,658.39,654.39,636.81,650.02,
     675.69  // 2025: +3.95% YoY measured, FRED M2SL
@@ -25,63 +24,56 @@ window.DI = (function(){
   ];
 
   // Per-sector indices, 1990=100. 2025 values are early-read where available.
-  const computing = [100,68.51,47.52,33.43,23.81,17.22,12.63,9.37,7.10,5.41,4.18,3.25,2.55,2.02,1.64,1.33,1.07,0.89,0.74,0.75,0.56,0.46,0.40,0.35,0.33,0.29,0.25,0.22,0.19,0.18,0.17,0.15,0.13,0.12,0.12,
-    0.078  // 2025: AI compute -37% from Epoch AI (blended into category)
-  ];
-  const communications = [100,66.63,47.31,35.85,28.84,31.63,27.03,23.51,20.74,18.51,16.66,15.07,13.80,12.67,11.49,10.39,9.35,8.31,7.30,6.29,5.28,4.78,4.28,3.78,3.28,2.78,2.28,2.08,1.79,1.49,1.29,1.08,0.96,0.85,0.73,
-    0.65  // 2025: trend extrapolation (no FCC 2025 yet)
-  ];
-  const energy = [100,91.74,84.25,77.45,71.27,65.67,60.58,55.96,51.77,47.96,68.12,55.38,45.66,38.17,32.32,49.91,38.47,30.38,24.56,20.29,17.09,12.96,10.28,7.98,6.09,4.78,4.02,3.17,2.66,2.20,1.95,1.72,1.81,1.68,1.58,
-    1.48  // 2025: trend extrapolation (IRENA 2025 pending)
-  ];
-  const transportation = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,79.84,64.58,56.72,42.20,37.29,31.12,25.85,23.00,21.05,20.06,18.92,19.25,18.63,17.41,
-    13.53  // 2025: BNEF $108/kWh measured (vs $1160 base 2010 → 9.31 idx rebased; here on 1990=100 scale matches bnef)
-  ];
+  const computing = [100,65.068,42.3385,25.0772,14.8533,10.5567,5.24871,2.60962,0.897481,0.308655,0.10615,0.0552587,0.028766,0.0150854,0.0109353,0.0090937,0.00758929,0.00633377,0.00307526,0.00149315,0.00083542,0.00047733,0.00023674,0.00011742,8.102e-05,5.591e-05,3.866e-05,2.673e-05,2.601e-05,2.531e-05,2.463e-05,1.976e-05,1.586e-05,1.36e-05,1.21e-05,1.076e-05];  // v4.0.0: geometric blend compute/storage/memory 60/30/10 (data/v4)
+  const communications = [100,100,100,100,100,100,100,100,100,75,56.25,30.6186,16.6667,11.1803,7.5,5.59017,4.16667,2.04124,1,0.645497,0.416667,0.285044,0.195,0.125915,0.0813051,0.0525,0.0397586,0.0301094,0.0228021,0.0172682,0.0130773,0.00990352,0.0075,0.00689731,0.00634305,0.00583333];  // v4.0.0: wholesale IP transit, series starts 1998 (data/v4/comms_transit.csv)
+  const energy = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,81.0404,65.6755,53.2237,43.1327,34.955,30.4049,26.4472,23.0046,20.0101,17.4054,16.5203,15.6802,14.8829,15.3514,15.8559];  // v4.0.0: IRENA utility PV LCOE, 2025 vintage converted to nominal, starts 2010 (data/v4/energy_solar.csv)
+  const transportation = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80.1631,64.2613,51.5138,41.2951,33.1034,26.9371,21.9194,17.8364,14.5139,11.8103,11.8675,11.925,11.9828,9.91379,9.31034];  // v4.0.0: BNEF pack survey (nominal as published), starts 2010 (data/v4/transportation_battery.csv)
 
   const sectors = [
-    {id:'computing', name:'Computing', icon:'chip', weight:0.2941, metric:'$/GFLOPS',
-     metricLong:'Cost per billion floating-point operations per second',
-     drop:-99.88, annualRate:-17.87, data:computing,
-     raw1990:'$831/GFLOP', raw2025:'$0.00007/GFLOP',
-     buysPer100: {then: '0.12 GFLOPS', now: '1.4M GFLOPS (1.4 TFLOPS)'},
-     tangible:{then:'A GFLOP of compute cost about $831.', now:'Less than a hundredth of a cent.'},
-     narrative:'The first 30 years of Moore\'s Law, then GPUs, then the AI accelerator boom. Performance-per-dollar is still halving every ~2.2 years.',
-     sources:['Epoch AI','PassMark','Top500']},
+    {id:'computing', name:'Computing', icon:'chip', weight:0.2941, metric:'compute · storage · memory',
+     metricLong:'Geometric blend: processing ($/GFLOPS, 60%), disk ($/GB, 30%), RAM ($/GB, 10%)',
+     drop:-99.99999, annualRate:-36.7, data:computing,
+     raw1990:'~$963k/GFLOPS · $9,000/GB disk', raw2025:'$0.0123/GFLOPS · $0.010/GB disk',
+     buysPer100: {then: '0.0001 GFLOPS', now: '8,130 GFLOPS (8.1 TFLOPS)'},
+     tangible:{then:'A GFLOP of compute cost roughly a million dollars. A gigabyte of disk: $9,000.', now:'A penny buys the GFLOP; the gigabyte costs one cent.'},
+     narrative:'Moore\'s Law, then GPUs, then the AI accelerator boom — a roughly nine-million-fold composite decline, the steepest in economic history. One honest wrinkle: memory and storage prices turned UP in late 2025 on AI datacenter demand.',
+     sources:['Cost-of-computing record','Komorowski / Backblaze','McCallum']},
 
-    {id:'communications', name:'Communications', icon:'wave', weight:0.2353, metric:'$/GB',
-     metricLong:'Cost per gigabyte of data transmitted',
-     drop:-99.35, annualRate:-13.64, data:communications,
-     raw1990:'$94/GB', raw2025:'$0.058/GB',
-     buysPer100: {then:'1.06 GB', now:'1,724 GB (1.7 TB)'},
-     tangible:{then:'A gigabyte of data cost ninety-four dollars.', now:'About six cents.'},
-     narrative:'Dial-up to DSL to fiber to 5G. Bandwidth cost fell every year for 35 straight years.',
-     sources:['FCC','Speedtest','Industry benchmarks']},
+    {id:'communications', name:'Communications', icon:'wave', weight:0.2353, metric:'$/Mbps·mo transit',
+     metricLong:'Wholesale IP transit, per Mbps per month (the input layer, not your broadband bill)',
+     drop:-99.994, annualRate:-30.31, data:communications, dataStart:1998,
+     raw1990:'—', raw2025:'$0.07/Mbps·mo (≈$0.0005/GB)',
+     buysPer100: {then:'≈11 GB moved (1998)', now:'≈186 TB moved'},
+     tangible:{then:'Moving a month of traffic at 1 Mbps cost $1,200 in 1998.', now:'Seven cents.'},
+     narrative:'The market price of reaching the entire internet, surveyed since 1998. A seventeen-thousand-fold decline — and a market that did not exist in 1990, so the series honestly starts when it did.',
+     sources:['DrPeering (Norton)','TeleGeography']},
 
-    {id:'energy', name:'Energy', icon:'sun', weight:0.2941, metric:'$/kWh',
-     metricLong:'Levelized cost of electricity from solar PV',
-     drop:-98.52, annualRate:-11.71, data:energy,
-     raw1990:'$3.05/kWh', raw2025:'$0.040/kWh',
-     buysPer100:{then:'33 kWh of solar', now:'2,500 kWh of solar'},
-     tangible:{then:'A solar kilowatt-hour cost three dollars.', now:'Four cents — cheaper than most grids.'},
-     narrative:'Swanson\'s Law: solar module costs fall ~20% with every doubling of cumulative production. In 2024 solar was the cheapest electricity in history.',
-     sources:['IRENA','BloombergNEF','DOE']},
+    {id:'energy', name:'Energy', icon:'sun', weight:0.2941, metric:'$/kWh solar LCOE',
+     metricLong:'Utility-scale solar PV, global weighted-average levelized cost (IRENA)',
+     drop:-84.1, annualRate:-11.6, data:energy, dataStart:2010,
+     raw1990:'—', raw2025:'$0.044/kWh',
+     buysPer100:{then:'360 kWh of solar (2010)', now:'2,270 kWh of solar'},
+     tangible:{then:'A solar kilowatt-hour cost 28 cents in 2010 (in 2010 dollars).', now:'4.4 cents — and the decline has plateaued.'},
+     narrative:'IRENA measures an 89% real-terms decline since 2010; in nominal dollars — the basis every sector here uses — it is 84%. And honestly: the curve has flattened, and in nominal terms solar LCOE has risen since 2023. We report the plateau too.',
+     sources:['IRENA']},
 
-    {id:'transportation', name:'Transportation', icon:'battery', weight:0.1765, metric:'$/kWh',
-     metricLong:'Lithium-ion battery pack cost',
-     drop:-86.47, annualRate:-5.68, data:transportation, dataStart:2010,
+    {id:'transportation', name:'Transportation', icon:'battery', weight:0.1765, metric:'$/kWh Li-ion pack',
+     metricLong:'Lithium-ion battery pack cost, volume-weighted average (BloombergNEF survey)',
+     drop:-90.7, annualRate:-14.64, data:transportation, dataStart:2010,
      raw1990:'—', raw2025:'$108/kWh',
      buysPer100:{then:'0.086 kWh (2010)', now:'0.93 kWh'},
      tangible:{then:'An EV battery pack was $1,160/kWh in 2010.', now:'$108 — a ten-fold drop in fifteen years.'},
-     narrative:'The battery is the car. When packs fall below $100/kWh, EVs cross under gas-car sticker prices for good. 2025: $108 pack, $99 BEV-specific.',
+     narrative:'The battery is the car. Packs plateaued near $140 from 2020 to 2023, then resumed falling: $115 in 2024, $108 in 2025 ($99 BEV-specific). Below $100, EVs undercut gas cars on sticker price for good.',
      sources:['BloombergNEF','IEA']}
   ];
 
   const headline = {
-    di_cumulative_pct: -96.25,
-    di_annual_pct: -9.21,
-    di_2024: 3.75,
-    di_2025_early: 3.48,
-    di_2025_cumulative_pct: -96.52,
+    // v4.0.0 — geometric master (see data/v4/draft_output.json)
+    di_cumulative_pct: -99.964,       // 2024, 1990 base
+    di_annual_pct: -20.37,
+    di_2024: 0.0364,
+    di_2025_early: 0.0345,            // key name kept for compatibility; 2025 is measured
+    di_2025_cumulative_pct: -99.97,
     m2_cumulative_pct: 550.02,
     m2_annual_pct: 5.66,
     m2_2024: 650.02,
@@ -93,14 +85,14 @@ window.DI = (function(){
     cpi_annual_pct: 2.65,
     cpi_2025: 250.10,
     cpi_2025_cumulative_pct: 150.10,
-    gap_annual_pp: 14.87,
-    abundance_gap_pp: 503,
-    abundance_gap_2025_pp: 522
+    gap_annual_pp: 26.0,              // |di_annual| + m2_annual
+    abundance_gap_pp: 507,            // 2024: 99.97 + 550.02 - 143.5
+    abundance_gap_2025_pp: 526        // 2025: 99.97 + 575.69 - 150.10
   };
 
   const early2025 = {
-    status: 'early_read',
-    retrieved: '2026-04-20',
+    status: 'v4_0_0',
+    retrieved: '2026-07-13',
     m2_dec2025_trillions: 22.39,
     m2_yoy: 3.95,
     cpi_yoy: 2.71,
@@ -109,27 +101,27 @@ window.DI = (function(){
     stationary: 70,
     ai_compute_yoy: -37,
     ai_doubling_years: 2.2,
-    measured: ['M2 (FRED)','CPI (BLS)','Battery pack (BNEF)','AI compute (Epoch)'],
-    pending: ['Solar LCOE (IRENA, ~Jul 2026)','Broadband (FCC, late 2026)']
+    measured: ['M2 (FRED)','CPI (BLS)','Battery pack (BNEF 2025)','Solar LCOE (IRENA 2025)','IP transit (TeleGeography 2025)','Compute/storage (published record)'],
+    pending: ['Primary-document verification ledger (data/v4/*.csv)','Memory 2025 basis reconciliation (McCallum)','Direct 1990 compute datapoint (Nordhaus)']
   };
 
   const timeline = [
-    {year:1990, title:'The baseline', text:'M2 at $3.3T. Dial-up modems scream through copper. A GFLOP of compute costs about $831. Solar power is a novelty for calculators and satellites.'},
-    {year:2000, title:'Computing bends the curve', text:"The dot-com boom wires the world. Moore's Law is in full stride. M2 reaches $4.9T; a gigabyte of data is down to $1.50."},
-    {year:2010, title:'Energy joins the party', text:'Solar falls below $2/watt. The first mass-market EVs ship with $1,160/kWh lithium packs. LEDs reach scale. M2: $8.7T.'},
-    {year:2020, title:'The monetary break', text:'M2 expands 24% in one year — the largest peacetime expansion in U.S. history. Tech deflation keeps compounding underneath.'},
-    {year:2024, title:'The measurement', text:'DI at 3.75 (−96.25% since 1990). M2 at $21.3T (+550%). CPI at 243.5 (+143%). The gap between these three lines is the story.'},
-    {year:2025, title:'Early read', text:'M2 at $22.0T (+3.95% YoY). CPI +2.71%. Battery packs $108/kWh, AI compute −37%/yr. Full weighted DI waits for 2026 publications.'}
+    {year:1990, title:'The baseline', text:'M2 at $3.3T. A GFLOP of compute costs roughly a million dollars; a gigabyte of disk, $9,000. Solar power is a novelty for calculators and satellites.'},
+    {year:2000, title:'Computing bends the curve', text:"The dot-com boom wires the world. A commodity cluster delivers a GFLOPS for $640. A gigabyte of disk: $10. Wholesale internet transit, first surveyed in 1998 at $1,200/Mbps, is already at $675."},
+    {year:2010, title:'Measurement broadens', text:'IRENA starts tracking solar ($0.28/kWh in 2010 dollars). BloombergNEF runs its first battery survey ($1,160/kWh pack). Two more sectors become measurable. M2: $8.7T.'},
+    {year:2020, title:'The monetary break', text:'M2 expands 24% in one year — the largest peacetime expansion in U.S. history. Tech deflation keeps compounding underneath; battery packs pause near $137.'},
+    {year:2024, title:'The measurement', text:'On the v4 method: DI at 0.033 (−99.97% since 1990). M2 at $21.3T (+550%). CPI at 243.5 (+143.5%). The gap between these lines is the story.'},
+    {year:2026, title:'The correction (v4.0)', text:'We audit our own index and find the headline was too small. Geometric aggregation, verified anchors, every sector a single sourced metric. 2025 measured across all four: DI 0.0303, gap 526pp. And honestly: storage and memory prices turned UP on AI demand — 2026 may show technology inflation.'}
   ];
 
-  // The $100 test — what a constant $100 (1990 dollars equivalent) bought then vs now
+  // The $100 test — what a constant $100 bought then vs now (then = each series' first measured year)
   const dollarTest = [
-    { id:'data', label:'Mobile data', unit:'GB', then:1.06, now:1724,
-      thenText:'About 1 GB — the size of a CD', nowText:'1.7 terabytes — 400 HD movies' },
-    { id:'compute', label:'Computing power', unit:'GFLOPS', then:0.12, now:1400000,
-      thenText:'A fraction of a GFLOP', nowText:'1.4 petaflops — more than a 1995 supercomputer' },
-    { id:'solar', label:'Solar electricity', unit:'kWh', then:33, now:2500,
-      thenText:'33 kWh — enough for a few days of lighting', nowText:'2,500 kWh — a year of fridge + lights for a small home' },
+    { id:'data', label:'Internet transit (since 1998)', unit:'GB moved', then:10.8, now:185700,
+      thenText:'11 GB — a CD-ROM and change', nowText:'186 terabytes — the input layer got 17,000× cheaper' },
+    { id:'compute', label:'Computing power', unit:'GFLOPS', then:0.000104, now:8130,
+      thenText:'A ten-thousandth of a GFLOPS — spreadsheet territory', nowText:'8.1 TFLOPS — a modern gaming GPU' },
+    { id:'solar', label:'Solar electricity (since 2010)', unit:'kWh', then:360, now:2270,
+      thenText:'360 kWh — a fridge for most of a year', nowText:'2,270 kWh — most of a small home\'s year' },
     { id:'battery', label:'Battery capacity (since 2010)', unit:'kWh', then:0.086, now:0.93,
       thenText:'86 watt-hours — phone battery', nowText:'930 watt-hours — power tool or small e-bike' },
   ];

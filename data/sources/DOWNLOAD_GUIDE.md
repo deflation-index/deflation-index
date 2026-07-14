@@ -1,3 +1,5 @@
+> **v4.0.0 (2026-07-13):** v4.0 retrieval log (URLs, dates, what was taken): [`data/v4/sources_manifest.md`](../v4/sources_manifest.md).
+
 # Source Download Guide
 
 **Purpose**: Step-by-step instructions to download all source documents for the Deflation Index.

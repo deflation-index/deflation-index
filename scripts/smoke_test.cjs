@@ -67,7 +67,7 @@ setTimeout(() => {
 
   check('app mounted (static fallback replaced)', !html.includes('Static fallback') && html.includes('radically cheaper'));
   check('hero + four numbers derive from headline',
-    html.includes(Math.abs(H.di_2025_cumulative_pct).toFixed(1) + '%') &&
+    html.includes(Math.abs(H.di_2025_cumulative_pct).toFixed(2) + '%') &&
     html.includes(Math.round(H.m2_2025_cumulative_pct) + '%') &&
     html.includes(Math.round(H.cpi_2025_cumulative_pct) + '%'));
   check('gap arithmetic internally consistent',

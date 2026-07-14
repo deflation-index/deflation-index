@@ -1,3 +1,5 @@
+> **v4.0.0 (2026-07-13):** `data/master_index.json` is regenerated on the v4.0 geometric index (1990–2025, 4-decimal precision); `data/sectors.json` carries a superseded note and preserves v3 sector data. The v4 anchor ledger lives in [`data/v4/`](../../data/v4/sources_manifest.md).
+
 # Programmatic Data Access
 
 **Last updated:** May 2026

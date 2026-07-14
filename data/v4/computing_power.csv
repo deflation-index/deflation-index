@@ -1,6 +1,6 @@
 year,usd_per_gflops,status,source
 1984,18750000,cross_checked,"Cray X-MP/48: $15,000,000 / 0.8 GFLOPS. Wikipedia FLOPS cost table (retr. 2026-07-13); primary: period pricing refs therein"
-1990,963000,interpolated,Log-linear interpolation 1984->1997; no direct 1990 datapoint yet (target: Nordhaus 2007 appendix)
+1990,963000,interpolated,"Log-linear interpolation 1984->1997 = $963k. Bounded by Sandberg-Bostrom (2008) FLOPS/$ dataset (McCallum CPU data): ~1990 at ~$1e5-1e6/GFLOPS. Terminal status under verification standard #2 (bounded interpolation, disclosed); a direct Nordhaus/Moravec point remains welcome but non-blocking"
 1997,30000,cross_checked,Two 16-proc Pentium Pro Beowulf clusters. Wikipedia FLOPS table; primary: LANL Loki/Hyglac SC97 paper
 2000,640,cross_checked,"KLAT2 (May 2000). Wikipedia FLOPS table; primary: aggregate.org/KLAT2 (Bunyip Apr 2000 = $1,000)"
 2003,83.86,cross_checked,"KASY0 (Aug 2003), first sub-$100/GFLOPS. Wikipedia FLOPS table; primary: aggregate.org"

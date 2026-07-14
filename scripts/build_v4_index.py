@@ -94,6 +94,9 @@ def main():
             status_totals[s] = status_totals.get(s, 0) + n
         sub_indices[name] = rebase(log_interp(anchors, YEARS))
     total_unverified = sum(n for s, n in status_totals.items() if s != 'verified')
+    # Publishability (verification standard #4): to_verify blocks release;
+    # verified / cross_checked / interpolated (bounded) are publishable.
+    blocking = status_totals.get('to_verify', 0)
 
     comp_geo = geometric(sub_indices, COMPUTING_WEIGHTS)
     comp_arith = arithmetic(sub_indices, COMPUTING_WEIGHTS)
@@ -158,9 +161,11 @@ def main():
     print('=' * 76)
     print('v4.0 DRAFT INDEX — geometric aggregation, rebuilt computing anchors')
     print('=' * 76)
-    if total_unverified:
-        breakdown = ', '.join(f'{n} {s}' for s, n in sorted(status_totals.items()))
-        print(f'\n*** DRAFT: anchor status — {breakdown} (final requires all verified) ***\n')
+    breakdown = ', '.join(f'{n} {s}' for s, n in sorted(status_totals.items()))
+    if blocking:
+        print(f'\n*** DRAFT: anchor status — {breakdown} ({blocking} to_verify rows block release) ***\n')
+    else:
+        print(f'\n=== PUBLISHABLE (standard #4): {breakdown}; ledger open for primary promotion ===\n')
 
     print('Computing sector (1990=100):')
     print(f'{"year":>6} {"v4 geometric":>14} {"v4 arithmetic":>14} {"v3 published":>14}')
@@ -196,11 +201,35 @@ def main():
     print('so early-period master deflation is driven by computing alone —')
     print('the honest, defensible reading.')
 
+    def cum(idx):  # cumulative % change from 1990 base
+        return round(idx - 100.0, 4)
+
+    def rate(idx, years_n):  # CAGR % over years_n
+        return round((math.exp(math.log(idx / 100.0) / years_n) - 1) * 100, 2)
+
     out = {
-        'status': 'draft' if total_unverified else 'anchors_verified',
-        'computing_geometric': {y: comp_geo[y] for y in YEARS},
-        'master_geometric': {y: master_geo[y] for y in YEARS},
-        'master_arithmetic_sensitivity': {y: master_arith[y] for y in YEARS},
+        'status': 'draft' if blocking else ('fully_verified' if not total_unverified else 'publishable'),
+        'status_breakdown': status_totals,
+        'sector_series': {k: {y: round(v[y], 8) for y in YEARS} for k, v in sector_indices.items()},
+        'master_geometric': {y: round(master_geo[y], 6) for y in YEARS},
+        'master_arithmetic_sensitivity': {y: round(master_arith[y], 4) for y in YEARS},
+        'computing_arithmetic_sensitivity': {y: round(comp_arith[y], 6) for y in YEARS},
+        'headline': {
+            'di_2025': round(master_geo[2025], 4),
+            'di_cumulative_pct_2025': cum(master_geo[2025]),
+            'di_annual_pct': rate(master_geo[2025], 35),
+            'di_2024': round(master_geo[2024], 4),
+            'sector_2025': {k: round(sector_indices[k][2025], 8) for k in sector_indices},
+            'sector_cagr': {
+                'computing': rate(sector_indices['computing'][2025], 35),
+                'communications': rate(100 * sector_indices['communications'][2025] /
+                                       sector_indices['communications'][1998], 27),
+                'energy': rate(100 * sector_indices['energy'][2025] /
+                               sector_indices['energy'][2010], 15),
+                'transportation': rate(100 * sector_indices['transportation'][2025] /
+                                       sector_indices['transportation'][2010], 15),
+            },
+        },
     }
     (V4 / 'draft_output.json').write_text(json.dumps(out, indent=1))
     print(f'\nWrote data/v4/draft_output.json ({out["status"]})')
