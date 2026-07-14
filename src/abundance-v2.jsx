@@ -518,7 +518,7 @@ function HomeV2({ nav, T }) {
         </Reveal>
         <Reveal delay={100}>
           <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:20, padding: isMobile ? '1.1rem' : '1.8rem'}}>
-            <DIChart theme={T} height={isMobile ? 300 : 420} annotations={[{year:2008, label:'GFC'}, {year:2020, label:'M2 +24%'}, {year:2025, label:'2025 ER'}]}/>
+            <DIChart theme={T} height={isMobile ? 300 : 420} annotations={[{year:2008, label:'GFC'}, {year:2020, label:'M2 +24%'}, {year:2025, label:'v4.0'}]}/>
           </div>
         </Reveal>
       </section>

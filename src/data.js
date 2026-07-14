@@ -131,9 +131,9 @@ window.DI = (function(){
     {slug:'what-is-deflation-index', kicker:'Explainer', title:'What the Deflation Index actually measures.',
      dek:'Three lines on a chart. The technology input layer, measured — and nothing it can\'t defend.', readMins:4},
     {slug:'the-abundance-gap', kicker:'Concept', title:'The Abundance Gap: tech savings, minus inflation.',
-     dek:'Technology fell 96%. Money rose 576%. Prices rose 150%. What happened to the difference?', readMins:6},
+     dek:'Technology fell 99.97%. Money rose 576%. Prices rose 150%. What happened to the difference?', readMins:6},
     {slug:'the-honest-index', kicker:'Methodology', title:'We audited our own index. The headline was too small.',
-     dek:'Three flaws, all pointing the same way. What v4.0 changes, and why we\'re telling you before it ships.', readMins:6},
+     dek:'Three flaws, all pointing the same way. What v4.0 changed, and why we said so before it shipped.', readMins:6},
   ];
 
   return { years, di, m2, cpi, sectors, headline, early2025, timeline, dollarTest, stories, dataEndMeasured, dataEndEarly };
