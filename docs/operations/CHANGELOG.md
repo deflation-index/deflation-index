@@ -19,8 +19,8 @@ The audited rebuild. The published index was understating technology deflation �
 
 - All anchor datapoints carry per-row provenance and verification status in `data/v4/*.csv`; the build refuses to mark output final while any row is unverified. Retired: the v3 sector workbooks' synthetic early-year series and unsourced blend components.
 - 2025 is a **measured** index year across all four sectors (IRENA 2025, BNEF 2025, TeleGeography 2025, published compute/storage record) — the "early read" framing retires.
-- Headline set: DI 2025 = 0.0303 (−99.97%, −20.7%/yr); abundance gap 526pp (2025); annual DI–M2 gap 26.3pp.
-- Honest movements in both directions: computing deepens to ~−36.7%/yr; communications ~−30%/yr since 1998; energy is now **−89% since 2010** (the −98.5%-since-1990 claim rested on synthetic data and is withdrawn); transportation −91% since 2010. Recorded plateaus and upticks: solar LCOE flat since 2023 (+0.6% in 2024); battery packs flat 2020–2023; storage and memory prices **rose** from late 2025 on AI datacenter demand.
+- Headline set: DI 2025 = 0.0344 (−99.97%, −20.4%/yr, all sectors nominal); abundance gap 526pp (2025); annual DI–M2 gap 26.0pp.
+- Honest movements in both directions: computing deepens to ~−36.7%/yr; communications ~−30%/yr since 1998; energy is now **−84% nominal since 2010** (−89% in IRENA's real terms; the −98.5%-since-1990 claim rested on synthetic data and is withdrawn), and in nominal terms solar LCOE has risen since 2023; transportation −91% since 2010. Recorded plateaus and upticks: solar LCOE flat since 2023 (+0.6% in 2024); battery packs flat 2020–2023; storage and memory prices **rose** from late 2025 on AI datacenter demand.
 
 ### Changed - SITE
 

@@ -13,7 +13,7 @@ window.DI = (function(){
   const dataEndEarly = 2025;
 
   // Rebased to 1990=100 (v4 geometric master)
-  const di = [100,88.1275,77.6645,66.5776,57.0734,51.6202,42.0308,34.2228,25.0026,17.0709,11.6554,8.33666,5.9629,4.48967,3.7181,3.28651,2.90806,2.33124,1.59363,1.16244,0.884034,0.615483,0.411047,0.27081,0.196614,0.142746,0.110402,0.085386,0.073018,0.062441,0.053396,0.045744,0.039189,0.035838,0.032814,0.030725];  // v4.0-rc: weighted geometric mean of v4 sector series (data/v4/draft_output.json)
+  const di = [100,88.1275,77.6645,66.5776,57.0734,51.6202,42.0308,34.2228,25.0026,17.0709,11.6554,8.33666,5.9629,4.48967,3.7181,3.28651,2.90806,2.33124,1.59363,1.16244,0.884034,0.618215,0.414704,0.274432,0.200128,0.145942,0.113526,0.08831,0.075954,0.065327,0.056187,0.048843,0.042459,0.039399,0.036405,0.034413];  // v4.0-rc: weighted geometric mean of v4 sector series (data/v4/draft_output.json)
   // M2 real through 2025 (FRED live, 1990-base index)
   const m2 = [100,103.06,104.68,106.23,106.71,111.11,116.58,123.09,133.59,141.62,150.21,165.87,176.42,184.95,195.64,203.67,214.31,227.87,250.06,259.2,267.86,293.1,318.15,335.45,356.14,375.89,402.68,422.45,437.96,467.38,583.04,658.39,654.39,636.81,650.02,
     675.69  // 2025: +3.95% YoY measured, FRED M2SL
@@ -26,8 +26,8 @@ window.DI = (function(){
   // Per-sector indices, 1990=100. 2025 values are early-read where available.
   const computing = [100,65.068,42.3385,25.0772,14.8533,10.5567,5.24871,2.60962,0.897481,0.308655,0.10615,0.0552587,0.028766,0.0150854,0.0109353,0.0090937,0.00758929,0.00633377,0.00307526,0.00149315,0.00083542,0.00047733,0.00023674,0.00011742,8.102e-05,5.591e-05,3.866e-05,2.673e-05,2.601e-05,2.531e-05,2.463e-05,1.976e-05,1.586e-05,1.36e-05,1.208e-05,1.072e-05];  // v4.0-rc: geometric blend compute/storage/memory 60/30/10 (data/v4)
   const communications = [100,100,100,100,100,100,100,100,100,75,56.25,30.6186,16.6667,11.1803,7.5,5.59017,4.16667,2.04124,1,0.645497,0.416667,0.285044,0.195,0.125915,0.0813051,0.0525,0.0397586,0.0301094,0.0228021,0.0172682,0.0130773,0.00990352,0.0075,0.00689731,0.00634305,0.00583333];  // v4.0-rc: wholesale IP transit, series starts 1998 (data/v4/comms_transit.csv)
-  const energy = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,79.0573,62.5006,49.4113,39.0632,30.8824,26.3519,22.486,19.1873,16.3725,13.9706,12.8156,11.7562,10.7843,10.7843,10.7843];  // v4.0-rc: IRENA utility PV LCOE (2025 vintage), series starts 2010 (data/v4/energy_solar.csv)
-  const transportation = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80.1631,64.2613,51.5138,41.2951,33.1034,26.9371,21.9194,17.8364,14.5139,11.8103,11.8675,11.925,11.9828,9.91379,9.31034];  // v4.0-rc: BNEF pack survey, series starts 2010 (data/v4/transportation_battery.csv)
+  const energy = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80.2568,64.4115,51.6946,41.4884,33.2973,28.9744,25.2128,21.9395,19.0912,16.6126,16.0148,15.4385,14.8829,15.3514,15.8559];  // v4.0-rc: IRENA utility PV LCOE, 2025 vintage converted to nominal, starts 2010 (data/v4/energy_solar.csv)
+  const transportation = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80.1631,64.2613,51.5138,41.2951,33.1034,26.9371,21.9194,17.8364,14.5139,11.8103,11.8675,11.925,11.9828,9.91379,9.31034];  // v4.0-rc: BNEF pack survey (nominal as published), starts 2010 (data/v4/transportation_battery.csv)
 
   const sectors = [
     {id:'computing', name:'Computing', icon:'chip', weight:0.2941, metric:'compute · storage · memory',
@@ -50,11 +50,11 @@ window.DI = (function(){
 
     {id:'energy', name:'Energy', icon:'sun', weight:0.2941, metric:'$/kWh solar LCOE',
      metricLong:'Utility-scale solar PV, global weighted-average levelized cost (IRENA)',
-     drop:-89.2, annualRate:-13.8, data:energy, dataStart:2010,
+     drop:-84.1, annualRate:-11.6, data:energy, dataStart:2010,
      raw1990:'—', raw2025:'$0.044/kWh',
-     buysPer100:{then:'245 kWh of solar (2010)', now:'2,270 kWh of solar'},
-     tangible:{then:'A solar kilowatt-hour cost 41 cents in 2010.', now:'4.4 cents — and the decline has plateaued.'},
-     narrative:'Ninety percent cheaper in fifteen measured years. And honestly: the curve has flattened — IRENA\'s 2024 LCOE ticked up 0.6%, and 2025 held flat. We report the plateau too.',
+     buysPer100:{then:'360 kWh of solar (2010)', now:'2,270 kWh of solar'},
+     tangible:{then:'A solar kilowatt-hour cost 28 cents in 2010 (in 2010 dollars).', now:'4.4 cents — and the decline has plateaued.'},
+     narrative:'IRENA measures an 89% real-terms decline since 2010; in nominal dollars — the basis every sector here uses — it is 84%. And honestly: the curve has flattened, and in nominal terms solar LCOE has risen since 2023. We report the plateau too.',
      sources:['IRENA']},
 
     {id:'transportation', name:'Transportation', icon:'battery', weight:0.1765, metric:'$/kWh Li-ion pack',
@@ -69,10 +69,10 @@ window.DI = (function(){
 
   const headline = {
     // v4.0-rc.1 — geometric master (see data/v4/draft_output.json)
-    di_cumulative_pct: -99.967,       // 2024, 1990 base
-    di_annual_pct: -20.63,
-    di_2024: 0.0328,
-    di_2025_early: 0.0307,            // key name kept for compatibility; 2025 is measured
+    di_cumulative_pct: -99.964,       // 2024, 1990 base
+    di_annual_pct: -20.38,
+    di_2024: 0.0364,
+    di_2025_early: 0.0344,            // key name kept for compatibility; 2025 is measured
     di_2025_cumulative_pct: -99.97,
     m2_cumulative_pct: 550.02,
     m2_annual_pct: 5.66,
@@ -85,7 +85,7 @@ window.DI = (function(){
     cpi_annual_pct: 2.65,
     cpi_2025: 250.10,
     cpi_2025_cumulative_pct: 150.10,
-    gap_annual_pp: 26.3,              // |di_annual| + m2_annual
+    gap_annual_pp: 26.0,              // |di_annual| + m2_annual
     abundance_gap_pp: 507,            // 2024: 99.97 + 550.02 - 143.5
     abundance_gap_2025_pp: 526        // 2025: 99.97 + 575.69 - 150.10
   };
@@ -108,7 +108,7 @@ window.DI = (function(){
   const timeline = [
     {year:1990, title:'The baseline', text:'M2 at $3.3T. A GFLOP of compute costs roughly a million dollars; a gigabyte of disk, $9,000. Solar power is a novelty for calculators and satellites.'},
     {year:2000, title:'Computing bends the curve', text:"The dot-com boom wires the world. A commodity cluster delivers a GFLOPS for $640. A gigabyte of disk: $10. Wholesale internet transit, first surveyed in 1998 at $1,200/Mbps, is already at $675."},
-    {year:2010, title:'Measurement broadens', text:'IRENA starts tracking solar ($0.417/kWh). BloombergNEF runs its first battery survey ($1,160/kWh pack). Two more sectors become measurable. M2: $8.7T.'},
+    {year:2010, title:'Measurement broadens', text:'IRENA starts tracking solar ($0.28/kWh in 2010 dollars). BloombergNEF runs its first battery survey ($1,160/kWh pack). Two more sectors become measurable. M2: $8.7T.'},
     {year:2020, title:'The monetary break', text:'M2 expands 24% in one year — the largest peacetime expansion in U.S. history. Tech deflation keeps compounding underneath; battery packs pause near $137.'},
     {year:2024, title:'The measurement', text:'On the v4 method: DI at 0.033 (−99.97% since 1990). M2 at $21.3T (+550%). CPI at 243.5 (+143.5%). The gap between these lines is the story.'},
     {year:2026, title:'The correction (v4.0)', text:'We audit our own index and find the headline was too small. Geometric aggregation, verified anchors, every sector a single sourced metric. 2025 measured across all four: DI 0.0303, gap 526pp. And honestly: storage and memory prices turned UP on AI demand — 2026 may show technology inflation.'}
@@ -120,8 +120,8 @@ window.DI = (function(){
       thenText:'11 GB — a CD-ROM and change', nowText:'186 terabytes — the input layer got 17,000× cheaper' },
     { id:'compute', label:'Computing power', unit:'GFLOPS', then:0.000104, now:8130,
       thenText:'A ten-thousandth of a GFLOPS — spreadsheet territory', nowText:'8.1 TFLOPS — a modern gaming GPU' },
-    { id:'solar', label:'Solar electricity (since 2010)', unit:'kWh', then:240, now:2270,
-      thenText:'240 kWh — a fridge for a few months', nowText:'2,270 kWh — most of a small home\'s year' },
+    { id:'solar', label:'Solar electricity (since 2010)', unit:'kWh', then:360, now:2270,
+      thenText:'360 kWh — a fridge for most of a year', nowText:'2,270 kWh — most of a small home\'s year' },
     { id:'battery', label:'Battery capacity (since 2010)', unit:'kWh', then:0.086, now:0.93,
       thenText:'86 watt-hours — phone battery', nowText:'930 watt-hours — power tool or small e-bike' },
   ];

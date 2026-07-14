@@ -28,7 +28,7 @@ The honest answer is that the gap absorbed in three uneven ways.
 
 It is **not** the case that inflation is fake, or that the cost of living hasn't risen. CPI is a careful measurement of a basket of goods and services people actually buy, and it rose 150%. Real prices rose. Wages didn't fully keep up. That experience is genuine.
 
-It is also the case that — running underneath the inflation story for thirty-five years — there has been a parallel deflation in technology that compounds at roughly 21% per year on the v4 index. That deflation is also real. Both can be true at once. The question worth asking isn't *which line is right*. It's: **why didn't the falling line show up more in everyday prices?**
+It is also the case that — running underneath the inflation story for thirty-five years — there has been a parallel deflation in technology that compounds at roughly 20% per year on the v4 index. That deflation is also real. Both can be true at once. The question worth asking isn't *which line is right*. It's: **why didn't the falling line show up more in everyday prices?**
 
 The answer involves housing supply, healthcare consolidation, monetary policy, the structure of services, and a dozen other forces — none of which this index settles. What the index does is make the gap visible. Once you see it, you can argue about what to do.
 
