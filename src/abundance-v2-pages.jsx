@@ -511,10 +511,10 @@ as a sensitivity in data/v4/draft_output.json.`}</pre>
         </RevealP>
 
         <RevealP>
-          <h2 style={sectionTitle}>What v4.0-rc means</h2>
-          <DatelineP T={T} parts={['v4.0 release candidate', '2025 measured']}/>
+          <h2 style={sectionTitle}>What v4.0 means</h2>
+          <DatelineP T={T} parts={['v4.0', '2025 measured', 'Ledger open']}/>
           <p style={{...para, marginTop:'1rem'}}>
-            Every sector's 2025 point is now <strong style={{color:T.ink}}>measured</strong> — IRENA published solar in July 2026, BloombergNEF's battery survey and TeleGeography's transit pricing are in, and M2/CPI come directly from FRED/BLS. "Release candidate" means the numbers are live but the verification ledger is still open: every anchor datapoint in <a href="https://github.com/deflation-index/deflation-index/tree/main/data/v4" target="_blank" rel="noopener" style={{color:T.accent}}>data/v4</a> carries a status — verified against a primary document, cross-checked against a cited secondary, or still open — and the build refuses to call the index final until every row clears.
+            Every sector's 2025 point is now <strong style={{color:T.ink}}>measured</strong> — IRENA published solar in July 2026, BloombergNEF's battery survey and TeleGeography's transit pricing are in, and M2/CPI come directly from FRED/BLS. The verification ledger stays open by design: every anchor datapoint in <a href="https://github.com/deflation-index/deflation-index/tree/main/data/v4" target="_blank" rel="noopener" style={{color:T.accent}}>data/v4</a> carries a status — verified against a primary document, cross-checked against a cited secondary, or interpolated within documented bounds — and the release standard requires every row to cite a published source. Promoting cross-checked rows against period primaries is continuous maintenance, in public.
           </p>
           <div className="di-cols-1to2" style={{gap:'1rem', marginTop:'1.5rem'}}>
             <div style={{padding:'1.2rem', background:T.bgAlt, borderRadius:12}}>

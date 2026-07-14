@@ -5,7 +5,7 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.0.0-rc.1] - 2026-07-13
+## [4.0.0] - 2026-07-13
 
 The audited rebuild. The published index was understating technology deflation — this release corrects the method, the data, and the labels, and moves the headline from **−96.5%** to **−99.97%** (1990–2025). Full findings: [`docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md`](../methodology/AUDIT_2026-07_COMPUTING_SERIES.md).
 
@@ -19,13 +19,13 @@ The audited rebuild. The published index was understating technology deflation �
 
 - All anchor datapoints carry per-row provenance and verification status in `data/v4/*.csv`; the build refuses to mark output final while any row is unverified. Retired: the v3 sector workbooks' synthetic early-year series and unsourced blend components.
 - 2025 is a **measured** index year across all four sectors (IRENA 2025, BNEF 2025, TeleGeography 2025, published compute/storage record) — the "early read" framing retires.
-- Headline set: DI 2025 = 0.0344 (−99.97%, −20.4%/yr, all sectors nominal); abundance gap 526pp (2025); annual DI–M2 gap 26.0pp.
+- Headline set: DI 2025 = 0.0345 (−99.97%, −20.4%/yr, all sectors nominal); abundance gap 526pp (2025); annual DI–M2 gap 26.0pp. `data/master_index.json` regenerated 1990–2025; `data/sectors.json` marked superseded.
 - Honest movements in both directions: computing deepens to ~−36.7%/yr; communications ~−30%/yr since 1998; energy is now **−84% nominal since 2010** (−89% in IRENA's real terms; the −98.5%-since-1990 claim rested on synthetic data and is withdrawn), and in nominal terms solar LCOE has risen since 2023; transportation −91% since 2010. Recorded plateaus and upticks: solar LCOE flat since 2023 (+0.6% in 2024); battery packs flat 2020–2023; storage and memory prices **rose** from late 2025 on AI datacenter demand.
 
 ### Changed - SITE
 
 - Homepage, sector pages, Explore, timeline, $100 test, Method page (geometric formula, per-sector sources, verification-ledger status), stories, and static SEO fallback all updated to the v4 set.
-- "Release candidate" labeling throughout (footer, dateline, Method) until the verification ledger clears.
+- Ledger closed for release under four ratified verification standards (`data/v4/sources_manifest.md`): zero unverified placeholders; every datapoint cites a published source (24 primary-verified, 33 cross-checked, 1 bounded interpolation). Primary-promotion continues in public after release.
 
 ## [3.1.3] - 2026-07-12
 

@@ -98,9 +98,9 @@ function HeroPhone({ T }) {
           <rect key={i} x={i*11} y={52-h} width="8" height={h} rx="1.5" fill={i===4?T.accent:T.accent2} opacity={0.4 + i*0.15}/>
         ))}
       </g>
-      <text x="160" y="200" textAnchor="middle" fontFamily={T.font} fontSize="34" fontWeight="500" fill={T.ink}>1.7 TB</text>
+      <text x="160" y="200" textAnchor="middle" fontFamily={T.font} fontSize="34" fontWeight="500" fill={T.ink}>186 TB</text>
       <text x="160" y="222" textAnchor="middle" fontFamily={T.mono} fontSize="10" fill={T.inkMute} letterSpacing=".1em">FOR $100</text>
-      <text x="160" y="252" textAnchor="middle" fontFamily={T.sans} fontSize="11" fill={T.inkMute}>1990: 1.06 GB</text>
+      <text x="160" y="252" textAnchor="middle" fontFamily={T.sans} fontSize="11" fill={T.inkMute}>1998: 11 GB</text>
       {/* Falling-cost arrow */}
       <path d="M 50 260 Q 100 280 160 240" fill="none" stroke={T.accent} strokeWidth="2.5" strokeDasharray="4 4" opacity="0.7"/>
       <polygon points="155,236 168,238 162,250" fill={T.accent}/>
@@ -418,7 +418,7 @@ function HomeV2({ nav, T }) {
         <div style={{maxWidth:1280, margin:'0 auto', position:'relative', zIndex:1}}>
           <Reveal>
             <div style={{marginBottom:'1.5rem'}}>
-              <Dateline T={T} parts={['v4.0 release candidate', '2025 measured', `Retrieved ${DI2.early2025.retrieved}`]}/>
+              <Dateline T={T} parts={['v4.0', '2025 measured', `Retrieved ${DI2.early2025.retrieved}`]}/>
             </div>
           </Reveal>
           <Reveal delay={80}>
@@ -561,7 +561,7 @@ function HomeV2({ nav, T }) {
                 <div style={{paddingLeft:'.6rem'}}>
                   <div style={{fontFamily:T.font, fontSize:'1.25rem', fontWeight:500, marginBottom:'.4rem'}}>{t.title}</div>
                   <p style={{color:T.inkSoft, lineHeight:1.6, margin:0}}>{t.text}</p>
-                  {t.year === 2026 && <div style={{marginTop:'.5rem'}}><Dateline T={T} parts={['v4.0 release candidate']}/></div>}
+                  {t.year === 2026 && <div style={{marginTop:'.5rem'}}><Dateline T={T} parts={['v4.0 shipped']}/></div>}
                 </div>
               </div>
             </Reveal>

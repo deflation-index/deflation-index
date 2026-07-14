@@ -1,7 +1,7 @@
 {
-  "version": "4.0.0-rc.1",
+  "version": "4.0.0",
   "last_updated": "2026-07-13",
-  "description": "Single source of truth for Deflation Index statistics. v4.0.0-rc.1 is the audited rebuild: every sector is a single sourced metric (computing = compute/storage/memory geometric blend since 1990; communications = wholesale IP transit since 1998; energy = IRENA utility PV LCOE since 2010; transportation = BNEF Li-ion pack since 2010), aggregated with weighted geometric means. Late-start sectors hold at 100 before their first datapoint. Anchor provenance and verification status: data/v4/*.csv; arithmetic sensitivity: data/v4/draft_output.json; audit: docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md. 'rc' = numbers live, verification ledger open.",
+  "description": "Single source of truth for Deflation Index statistics. v4.0.0 is the audited rebuild: every sector is a single sourced metric (computing = compute/storage/memory geometric blend since 1990; communications = wholesale IP transit since 1998; energy = IRENA utility PV LCOE since 2010; transportation = BNEF Li-ion pack since 2010), aggregated with weighted geometric means. Late-start sectors hold at 100 before their first datapoint. Anchor provenance and verification status: data/v4/*.csv; arithmetic sensitivity: data/v4/draft_output.json; audit: docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md. Ledger closed under the four verification standards (sources_manifest.md); primary-promotion continues in public.",
   "sources": {
     "m2": {
       "name": "Federal Reserve FRED Series M2SL",
@@ -24,11 +24,11 @@
     "base_year": 1990,
     "base_value": 100.0,
     "end_year": 2025,
-    "end_value": 0.0303,
+    "end_value": 0.0345,
     "cumulative_deflation_percent": -99.97,
-    "cagr_percent": -20.66,
-    "value_2024": 0.033,
-    "cumulative_2024_percent": -99.967,
+    "cagr_percent": -20.37,
+    "value_2024": 0.0364,
+    "cumulative_2024_percent": -99.964,
     "aggregation": "weighted geometric mean",
     "description": "Technology cost index, 1990=100, v4 geometric"
   },
@@ -233,10 +233,10 @@
   },
   "gap_analysis": {
     "di_m2_gap": {
-      "annual_pp": 26.32,
-      "annual_rounded": 26.3,
+      "annual_pp": 26.03,
+      "annual_rounded": 26.0,
       "description": "Annual gap between DI deflation rate and M2 expansion rate",
-      "formula": "|DI annual rate| + M2 annual rate = |-20.66| + 5.66 = 26.32"
+      "formula": "|DI annual rate| + M2 annual rate = |-20.37| + 5.66 = 26.03"
     },
     "abundance_gap": {
       "cumulative_pp": 526,
@@ -253,16 +253,16 @@
   },
   "key_statistics_for_display": {
     "hero_numbers": {
-      "di_annual": "-20.7%",
+      "di_annual": "-20.4%",
       "di_cumulative": "-99.97%",
       "m2_annual": "+5.7%",
       "m2_cumulative": "+576% (2025)",
-      "gap_annual": "26.3pp"
+      "gap_annual": "26.0pp"
     },
     "prose_descriptions": {
       "di": "Technology made things 99.97% cheaper (1990-2025, v4 geometric)",
       "m2": "Money supply expanded 576% (6.8x) over the same period",
-      "gap": "Technology deflates ~21% a year against money growing 5.7% - a 26-point annual gap"
+      "gap": "Technology deflates ~20% a year against money growing 5.7% - a 26-point annual gap"
     }
   },
   "supplemental_2025": {

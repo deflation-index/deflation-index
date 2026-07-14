@@ -1,3 +1,5 @@
+> **v4.0.0 (2026-07-13):** v4.0 source-of-record is [`data/v4/sources_manifest.md`](../v4/sources_manifest.md) (per-datapoint provenance and verification standards). This document describes the v3-era sources and is preserved for the record.
+
 # Deflation Index Source Documentation
 
 **Version**: 3.1.1

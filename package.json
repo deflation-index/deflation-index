@@ -1,6 +1,6 @@
 {
   "name": "deflation-index",
-  "version": "4.0.0-rc.1",
+  "version": "4.0.0",
   "private": true,
   "description": "The Deflation Index — an open record of how technology made things radically cheaper, and where the abundance went.",
   "scripts": {

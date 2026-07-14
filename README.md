@@ -34,8 +34,9 @@ src/
 dist/                         Compiled JS served in production (npm run build)
 data/
   constants.json              Single source of truth for series, weights, sources
-  master_index.json           Computed weighted index, 1990-2024
-  sectors.json                Per-sector series + metadata
+  master_index.json           Computed geometric index, 1990-2025 (v4.0)
+  sectors.json                v3 sector series (superseded; see data/v4/)
+  v4/                         Anchor ledger: per-datapoint provenance + verification status
 assets/logo/                  Favicons + lockup
 favicon.ico
 ```
@@ -44,7 +45,9 @@ favicon.ico
 
 Series-level URLs and per-datapoint provenance live in [`data/constants.json`](data/constants.json). The Method page lists one canonical link per institution.
 
-The full v3.0.3 source spreadsheets are in [`data/excel/`](data/excel/). Detailed methodology, weighting, and changelog live in [`docs/`](docs/). The legacy v3.0 JSON API contract is preserved in [`data/api_legacy_v3.0/`](data/api_legacy_v3.0/) for anyone who linked to it.
+The v4.0 index is a weighted geometric mean of four single-metric sector series; every anchor datapoint, its source, and its verification status live in [`data/v4/`](data/v4/sources_manifest.md), and the audit that produced the v4 revision is at [`docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md`](docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md).
+
+The legacy v3.0.3 source spreadsheets are in [`data/excel/`](data/excel/). Detailed methodology, weighting, and changelog live in [`docs/`](docs/). The legacy v3.0 JSON API contract is preserved in [`data/api_legacy_v3.0/`](data/api_legacy_v3.0/) for anyone who linked to it.
 
 ## License
 

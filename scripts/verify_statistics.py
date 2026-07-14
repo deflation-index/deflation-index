@@ -3,7 +3,10 @@
 Deflation Index - Statistics Verification Script
 Verifies that all statistics in documentation match the actual data
 
-UPDATED: 2026-07-12 (v3.1.3)
+UPDATED: 2026-07-13 (v4.0.0) — constants checks are version-aware; the
+Excel checks below verify the archived v3 workbook as a historical artifact.
+
+Previous update: 2026-07-12 (v3.1.3)
 - CPI 2024 corrected: cumulative 154.65% → 143.5%, CAGR 2.72% → 2.65%
 - Abundance gap corrected: 491pp → 503pp
 - Master_DI recomputed from sector columns when formula cache is empty

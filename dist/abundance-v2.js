@@ -152,7 +152,7 @@ function HeroPhone({
     fontSize: "34",
     fontWeight: "500",
     fill: T.ink
-  }, "1.7 TB"), React.createElement("text", {
+  }, "186 TB"), React.createElement("text", {
     x: "160",
     y: "222",
     textAnchor: "middle",
@@ -167,7 +167,7 @@ function HeroPhone({
     fontFamily: T.sans,
     fontSize: "11",
     fill: T.inkMute
-  }, "1990: 1.06 GB"), React.createElement("path", {
+  }, "1998: 11 GB"), React.createElement("path", {
     d: "M 50 260 Q 100 280 160 240",
     fill: "none",
     stroke: T.accent,
@@ -1011,7 +1011,7 @@ function HomeV2({
     }
   }, React.createElement(Dateline, {
     T: T,
-    parts: ['v4.0 release candidate', '2025 measured', `Retrieved ${DI2.early2025.retrieved}`]
+    parts: ['v4.0', '2025 measured', `Retrieved ${DI2.early2025.retrieved}`]
   }))), React.createElement(Reveal, {
     delay: 80
   }, React.createElement("h1", {
@@ -1488,7 +1488,7 @@ function HomeV2({
     }
   }, React.createElement(Dateline, {
     T: T,
-    parts: ['v4.0 release candidate']
+    parts: ['v4.0 shipped']
   })))))))), React.createElement("section", {
     style: {
       background: T.bgAlt,

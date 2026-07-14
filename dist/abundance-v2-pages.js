@@ -1295,9 +1295,9 @@ as a sensitivity in data/v4/draft_output.json.`)), React.createElement(RevealP, 
     }
   }, "CPI:"), " the Consumer Price Index for All Urban Consumers, from the Bureau of Labor Statistics (CPIAUCSL). Indexed to 1990 = 100.")), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
-  }, "What v4.0-rc means"), React.createElement(DatelineP, {
+  }, "What v4.0 means"), React.createElement(DatelineP, {
     T: T,
-    parts: ['v4.0 release candidate', '2025 measured']
+    parts: ['v4.0', '2025 measured', 'Ledger open']
   }), React.createElement("p", {
     style: {
       ...para,
@@ -1307,14 +1307,14 @@ as a sensitivity in data/v4/draft_output.json.`)), React.createElement(RevealP, 
     style: {
       color: T.ink
     }
-  }, "measured"), " \u2014 IRENA published solar in July 2026, BloombergNEF's battery survey and TeleGeography's transit pricing are in, and M2/CPI come directly from FRED/BLS. \"Release candidate\" means the numbers are live but the verification ledger is still open: every anchor datapoint in ", React.createElement("a", {
+  }, "measured"), " \u2014 IRENA published solar in July 2026, BloombergNEF's battery survey and TeleGeography's transit pricing are in, and M2/CPI come directly from FRED/BLS. The verification ledger stays open by design: every anchor datapoint in ", React.createElement("a", {
     href: "https://github.com/deflation-index/deflation-index/tree/main/data/v4",
     target: "_blank",
     rel: "noopener",
     style: {
       color: T.accent
     }
-  }, "data/v4"), " carries a status \u2014 verified against a primary document, cross-checked against a cited secondary, or still open \u2014 and the build refuses to call the index final until every row clears."), React.createElement("div", {
+  }, "data/v4"), " carries a status \u2014 verified against a primary document, cross-checked against a cited secondary, or interpolated within documented bounds \u2014 and the release standard requires every row to cite a published source. Promoting cross-checked rows against period primaries is continuous maintenance, in public."), React.createElement("div", {
     className: "di-cols-1to2",
     style: {
       gap: '1rem',

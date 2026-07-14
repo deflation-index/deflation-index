@@ -1,8 +1,8 @@
-// Deflation Index data — v4.0-rc.1 (generated from data/v4/draft_output.json)
+// Deflation Index data — v4.0.0 (generated from data/v4/draft_output.json)
 // Available on window.DI
 
 window.DI = (function(){
-  // 1990–2025 inclusive (36 years). v4.0 release candidate: all four sectors
+  // 1990–2025 inclusive (36 years). v4.0.0: all four sectors
   // are single-metric series from published sources, aggregated with weighted
   // GEOMETRIC means. Late-start sectors hold at 100 before their first
   // datapoint (comms 1998, energy 2010, transportation 2010). Every anchor's
@@ -13,7 +13,7 @@ window.DI = (function(){
   const dataEndEarly = 2025;
 
   // Rebased to 1990=100 (v4 geometric master)
-  const di = [100,88.1275,77.6645,66.5776,57.0734,51.6202,42.0308,34.2228,25.0026,17.0709,11.6554,8.33666,5.9629,4.48967,3.7181,3.28651,2.90806,2.33124,1.59363,1.16244,0.884034,0.618215,0.414704,0.274432,0.200128,0.145942,0.113526,0.08831,0.075954,0.065327,0.056187,0.048843,0.042459,0.039399,0.036405,0.034413];  // v4.0-rc: weighted geometric mean of v4 sector series (data/v4/draft_output.json)
+  const di = [100,88.1275,77.6645,66.5776,57.0734,51.6202,42.0308,34.2228,25.0026,17.0709,11.6554,8.33666,5.9629,4.48967,3.7181,3.28651,2.90806,2.33124,1.59363,1.16244,0.884034,0.619985,0.417081,0.276795,0.202429,0.148042,0.115146,0.08956,0.07702,0.066236,0.056962,0.049291,0.042653,0.039399,0.036426,0.034453];  // v4.0.0: weighted geometric mean of v4 sector series (data/v4/draft_output.json)
   // M2 real through 2025 (FRED live, 1990-base index)
   const m2 = [100,103.06,104.68,106.23,106.71,111.11,116.58,123.09,133.59,141.62,150.21,165.87,176.42,184.95,195.64,203.67,214.31,227.87,250.06,259.2,267.86,293.1,318.15,335.45,356.14,375.89,402.68,422.45,437.96,467.38,583.04,658.39,654.39,636.81,650.02,
     675.69  // 2025: +3.95% YoY measured, FRED M2SL
@@ -24,10 +24,10 @@ window.DI = (function(){
   ];
 
   // Per-sector indices, 1990=100. 2025 values are early-read where available.
-  const computing = [100,65.068,42.3385,25.0772,14.8533,10.5567,5.24871,2.60962,0.897481,0.308655,0.10615,0.0552587,0.028766,0.0150854,0.0109353,0.0090937,0.00758929,0.00633377,0.00307526,0.00149315,0.00083542,0.00047733,0.00023674,0.00011742,8.102e-05,5.591e-05,3.866e-05,2.673e-05,2.601e-05,2.531e-05,2.463e-05,1.976e-05,1.586e-05,1.36e-05,1.208e-05,1.072e-05];  // v4.0-rc: geometric blend compute/storage/memory 60/30/10 (data/v4)
-  const communications = [100,100,100,100,100,100,100,100,100,75,56.25,30.6186,16.6667,11.1803,7.5,5.59017,4.16667,2.04124,1,0.645497,0.416667,0.285044,0.195,0.125915,0.0813051,0.0525,0.0397586,0.0301094,0.0228021,0.0172682,0.0130773,0.00990352,0.0075,0.00689731,0.00634305,0.00583333];  // v4.0-rc: wholesale IP transit, series starts 1998 (data/v4/comms_transit.csv)
-  const energy = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80.2568,64.4115,51.6946,41.4884,33.2973,28.9744,25.2128,21.9395,19.0912,16.6126,16.0148,15.4385,14.8829,15.3514,15.8559];  // v4.0-rc: IRENA utility PV LCOE, 2025 vintage converted to nominal, starts 2010 (data/v4/energy_solar.csv)
-  const transportation = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80.1631,64.2613,51.5138,41.2951,33.1034,26.9371,21.9194,17.8364,14.5139,11.8103,11.8675,11.925,11.9828,9.91379,9.31034];  // v4.0-rc: BNEF pack survey (nominal as published), starts 2010 (data/v4/transportation_battery.csv)
+  const computing = [100,65.068,42.3385,25.0772,14.8533,10.5567,5.24871,2.60962,0.897481,0.308655,0.10615,0.0552587,0.028766,0.0150854,0.0109353,0.0090937,0.00758929,0.00633377,0.00307526,0.00149315,0.00083542,0.00047733,0.00023674,0.00011742,8.102e-05,5.591e-05,3.866e-05,2.673e-05,2.601e-05,2.531e-05,2.463e-05,1.976e-05,1.586e-05,1.36e-05,1.21e-05,1.076e-05];  // v4.0.0: geometric blend compute/storage/memory 60/30/10 (data/v4)
+  const communications = [100,100,100,100,100,100,100,100,100,75,56.25,30.6186,16.6667,11.1803,7.5,5.59017,4.16667,2.04124,1,0.645497,0.416667,0.285044,0.195,0.125915,0.0813051,0.0525,0.0397586,0.0301094,0.0228021,0.0172682,0.0130773,0.00990352,0.0075,0.00689731,0.00634305,0.00583333];  // v4.0.0: wholesale IP transit, series starts 1998 (data/v4/comms_transit.csv)
+  const energy = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,81.0404,65.6755,53.2237,43.1327,34.955,30.4049,26.4472,23.0046,20.0101,17.4054,16.5203,15.6802,14.8829,15.3514,15.8559];  // v4.0.0: IRENA utility PV LCOE, 2025 vintage converted to nominal, starts 2010 (data/v4/energy_solar.csv)
+  const transportation = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80.1631,64.2613,51.5138,41.2951,33.1034,26.9371,21.9194,17.8364,14.5139,11.8103,11.8675,11.925,11.9828,9.91379,9.31034];  // v4.0.0: BNEF pack survey (nominal as published), starts 2010 (data/v4/transportation_battery.csv)
 
   const sectors = [
     {id:'computing', name:'Computing', icon:'chip', weight:0.2941, metric:'compute · storage · memory',
@@ -68,11 +68,11 @@ window.DI = (function(){
   ];
 
   const headline = {
-    // v4.0-rc.1 — geometric master (see data/v4/draft_output.json)
+    // v4.0.0 — geometric master (see data/v4/draft_output.json)
     di_cumulative_pct: -99.964,       // 2024, 1990 base
-    di_annual_pct: -20.38,
+    di_annual_pct: -20.37,
     di_2024: 0.0364,
-    di_2025_early: 0.0344,            // key name kept for compatibility; 2025 is measured
+    di_2025_early: 0.0345,            // key name kept for compatibility; 2025 is measured
     di_2025_cumulative_pct: -99.97,
     m2_cumulative_pct: 550.02,
     m2_annual_pct: 5.66,
@@ -91,7 +91,7 @@ window.DI = (function(){
   };
 
   const early2025 = {
-    status: 'v4_release_candidate',
+    status: 'v4_0_0',
     retrieved: '2026-07-13',
     m2_dec2025_trillions: 22.39,
     m2_yoy: 3.95,

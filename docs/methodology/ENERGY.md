@@ -1,3 +1,5 @@
+> **v4.0.0 (2026-07-13):** This document describes the retired v3 construction and is preserved for the record. The v4.0 index — single sourced metrics per sector, weighted geometric aggregation, per-datapoint provenance — is defined by [`data/v4/`](../../data/v4/sources_manifest.md) and the audit at [`docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md`](AUDIT_2026-07_COMPUTING_SERIES.md).
+
 # Energy Sector Methodology
 ## The Deflation Index - Energy Component
 
