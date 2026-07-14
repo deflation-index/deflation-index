@@ -24,10 +24,10 @@ This folder contains the complete methodology documentation for the Deflation In
 
 | Document | Sector | Weight | Coverage |
 |----------|--------|--------|----------|
-| [COMPUTING.md](COMPUTING.md) | Computing | 29.41% | 1990-2024 |
-| [COMMUNICATIONS.md](COMMUNICATIONS.md) | Communications | 23.53% | 1990-2024 |
-| [ENERGY.md](ENERGY.md) | Energy | 29.41% | 1990-2024 |
-| [TRANSPORTATION.md](TRANSPORTATION.md) | Transportation | 17.65% | 2010-2024 |
+| [COMPUTING.md](COMPUTING.md) | Computing | 29.41% | 1990-2025 |
+| [COMMUNICATIONS.md](COMMUNICATIONS.md) | Communications | 23.53% | 1998-2025 |
+| [ENERGY.md](ENERGY.md) | Energy | 29.41% | 2010-2025 |
+| [TRANSPORTATION.md](TRANSPORTATION.md) | Transportation | 17.65% | 2010-2025 |
 
 ---
 
@@ -73,22 +73,22 @@ Where:
 
 ---
 
-## Key Statistics (v3.1.1, weighted DI 1990–2024)
+## Key Statistics (v4.0.0, geometric DI 1990–2025)
 
 ### Deflation Index
 | Metric | Value |
 |--------|-------|
 | 1990 Baseline | 100.00 |
-| 2024 Value | 3.74 |
-| Cumulative Deflation | -96.26% |
-| Annual Rate (CAGR) | -9.21% |
+| 2025 Value | 0.034 |
+| Cumulative Deflation | -99.97% |
+| Annual Rate (CAGR) | -20.4% |
 
 ### M2 Money Supply (FRED M2SL)
 | Metric | Value |
 |--------|-------|
 | 1990 Value | $3,276.8B |
-| 2024 Value | $21,300B |
-| Cumulative Expansion | +550.2% |
+| 2025 Value | $21,970B |
+| Cumulative Expansion | +575.7% |
 | Annual Rate (CAGR) | +5.66% |
 
 ### The Gap
@@ -102,7 +102,8 @@ Where:
 ## Related Files
 
 - **Data Source**: `data/constants.json`
-- **Excel Master**: `data/excel/master_deflation_index_v3.0.3.xlsx`
+- **v4 Master Index**: `data/master_index.json` (+ anchor ledger in `data/v4/`)
+- **Legacy Excel Master (v3)**: `data/excel/master_deflation_index_v3.0.3.xlsx`
 - **Verification**: `scripts/verify_statistics.py`
 
 ---

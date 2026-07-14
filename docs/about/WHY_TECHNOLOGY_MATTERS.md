@@ -3,6 +3,8 @@
 
 **Context:** This document provides the foundation for why the Deflation Index focuses on technology sectors.
 
+> **v4.0.0 (2026-07-13):** Figures below use the audited v4 geometric index — technology −99.97% cumulative (1990–2025), abundance gap 526pp. Sector-level details predating v4 are superseded by [`data/v4/sources_manifest.md`](../../data/v4/sources_manifest.md).
+
 ---
 
 ## TL;DR
@@ -222,7 +224,7 @@ History suggests this will follow the same pattern as previous technological wav
 3. Adoption spreads across the economy → **Early stage (20-30% white-collar worker adoption as of 2024)**
 4. Productivity soars → **Early evidence emerging (10-30% gains in specific tasks)**
 
-**The question:** Will the benefits be distributed broadly, or will they follow the pattern we've observed from 1990-2024 where productivity gains disproportionately accrued to capital holders and asset owners?
+**The question:** Will the benefits be distributed broadly, or will they follow the pattern we've observed from 1990-2025 where productivity gains disproportionately accrued to capital holders and asset owners?
 
 ---
 
@@ -230,7 +232,7 @@ History suggests this will follow the same pattern as previous technological wav
 
 **If technology is the primary driver of productivity, and technology sectors demonstrate:**
 
-- Computing: 99.88% cost reduction (1990-2024)
+- Computing: 99.99% cost reduction (1990-2025)
 - Communications: 99.27% cost reduction
 - Energy: 98.42% cost reduction
 - Transportation: 82.59% cost reduction (2010-2024)
@@ -263,7 +265,7 @@ This is what the data suggests. The technology delivered. The productivity gains
 
 **Karabarbounis & Neiman (2014)** attribute much of this decline to falling prices of investment goods (especially IT equipment)—confirming that technology deflation benefited capital owners who could invest in productivity-enhancing equipment.
 
-**Our contribution**: The Deflation Index quantifies the magnitude of technology-driven deflation and compares it directly to monetary expansion and consumer prices, revealing a 560 percentage point cumulative gap (1990-2024).
+**Our contribution**: The Deflation Index quantifies the magnitude of technology-driven deflation and compares it directly to monetary expansion and consumer prices, revealing a 526 percentage point cumulative gap (1990-2025).
 
 ---
 
@@ -361,7 +363,7 @@ The claim that "technology is the primary driver of productivity" is not ideolog
 
 **But we disagree that this undermines our thesis:**
 
-1. **Even if modern tech is "less transformative," it still delivers measurable 96% deflation** in core sectors. The Deflation Index doesn't claim computing is "more important than electricity"—it measures the deflation modern technology *actually* delivered.
+1. **Even if modern tech is "less transformative," it still delivers measurable 99.97% deflation** in core sectors. The Deflation Index doesn't claim computing is "more important than electricity"—it measures the deflation modern technology *actually* delivered.
 
 2. **Gordon wrote in 2016, before the AI revolution**. Recent developments (generative AI, autonomous vehicles approaching deployment, renewable energy reaching grid parity) suggest we're entering a new acceleration phase, not a slowdown.
 
@@ -369,7 +371,7 @@ The claim that "technology is the primary driver of productivity" is not ideolog
 
 4. **The distribution question is separate from the magnitude question**. Even if Gordon is right that modern tech is less transformative, our data shows it still generated massive deflation—which makes the question "where did those gains go?" even more important.
 
-**Gordon's skepticism strengthens rather than weakens the case for the Deflation Index**: If technology is delivering "only" 96% deflation rather than something more transformative, why hasn't that translated to lower consumer prices?
+**Gordon's skepticism strengthens rather than weakens the case for the Deflation Index**: If technology is delivering "only" 99.97% deflation rather than something more transformative, why hasn't that translated to lower consumer prices?
 
 ---
 
@@ -377,7 +379,7 @@ The claim that "technology is the primary driver of productivity" is not ideolog
 
 Technology isn't just *a* driver of productivity. Historical evidence, economic theory, and quantitative measurement all demonstrate it's *the* primary driver.
 
-When technology delivers 96% deflation across measurable sectors and consumer prices don't fall—that's not a measurement error. That's not an accounting quirk. That's a distribution phenomenon worth understanding.
+When technology delivers 99.97% deflation across measurable sectors and consumer prices don't fall—that's not a measurement error. That's not an accounting quirk. That's a distribution phenomenon worth understanding.
 
 **The Deflation Index exists to measure where technological productivity flows:**
 - Into consumer prices? (Some, but not proportionally)

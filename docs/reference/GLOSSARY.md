@@ -1,7 +1,7 @@
 # Glossary of Terms
 
-**Version**: 3.1.1
-**Last Updated**: April 2026
+**Version**: 4.0.0
+**Last Updated**: July 2026
 
 Key terms and definitions used in the Deflation Index project.
 
@@ -29,7 +29,7 @@ The Bureau of Labor Statistics measure of average change in prices paid by urban
 **Source**: FRED Series CPIAUCSL
 
 ### Cumulative Deflation
-The total percentage decline in the Deflation Index from the 1990 baseline to the current year. Currently -96.26% (meaning technology made things 96% cheaper).
+The total percentage decline in the Deflation Index from the 1990 baseline to the current year. Currently -99.97% (meaning technology made things about 99.97% cheaper), on the v4.0 geometric index (1990–2025).
 
 ---
 
@@ -42,9 +42,9 @@ A decrease in the general price level of goods and services. In the Deflation In
 A composite index measuring the cost of technology across four sectors (Computing, Communications, Energy, Transportation) relative to a 1990 baseline of 100.
 
 ### DI-M2 Gap
-The annual difference between the Deflation Index rate and M2 expansion rate. Currently 14.9 percentage points per year.
+The annual difference between the Deflation Index rate and M2 expansion rate. Currently 26.0 percentage points per year, on the v4.0 geometric index.
 
-**Formula**: |DI Annual Rate| + M2 Annual Rate = |-9.21%| + 5.66% = 14.87pp
+**Formula**: |DI Annual Rate| + M2 Annual Rate = |-20.37%| + 5.66% = 26.03pp
 
 ---
 
@@ -67,7 +67,7 @@ A measure of computing performance. One billion floating-point operations per se
 ## I
 
 ### Index Value
-A number expressing the relative change from a baseline. The Deflation Index uses 1990 = 100 as the baseline, so a 2024 value of 3.74 means costs are 3.74% of their 1990 level.
+A number expressing the relative change from a baseline. The Deflation Index uses 1990 = 100 as the baseline, so a 2025 value of 0.034 means costs are 0.034% of their 1990 level.
 
 ---
 
@@ -95,7 +95,7 @@ The combined Deflation Index weighted across all four sectors. The primary outpu
 ## P
 
 ### Percentage Point (pp)
-A unit for the arithmetic difference between two percentages. If M2 grows 5.66% and DI declines 9.21%, the gap is 14.87 percentage points (not percent).
+A unit for the arithmetic difference between two percentages. If M2 grows 5.66% and DI declines 20.37%, the gap is 26.03 percentage points (not percent).
 
 ---
 

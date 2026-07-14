@@ -70,15 +70,15 @@ Version history, contribution, and release documentation.
 
 ---
 
-## Key Statistics (v3.1.1, weighted DI 1990–2024)
+## Key Statistics (v4.0.0, geometric DI 1990–2025)
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| DI Annual Rate | -9.21% | Master DI v3.0.3 |
-| DI Cumulative | -96.25% | Master DI v3.0.3 |
+| DI Annual Rate | -20.4% | v4.0 geometric |
+| DI Cumulative | -99.97% | v4.0 geometric |
 | M2 Annual Rate | +5.66% | FRED M2SL |
-| M2 Cumulative | +550.0% | FRED M2SL |
-| DI-M2 Gap | 14.9pp | Calculated |
+| M2 Cumulative | +576% | FRED M2SL |
+| DI-M2 Gap | 26.0pp | Calculated |
 
 **Single Source of Truth**: All statistics derive from `data/constants.json`
 
@@ -86,16 +86,16 @@ Version history, contribution, and release documentation.
 
 ## Current Scope & Limitations
 
-### What's Included in v3.1.1
+### What's Included in v4.0.0
 
-The Deflation Index currently measures **four foundational technology sectors**:
+The Deflation Index currently measures **four foundational technology sectors**, each a single sourced metric that starts when defensible measurement starts:
 
 | Sector | Coverage Period | Cumulative Deflation |
 |--------|----------------|---------------------|
-| Computing | 1990-2024 (35 years) | -99.88% |
-| Communications | 1990-2024 (35 years) | -99.27% |
-| Energy | 1990-2024 (35 years) | -98.42% |
-| Transportation | 2010-2024 (15 years) | -82.59% |
+| Computing | 1990-2025 (36 years) | -99.99% |
+| Communications | 1998-2025 (since 1998) | -99.99% |
+| Energy | 2010-2025 (since 2010) | -84.1% |
+| Transportation | 2010-2025 (since 2010) | -90.7% |
 
 **Coverage:** These sectors represent approximately **40% of direct technological impact** on the US economy.
 
@@ -145,12 +145,12 @@ We explicitly acknowledge our limitations:
 
 We provide two weighting methodologies to demonstrate robustness:
 
-| Methodology | 2024 DI | Cumulative | Annual |
+| Aggregation | 2025 DI | Cumulative | Annual |
 |-------------|---------|------------|--------|
-| **Multi-Factor (Primary)** | 3.74 | -96.25% | -9.21% |
-| Equal-Weighted (Baseline) | 4.96 | -95.04% | -8.45% |
+| **Weighted geometric (Primary)** | 0.034 | -99.97% | -20.4% |
+| Weighted arithmetic (Sensitivity) | 6.31 | -93.7% | -7.6% |
 
-**Key Finding**: Both methodologies confirm massive technological deflation (95-96% cumulative). See [VARIANTS.md](methodology/VARIANTS.md) for details.
+**Key Finding**: Both aggregation methods show deep technological deflation. The v4.0 primary (geometric) is -99.97% cumulative; a weighted-arithmetic sensitivity lands at -93.7%. The arithmetic variant is published in [`data/v4/draft_output.json`](../data/v4/draft_output.json); the retired v3 weighting comparison is preserved in [VARIANTS.md](methodology/VARIANTS.md).
 
 ---
 
@@ -158,10 +158,10 @@ We provide two weighting methodologies to demonstrate robustness:
 
 | File | Location | Description |
 |------|----------|-------------|
-| `constants.json` | `data/constants.json` | Authoritative statistics |
-| Master Index | `data/excel/master_deflation_index_v3.0.3.xlsx` | Primary calculations |
-| Equal-Weighted | `data/excel/master_deflation_index_v3.0.3_EQUAL.xlsx` | Baseline methodology |
-| Sector Files | `data/excel/[sector]_deflation_index_v1.0.xlsx` | Sector data |
+| `constants.json` | `data/constants.json` | Authoritative v4.0 statistics |
+| Master Index (v4) | `data/master_index.json` | Primary v4.0 geometric index, 1990–2025 |
+| v4 anchor ledger | `data/v4/` | Per-sector sourced anchors + verification status |
+| Legacy workbooks (v3) | `data/excel/master_deflation_index_v3.0.3.xlsx` (+ EQUAL variant) | Retired v3 multi-factor calculations |
 | CSV Exports | `data/csv/` | Machine-readable exports |
 
 ---

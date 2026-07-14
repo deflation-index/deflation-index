@@ -1,9 +1,9 @@
 > **Updated for v4.0.0 (2026-07-13).** Headline figures below use the audited v4 geometric index. Sector-level details predating v4 are superseded by [`data/v4/sources_manifest.md`](../../data/v4/sources_manifest.md).
 
 # Executive Summary: The Deflation Index
-## Measuring Technological Progress and the Missing Abundance (1990-2024)
+## Measuring Technological Progress and the Missing Abundance (1990–2025)
 
-**Version**: 3.0.3 (Simplified Sensitivity Analysis)
+**Version**: 4.0.0 (Audited Geometric Rebuild)
 **Date**: January 2026
 **Status**: Publication-Ready | FRED-Verified | Zero Formula Errors
 
@@ -17,7 +17,7 @@
 
 ---
 
-## The Numbers (1990-2024)
+## The Numbers (1990–2025)
 
 ### Technology Deflation (Deflation Index)
 - **Annual Average**: -20.4% deflation per year (v4 geometric)
@@ -163,7 +163,7 @@ Consumer prices (CPI) rose only 150%.
 ### Popular Media
 - **Target**: NYT, WSJ, The Atlantic, The Economist
 - **Angle**: "Technology Should Have Made Us 6x Richer—Where Did It Go?"
-- **Hook**: 14.9 percentage points of productivity vanish annually
+- **Hook**: 26 percentage points of productivity vanish annually
 - **Visual**: Interactive chart showing DI vs M2 vs CPI divergence
 
 ### Policy
@@ -218,10 +218,10 @@ Consumer prices (CPI) rose only 150%.
 
 ```bibtex
 @dataset{deflation_index_2026,
-  title={The Deflation Index: Measuring Technological Progress (1990-2024)},
+  title={The Deflation Index: Measuring Technological Progress (1990-2025)},
   author={Deflation Index LLC},
   year={2026},
-  version={3.0.3},
+  version={4.0.0},
   publisher={GitHub},
   url={https://github.com/deflation-index/deflation-index},
   note={M2 data verified against FRED M2SL, zero formula errors}

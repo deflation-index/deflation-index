@@ -2,7 +2,7 @@
 
 # Programmatic Data Access
 
-**Last updated:** May 2026
+**Last updated:** July 2026
 
 The Deflation Index does not currently expose a hosted HTTP API. All data is published as static files in this repository, refreshed on the same cadence as the site itself. For the vast majority of academic, journalism, and dashboard use cases, those files are sufficient — they're version-controlled, attributable, and free to consume directly.
 
@@ -12,8 +12,8 @@ This page is the canonical reference for what's available, what shape it's in, a
 
 | File | Format | Description |
 |------|--------|-------------|
-| [`data/constants.json`](../../data/constants.json) | JSON | Single source of truth: headline statistics, source URLs, retrieval dates, the 2025 early-read block. |
-| [`data/master_index.json`](../../data/master_index.json) | JSON | Computed weighted Deflation Index 1990–2024, M2 index, year-over-year deltas, gap. Annual granularity. |
+| [`data/constants.json`](../../data/constants.json) | JSON | Single source of truth: headline statistics, source URLs, retrieval dates, the 2025 measured block. |
+| [`data/master_index.json`](../../data/master_index.json) | JSON | Computed weighted geometric Deflation Index 1990–2025, M2 index, year-over-year deltas, gap. Annual granularity. |
 | [`data/sectors.json`](../../data/sectors.json) | JSON | Per-sector series (computing, communications, energy, transportation) with metadata, weights, and source citations. |
 | [`data/excel/master_deflation_index_v3.0.3.xlsx`](../../data/excel/master_deflation_index_v3.0.3.xlsx) | Excel | Multi-factor weighted index workbook with all formulas exposed. |
 | [`data/excel/master_deflation_index_v3.0.3_EQUAL.xlsx`](../../data/excel/master_deflation_index_v3.0.3_EQUAL.xlsx) | Excel | Equal-weighted baseline workbook. |
@@ -30,8 +30,8 @@ import json, urllib.request
 base = "https://raw.githubusercontent.com/deflation-index/deflation-index/main/data"
 master = json.loads(urllib.request.urlopen(f"{base}/master_index.json").read())
 
-print(master["summary"]["cumulative_deflation_pct"])   # -96.25
-print(master["annual_data"][-1])                       # 2024 row
+print(master["summary"]["cumulative_deflation_pct"])   # -99.97
+print(master["annual_data"][-1])                       # 2025 row
 ```
 
 ```javascript
@@ -39,7 +39,7 @@ const r = await fetch(
   "https://raw.githubusercontent.com/deflation-index/deflation-index/main/data/master_index.json"
 );
 const master = await r.json();
-console.log(master.summary.cumulative_deflation_pct);  // -96.25
+console.log(master.summary.cumulative_deflation_pct);  // -99.97
 ```
 
 ```r
@@ -47,7 +47,7 @@ library(jsonlite)
 master <- fromJSON(
   "https://raw.githubusercontent.com/deflation-index/deflation-index/main/data/master_index.json"
 )
-master$summary$cumulative_deflation_pct  # -96.25
+master$summary$cumulative_deflation_pct  # -99.97
 ```
 
 For Excel-based workflows, download the workbooks directly from the `data/excel/` directory and read with `openpyxl`, `pandas.read_excel`, or any standard library.
@@ -66,7 +66,7 @@ A suitable academic citation:
 
 ```
 Deflation Index LLC. (2026). The Deflation Index: Measuring Technological
-Progress (1990–2024) [Data set]. https://github.com/deflation-index/deflation-index
+Progress (1990–2025) [Data set]. https://github.com/deflation-index/deflation-index
 ```
 
 A suitable inline credit:
@@ -78,7 +78,7 @@ The repository's [LICENSE](../../LICENSE) file contains the full text and explai
 ## What's not on offer
 
 - A live, authenticated HTTP API with rate limits or pricing tiers. Not currently planned.
-- Real-time streaming. The data refreshes annually for the weighted DI and quarterly for the early-read block.
+- Real-time streaming. The data refreshes annually; all four sectors are measured through 2025.
 - White-label or embed-ready widgets. Build your own from the JSON files; we'd love to see what you make.
 
 ## If you have a use case the static files don't cover

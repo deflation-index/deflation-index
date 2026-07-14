@@ -6,6 +6,8 @@
 **Version**: 1.2
 **Purpose**: Complete guide for using the Deflation Index Excel templates
 
+> **v4.0.0 (2026-07-13) — legacy document.** This guide covers the retired v3.0.3 Excel workbooks (multi-factor arithmetic weighting, 1990–2024). The v4.0 index is built from sourced anchor CSVs in [`data/v4/`](../../data/v4/sources_manifest.md) with weighted geometric aggregation, not these workbooks. Preserved for anyone maintaining the legacy spreadsheets.
+
 ---
 
 ## WHAT YOU HAVE
