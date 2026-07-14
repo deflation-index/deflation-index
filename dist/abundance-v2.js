@@ -1347,7 +1347,7 @@ function HomeV2({
       label: 'M2 +24%'
     }, {
       year: 2025,
-      label: '2025 ER'
+      label: 'v4.0'
     }]
   })))), React.createElement("section", {
     style: {

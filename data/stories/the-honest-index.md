@@ -1,6 +1,6 @@
-This summer we audited our own index. We found three problems. All three point the same direction: **our headline number understates technology deflation — substantially.**
+This summer we audited our own index. We found three problems. All three point the same direction: **our headline number understated technology deflation — substantially.**
 
-This essay explains what we found, what we're doing about it, and why we're telling you before the fix ships.
+This essay explains what we found, what we did about it, and why we said so before the fix shipped.
 
 ## What we found
 
@@ -12,16 +12,16 @@ This essay explains what we found, what we're doing about it, and why we're tell
 
 ## What changes
 
-Version 4.0 rebuilds the index on three rules: **every series is the single metric its label claims. Every datapoint traces to a published source. Every series starts when defensible measurement starts** — batteries in 2010 with the first BloombergNEF survey, wholesale connectivity in 1998 with the first market pricing, solar in 2010 with IRENA's coverage. Aggregation moves to geometric averages, and the old arithmetic version will be published alongside as a sensitivity, so anyone can see exactly what the change did.
+Version 4.0 rebuilt the index on three rules: **every series is the single metric its label claims. Every datapoint traces to a published source. Every series starts when defensible measurement starts** — batteries in 2010 with the first BloombergNEF survey, wholesale connectivity in 1998 with the first market pricing, solar in 2010 with IRENA's coverage. Aggregation moved to geometric averages, and the old arithmetic version is published alongside as a sensitivity, so anyone can see exactly what the change did.
 
-The corrections cut both ways, and that matters. Computing deflation gets much deeper — the draft rebuild compounds near 37% per year, right where the published record puts it. Connectivity gets far deeper: wholesale internet transit fell from $1,200 to seven cents per megabit-per-second-month since 1998. But energy gets *shallower*: we can defend IRENA's −89% in real terms since 2010 — which is −84% in the nominal dollars every sector here uses — and we cannot defend the −98.5%-since-1990 figure our old synthetic series implied, so we're surrendering it. An index that only ever revises in its own favor is advocacy. This one gives back the claims it can't source.
+The corrections cut both ways, and that matters. Computing deflation got much deeper — the rebuilt series compounds near 37% per year, right where the published record puts it. Connectivity got far deeper: wholesale internet transit fell from $1,200 to seven cents per megabit-per-second-month since 1998. But energy got *shallower*: we can defend IRENA's −89% in real terms since 2010 — which is −84% in the nominal dollars every sector here uses — and we could not defend the −98.5%-since-1990 figure our old synthetic series implied, so we surrendered it. An index that only ever revises in its own favor is advocacy. This one gives back the claims it can't source.
 
 The corrected headline: technology deflation of **−99.97% cumulative since 1990 — roughly 20% per year, every year, for thirty-five years** — against money supply growing 5.7% annually. The published gap has been conservative this whole time.
 
 ## Why tell you now
 
-Because you'd find it anyway, and you should. The audit memo — including the parts that are unflattering — is in our repository, next to the data it criticizes. The Method page has carried a plain-language disclosure since the day the audit concluded. The anchor tables show, row by row, which datapoints are verified against primary documents and which are still being checked, and our release standard requires every row to cite a published source before a version ships.
+Because you'd find it anyway, and you should. The audit memo — including the parts that are unflattering — is in our repository, next to the data it criticizes. The Method page has carried a plain-language disclosure since the day the audit concluded. The anchor tables show, row by row, which datapoints are verified against primary documents and which cite published compilations, and our release standard requires every row to cite a published source before a version ships.
 
-Measurement projects earn trust in exactly one way: by being most rigorous about their own numbers. We found the flaw, we published the flaw, and we're fixing it in the open, before the corrected headline ships — not after someone else forced us to.
+Measurement projects earn trust in exactly one way: by being most rigorous about their own numbers. We found the flaw, we published the flaw, and we fixed it in the open, before the corrected headline shipped — not after someone else forced us to.
 
 v4.0 now runs this site. Every number you see here is the corrected one, and every anchor behind it cites a published source — 24 verified against primary documents, the rest against cited compilations, with the promotion work continuing row by row in public. The data, the audit, the verification standards, and every intermediate draft are on [GitHub](https://github.com/deflation-index/deflation-index). Argue with it.
