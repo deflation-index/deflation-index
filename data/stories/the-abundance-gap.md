@@ -32,6 +32,6 @@ It is also the case that — running underneath the inflation story for thirty-f
 
 The answer involves housing supply, healthcare consolidation, monetary policy, the structure of services, and a dozen other forces — none of which this index settles. What the index does is make the gap visible. Once you see it, you can argue about what to do.
 
-The number on this page is the corrected one: our own audit found the previously published −96.5% was too conservative, and the v4.0 revision replaced it. That story — including what we got wrong — is told in full in [the next essay](#/stories/the-honest-index).
+The number on this page is the corrected one: our own audit found the previously published −96.25% was too conservative, and the v4.0 revision replaced it. That story — including what we got wrong — is told in full in [the next essay](#/stories/the-honest-index).
 
 For now, three lines on a chart. A 526-point gap. And a question: **whose money got the productivity?**
