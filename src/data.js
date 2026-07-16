@@ -116,13 +116,13 @@ window.DI = (function(){
 
   // The $100 test — what a constant $100 bought then vs now (then = each series' first measured year)
   const dollarTest = [
-    { id:'data', label:'Internet transit (since 1998)', unit:'GB moved', then:10.8, now:185700,
+    { id:'data', label:'Internet transit', unit:'GB moved', baseYear:1998, then:10.8, now:185700,
       thenText:'11 GB — a CD-ROM and change', nowText:'186 terabytes — the input layer got 17,000× cheaper' },
-    { id:'compute', label:'Computing power', unit:'GFLOPS', then:0.000104, now:8130,
+    { id:'compute', label:'Computing power', unit:'GFLOPS', baseYear:1990, then:0.000104, now:8130,
       thenText:'A ten-thousandth of a GFLOPS — spreadsheet territory', nowText:'8.1 TFLOPS — a modern gaming GPU' },
-    { id:'solar', label:'Solar electricity (since 2010)', unit:'kWh', then:360, now:2270,
+    { id:'solar', label:'Solar electricity', unit:'kWh', baseYear:2010, then:360, now:2270,
       thenText:'360 kWh — a fridge for most of a year', nowText:'2,270 kWh — most of a small home\'s year' },
-    { id:'battery', label:'Battery capacity (since 2010)', unit:'kWh', then:0.086, now:0.93,
+    { id:'battery', label:'Battery capacity', unit:'kWh', baseYear:2010, then:0.086, now:0.93,
       thenText:'86 watt-hours — phone battery', nowText:'930 watt-hours — power tool or small e-bike' },
   ];
 

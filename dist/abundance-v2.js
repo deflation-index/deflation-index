@@ -880,7 +880,7 @@ function ThenNowV2({
       textTransform: 'uppercase',
       color: T.inkMute
     }
-  }, "1990"), React.createElement("div", {
+  }, entry.baseYear || 1990), React.createElement("div", {
     style: {
       fontFamily: T.font,
       fontSize: '1.5rem',
@@ -1123,7 +1123,7 @@ function HomeV2({
       maxWidth: '52ch',
       marginInline: 'auto'
     }
-  }, "Same hundred dollars. Different decade. The unit on the box is the same; the multiplier is real."))), React.createElement("div", {
+  }, "Same hundred dollars, years apart. The unit on the box is the same; the multiplier is real."))), React.createElement("div", {
     className: "di-cols-1to4",
     style: {
       gap: '1.2rem'
@@ -1180,7 +1180,7 @@ function HomeV2({
         color: T.inkMute,
         letterSpacing: '.06em'
       }
-    }, s.metric, " \xB7 ", fmt2(s.drop, false), " since 1990"))));
+    }, s.metric, " \xB7 ", fmt2(s.drop, false), " since ", s.dataStart || 1990))));
   }))), React.createElement("section", {
     style: {
       background: T.bgDeep,
@@ -1218,7 +1218,7 @@ function HomeV2({
       margin: 0,
       color: T.bg
     }
-  }, "Four numbers, three decades."))), React.createElement("div", {
+  }, "Four numbers, thirty-five years."))), React.createElement("div", {
     className: "di-cols-1to4",
     style: {
       gap: '2rem'
@@ -1376,13 +1376,13 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: '0 0 .6rem'
     }
-  }, "Hundred dollars, two decades, four sectors."), React.createElement("p", {
+  }, "Hundred dollars, one rule, four sectors."), React.createElement("p", {
     style: {
       color: T.inkSoft,
       fontSize: '1.05rem',
       maxWidth: '52ch'
     }
-  }, "Same money. Same unit of capability. The multiplier is what technology bought you."))), React.createElement("div", {
+  }, "Same money, same unit of capability \u2014 each sector measured from the first year the number holds up. The multiplier is what technology bought you."))), React.createElement("div", {
     className: "di-cols-1to2",
     style: {
       gap: '1.1rem'

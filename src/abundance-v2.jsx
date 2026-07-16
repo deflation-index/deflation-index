@@ -371,7 +371,7 @@ function ThenNowV2({ entry, T, onClick }) {
       <div style={{fontFamily:T.font, fontSize:'1.4rem', fontWeight:500, letterSpacing:'-.005em', marginBottom:'1rem'}}>{entry.label}</div>
       <div style={{display:'grid', gridTemplateColumns:'1fr auto 1fr', gap:'.6rem', alignItems:'center'}}>
         <div>
-          <div style={{fontFamily:T.mono, fontSize:'.66rem', letterSpacing:'.1em', textTransform:'uppercase', color:T.inkMute}}>1990</div>
+          <div style={{fontFamily:T.mono, fontSize:'.66rem', letterSpacing:'.1em', textTransform:'uppercase', color:T.inkMute}}>{entry.baseYear || 1990}</div>
           <div style={{fontFamily:T.font, fontSize:'1.5rem', fontWeight:500, color:T.inkSoft, marginTop:'.15rem'}}>{compact(entry.then)} <span style={{fontSize:'.85rem', color:T.inkMute}}>{entry.unit}</span></div>
         </div>
         <div style={{color:T.accent, fontSize:'1.2rem'}}>→</div>
@@ -447,7 +447,7 @@ function HomeV2({ nav, T }) {
           <div style={{textAlign:'center', marginBottom:'2.5rem'}}>
             <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.6rem'}}>The four motifs</div>
             <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>What a hundred dollars buys now.</h2>
-            <p style={{color:T.inkSoft, fontSize:'1.1rem', marginTop:'.6rem', maxWidth:'52ch', marginInline:'auto'}}>Same hundred dollars. Different decade. The unit on the box is the same; the multiplier is real.</p>
+            <p style={{color:T.inkSoft, fontSize:'1.1rem', marginTop:'.6rem', maxWidth:'52ch', marginInline:'auto'}}>Same hundred dollars, years apart. The unit on the box is the same; the multiplier is real.</p>
           </div>
         </Reveal>
         <div className="di-cols-1to4" style={{gap:'1.2rem'}}>
@@ -468,7 +468,7 @@ function HomeV2({ nav, T }) {
                   </div>
                   <div style={{padding:'0 .6rem'}}>
                     <div style={{fontFamily:T.font, fontSize:'1.25rem', fontWeight:500, marginBottom:'.2rem'}}>{s.name}</div>
-                    <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.06em'}}>{s.metric} · {fmt2(s.drop,false)} since 1990</div>
+                    <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.06em'}}>{s.metric} · {fmt2(s.drop,false)} since {s.dataStart||1990}</div>
                   </div>
                 </button>
               </Reveal>
@@ -483,7 +483,7 @@ function HomeV2({ nav, T }) {
           <Reveal>
             <div style={{textAlign:'center', marginBottom:'3rem'}}>
               <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.7rem'}}>1990 → 2025</div>
-              <h2 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0, color:T.bg}}>Four numbers, three decades.</h2>
+              <h2 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0, color:T.bg}}>Four numbers, thirty-five years.</h2>
             </div>
           </Reveal>
           <div className="di-cols-1to4" style={{gap:'2rem'}}>
@@ -528,8 +528,8 @@ function HomeV2({ nav, T }) {
         <Reveal>
           <div style={{marginBottom:'2.5rem'}}>
             <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>The $100 test</div>
-            <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .6rem'}}>Hundred dollars, two decades, four sectors.</h2>
-            <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch'}}>Same money. Same unit of capability. The multiplier is what technology bought you.</p>
+            <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .6rem'}}>Hundred dollars, one rule, four sectors.</h2>
+            <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch'}}>Same money, same unit of capability — each sector measured from the first year the number holds up. The multiplier is what technology bought you.</p>
           </div>
         </Reveal>
         <div className="di-cols-1to2" style={{gap:'1.1rem'}}>
