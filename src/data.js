@@ -110,8 +110,8 @@ window.DI = (function(){
     {year:2000, title:'Computing bends the curve', text:"The dot-com boom wires the world. A commodity cluster delivers a GFLOPS for $640. A gigabyte of disk: $10. Wholesale internet transit, first surveyed in 1998 at $1,200/Mbps, is already at $675."},
     {year:2010, title:'Measurement broadens', text:'IRENA starts tracking solar ($0.28/kWh in 2010 dollars). BloombergNEF runs its first battery survey ($1,160/kWh pack). Two more sectors become measurable. M2: $8.7T.'},
     {year:2020, title:'The monetary break', text:'M2 expands 24% in one year — the largest peacetime expansion in U.S. history. Tech deflation keeps compounding underneath; battery packs pause near $137.'},
-    {year:2024, title:'The measurement', text:'On the v4 method: DI at 0.033 (−99.97% since 1990). M2 at $21.3T (+550%). CPI at 243.5 (+143.5%). The gap between these lines is the story.'},
-    {year:2026, title:'The correction (v4.0)', text:'We audit our own index and find the headline was too small. Geometric aggregation, verified anchors, every sector a single sourced metric. 2025 measured across all four: DI 0.0303, gap 526pp. And honestly: storage and memory prices turned UP on AI demand — 2026 may show technology inflation.'}
+    {year:2025, title:'The measurement', text:'All four sectors measured. Since 1990: technology down 99.97%, M2 up 576% ($22.0T), consumer prices up 150%. The gap between those lines — 526 points — is the story this site exists to tell.'},
+    {year:2026, title:'The correction (v4.0)', text:'We audit our own index and find the headline was too small. Three flaws, all pointing the same way. The rebuild: geometric aggregation, verified anchors, every sector a single sourced metric. And honestly — storage and memory prices turned UP on AI demand, so 2026 may show technology inflation. We\'ll report that too.'}
   ];
 
   // The $100 test — what a constant $100 bought then vs now (then = each series' first measured year)

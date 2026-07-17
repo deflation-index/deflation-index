@@ -86,6 +86,26 @@ function App() {
     document.body.style.background = T.bg;
   }, [T.bg]);
   const [page, sub] = route.split('/');
+  useEffect(() => {
+    const SITE = 'The Deflation Index';
+    const pageTitles = {
+      sectors: 'Sectors',
+      explore: 'Explore the data',
+      stories: 'Stories',
+      method: "How it's built"
+    };
+    let t = SITE + ' — where the abundance went';
+    if (page === 'stories' && sub) {
+      const st = (window.DI.stories || []).find(s => s.slug === sub);
+      if (st) t = st.title + ' — ' + SITE;
+    } else if (page === 'sectors' && sub) {
+      const s = (window.DI.sectors || []).find(x => x.id === sub);
+      if (s) t = s.name + ' — ' + SITE;
+    } else if (pageTitles[page]) {
+      t = pageTitles[page] + ' — ' + SITE;
+    }
+    document.title = t;
+  }, [page, sub]);
   let content;
   if (page === 'home') content = React.createElement(window.AbundanceV2Home, {
     nav: nav,

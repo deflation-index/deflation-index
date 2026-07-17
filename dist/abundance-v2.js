@@ -584,14 +584,19 @@ function NavV2({
         padding: '.4rem .4rem max(.7rem, env(safe-area-inset-bottom))',
         justifyContent: 'space-around'
       }
-    }, L.map(([k, lbl]) => React.createElement("button", {
+    }, L.map(([k, lbl]) => React.createElement("a", {
       key: k,
-      onClick: () => nav(k),
+      href: '#/' + k,
+      onClick: e => {
+        e.preventDefault();
+        nav(k);
+      },
       className: "di-tap",
       style: {
         border: 'none',
         background: 'transparent',
         color: page === k ? T.accent : T.inkMute,
+        textDecoration: 'none',
         fontFamily: T.sans,
         fontSize: '.7rem',
         fontWeight: 600,
@@ -1059,10 +1064,17 @@ function HomeV2({
       gap: '.7rem',
       flexWrap: 'wrap'
     }
-  }, React.createElement("button", {
-    onClick: () => nav('explore'),
+  }, React.createElement("a", {
+    href: "#/explore",
+    onClick: e => {
+      e.preventDefault();
+      nav('explore');
+    },
     className: "di-tap-pill",
     style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      textDecoration: 'none',
       padding: '1rem 1.6rem',
       background: T.ink,
       color: T.bg,
@@ -1073,10 +1085,17 @@ function HomeV2({
       fontSize: '.95rem',
       cursor: 'pointer'
     }
-  }, "Explore the data \u2192"), React.createElement("button", {
-    onClick: () => nav('method'),
+  }, "Explore the data \u2192"), React.createElement("a", {
+    href: "#/method",
+    onClick: e => {
+      e.preventDefault();
+      nav('method');
+    },
     className: "di-tap-pill",
     style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      textDecoration: 'none',
       padding: '1rem 1.6rem',
       background: 'transparent',
       color: T.ink,
@@ -1133,12 +1152,18 @@ function HomeV2({
     return React.createElement(Reveal, {
       key: s.id,
       delay: i * 80
-    }, React.createElement("button", {
-      onClick: () => nav('sectors/' + s.id),
+    }, React.createElement("a", {
+      href: '#/sectors/' + s.id,
+      onClick: e => {
+        e.preventDefault();
+        nav('sectors/' + s.id);
+      },
       style: {
         display: 'block',
         width: '100%',
         textAlign: 'left',
+        textDecoration: 'none',
+        color: 'inherit',
         background: T.bg,
         border: `2px solid ${T.line}`,
         borderRadius: 18,
@@ -1315,9 +1340,14 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: 0
     }
-  }, "One chart that explains the gap.")), React.createElement("button", {
-    onClick: () => nav('explore'),
+  }, "One chart that explains the gap.")), React.createElement("a", {
+    href: "#/explore",
+    onClick: e => {
+      e.preventDefault();
+      nav('explore');
+    },
     style: {
+      textDecoration: 'none',
       background: T.bgAlt,
       border: `1px solid ${T.line}`,
       padding: '.6rem 1.1rem',
@@ -1524,9 +1554,14 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: 0
     }
-  }, "Going deeper.")), React.createElement("button", {
-    onClick: () => nav('stories'),
+  }, "Going deeper.")), React.createElement("a", {
+    href: "#/stories",
+    onClick: e => {
+      e.preventDefault();
+      nav('stories');
+    },
     style: {
+      textDecoration: 'none',
       background: 'transparent',
       border: `1px solid ${T.ink}`,
       padding: '.6rem 1.1rem',

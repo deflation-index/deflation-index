@@ -74,6 +74,23 @@ function App() {
 
   const [page, sub] = route.split('/');
 
+  // Per-route document.title — keeps history, tabs, bookmarks and analytics honest.
+  useEffect(() => {
+    const SITE = 'The Deflation Index';
+    const pageTitles = { sectors:'Sectors', explore:'Explore the data', stories:'Stories', method:"How it's built" };
+    let t = SITE + ' — where the abundance went';
+    if (page === 'stories' && sub) {
+      const st = (window.DI.stories || []).find(s => s.slug === sub);
+      if (st) t = st.title + ' — ' + SITE;
+    } else if (page === 'sectors' && sub) {
+      const s = (window.DI.sectors || []).find(x => x.id === sub);
+      if (s) t = s.name + ' — ' + SITE;
+    } else if (pageTitles[page]) {
+      t = pageTitles[page] + ' — ' + SITE;
+    }
+    document.title = t;
+  }, [page, sub]);
+
   let content;
   if (page === 'home') content = <window.AbundanceV2Home nav={nav} T={T}/>;
   else if (page === 'sectors' && sub) content = <window.AbundanceV2Sector id={sub} T={T} nav={nav}/>;

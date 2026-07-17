@@ -45,7 +45,7 @@ function SectorPageV2({ id, T, nav }) {
       <section style={{background:T.bgAlt, padding:'3.5rem 1.5rem 2.5rem'}}>
         <div className="di-cols-1to-1p3" style={{maxWidth:1100, margin:'0 auto', gap:'2.5rem', alignItems:'center'}}>
           <div>
-            <button onClick={()=>nav('sectors')} style={{background:'transparent', border:'none', fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.08em', textTransform:'uppercase', cursor:'pointer', padding:0, marginBottom:'.8rem'}}>← All sectors</button>
+            <a href="#/sectors" onClick={(e)=>{e.preventDefault();nav('sectors');}} style={{display:'inline-block', textDecoration:'none', background:'transparent', border:'none', fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.08em', textTransform:'uppercase', cursor:'pointer', padding:0, marginBottom:'.8rem'}}>← All sectors</a>
             <div style={{fontFamily:T.mono, fontSize:'.74rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.6rem'}}>Sector · weight {(sector.weight*100).toFixed(1)}%</div>
             <h1 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,4rem)', fontWeight:400, letterSpacing:'-.02em', lineHeight:1.05, margin:'0 0 1rem'}}>{sector.name}.</h1>
             <p style={{fontSize:'1.2rem', lineHeight:1.55, color:T.inkSoft, marginBottom:'1.5rem', maxWidth:'46ch'}}>
@@ -144,14 +144,15 @@ function SectorPageV2({ id, T, nav }) {
       <section style={{maxWidth:1100, margin:'0 auto', padding:'2rem 1.5rem'}}>
         <div className="di-cols-1to2" style={{gap:'1rem'}}>
           {[prev, next].map((s,i)=>(
-            <button key={s.id} onClick={()=>nav('sectors/'+s.id)} style={{
+            <a key={s.id} href={'#/sectors/'+s.id} onClick={(e)=>{e.preventDefault();nav('sectors/'+s.id);}} style={{
+              display:'block', textDecoration:'none', color:'inherit',
               textAlign:i===0?'left':'right', background:T.bgAlt, border:`1px solid ${T.line}`,
               borderRadius:14, padding:'1.4rem 1.6rem', cursor:'pointer', fontFamily:T.sans
             }}>
               <div style={{fontFamily:T.mono, fontSize:'.7rem', color:T.inkMute, letterSpacing:'.1em', textTransform:'uppercase'}}>{i===0?'← Previous':'Next →'}</div>
               <div style={{fontFamily:T.font, fontSize:'1.5rem', fontWeight:500, marginTop:'.3rem'}}>{s.name}</div>
               <div style={{fontSize:'.85rem', color:T.inkSoft, marginTop:'.2rem'}}>{fmtP(s.drop,false)} since {s.dataStart||1990}</div>
-            </button>
+            </a>
           ))}
         </div>
       </section>
@@ -178,8 +179,9 @@ function SectorsIndexV2({ T, nav }) {
             const Hero = HEROES_P[s.id];
             return (
               <RevealP key={s.id} delay={i*70}>
-                <button onClick={()=>nav('sectors/'+s.id)} style={{
-                  textAlign:'left', display:'block', width:'100%', background:T.bg, border:`2px solid ${T.line}`,
+                <a href={'#/sectors/'+s.id} onClick={(e)=>{e.preventDefault();nav('sectors/'+s.id);}} style={{
+                  textAlign:'left', display:'block', width:'100%', textDecoration:'none', color:'inherit',
+                  background:T.bg, border:`2px solid ${T.line}`,
                   borderRadius:18, padding:'1.6rem', cursor:'pointer', fontFamily:T.sans,
                   transition:'transform .25s, border-color .25s'
                 }} onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-3px)';e.currentTarget.style.borderColor=T.accent;}} onMouseLeave={e=>{e.currentTarget.style.transform='none';e.currentTarget.style.borderColor=T.line;}}>
@@ -192,7 +194,7 @@ function SectorsIndexV2({ T, nav }) {
                     </div>
                     <div><Hero T={T}/></div>
                   </div>
-                </button>
+                </a>
               </RevealP>
             );
           })}

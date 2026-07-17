@@ -65,9 +65,15 @@ function SectorPageV2({
       gap: '2.5rem',
       alignItems: 'center'
     }
-  }, React.createElement("div", null, React.createElement("button", {
-    onClick: () => nav('sectors'),
+  }, React.createElement("div", null, React.createElement("a", {
+    href: "#/sectors",
+    onClick: e => {
+      e.preventDefault();
+      nav('sectors');
+    },
     style: {
+      display: 'inline-block',
+      textDecoration: 'none',
       background: 'transparent',
       border: 'none',
       fontFamily: T.mono,
@@ -413,10 +419,17 @@ function SectorPageV2({
     style: {
       gap: '1rem'
     }
-  }, [prev, next].map((s, i) => React.createElement("button", {
+  }, [prev, next].map((s, i) => React.createElement("a", {
     key: s.id,
-    onClick: () => nav('sectors/' + s.id),
+    href: '#/sectors/' + s.id,
+    onClick: e => {
+      e.preventDefault();
+      nav('sectors/' + s.id);
+    },
     style: {
+      display: 'block',
+      textDecoration: 'none',
+      color: 'inherit',
       textAlign: i === 0 ? 'left' : 'right',
       background: T.bgAlt,
       border: `1px solid ${T.line}`,
@@ -502,12 +515,18 @@ function SectorsIndexV2({
     return React.createElement(RevealP, {
       key: s.id,
       delay: i * 70
-    }, React.createElement("button", {
-      onClick: () => nav('sectors/' + s.id),
+    }, React.createElement("a", {
+      href: '#/sectors/' + s.id,
+      onClick: e => {
+        e.preventDefault();
+        nav('sectors/' + s.id);
+      },
       style: {
         textAlign: 'left',
         display: 'block',
         width: '100%',
+        textDecoration: 'none',
+        color: 'inherit',
         background: T.bg,
         border: `2px solid ${T.line}`,
         borderRadius: 18,

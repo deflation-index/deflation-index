@@ -267,8 +267,9 @@ function NavV2({ route, nav, T, mobile=false }) {
         justifyContent:'space-around',
       }}>
         {L.map(([k,lbl])=>(
-          <button key={k} onClick={()=>nav(k)} className="di-tap" style={{
+          <a key={k} href={'#/'+k} onClick={(e)=>{e.preventDefault();nav(k);}} className="di-tap" style={{
             border:'none', background:'transparent', color:page===k?T.accent:T.inkMute,
+            textDecoration:'none',
             fontFamily:T.sans, fontSize:'.7rem', fontWeight:600,
             display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:3,
             padding:'.4rem .25rem', cursor:'pointer', flex:'1 1 0', minWidth:0
@@ -278,7 +279,7 @@ function NavV2({ route, nav, T, mobile=false }) {
               background: page===k?T.accent:'transparent',
             }}/>
             {lbl}
-          </button>
+          </a>
         ))}
       </div>
     );
@@ -434,8 +435,8 @@ function HomeV2({ nav, T }) {
           </Reveal>
           <Reveal delay={220}>
             <div style={{display:'flex', gap:'.7rem', flexWrap:'wrap'}}>
-              <button onClick={()=>nav('explore')} className="di-tap-pill" style={{padding:'1rem 1.6rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>Explore the data →</button>
-              <button onClick={()=>nav('method')} className="di-tap-pill" style={{padding:'1rem 1.6rem', background:'transparent', color:T.ink, border:`1.5px solid ${T.ink}`, borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>How it's built</button>
+              <a href="#/explore" onClick={(e)=>{e.preventDefault();nav('explore');}} className="di-tap-pill" style={{display:'inline-flex', alignItems:'center', textDecoration:'none', padding:'1rem 1.6rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>Explore the data →</a>
+              <a href="#/method" onClick={(e)=>{e.preventDefault();nav('method');}} className="di-tap-pill" style={{display:'inline-flex', alignItems:'center', textDecoration:'none', padding:'1rem 1.6rem', background:'transparent', color:T.ink, border:`1.5px solid ${T.ink}`, borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>How it's built</a>
             </div>
           </Reveal>
         </div>
@@ -455,8 +456,9 @@ function HomeV2({ nav, T }) {
             const Hero = HEROES[s.id];
             return (
               <Reveal key={s.id} delay={i*80}>
-                <button onClick={()=>nav('sectors/'+s.id)} style={{
+                <a href={'#/sectors/'+s.id} onClick={(e)=>{e.preventDefault();nav('sectors/'+s.id);}} style={{
                   display:'block', width:'100%', textAlign:'left',
+                  textDecoration:'none', color:'inherit',
                   background:T.bg, border:`2px solid ${T.line}`, borderRadius:18,
                   padding:'.8rem .8rem 1.4rem', cursor:'pointer',
                   transition:'transform .25s, border-color .25s',
@@ -470,7 +472,7 @@ function HomeV2({ nav, T }) {
                     <div style={{fontFamily:T.font, fontSize:'1.25rem', fontWeight:500, marginBottom:'.2rem'}}>{s.name}</div>
                     <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.06em'}}>{s.metric} · {fmt2(s.drop,false)} since {s.dataStart||1990}</div>
                   </div>
-                </button>
+                </a>
               </Reveal>
             );
           })}
@@ -513,7 +515,7 @@ function HomeV2({ nav, T }) {
               <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>Three lines</div>
               <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>One chart that explains the gap.</h2>
             </div>
-            <button onClick={()=>nav('explore')} style={{background:T.bgAlt, border:`1px solid ${T.line}`, padding:'.6rem 1.1rem', borderRadius:999, fontFamily:T.sans, fontWeight:500, color:T.ink, cursor:'pointer'}}>Open in Explore →</button>
+            <a href="#/explore" onClick={(e)=>{e.preventDefault();nav('explore');}} style={{textDecoration:'none', background:T.bgAlt, border:`1px solid ${T.line}`, padding:'.6rem 1.1rem', borderRadius:999, fontFamily:T.sans, fontWeight:500, color:T.ink, cursor:'pointer'}}>Open in Explore →</a>
           </div>
         </Reveal>
         <Reveal delay={100}>
@@ -578,7 +580,7 @@ function HomeV2({ nav, T }) {
                 <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>Stories</div>
                 <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>Going deeper.</h2>
               </div>
-              <button onClick={()=>nav('stories')} style={{background:'transparent', border:`1px solid ${T.ink}`, padding:'.6rem 1.1rem', borderRadius:999, fontFamily:T.sans, fontWeight:500, color:T.ink, cursor:'pointer'}}>All stories →</button>
+              <a href="#/stories" onClick={(e)=>{e.preventDefault();nav('stories');}} style={{textDecoration:'none', background:'transparent', border:`1px solid ${T.ink}`, padding:'.6rem 1.1rem', borderRadius:999, fontFamily:T.sans, fontWeight:500, color:T.ink, cursor:'pointer'}}>All stories →</a>
             </div>
           </Reveal>
           <div className="di-cols-1to2" style={{gap:'1rem'}}>

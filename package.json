@@ -4,7 +4,8 @@
   "private": true,
   "description": "The Deflation Index — an open record of how technology made things radically cheaper, and where the abundance went.",
   "scripts": {
-    "build": "babel src --out-dir dist --extensions .jsx",
+    "build": "babel src --out-dir dist --extensions .jsx && node scripts/build_story_pages.cjs",
+    "build:stories": "node scripts/build_story_pages.cjs",
     "watch": "babel src --out-dir dist --extensions .jsx --watch",
     "test": "node scripts/smoke_test.cjs",
     "serve": "python3 -m http.server 8000"
@@ -14,6 +15,7 @@
     "@babel/core": "^7.24.0",
     "@babel/preset-react": "^7.24.0",
     "jsdom": "^24.0.0",
+    "marked": "^12.0.2",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   }

@@ -333,6 +333,8 @@ function DIChart({
     height: totalH,
     onMouseMove: onMove,
     onMouseLeave: onLeave,
+    role: "img",
+    "aria-label": "Line chart, 1990 to 2025, all series indexed to 100 in 1990: the Deflation Index falls 99.97% while M2 money supply rises to 676 and CPI rises to 250.",
     style: {
       display: 'block',
       overflow: 'visible',
