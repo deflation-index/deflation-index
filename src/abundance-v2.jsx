@@ -563,7 +563,6 @@ function HomeV2({ nav, T }) {
                 <div style={{paddingLeft:'.6rem'}}>
                   <div style={{fontFamily:T.font, fontSize:'1.25rem', fontWeight:500, marginBottom:'.4rem'}}>{t.title}</div>
                   <p style={{color:T.inkSoft, lineHeight:1.6, margin:0}}>{t.text}</p>
-                  {t.year === 2026 && <div style={{marginTop:'.5rem'}}><Dateline T={T} parts={['v4.0 shipped']}/></div>}
                 </div>
               </div>
             </Reveal>

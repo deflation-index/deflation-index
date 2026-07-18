@@ -1512,14 +1512,7 @@ function HomeV2({
       lineHeight: 1.6,
       margin: 0
     }
-  }, t.text), t.year === 2026 && React.createElement("div", {
-    style: {
-      marginTop: '.5rem'
-    }
-  }, React.createElement(Dateline, {
-    T: T,
-    parts: ['v4.0 shipped']
-  })))))))), React.createElement("section", {
+  }, t.text))))))), React.createElement("section", {
     style: {
       background: T.bgAlt,
       padding: '4rem 1.5rem'

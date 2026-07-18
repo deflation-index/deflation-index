@@ -3,48 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What the Deflation Index actually measures. — The Deflation Index</title>
-<meta name="description" content="Three lines on a chart. The technology input layer, measured — and nothing it can't defend.">
-<link rel="canonical" href="https://deflationindex.com/stories/what-is-deflation-index.html">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://deflationindex.com/stories/what-is-deflation-index.html">
-<meta property="og:title" content="What the Deflation Index actually measures. — The Deflation Index">
-<meta property="og:description" content="Three lines on a chart. The technology input layer, measured — and nothing it can't defend.">
+<title>How the Deflation Index is built: formula, weights, sources — The Deflation Index</title>
+<meta name="description" content="A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.">
+<link rel="canonical" href="https://deflationindex.com/method.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://deflationindex.com/method.html">
+<meta property="og:title" content="How the Deflation Index is built: formula, weights, sources — The Deflation Index">
+<meta property="og:description" content="A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.">
 <meta property="og:image" content="https://deflationindex.com/assets/logo/marks/di_og_card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="What the Deflation Index actually measures. — The Deflation Index">
-<meta name="twitter:description" content="Three lines on a chart. The technology input layer, measured — and nothing it can't defend.">
+<meta name="twitter:title" content="How the Deflation Index is built: formula, weights, sources — The Deflation Index">
+<meta name="twitter:description" content="A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.">
 <meta name="twitter:image" content="https://deflationindex.com/assets/logo/marks/di_og_card.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What the Deflation Index actually measures.",
-  "description": "Three lines on a chart. The technology input layer, measured — and nothing it can't defend.",
-  "url": "https://deflationindex.com/stories/what-is-deflation-index.html",
-  "mainEntityOfPage": "https://deflationindex.com/stories/what-is-deflation-index.html",
-  "image": "https://deflationindex.com/assets/logo/marks/di_og_card.png",
-  "datePublished": "2026-07-13",
-  "dateModified": "2026-07-18",
-  "author": {
-    "@type": "Organization",
-    "name": "Deflation Index LLC",
-    "url": "https://deflationindex.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Deflation Index LLC",
-    "url": "https://deflationindex.com"
-  },
+  "@type": "WebPage",
+  "name": "How the Deflation Index is built",
+  "url": "https://deflationindex.com/method.html",
+  "description": "A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "The Deflation Index",
     "url": "https://deflationindex.com"
-  },
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "isAccessibleForFree": true
+  }
 }
 </script>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -113,36 +97,39 @@
     <a class="back" href="/">Interactive site →</a>
   </div>
 </nav>
-<main class="wrap">
+<main class="wrap-wide">
   <article>
-    <div class="kickrow"><span class="kicker">Explainer</span><span class="mins">4 min read</span></div>
-    <h1>What the Deflation Index actually measures.</h1>
-    <p class="dek">Three lines on a chart. The technology input layer, measured — and nothing it can't defend.</p>
+    <div class="kickrow"><span class="kicker">Method · v4.0</span><span class="mins"><a href="/#/method" style="text-decoration:none;color:inherit">full method, interactive →</a></span></div>
+    <h1>How it's built.</h1>
+    <p class="dek">One number from four series: a weighted geometric mean of technology cost-per-performance, indexed to 1990 = 100, compared against M2 money supply and CPI.</p>
     <div class="di-prose">
-<p>Three lines on a chart.</p>
-<p>The first line goes down. It&#39;s a weighted average of four technology costs that fell, year after year, for as long as anyone has measured them: computing, communications, energy, batteries. We call it the Deflation Index. In 1990 the index was 100. By 2025 it was 0.03. Whatever was in that basket costs about a three-thousandth of what it did when the Cold War ended.</p>
-<p>The second line goes up. It&#39;s M2 — the broad money supply tracked by the Federal Reserve. Same span. Same starting point. In 1990, M2 was about $3.3 trillion. By 2025 it was $22 trillion. On a 1990=100 scale, M2 climbs from 100 to 676.</p>
-<p>The third line also goes up, but more slowly. CPI — the prices ordinary people pay for ordinary things — rose 150% over those thirty-five years, an annual average of about 2.7%.</p>
-<p>That&#39;s the chart. Three numbers: −99.97, +576, +150. Hold those in your head.</p>
-<h2>What the index is, and isn&#39;t</h2>
-<p>The Deflation Index is <strong>not</strong> a counter-CPI. It does not measure the cost of living. It does not include rent, healthcare, child care, college tuition, or a coffee. It deliberately excludes most of what you spend money on.</p>
-<p>What it measures is narrower and more specific: the <strong>technology input layer</strong> — the raw units of capability that everything else is built from. A billion calculations per second. A gigabyte moved across a network. A kilowatt-hour from the sun. A kilowatt-hour stored in a battery. These are the commodities where engineering progress, economies of scale, and a great deal of capital have driven the cost toward zero.</p>
-<p>We measure inputs, not products. Not your phone bill — the wholesale cost of moving your bits. Not your electric bill — the cost of generating the electron. The distance between those two numbers is not noise; it&#39;s the subject of this entire project.</p>
-<h2>Where the data comes from</h2>
-<p>Every series traces to a published source: the Federal Reserve and BLS for money and prices, IRENA for solar, BloombergNEF for batteries, market surveys for compute and connectivity. Each sector begins when defensible measurement begins — batteries in 2010, when the first mass-market packs shipped — rather than stretching back to years nobody measured. We would rather publish a shorter honest series than a longer invented one.</p>
-<p>All of it — data, methodology, calculations, and our own corrections — is on GitHub. If a number on this site can&#39;t be traced to a source, that&#39;s a bug, and we&#39;d like to hear about it.</p>
-<h2>Why the gap matters</h2>
-<p>If technology made the things in this basket 99.97% cheaper, the abundance went <em>somewhere</em>. It didn&#39;t all show up as lower CPI — CPI rose 150%. It didn&#39;t all show up in wages — median real wages grew about 30% over the same period. It didn&#39;t disappear.</p>
-<p>Most of it was absorbed by sectors <em>not</em> in the index: housing, healthcare, education, services. The places where productivity is hard, supply is constrained, and prices rose faster than the dollar fell. The gap between the falling line and the rising lines is, in a literal sense, where the abundance went.</p>
-<p>That&#39;s the question this site is built around. Not &quot;is inflation real&quot; — it is. Not &quot;is technology saving us&quot; — partially. The narrower, more honest question: <strong>the parts of the economy that did what technology promised — what happened to those gains?</strong></p>
-
+      <h2>The formula</h2>
+      <p>The index is a weighted <strong>geometric</strong> mean: DI<sub>t</sub> = ∏ S<sub>i,t</sub><sup>w<sub>i</sub></sup>, where each S<sub>i,t</sub> is a sector cost series indexed to 100 at its 1990 base and each w<sub>i</sub> is its weight. Geometric, not arithmetic, because the series span orders of magnitude — an arithmetic average quietly becomes a chart of its slowest component. Late-start sectors hold at 100 until their first measured year. The arithmetic variant is published alongside as a sensitivity.</p>
+      <h2>The four series</h2>
+    </div>
+    <table class="di">
+      <caption>Sectors, weights, and sources (v4.0)</caption>
+      <thead><tr><th>Sector</th><th>Metric</th><th>Weight</th><th>Starts</th><th>Sources</th></tr></thead>
+      <tbody>
+      <tr><td><a href="/sectors/computing.html">Computing</a></td><td>compute · storage · memory</td><td>29.41%</td><td>1990</td><td>Cost-of-computing record, Komorowski / Backblaze, McCallum</td></tr>
+      <tr><td><a href="/sectors/communications.html">Communications</a></td><td>$/Mbps·mo transit</td><td>23.53%</td><td>1998</td><td>DrPeering (Norton), TeleGeography</td></tr>
+      <tr><td><a href="/sectors/energy.html">Energy</a></td><td>$/kWh solar LCOE</td><td>29.41%</td><td>2010</td><td>IRENA</td></tr>
+      <tr><td><a href="/sectors/transportation.html">Transportation</a></td><td>$/kWh Li-ion pack</td><td>17.65%</td><td>2010</td><td>BloombergNEF, IEA</td></tr>
+      </tbody>
+    </table>
+    <div class="di-prose">
+      <h2>The three lines</h2>
+      <p>The index is drawn against <strong>M2</strong> (FRED, M2SL) and <strong>CPI-U</strong> (BLS, CPIAUCSL), both indexed to 1990 = 100. Through 2025: technology -99.97%, M2 +576%, CPI +150%. The spread — 526 points — is the abundance gap.</p>
+      <h2>The v4.0 correction</h2>
+      <p>In 2026 we audited our own index and found the headline was too small: arithmetic averaging muted the fastest series, some early anchors were back-extrapolations rather than measurements, and some labels didn't match their series. v4.0 rebuilt the index on three rules — every series is the single metric its label claims, every datapoint traces to a published source, every series starts when defensible measurement starts. <a href="/stories/the-honest-index.html">The full account is here</a>; the audit memo is in <a href="https://github.com/deflation-index/deflation-index/tree/main/docs/methodology">the repository</a>, next to the data it criticizes.</p>
+      <h2>What it isn't</h2>
+      <p>Not a counter-CPI, not a cost-of-living measure, not investment advice. It measures the technology input layer — raw units of capability — and deliberately excludes housing, healthcare, education, and everything else you actually spend most of your money on. <a href="/stories/what-is-deflation-index.html">What it actually measures</a> covers the distinction.</p>
     </div>
   </article>
   <footer class="essays">
     <div class="label">More from the Deflation Index</div>
     <ul>
       <li><a href="/sectors/">The four sectors</a></li>
-      <li><a href="/method.html">How the index is built</a></li>
       <li><a href="/stories/what-is-deflation-index.html">What the Deflation Index actually measures.</a></li>
       <li><a href="/stories/the-abundance-gap.html">The Abundance Gap: tech savings, minus inflation.</a></li>
       <li><a href="/stories/the-honest-index.html">We audited our own index. The headline was too small.</a></li>
