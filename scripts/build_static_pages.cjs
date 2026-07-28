@@ -360,7 +360,7 @@ function buildMethod() {
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'WebPage',
     name: 'How the Deflation Index is built', url,
-    description: 'A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.',
+    description: 'A weighted geometric mean of four technology-cost series, 1990–2025, indexed to 1990=100 with CPI as reference. Formula, weights, sources, and the v4.0 audit.',
     isPartOf: { '@type': 'WebSite', name: 'The Deflation Index', url: ORIGIN },
   };
   const weightRows = DI.sectors.map(s =>
@@ -369,7 +369,7 @@ function buildMethod() {
   const body = `  <article>
     <div class="kickrow"><span class="kicker">Method · v4.0</span><span class="mins"><a href="/#/method" style="text-decoration:none;color:inherit">full method, interactive →</a></span></div>
     <h1>How it's built.</h1>
-    <p class="dek">One number from four series: a weighted geometric mean of technology cost-per-performance, indexed to 1990 = 100, compared against M2 money supply and CPI.</p>
+    <p class="dek">One number from four series: a weighted geometric mean of technology cost-per-performance, indexed to 1990 = 100, with CPI as the reference line.</p>
     <div class="di-prose">
       <h2>The formula</h2>
       <p>The index is a weighted <strong>geometric</strong> mean: DI<sub>t</sub> = ∏ S<sub>i,t</sub><sup>w<sub>i</sub></sup>, where each S<sub>i,t</sub> is a sector cost series indexed to 100 at its 1990 base and each w<sub>i</sub> is its weight. Geometric, not arithmetic, because the series span orders of magnitude — an arithmetic average quietly becomes a chart of its slowest component. Late-start sectors hold at 100 until their first measured year. The arithmetic variant is published alongside as a sensitivity.</p>
@@ -383,8 +383,8 @@ ${weightRows}
       </tbody>
     </table>
     <div class="di-prose">
-      <h2>The three lines</h2>
-      <p>The index is drawn against <strong>M2</strong> (FRED, M2SL) and <strong>CPI-U</strong> (BLS, CPIAUCSL), both indexed to 1990 = 100. Through 2025: technology ${H.di_2025_cumulative_pct}%, M2 +${Math.round(H.m2_2025_cumulative_pct)}%, CPI +${Math.round(H.cpi_2025_cumulative_pct)}%. The spread — ${H.abundance_gap_2025_pp} points — is the abundance gap.</p>
+      <h2>The line, and its reference</h2>
+      <p>The index is drawn against <strong>CPI-U</strong> (BLS, CPIAUCSL), indexed to 1990 = 100, so a nominal-dollar series has its context. Through 2025: technology ${H.di_2025_cumulative_pct}%, CPI +${Math.round(H.cpi_2025_cumulative_pct)}%. <strong>M2</strong> (FRED, M2SL) is published in the data for anyone who wants the monetary comparison — <a href="/stories/the-abundance-gap.html">the argument that comparison suggests is an essay</a>, kept separate from the measurement.</p>
       <h2>The v4.0 correction</h2>
       <p>In 2026 we audited our own index and found the headline was too small: arithmetic averaging muted the fastest series, some early anchors were back-extrapolations rather than measurements, and some labels didn't match their series. v4.0 rebuilt the index on three rules — every series is the single metric its label claims, every datapoint traces to a published source, every series starts when defensible measurement starts. <a href="/stories/the-honest-index.html">The full account is here</a>; the audit memo is in <a href="https://github.com/deflation-index/deflation-index/tree/main/docs/methodology">the repository</a>, next to the data it criticizes.</p>
       <h2>What it isn't</h2>
@@ -393,7 +393,7 @@ ${weightRows}
   </article>
 ${siteFooter([`      <li><a href="/sectors/">The four sectors</a></li>`])}`;
   fs.writeFileSync(path.join(ROOT, 'method.html'),
-    shell({ title: "How the Deflation Index is built: formula, weights, sources — The Deflation Index", description: 'A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.', canonical: url, jsonld, body, wide: true }));
+    shell({ title: "How the Deflation Index is built: formula, weights, sources — The Deflation Index", description: 'A weighted geometric mean of four technology-cost series, 1990–2025, indexed to 1990=100 with CPI as reference. Formula, weights, sources, and the v4.0 audit.', canonical: url, jsonld, body, wide: true }));
   console.log('built method.html');
 }
 

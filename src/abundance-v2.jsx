@@ -399,14 +399,11 @@ function HomeV2({ nav, T }) {
   const H = DI2.headline;
   const isMobile = window.AbundanceV2UseIsMobile ? window.AbundanceV2UseIsMobile() : false;
   // 2025 measured set (v4.0-rc) — single source of truth is data.js headline.
-  const diPct  = Math.abs(H.di_2025_cumulative_pct);   // 99.97
-  const m2Pct  = Math.round(H.m2_2025_cumulative_pct); // 576
-  const cpiPct = Math.round(H.cpi_2025_cumulative_pct);// 150
-  const gapPp  = H.abundance_gap_2025_pp;              // 526
+  const diPct    = Math.abs(H.di_2025_cumulative_pct);   // 99.97
+  const diAnnual = Math.abs(H.di_annual_pct);            // 20.37
+  const cpiPct   = Math.round(H.cpi_2025_cumulative_pct);// 150 (quiet reference)
   const [diRef, diVal] = useCountUp(diPct, {decimals:2, suffix:'%'});
-  const [m2Ref, m2Val] = useCountUp(m2Pct, {suffix:'%'});
-  const [cpiRef, cpiVal] = useCountUp(cpiPct, {suffix:'%'});
-  const [gapRef, gapVal] = useCountUp(gapPp, {suffix:'pp'});
+  const [annRef, annVal] = useCountUp(diAnnual, {decimals:1, suffix:'%'});
 
   return (
     <div style={{background:T.bg, color:T.ink, fontFamily:T.sans}}>
@@ -425,12 +422,12 @@ function HomeV2({ nav, T }) {
           <Reveal delay={80}>
             <h1 style={{fontFamily:T.font, fontWeight:400, fontSize:'clamp(2rem,5.8vw,4.8rem)', lineHeight:1.05, letterSpacing:'-.025em', margin:'0 0 1.6rem'}}>
               Technology got <span style={{fontStyle:'italic', color:T.accent, fontWeight:500}}>radically cheaper.</span><br/>
-              Here's where the abundance went.
+              We measured exactly how much.
             </h1>
           </Reveal>
           <Reveal delay={150}>
             <p style={{fontSize:'1.25rem', lineHeight:1.55, color:T.inkSoft, maxWidth:'58ch', marginBottom:'2rem'}}>
-              Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong style={{color:T.ink}}>{diPct.toFixed(2)}%</strong>. Money supply rose <strong style={{color:T.ink}}>{m2Pct}%</strong>. Consumer prices rose <strong style={{color:T.ink}}>{cpiPct}%</strong>. The Deflation Index puts all three on one chart so the divergence is visible at a glance.
+              Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong style={{color:T.ink}}>{diPct.toFixed(2)}%</strong> — while the prices people actually pay rose <strong style={{color:T.ink}}>{cpiPct}%</strong>. The Deflation Index measures the collapse: one sourced metric per sector, one honest number.
             </p>
           </Reveal>
           <Reveal delay={220}>
@@ -479,25 +476,24 @@ function HomeV2({ nav, T }) {
         </div>
       </section>
 
-      {/* THE FOUR NUMBERS */}
+      {/* THE ONE NUMBER — three views of the same measurement */}
       <section style={{background:T.bgDeep, color:T.bg, padding:'5rem 1.5rem', marginTop:'4rem', position:'relative', overflow:'hidden'}}>
         <div style={{maxWidth:1100, margin:'0 auto'}}>
           <Reveal>
             <div style={{textAlign:'center', marginBottom:'3rem'}}>
               <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.7rem'}}>1990 → 2025</div>
-              <h2 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0, color:T.bg}}>Four numbers, thirty-five years.</h2>
+              <h2 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0, color:T.bg}}>One number, thirty-five years.</h2>
             </div>
           </Reveal>
-          <div className="di-cols-1to4" style={{gap:'2rem'}}>
+          <div className="di-cols-1to3" style={{gap:'2rem'}}>
             {[
-              {label:'Tech got cheaper', sym:'−', color:T.accent2, ref:diRef, anim:diVal, sub:'Deflation Index, v4 geometric'},
-              {label:'Money supply', sym:'+', color:T.accent, ref:m2Ref, anim:m2Val, sub:'M2, FRED measured'},
-              {label:'Consumer prices', sym:'+', color:'#FFFFFF', ref:cpiRef, anim:cpiVal, sub:'CPI-U, BLS measured'},
-              {label:'The abundance gap', sym:'', color:T.accent, ref:gapRef, anim:gapVal, sub:'|Tech| + Money − Prices'},
+              {label:'Cumulative', sym:'−', color:T.accent2, ref:diRef, anim:diVal, sub:'since 1990 · v4 geometric, measured'},
+              {label:'Annual rate', sym:'−', color:T.accent, ref:annRef, anim:annVal, sub:'per year, compounding, every year'},
+              {label:'Index level', sym:'', color:'#FFFFFF', ref:null, anim:'100 → 0.034', sub:'1990 = 100 · 2025 measured'},
             ].map((s,i)=>(
               <div key={i} ref={s.ref} style={{textAlign:'left', borderTop:`2px solid ${s.color}`, paddingTop:'1.2rem'}}>
                 <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,0.55)', marginBottom:'.6rem'}}>{s.label}</div>
-                <div style={{fontFamily:T.font, fontSize:'clamp(2.6rem,5vw,4rem)', lineHeight:.95, color:s.color, fontWeight:500, letterSpacing:'-.02em'}}>
+                <div style={{fontFamily:T.font, fontSize:'clamp(2.4rem,4.5vw,3.6rem)', lineHeight:.95, color:s.color, fontWeight:500, letterSpacing:'-.02em'}}>
                   {s.sym}{s.anim}
                 </div>
                 <div style={{fontSize:'.85rem', color:'rgba(255,255,255,0.55)', marginTop:'.5rem'}}>{s.sub}</div>
@@ -512,15 +508,21 @@ function HomeV2({ nav, T }) {
         <Reveal>
           <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:'1.4rem', flexWrap:'wrap', gap:'1rem'}}>
             <div>
-              <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>Three lines</div>
-              <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>One chart that explains the gap.</h2>
+              <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>The line</div>
+              <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>Thirty-five years, one direction.</h2>
             </div>
             <a href="#/explore" onClick={(e)=>{e.preventDefault();nav('explore');}} style={{textDecoration:'none', background:T.bgAlt, border:`1px solid ${T.line}`, padding:'.6rem 1.1rem', borderRadius:999, fontFamily:T.sans, fontWeight:500, color:T.ink, cursor:'pointer'}}>Open in Explore →</a>
           </div>
         </Reveal>
         <Reveal delay={100}>
           <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:20, padding: isMobile ? '1.1rem' : '1.8rem'}}>
-            <DIChart theme={T} height={isMobile ? 300 : 420} annotations={[{year:2008, label:'GFC'}, {year:2020, label:'M2 +24%'}, {year:2025, label:'v4.0'}]}/>
+            <DIChart theme={T} height={isMobile ? 300 : 420}
+              seriesOverride={[
+                {key:'di',  label:'Deflation Index', color:T.di,  data:DI2.di},
+                {key:'cpi', label:'CPI (reference)', color:T.cpi, data:DI2.cpi, dashed:true},
+              ]}
+              ariaLabel="Line chart, 1990 to 2025, indexed to 100 in 1990: the Deflation Index falls 99.97% to 0.03; CPI, drawn as a reference, rises to 250."
+              annotations={[{year:1998, label:'transit measured'}, {year:2010, label:'solar + batteries'}, {year:2025, label:'v4.0'}]}/>
           </div>
         </Reveal>
       </section>

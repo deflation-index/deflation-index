@@ -15,7 +15,8 @@ function DIChart({
   defaultScale = 'log',
   compact = false,
   seriesOverride = null,
-  annotations = []
+  annotations = [],
+  ariaLabel = "Line chart, 1990 to 2025, all series indexed to 100 in 1990: the Deflation Index falls 99.97% while M2 money supply rises to 676 and CPI rises to 250."
 }) {
   const DI = window.DI;
   const T = {
@@ -334,7 +335,7 @@ function DIChart({
     onMouseMove: onMove,
     onMouseLeave: onLeave,
     role: "img",
-    "aria-label": "Line chart, 1990 to 2025, all series indexed to 100 in 1990: the Deflation Index falls 99.97% while M2 money supply rises to 676 and CPI rises to 250.",
+    "aria-label": ariaLabel,
     style: {
       display: 'block',
       overflow: 'visible',

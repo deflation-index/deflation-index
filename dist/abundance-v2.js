@@ -960,21 +960,15 @@ function HomeV2({
   const H = DI2.headline;
   const isMobile = window.AbundanceV2UseIsMobile ? window.AbundanceV2UseIsMobile() : false;
   const diPct = Math.abs(H.di_2025_cumulative_pct);
-  const m2Pct = Math.round(H.m2_2025_cumulative_pct);
+  const diAnnual = Math.abs(H.di_annual_pct);
   const cpiPct = Math.round(H.cpi_2025_cumulative_pct);
-  const gapPp = H.abundance_gap_2025_pp;
   const [diRef, diVal] = useCountUp(diPct, {
     decimals: 2,
     suffix: '%'
   });
-  const [m2Ref, m2Val] = useCountUp(m2Pct, {
+  const [annRef, annVal] = useCountUp(diAnnual, {
+    decimals: 1,
     suffix: '%'
-  });
-  const [cpiRef, cpiVal] = useCountUp(cpiPct, {
-    suffix: '%'
-  });
-  const [gapRef, gapVal] = useCountUp(gapPp, {
-    suffix: 'pp'
   });
   return React.createElement("div", {
     style: {
@@ -1034,7 +1028,7 @@ function HomeV2({
       color: T.accent,
       fontWeight: 500
     }
-  }, "radically cheaper."), React.createElement("br", null), "Here's where the abundance went.")), React.createElement(Reveal, {
+  }, "radically cheaper."), React.createElement("br", null), "We measured exactly how much.")), React.createElement(Reveal, {
     delay: 150
   }, React.createElement("p", {
     style: {
@@ -1048,15 +1042,11 @@ function HomeV2({
     style: {
       color: T.ink
     }
-  }, diPct.toFixed(2), "%"), ". Money supply rose ", React.createElement("strong", {
+  }, diPct.toFixed(2), "%"), " \u2014 while the prices people actually pay rose ", React.createElement("strong", {
     style: {
       color: T.ink
     }
-  }, m2Pct, "%"), ". Consumer prices rose ", React.createElement("strong", {
-    style: {
-      color: T.ink
-    }
-  }, cpiPct, "%"), ". The Deflation Index puts all three on one chart so the divergence is visible at a glance.")), React.createElement(Reveal, {
+  }, cpiPct, "%"), ". The Deflation Index measures the collapse: one sourced metric per sector, one honest number.")), React.createElement(Reveal, {
     delay: 220
   }, React.createElement("div", {
     style: {
@@ -1243,39 +1233,32 @@ function HomeV2({
       margin: 0,
       color: T.bg
     }
-  }, "Four numbers, thirty-five years."))), React.createElement("div", {
-    className: "di-cols-1to4",
+  }, "One number, thirty-five years."))), React.createElement("div", {
+    className: "di-cols-1to3",
     style: {
       gap: '2rem'
     }
   }, [{
-    label: 'Tech got cheaper',
+    label: 'Cumulative',
     sym: '−',
     color: T.accent2,
     ref: diRef,
     anim: diVal,
-    sub: 'Deflation Index, v4 geometric'
+    sub: 'since 1990 · v4 geometric, measured'
   }, {
-    label: 'Money supply',
-    sym: '+',
+    label: 'Annual rate',
+    sym: '−',
     color: T.accent,
-    ref: m2Ref,
-    anim: m2Val,
-    sub: 'M2, FRED measured'
+    ref: annRef,
+    anim: annVal,
+    sub: 'per year, compounding, every year'
   }, {
-    label: 'Consumer prices',
-    sym: '+',
-    color: '#FFFFFF',
-    ref: cpiRef,
-    anim: cpiVal,
-    sub: 'CPI-U, BLS measured'
-  }, {
-    label: 'The abundance gap',
+    label: 'Index level',
     sym: '',
-    color: T.accent,
-    ref: gapRef,
-    anim: gapVal,
-    sub: '|Tech| + Money − Prices'
+    color: '#FFFFFF',
+    ref: null,
+    anim: '100 → 0.034',
+    sub: '1990 = 100 · 2025 measured'
   }].map((s, i) => React.createElement("div", {
     key: i,
     ref: s.ref,
@@ -1296,7 +1279,7 @@ function HomeV2({
   }, s.label), React.createElement("div", {
     style: {
       fontFamily: T.font,
-      fontSize: 'clamp(2.6rem,5vw,4rem)',
+      fontSize: 'clamp(2.4rem,4.5vw,3.6rem)',
       lineHeight: .95,
       color: s.color,
       fontWeight: 500,
@@ -1332,7 +1315,7 @@ function HomeV2({
       textTransform: 'uppercase',
       marginBottom: '.4rem'
     }
-  }, "Three lines"), React.createElement("h2", {
+  }, "The line"), React.createElement("h2", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2rem,4vw,2.8rem)',
@@ -1340,7 +1323,7 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: 0
     }
-  }, "One chart that explains the gap.")), React.createElement("a", {
+  }, "Thirty-five years, one direction.")), React.createElement("a", {
     href: "#/explore",
     onClick: e => {
       e.preventDefault();
@@ -1369,12 +1352,25 @@ function HomeV2({
   }, React.createElement(DIChart, {
     theme: T,
     height: isMobile ? 300 : 420,
-    annotations: [{
-      year: 2008,
-      label: 'GFC'
+    seriesOverride: [{
+      key: 'di',
+      label: 'Deflation Index',
+      color: T.di,
+      data: DI2.di
     }, {
-      year: 2020,
-      label: 'M2 +24%'
+      key: 'cpi',
+      label: 'CPI (reference)',
+      color: T.cpi,
+      data: DI2.cpi,
+      dashed: true
+    }],
+    ariaLabel: "Line chart, 1990 to 2025, indexed to 100 in 1990: the Deflation Index falls 99.97% to 0.03; CPI, drawn as a reference, rises to 250.",
+    annotations: [{
+      year: 1998,
+      label: 'transit measured'
+    }, {
+      year: 2010,
+      label: 'solar + batteries'
     }, {
       year: 2025,
       label: 'v4.0'

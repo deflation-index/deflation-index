@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How the Deflation Index is built: formula, weights, sources — The Deflation Index</title>
-<meta name="description" content="A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.">
+<meta name="description" content="A weighted geometric mean of four technology-cost series, 1990–2025, indexed to 1990=100 with CPI as reference. Formula, weights, sources, and the v4.0 audit.">
 <link rel="canonical" href="https://deflationindex.com/method.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://deflationindex.com/method.html">
 <meta property="og:title" content="How the Deflation Index is built: formula, weights, sources — The Deflation Index">
-<meta property="og:description" content="A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.">
+<meta property="og:description" content="A weighted geometric mean of four technology-cost series, 1990–2025, indexed to 1990=100 with CPI as reference. Formula, weights, sources, and the v4.0 audit.">
 <meta property="og:image" content="https://deflationindex.com/assets/logo/marks/di_og_card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How the Deflation Index is built: formula, weights, sources — The Deflation Index">
-<meta name="twitter:description" content="A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.">
+<meta name="twitter:description" content="A weighted geometric mean of four technology-cost series, 1990–2025, indexed to 1990=100 with CPI as reference. Formula, weights, sources, and the v4.0 audit.">
 <meta name="twitter:image" content="https://deflationindex.com/assets/logo/marks/di_og_card.png">
 <script type="application/ld+json">
 {
@@ -23,7 +23,7 @@
   "@type": "WebPage",
   "name": "How the Deflation Index is built",
   "url": "https://deflationindex.com/method.html",
-  "description": "A weighted geometric mean of four technology-cost series, 1990–2025, compared against M2 and CPI. Formula, weights, sources, and the v4.0 audit.",
+  "description": "A weighted geometric mean of four technology-cost series, 1990–2025, indexed to 1990=100 with CPI as reference. Formula, weights, sources, and the v4.0 audit.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "The Deflation Index",
@@ -101,7 +101,7 @@
   <article>
     <div class="kickrow"><span class="kicker">Method · v4.0</span><span class="mins"><a href="/#/method" style="text-decoration:none;color:inherit">full method, interactive →</a></span></div>
     <h1>How it's built.</h1>
-    <p class="dek">One number from four series: a weighted geometric mean of technology cost-per-performance, indexed to 1990 = 100, compared against M2 money supply and CPI.</p>
+    <p class="dek">One number from four series: a weighted geometric mean of technology cost-per-performance, indexed to 1990 = 100, with CPI as the reference line.</p>
     <div class="di-prose">
       <h2>The formula</h2>
       <p>The index is a weighted <strong>geometric</strong> mean: DI<sub>t</sub> = ∏ S<sub>i,t</sub><sup>w<sub>i</sub></sup>, where each S<sub>i,t</sub> is a sector cost series indexed to 100 at its 1990 base and each w<sub>i</sub> is its weight. Geometric, not arithmetic, because the series span orders of magnitude — an arithmetic average quietly becomes a chart of its slowest component. Late-start sectors hold at 100 until their first measured year. The arithmetic variant is published alongside as a sensitivity.</p>
@@ -118,8 +118,8 @@
       </tbody>
     </table>
     <div class="di-prose">
-      <h2>The three lines</h2>
-      <p>The index is drawn against <strong>M2</strong> (FRED, M2SL) and <strong>CPI-U</strong> (BLS, CPIAUCSL), both indexed to 1990 = 100. Through 2025: technology -99.97%, M2 +576%, CPI +150%. The spread — 526 points — is the abundance gap.</p>
+      <h2>The line, and its reference</h2>
+      <p>The index is drawn against <strong>CPI-U</strong> (BLS, CPIAUCSL), indexed to 1990 = 100, so a nominal-dollar series has its context. Through 2025: technology -99.97%, CPI +150%. <strong>M2</strong> (FRED, M2SL) is published in the data for anyone who wants the monetary comparison — <a href="/stories/the-abundance-gap.html">the argument that comparison suggests is an essay</a>, kept separate from the measurement.</p>
       <h2>The v4.0 correction</h2>
       <p>In 2026 we audited our own index and found the headline was too small: arithmetic averaging muted the fastest series, some early anchors were back-extrapolations rather than measurements, and some labels didn't match their series. v4.0 rebuilt the index on three rules — every series is the single metric its label claims, every datapoint traces to a published source, every series starts when defensible measurement starts. <a href="/stories/the-honest-index.html">The full account is here</a>; the audit memo is in <a href="https://github.com/deflation-index/deflation-index/tree/main/docs/methodology">the repository</a>, next to the data it criticizes.</p>
       <h2>What it isn't</h2>

@@ -106,11 +106,11 @@ window.DI = (function(){
   };
 
   const timeline = [
-    {year:1990, title:'The baseline', text:'M2 at $3.3T. A GFLOP of compute costs roughly a million dollars; a gigabyte of disk, $9,000. Solar power is a novelty for calculators and satellites.'},
+    {year:1990, title:'The baseline', text:'A GFLOP of compute costs roughly a million dollars; a gigabyte of disk, $9,000. Solar power is a novelty for calculators and satellites. Everything in the basket starts at 100.'},
     {year:2000, title:'Computing bends the curve', text:"The dot-com boom wires the world. A commodity cluster delivers a GFLOPS for $640. A gigabyte of disk: $10. Wholesale internet transit, first surveyed in 1998 at $1,200/Mbps, is already at $675."},
-    {year:2010, title:'Measurement broadens', text:'IRENA starts tracking solar ($0.28/kWh in 2010 dollars). BloombergNEF runs its first battery survey ($1,160/kWh pack). Two more sectors become measurable. M2: $8.7T.'},
-    {year:2020, title:'The monetary break', text:'M2 expands 24% in one year — the largest peacetime expansion in U.S. history. Tech deflation keeps compounding underneath; battery packs pause near $137.'},
-    {year:2025, title:'Where the lines end up', text:'Thirty-five years on: technology down 99.97%, money supply up 576%, consumer prices up 150%. Three lines that started at the same point, now 526 points apart. That spread — the abundance gap — is what this site measures.'},
+    {year:2010, title:'Measurement broadens', text:'IRENA starts tracking solar ($0.28/kWh in 2010 dollars). BloombergNEF runs its first battery survey ($1,160/kWh pack). Two more sectors become measurable.'},
+    {year:2020, title:'The stress test', text:'Pandemic supply shocks hit every sector at once. Battery packs stall near $137 for three years; solar\'s decline flattens. The curve bends — then resumes: packs fall to $115 by 2024.'},
+    {year:2025, title:'Where the line ends up', text:'Thirty-five years on, the index reads 0.03: the technology basket costs a three-thousandth of its 1990 price — roughly 20% cheaper every year, for thirty-five years straight. No other measured price series has done this.'},
     {year:2026, title:'The curve meets resistance', text:'For the first time in the record, parts of the curve turn up: AI demand pushes memory and storage prices higher, and solar\'s decline has flattened. Batteries keep falling — packs under $100/kWh. Whether technology deflation continues is now a live question. We\'ll report the answer either way.'}
   ];
 

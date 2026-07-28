@@ -500,15 +500,15 @@ as a sensitivity in data/v4/draft_output.json.`}</pre>
         </RevealP>
 
         <RevealP>
-          <h2 style={sectionTitle}>The three lines</h2>
+          <h2 style={sectionTitle}>The line, and its reference</h2>
           <p style={para}>
-            <strong style={{color:T.ink}}>Deflation Index (DI):</strong> the weighted geometric mean above. A value of 0.03 in 2025 means the basket costs three-hundredths of one percent of its 1990 price — a roughly 3,300-fold decline.
+            <strong style={{color:T.ink}}>Deflation Index (DI):</strong> the weighted geometric mean above — the measurement this site exists for. A value of 0.03 in 2025 means the basket costs three-hundredths of one percent of its 1990 price — a roughly 3,300-fold decline.
           </p>
           <p style={para}>
-            <strong style={{color:T.ink}}>M2:</strong> the broad money supply, from the U.S. Federal Reserve via FRED (series M2SL). Indexed to 1990 = 100.
+            <strong style={{color:T.ink}}>CPI (reference):</strong> the Consumer Price Index for All Urban Consumers, from the Bureau of Labor Statistics (CPIAUCSL), indexed to 1990 = 100. Drawn alongside the index so a nominal-dollar series has its context: it answers "compared to what?" before you have to ask.
           </p>
           <p style={para}>
-            <strong style={{color:T.ink}}>CPI:</strong> the Consumer Price Index for All Urban Consumers, from the Bureau of Labor Statistics (CPIAUCSL). Indexed to 1990 = 100.
+            <strong style={{color:T.ink}}>M2:</strong> the broad money supply (FRED, M2SL) is published in our data and available in <a href="#/explore" style={{color:T.accent}}>Explore</a> for anyone who wants the monetary comparison. What that comparison suggests is an essay, not a headline — <a href="#/stories/the-abundance-gap" style={{color:T.accent}}>we make that argument here</a>, separately from the measurement.
           </p>
         </RevealP>
 

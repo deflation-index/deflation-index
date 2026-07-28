@@ -66,11 +66,12 @@ setTimeout(() => {
   const H = w.DI.headline;
 
   check('app mounted (static fallback replaced)', !html.includes('Static fallback') && html.includes('radically cheaper'));
-  check('hero + four numbers derive from headline',
+  check('hero + one number derive from headline',
     html.includes(Math.abs(H.di_2025_cumulative_pct).toFixed(2) + '%') &&
-    html.includes(Math.round(H.m2_2025_cumulative_pct) + '%') &&
-    html.includes(Math.round(H.cpi_2025_cumulative_pct) + '%'));
-  check('gap arithmetic internally consistent',
+    html.includes(Math.round(H.cpi_2025_cumulative_pct) + '%') &&
+    html.includes('One number, thirty-five years'));
+  check('homepage is DI-first (no M2 on home)', !/\bM2\b/.test(html));
+  check('gap arithmetic internally consistent (data-level)',
     Math.abs((Math.abs(H.di_2025_cumulative_pct) + H.m2_2025_cumulative_pct - H.cpi_2025_cumulative_pct) - H.abundance_gap_2025_pp) < 1);
   check('newsletter form present', html.includes('Delivered via Substack'));
   check('footer substack + changelog links', html.includes('deflationindex.substack.com') && html.includes('CHANGELOG.md'));

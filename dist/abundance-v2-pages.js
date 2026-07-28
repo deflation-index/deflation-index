@@ -1294,25 +1294,35 @@ it happens; an arithmetic mean is dominated by the
 slowest components. The arithmetic variant is published
 as a sensitivity in data/v4/draft_output.json.`)), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
-  }, "The three lines"), React.createElement("p", {
+  }, "The line, and its reference"), React.createElement("p", {
     style: para
   }, React.createElement("strong", {
     style: {
       color: T.ink
     }
-  }, "Deflation Index (DI):"), " the weighted geometric mean above. A value of 0.03 in 2025 means the basket costs three-hundredths of one percent of its 1990 price \u2014 a roughly 3,300-fold decline."), React.createElement("p", {
+  }, "Deflation Index (DI):"), " the weighted geometric mean above \u2014 the measurement this site exists for. A value of 0.03 in 2025 means the basket costs three-hundredths of one percent of its 1990 price \u2014 a roughly 3,300-fold decline."), React.createElement("p", {
     style: para
   }, React.createElement("strong", {
     style: {
       color: T.ink
     }
-  }, "M2:"), " the broad money supply, from the U.S. Federal Reserve via FRED (series M2SL). Indexed to 1990 = 100."), React.createElement("p", {
+  }, "CPI (reference):"), " the Consumer Price Index for All Urban Consumers, from the Bureau of Labor Statistics (CPIAUCSL), indexed to 1990 = 100. Drawn alongside the index so a nominal-dollar series has its context: it answers \"compared to what?\" before you have to ask."), React.createElement("p", {
     style: para
   }, React.createElement("strong", {
     style: {
       color: T.ink
     }
-  }, "CPI:"), " the Consumer Price Index for All Urban Consumers, from the Bureau of Labor Statistics (CPIAUCSL). Indexed to 1990 = 100.")), React.createElement(RevealP, null, React.createElement("h2", {
+  }, "M2:"), " the broad money supply (FRED, M2SL) is published in our data and available in ", React.createElement("a", {
+    href: "#/explore",
+    style: {
+      color: T.accent
+    }
+  }, "Explore"), " for anyone who wants the monetary comparison. What that comparison suggests is an essay, not a headline \u2014 ", React.createElement("a", {
+    href: "#/stories/the-abundance-gap",
+    style: {
+      color: T.accent
+    }
+  }, "we make that argument here"), ", separately from the measurement.")), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
   }, "What v4.0 means"), React.createElement(DatelineP, {
     T: T,
