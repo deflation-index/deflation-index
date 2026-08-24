@@ -1262,7 +1262,14 @@ function MethodV2({
       maxWidth: '52ch',
       marginTop: '.6rem'
     }
-  }, "The Deflation Index is a weighted average of four technology-cost indices, each rebased so that 1990 = 100."))), React.createElement(RevealP, null, React.createElement("h2", {
+  }, "The Deflation Index measures cost per unit of capability: what a dollar buys in compute, bandwidth, kilowatt-hours, and stored energy. It is not a cost-of-living measure. The distance between the two is the subject."), React.createElement("p", {
+    style: {
+      color: T.inkSoft,
+      fontSize: '1.1rem',
+      maxWidth: '52ch',
+      marginTop: '.6rem'
+    }
+  }, "Mechanically, it is a weighted average of four technology-cost indices, each rebased so that 1990 = 100."))), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
   }, "The formula"), React.createElement("pre", {
     style: {
@@ -1292,7 +1299,19 @@ Sector weights (v4.0):          Series starts:
 A geometric mean treats a halving as a halving wherever
 it happens; an arithmetic mean is dominated by the
 slowest components. The arithmetic variant is published
-as a sensitivity in data/v4/draft_output.json.`)), React.createElement(RevealP, null, React.createElement("h2", {
+as a sensitivity in data/v4/draft_output.json.`), React.createElement("p", {
+    style: {
+      ...para,
+      fontSize: '.92rem'
+    }
+  }, "The weights balance GDP contribution, enabling effect, and deflationary force \u2014 and that third factor makes the index partly weighted by the thing it measures. We disclose and size that circularity in ", React.createElement("a", {
+    href: "https://github.com/deflation-index/deflation-index/blob/main/docs/methodology/WEIGHT_JUSTIFICATION.md#a-circularity-in-the-weighting",
+    target: "_blank",
+    rel: "noopener",
+    style: {
+      color: T.accent
+    }
+  }, "the weighting doc"), ": removing the factor entirely leaves the composite at \u221299.98% (published: \u221299.97%).")), React.createElement(RevealP, null, React.createElement("h2", {
     style: sectionTitle
   }, "The line, and its reference"), React.createElement("p", {
     style: para
@@ -1343,7 +1362,7 @@ as a sensitivity in data/v4/draft_output.json.`)), React.createElement(RevealP, 
     style: {
       color: T.accent
     }
-  }, "data/v4"), " carries a status \u2014 verified against a primary document, cross-checked against a cited secondary, or interpolated within documented bounds \u2014 and the release standard requires every row to cite a published source. Promoting cross-checked rows against period primaries is continuous maintenance, in public."), React.createElement("div", {
+  }, "data/v4"), " carries a status \u2014 verified against a primary document, cross-checked against a cited secondary, or interpolated within documented bounds \u2014 and the release standard requires every row to cite a published source. The ledger is preserved as shipped \u2014 the index is complete through 2025, and anyone can promote or challenge a row from the public record."), React.createElement("div", {
     className: "di-cols-1to2",
     style: {
       gap: '1rem',
@@ -1389,7 +1408,7 @@ as a sensitivity in data/v4/draft_output.json.`)), React.createElement(RevealP, 
       textTransform: 'uppercase',
       marginBottom: '.6rem'
     }
-  }, "Verification ledger \u2014 open"), React.createElement("ul", {
+  }, "Verification ledger \u2014 as shipped"), React.createElement("ul", {
     style: {
       margin: 0,
       paddingLeft: '1.2rem',

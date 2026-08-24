@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Deflation Index — where the abundance went</title>
-<meta name="description" content="An open record of how technology made things radically cheaper, and where the abundance went. Weighted geometric index 1990–2025 (v4.0).">
+<meta name="description" content="Technology inputs fell 99.97% per unit of capability, 1990–2025. Cost per unit of capability, not the cost of living — the gap between them is the finding. Complete through 2025; no further updates planned.">
 <link rel="canonical" href="https://deflationindex.com/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "The Deflation Index",
-  "description": "A weighted geometric index of technology cost-per-performance across computing ($/GFLOPS), communications ($/GB), energy ($/kWh solar LCOE), and transportation (lithium-ion $/kWh), 1990–2025 (v4.0, all sectors measured through 2025). Rebased to 1990=100, with CPI as reference; M2 and CPI series published alongside.",
+  "description": "A weighted geometric index of technology cost per unit of capability across computing ($/GFLOPS), communications ($/GB), energy ($/kWh solar LCOE), and transportation (lithium-ion $/kWh), 1990–2025. Technology inputs fell 99.97% per unit of capability over the period; this is not a cost-of-living measure. Rebased to 1990=100, with CPI as reference; M2 and CPI series published alongside. Complete through 2025; no further updates planned.",
   "url": "https://deflationindex.com/",
   "sameAs": [
     "https://github.com/deflation-index/deflation-index",
@@ -27,7 +27,7 @@
   "spatialCoverage": "United States",
   "keywords": ["technological deflation", "cost per performance", "M2 money supply", "CPI", "productivity", "computing costs", "solar LCOE", "battery prices", "broadband prices"],
   "isAccessibleForFree": true,
-  "version": "4.0.0",
+  "version": "4.0.1",
   "distribution": [
     {
       "@type": "DataDownload",
@@ -38,11 +38,6 @@
       "@type": "DataDownload",
       "encodingFormat": "application/json",
       "contentUrl": "https://raw.githubusercontent.com/deflation-index/deflation-index/main/data/master_index.json"
-    },
-    {
-      "@type": "DataDownload",
-      "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "contentUrl": "https://raw.githubusercontent.com/deflation-index/deflation-index/main/data/excel/master_deflation_index_v3.0.3.xlsx"
     }
   ]
 }
@@ -52,7 +47,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://deflationindex.com/">
 <meta property="og:title" content="The Deflation Index">
-<meta property="og:description" content="An open record of how technology made things radically cheaper, and where the abundance went.">
+<meta property="og:description" content="Technology inputs fell 99.97% per unit of capability, 1990–2025. Cost per unit of capability. Not the cost of living. The gap between them is the finding.">
 <meta property="og:image" content="https://deflationindex.com/assets/logo/marks/di_og_card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -60,7 +55,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Deflation Index">
-<meta name="twitter:description" content="An open record of how technology made things radically cheaper, and where the abundance went.">
+<meta name="twitter:description" content="Technology inputs fell 99.97% per unit of capability, 1990–2025. Cost per unit of capability. Not the cost of living. The gap between them is the finding.">
 <meta name="twitter:image" content="https://deflationindex.com/assets/logo/marks/di_og_card.png">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -175,8 +170,9 @@
 <div id="app">
   <!-- Static fallback: replaced by the React app on load; read by crawlers and no-JS visitors -->
   <div style="max-width:720px;margin:0 auto;padding:4rem 1.5rem;font-family:'Space Grotesk',system-ui,sans-serif;color:#1A1A1A">
+    <p style="font-family:'Space Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#9A9A98;margin:0 0 1.5rem"><strong style="color:#1A1A1A">v4.0</strong> · Complete through 2025 · No further updates planned</p>
     <h1 style="font-family:'Spectral',Georgia,serif;font-weight:400;font-size:2.4rem;line-height:1.1;letter-spacing:-.02em">Technology got <em style="color:#B88A2B">radically cheaper.</em> We measured exactly how much.</h1>
-    <p style="font-size:1.1rem;line-height:1.6;color:#4A4A4A">Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong>99.97%</strong> — while the prices people actually pay rose <strong>150%</strong>. The Deflation Index measures the collapse: one sourced metric per sector, one honest number.</p>
+    <p style="font-size:1.1rem;line-height:1.6;color:#4A4A4A">Technology inputs fell <strong>99.97%</strong> per unit of capability, 1990–2025 — what a dollar buys in compute, bandwidth, kilowatt-hours, stored energy. Not the cost of living: the prices people actually pay rose <strong>150%</strong>. The gap between the two is the finding.</p>
     <p style="font-size:1rem;line-height:1.6;color:#4A4A4A">The index (v4.0) is a weighted geometric mean of four technology-cost series, each a single sourced metric starting when measurement starts: computing (compute/storage/memory blend, since 1990), communications (wholesale IP transit, since 1998, −99.99%), energy (IRENA solar LCOE, since 2010, −89%), and transportation (BloombergNEF battery packs, since 2010, −91%). Methodology, sources, the audit that produced this revision, and all data are open on <a href="https://github.com/deflation-index/deflation-index" style="color:#B88A2B">GitHub</a>.</p>
     <p style="font-size:1rem;color:#4A4A4A"><a href="#/sectors" style="color:#B88A2B">Sectors</a> · <a href="#/explore" style="color:#B88A2B">Explore the data</a> · <a href="#/stories" style="color:#B88A2B">Stories</a> · <a href="#/method" style="color:#B88A2B">How it's built</a></p>
     <p style="font-size:1rem;line-height:1.6;color:#4A4A4A">Essays: <a href="stories/what-is-deflation-index.html" style="color:#B88A2B">What the Deflation Index actually measures</a> · <a href="stories/the-abundance-gap.html" style="color:#B88A2B">The Abundance Gap</a> · <a href="stories/the-honest-index.html" style="color:#B88A2B">We audited our own index</a></p>

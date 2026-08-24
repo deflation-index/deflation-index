@@ -2,6 +2,9 @@
 
 An open record of how technology made things radically cheaper, and where the abundance went.
 
+> **Complete through 2025 · no further updates planned.**
+> Technology inputs fell **99.97%** per unit of capability, 1990–2025 (v4.0, weighted geometric). The index measures cost per unit of capability — what a dollar buys in compute, bandwidth, kilowatt-hours, and stored energy. It is not a cost-of-living measure. The distance between the two is the subject.
+
 ## Running locally
 
 This is a static site. Serve the folder over HTTP (`file://` blocks the script loads):
@@ -45,7 +48,7 @@ favicon.ico
 
 Series-level URLs and per-datapoint provenance live in [`data/constants.json`](data/constants.json). The Method page lists one canonical link per institution.
 
-The v4.0 index is a weighted geometric mean of four single-metric sector series; every anchor datapoint, its source, and its verification status live in [`data/v4/`](data/v4/sources_manifest.md), and the audit that produced the v4 revision is at [`docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md`](docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md).
+The v4.0 index is a weighted geometric mean of four single-metric sector series; every anchor datapoint, its source, and its verification status live in [`data/v4/`](data/v4/sources_manifest.md), and the audit that produced the v4 revision is at [`docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md`](docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md). Two published sensitivities: the retired arithmetic variant (`data/v4/draft_output.json`) and the no-deflationary-force weighting variant (`data/v4/sensitivity_no_df.json` — see [the circularity disclosure](docs/methodology/WEIGHT_JUSTIFICATION.md#a-circularity-in-the-weighting)).
 
 The legacy v3.0.3 source spreadsheets are in [`data/excel/`](data/excel/). Detailed methodology, weighting, and changelog live in [`docs/`](docs/). The legacy v3.0 JSON API contract is preserved in [`data/api_legacy_v3.0/`](data/api_legacy_v3.0/) for anyone who linked to it.
 
@@ -61,6 +64,6 @@ See [`LICENSE`](LICENSE) for the full text.
 
 ## Contributing
 
-PRs welcome — particularly data corrections, source improvements, and methodology critiques. See [`docs/operations/CONTRIBUTING.md`](docs/operations/CONTRIBUTING.md).
+This repository is archived and read-only — the index is complete through 2025. Corrections or critiques are still welcome by email (info@deflationindex.com); if the work ever resumes, the archive is reversible. [`docs/operations/CONTRIBUTING.md`](docs/operations/CONTRIBUTING.md) is preserved for the record.
 
 Site: <https://deflationindex.com> · Contact: info@deflationindex.com

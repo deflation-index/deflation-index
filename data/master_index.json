@@ -34,7 +34,7 @@
    }
   }
  },
- "version": "4.0.0",
+ "version": "4.0.1",
  "generated": "2026-07-13",
  "method": "Weighted geometric mean of four single-metric sector series; di_value precision raised to 4 decimals for the v4 range",
  "provenance": "data/v4/draft_output.json; anchor ledger data/v4/*.csv; audit docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md",

@@ -111,7 +111,7 @@ window.DI = (function(){
     {year:2010, title:'Measurement broadens', text:'IRENA starts tracking solar ($0.28/kWh in 2010 dollars). BloombergNEF runs its first battery survey ($1,160/kWh pack). Two more sectors become measurable.'},
     {year:2020, title:'The stress test', text:'Pandemic supply shocks hit every sector at once. Battery packs stall near $137 for three years; solar\'s decline flattens. The curve bends — then resumes: packs fall to $115 by 2024.'},
     {year:2025, title:'Where the line ends up', text:'Thirty-five years on, the index reads 0.03: the technology basket costs a three-thousandth of its 1990 price — roughly 20% cheaper every year, for thirty-five years straight. No other measured price series has done this.'},
-    {year:2026, title:'The curve meets resistance', text:'For the first time in the record, parts of the curve turn up: AI demand pushes memory and storage prices higher, and solar\'s decline has flattened. Batteries keep falling — packs under $100/kWh. Whether technology deflation continues is now a live question. We\'ll report the answer either way.'}
+    {year:2026, title:'The curve meets resistance', text:'For the first time in the record, parts of the curve turn up: AI demand pushes memory and storage prices higher, and solar\'s decline has flattened. Batteries keep falling — packs under $100/kWh. Whether technology deflation continues is now a live question. This record is complete through 2025; the question is left open, and the data to pursue it is public.'}
   ];
 
   // The $100 test — what a constant $100 bought then vs now (then = each series' first measured year)

@@ -1,7 +1,7 @@
 {
-  "version": "4.0.0",
+  "version": "4.0.1",
   "last_updated": "2026-07-13",
-  "description": "Single source of truth for Deflation Index statistics. v4.0.0 is the audited rebuild: every sector is a single sourced metric (computing = compute/storage/memory geometric blend since 1990; communications = wholesale IP transit since 1998; energy = IRENA utility PV LCOE since 2010; transportation = BNEF Li-ion pack since 2010), aggregated with weighted geometric means. Late-start sectors hold at 100 before their first datapoint. Anchor provenance and verification status: data/v4/*.csv; arithmetic sensitivity: data/v4/draft_output.json; audit: docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md. Ledger closed under the four verification standards (sources_manifest.md); primary-promotion continues in public.",
+  "description": "Single source of truth for Deflation Index statistics. v4.0.0 is the audited rebuild: every sector is a single sourced metric (computing = compute/storage/memory geometric blend since 1990; communications = wholesale IP transit since 1998; energy = IRENA utility PV LCOE since 2010; transportation = BNEF Li-ion pack since 2010), aggregated with weighted geometric means. Late-start sectors hold at 100 before their first datapoint. Anchor provenance and verification status: data/v4/*.csv; arithmetic sensitivity: data/v4/draft_output.json; audit: docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md. Ledger closed under the four verification standards (sources_manifest.md). v4.0.1 (final release): index complete through 2025, no further updates planned; weighting-circularity disclosure and no-deflationary-force sensitivity published (data/v4/sensitivity_no_df.json).",
   "sources": {
     "m2": {
       "name": "Federal Reserve FRED Series M2SL",

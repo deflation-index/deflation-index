@@ -125,17 +125,18 @@ function App() {
               <span style={{fontFamily:T.font, fontSize:'1.2rem'}}>The Deflation Index</span>
             </div>
             <p style={{color:'rgba(255,255,255,0.6)', fontSize:'.92rem', maxWidth:'42ch', margin:0, lineHeight:1.6}}>An open record of how technology made things radically cheaper, and where the abundance went.</p>
+            <p style={{fontFamily:T.mono, fontSize:'.72rem', color:'rgba(255,255,255,0.5)', letterSpacing:'.08em', textTransform:'uppercase', margin:'.7rem 0 0'}}>Cost per unit of capability</p>
           </div>
           {[
             {h:'Site', l:[['home','Home'],['sectors','Sectors'],['explore','Explore'],['stories','Stories'],['method','Method']]},
             {h:'Data', l:[['method','Sources & method'],['https://github.com/deflation-index/deflation-index','Data & code (GitHub)'],['https://github.com/deflation-index/deflation-index/blob/main/docs/operations/CHANGELOG.md','Changelog']]},
-            {h:'Updates', l:[['https://deflationindex.substack.com','Newsletter'],['https://deflationindex.substack.com/feed','RSS']]},
+            {h:'Updates', l:[['https://deflationindex.substack.com','Newsletter'],['https://deflationindex.substack.com/feed','RSS'],['mailto:info@deflationindex.com','info@deflationindex.com']]},
           ].map((col,i)=>(
             <div key={i}>
               <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.8rem'}}>{col.h}</div>
               <ul style={{listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'.5rem'}}>
                 {col.l.map(([k,v])=>{
-                  const ext = k.startsWith('http');
+                  const ext = k.startsWith('http') || k.startsWith('mailto:');
                   return (
                     <li key={v}>
                       <a href={ext ? k : '#/'+k}
@@ -150,8 +151,8 @@ function App() {
           ))}
         </div>
         <div style={{maxWidth:1100, margin:'2.5rem auto 0', paddingTop:'1.4rem', borderTop:'1px solid rgba(255,255,255,0.1)', display:'flex', justifyContent:'space-between', fontFamily:T.mono, fontSize:'.72rem', color:'rgba(255,255,255,0.5)', letterSpacing:'.06em'}}>
-          <span>v4.0.0 · 2025 MEASURED</span>
-          <span>data through dec 2025 · retrieved {window.DI.early2025.retrieved}</span>
+          <span>v4.0.1 · COMPLETE THROUGH 2025</span>
+          <span>no further updates planned · data through dec 2025</span>
         </div>
       </footer>
 

@@ -1,0 +1,59 @@
+{
+ "description": "Sensitivity: v4.0 master geometric index recomputed with the deflationary-force weighting factor removed. No-DF weights are the equal blend of the GDP-contribution-only and enabling-effect-only vectors documented in docs/methodology/WEIGHT_JUSTIFICATION.md. Sector series identical to the published build.",
+ "weights_published": {
+  "computing": 0.2941,
+  "communications": 0.2353,
+  "energy": 0.2941,
+  "transportation": 0.1765
+ },
+ "weights_no_df": {
+  "computing": 0.35,
+  "communications": 0.175,
+  "energy": 0.30000000000000004,
+  "transportation": 0.175
+ },
+ "master_no_df": {
+  "1990": 100.0,
+  "1991": 86.035692,
+  "1992": 74.021402,
+  "1993": 61.623716,
+  "1994": 51.302492,
+  "1995": 45.523401,
+  "1996": 35.646628,
+  "1997": 27.912724,
+  "1998": 19.211395,
+  "1999": 12.573359,
+  "2000": 8.228937,
+  "2001": 5.886913,
+  "2002": 4.211448,
+  "2003": 3.1331,
+  "2004": 2.610514,
+  "2005": 2.324655,
+  "2006": 2.072686,
+  "2007": 1.71717,
+  "2008": 1.176952,
+  "2009": 0.846579,
+  "2010": 0.639927,
+  "2011": 0.444632,
+  "2012": 0.294011,
+  "2013": 0.192459,
+  "2014": 0.141418,
+  "2015": 0.103913,
+  "2016": 0.08047,
+  "2017": 0.062316,
+  "2018": 0.054386,
+  "2019": 0.047465,
+  "2020": 0.041425,
+  "2021": 0.035995,
+  "2022": 0.031277,
+  "2023": 0.02878,
+  "2024": 0.026581,
+  "2025": 0.02511
+ },
+ "headline": {
+  "published_cumulative_pct_2025": -99.966,
+  "published_annual_pct": -20.37,
+  "no_df_cumulative_pct_2025": -99.975,
+  "no_df_annual_pct": -21.09
+ }
+}

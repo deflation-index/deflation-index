@@ -1,5 +1,10 @@
 # Contributing to The Deflation Index
 
+> **August 2026:** this repository is archived and read-only; the index is
+> complete through 2025 (v4.0.1, final release). This document is preserved
+> for the record — and applies again if the archive is ever reopened.
+> Corrections are welcome by email: info@deflationindex.com.
+
 Thanks for being here. The Deflation Index is an open research project, and
 contributions — from typo fixes to new sector proposals — are welcome.
 

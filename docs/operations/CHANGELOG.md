@@ -5,6 +5,21 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.1] - 2026-08-24 — final release
+
+The freeze. The index is complete through 2025 and no further updates are planned. The site stays live, the repo is archived read-only, and everything needed to verify, extend, or argue with the work is public. Copy and disclosure changes only — no data or method change; the headline stands.
+
+### Added - METHOD
+
+- **Weighting circularity disclosed and sized.** One of the three weighting factors (deflationary force) is the magnitude of a sector's cost decline, so the index is partly weighted by the thing it measures. Disclosed in `docs/methodology/WEIGHT_JUSTIFICATION.md` ("A Circularity in the Weighting") with a published sensitivity: removing the factor and redistributing its share to GDP contribution and enabling effect leaves the composite at **−99.98%** (−21.1%/yr) vs. the published **−99.97%** (−20.4%/yr) — slightly deeper, not shallower, because the redistributed share flows mostly to computing. Computation: `scripts/sensitivity_no_df.py` → `data/v4/sensitivity_no_df.json`. Linked from the method page where the factors are listed. Headline unchanged.
+
+### Changed - SITE
+
+- **Completion dateline** under the hero, in the footer, and in the static SEO fallback: *Complete through 2025 · no further updates planned*.
+- **Denominator made inseparable from the headline.** Every surface carrying −99.97% now carries its denominator: "Technology inputs fell 99.97% per unit of capability, 1990–2025." Hero subhead, dark stat band ("cost per unit of capability"), static SEO fallback, OG/Twitter/meta descriptions, method page opener (interactive + static), README.
+- **JSON-LD dataset fixed**: version bumped to 4.0.1; the stale distribution link to the archived v3.0.3 Excel workbook removed (the JSON distributions are the v4 dataset). The v3 workbooks remain in `data/excel/` as historical artifacts.
+- Footer gains a contact line (info@deflationindex.com). Forward-looking copy retired: the timeline's "we'll report the answer either way," the method page's "continuous maintenance," and the newsletter dek now reflect the freeze.
+
 ## [4.0.0] - 2026-07-13
 
 The audited rebuild. The published index was understating technology deflation — this release corrects the method, the data, and the labels, and moves the headline from **−96.5%** to **−99.97%** (1990–2025). Full findings: [`docs/methodology/AUDIT_2026-07_COMPUTING_SERIES.md`](../methodology/AUDIT_2026-07_COMPUTING_SERIES.md).

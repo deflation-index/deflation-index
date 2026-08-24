@@ -416,7 +416,7 @@ function HomeV2({ nav, T }) {
         <div style={{maxWidth:1280, margin:'0 auto', position:'relative', zIndex:1}}>
           <Reveal>
             <div style={{marginBottom:'1.5rem'}}>
-              <Dateline T={T} parts={['v4.0', '2025 measured', `Retrieved ${DI2.early2025.retrieved}`]}/>
+              <Dateline T={T} parts={['v4.0', 'Complete through 2025', 'No further updates planned']}/>
             </div>
           </Reveal>
           <Reveal delay={80}>
@@ -427,7 +427,7 @@ function HomeV2({ nav, T }) {
           </Reveal>
           <Reveal delay={150}>
             <p style={{fontSize:'1.25rem', lineHeight:1.55, color:T.inkSoft, maxWidth:'58ch', marginBottom:'2rem'}}>
-              Across 35 years, the cost of computing, communications, energy and transportation collapsed by <strong style={{color:T.ink}}>{diPct.toFixed(2)}%</strong> — while the prices people actually pay rose <strong style={{color:T.ink}}>{cpiPct}%</strong>. The Deflation Index measures the collapse: one sourced metric per sector, one honest number.
+              Technology inputs fell <strong style={{color:T.ink}}>{diPct.toFixed(2)}%</strong> per unit of capability, 1990–2025 — what a dollar buys in compute, bandwidth, kilowatt-hours, stored energy. Not the cost of living: the prices people actually pay rose <strong style={{color:T.ink}}>{cpiPct}%</strong>. The gap between the two is the finding.
             </p>
           </Reveal>
           <Reveal delay={220}>
@@ -483,6 +483,7 @@ function HomeV2({ nav, T }) {
             <div style={{textAlign:'center', marginBottom:'3rem'}}>
               <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.7rem'}}>1990 → 2025</div>
               <h2 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0, color:T.bg}}>One number, thirty-five years.</h2>
+              <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,0.55)', marginTop:'.8rem'}}>Cost per unit of capability</div>
             </div>
           </Reveal>
           <div className="di-cols-1to3" style={{gap:'2rem'}}>
@@ -603,7 +604,7 @@ function HomeV2({ nav, T }) {
       <section style={{padding:'4rem 1.5rem'}}>
         <div style={{maxWidth:560, margin:'0 auto', textAlign:'center'}}>
           <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .7rem'}}>Major releases, by email.</h2>
-          <p style={{color:T.inkSoft, fontSize:'1rem', marginBottom:'1.4rem'}}>A few emails a year — the v4.0 index revision first. No weekly anything, no upsell.</p>
+          <p style={{color:T.inkSoft, fontSize:'1rem', marginBottom:'1.4rem'}}>The index is complete through 2025. If the work ever resumes, subscribers hear it first. No weekly anything, no upsell.</p>
           <NewsletterForm T={T}/>
         </div>
       </section>

@@ -192,7 +192,16 @@ function App() {
       margin: 0,
       lineHeight: 1.6
     }
-  }, "An open record of how technology made things radically cheaper, and where the abundance went.")), [{
+  }, "An open record of how technology made things radically cheaper, and where the abundance went."), React.createElement("p", {
+    style: {
+      fontFamily: T.mono,
+      fontSize: '.72rem',
+      color: 'rgba(255,255,255,0.5)',
+      letterSpacing: '.08em',
+      textTransform: 'uppercase',
+      margin: '.7rem 0 0'
+    }
+  }, "Cost per unit of capability")), [{
     h: 'Site',
     l: [['home', 'Home'], ['sectors', 'Sectors'], ['explore', 'Explore'], ['stories', 'Stories'], ['method', 'Method']]
   }, {
@@ -200,7 +209,7 @@ function App() {
     l: [['method', 'Sources & method'], ['https://github.com/deflation-index/deflation-index', 'Data & code (GitHub)'], ['https://github.com/deflation-index/deflation-index/blob/main/docs/operations/CHANGELOG.md', 'Changelog']]
   }, {
     h: 'Updates',
-    l: [['https://deflationindex.substack.com', 'Newsletter'], ['https://deflationindex.substack.com/feed', 'RSS']]
+    l: [['https://deflationindex.substack.com', 'Newsletter'], ['https://deflationindex.substack.com/feed', 'RSS'], ['mailto:info@deflationindex.com', 'info@deflationindex.com']]
   }].map((col, i) => React.createElement("div", {
     key: i
   }, React.createElement("div", {
@@ -222,7 +231,7 @@ function App() {
       gap: '.5rem'
     }
   }, col.l.map(([k, v]) => {
-    const ext = k.startsWith('http');
+    const ext = k.startsWith('http') || k.startsWith('mailto:');
     return React.createElement("li", {
       key: v
     }, React.createElement("a", {
@@ -254,7 +263,7 @@ function App() {
       color: 'rgba(255,255,255,0.5)',
       letterSpacing: '.06em'
     }
-  }, React.createElement("span", null, "v4.0.0 \xB7 2025 MEASURED"), React.createElement("span", null, "data through dec 2025 \xB7 retrieved ", window.DI.early2025.retrieved))), editMode && React.createElement("div", {
+  }, React.createElement("span", null, "v4.0.1 \xB7 COMPLETE THROUGH 2025"), React.createElement("span", null, "no further updates planned \xB7 data through dec 2025"))), editMode && React.createElement("div", {
     style: {
       position: 'fixed',
       bottom: 20,

@@ -1010,7 +1010,7 @@ function HomeV2({
     }
   }, React.createElement(Dateline, {
     T: T,
-    parts: ['v4.0', '2025 measured', `Retrieved ${DI2.early2025.retrieved}`]
+    parts: ['v4.0', 'Complete through 2025', 'No further updates planned']
   }))), React.createElement(Reveal, {
     delay: 80
   }, React.createElement("h1", {
@@ -1038,15 +1038,15 @@ function HomeV2({
       maxWidth: '58ch',
       marginBottom: '2rem'
     }
-  }, "Across 35 years, the cost of computing, communications, energy and transportation collapsed by ", React.createElement("strong", {
+  }, "Technology inputs fell ", React.createElement("strong", {
     style: {
       color: T.ink
     }
-  }, diPct.toFixed(2), "%"), " \u2014 while the prices people actually pay rose ", React.createElement("strong", {
+  }, diPct.toFixed(2), "%"), " per unit of capability, 1990\u20132025 \u2014 what a dollar buys in compute, bandwidth, kilowatt-hours, stored energy. Not the cost of living: the prices people actually pay rose ", React.createElement("strong", {
     style: {
       color: T.ink
     }
-  }, cpiPct, "%"), ". The Deflation Index measures the collapse: one sourced metric per sector, one honest number.")), React.createElement(Reveal, {
+  }, cpiPct, "%"), ". The gap between the two is the finding.")), React.createElement(Reveal, {
     delay: 220
   }, React.createElement("div", {
     style: {
@@ -1233,7 +1233,16 @@ function HomeV2({
       margin: 0,
       color: T.bg
     }
-  }, "One number, thirty-five years."))), React.createElement("div", {
+  }, "One number, thirty-five years."), React.createElement("div", {
+    style: {
+      fontFamily: T.mono,
+      fontSize: '.72rem',
+      letterSpacing: '.12em',
+      textTransform: 'uppercase',
+      color: 'rgba(255,255,255,0.55)',
+      marginTop: '.8rem'
+    }
+  }, "Cost per unit of capability"))), React.createElement("div", {
     className: "di-cols-1to3",
     style: {
       gap: '2rem'
@@ -1633,7 +1642,7 @@ function HomeV2({
       fontSize: '1rem',
       marginBottom: '1.4rem'
     }
-  }, "A few emails a year \u2014 the v4.0 index revision first. No weekly anything, no upsell."), React.createElement(NewsletterForm, {
+  }, "The index is complete through 2025. If the work ever resumes, subscribers hear it first. No weekly anything, no upsell."), React.createElement(NewsletterForm, {
     T: T
   }))));
 }
