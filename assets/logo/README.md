@@ -2,7 +2,7 @@
 
 **Version:** 3.3
 **Last Updated:** July 16, 2026
-**Copyright:** © 2026 Deflation Index LLC. All rights reserved.
+**Copyright:** © 2026 The Deflation Index. All rights reserved.
 
 ---
 
@@ -103,7 +103,7 @@ Minimum display height: 24px digital, 0.35" print.
 
 ### Permitted
 
-You may use the Deflation Index mark to reference, cite, or link to the project — in academic papers, journalism, blog posts, presentations, GitHub projects, newsletters, and social posts that discuss DI data or findings. Attribute as "The Deflation Index" or "Deflation Index LLC" and link to deflationindex.com when practical.
+You may use the Deflation Index mark to reference, cite, or link to the project — in academic papers, journalism, blog posts, presentations, GitHub projects, newsletters, and social posts that discuss DI data or findings. Attribute as "The Deflation Index" and link to deflationindex.com when practical.
 
 ### Not permitted without permission
 
@@ -125,4 +125,4 @@ Site: https://deflationindex.com
 
 ---
 
-*Maintainer: Deflation Index LLC. Guide last revised July 16, 2026.*
+*Maintainer: The Deflation Index. Guide last revised July 16, 2026.*

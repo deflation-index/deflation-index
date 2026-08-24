@@ -58,7 +58,7 @@ Three-part split, by design:
 
 - **Code** (this repo's HTML, JSX, scripts) — [MIT](LICENSE)
 - **Data, methodology, written documentation** — [CC BY 4.0](LICENSE)
-- **The Deflation Index name and logo marks** — © 2026 Deflation Index LLC, all rights reserved
+- **The Deflation Index name and logo marks** — not licensed for reuse; inquiries to info@deflationindex.com
 
 See [`LICENSE`](LICENSE) for the full text.
 

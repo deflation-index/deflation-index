@@ -5,6 +5,23 @@ All notable changes to the Deflation Index will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.2] - 2026-08-24 — administrative
+
+Rights-holder update. Deflation Index LLC (Florida) was dissolved; the project continues as an
+unincorporated open archive. No data, method, or content change — the index version is unchanged at
+**v4.0.1**, and `data/constants.json`, `data/master_index.json`, the JSON-LD dataset declaration, and
+the site footer all continue to report 4.0.1 by design.
+
+- `LICENSE`: copyright line and suggested citation now read "The Deflation Index". The brand-assets
+  clause states the reservation without naming a holder — the name and logo assets in `/assets/` are
+  excluded from the code and data licenses and are not licensed for reuse; permissions inquiries go to
+  info@deflationindex.com.
+- `README.md` and `assets/logo/README.md` updated to match.
+- JSON-LD `creator` / `author` / `publisher` on the homepage, sector pages, and story pages now name
+  "The Deflation Index" rather than the dissolved entity.
+- Citation blocks and methodology-doc footers still read "Deflation Index LLC" and are left as-is
+  deliberately: they record who published the work in 2026, which remains accurate.
+
 ## [4.0.1] - 2026-08-24 — final release
 
 The freeze. The index is complete through 2025 and no further updates are planned. The site stays live, the repo is archived read-only, and everything needed to verify, extend, or argue with the work is public. Copy and disclosure changes only — no data or method change; the headline stands.

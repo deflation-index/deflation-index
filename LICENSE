@@ -1,6 +1,6 @@
 The Deflation Index — License Terms
 
-Copyright (c) 2026 Deflation Index LLC
+Copyright (c) 2026 The Deflation Index
 
 This repository contains three kinds of material, each under a different
 license. Read the section that applies to what you want to use.
@@ -54,7 +54,7 @@ Under the following terms:
 Suggested citation:
 
   The Deflation Index: Measuring Technological Progress (1990–2024),
-  Deflation Index LLC, v3.1.1. Available at deflationindex.com and
+  The Deflation Index, v3.1.1. Available at deflationindex.com and
   github.com/deflation-index/deflation-index. Licensed CC BY 4.0.
 
 Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
@@ -67,8 +67,8 @@ etc.) are cited in /data/sources/SOURCES.md and retain their original licenses.
 ================================================================================
 
 The name "The Deflation Index", the Deflation Index logo, and other brand
-assets located in /assets/ are proprietary trademarks of Deflation Index LLC
-and are NOT covered by the licenses above.
+assets located in /assets/ are excluded from the licenses above and are NOT
+licensed for reuse. Permissions inquiries: info@deflationindex.com.
 
 Permitted uses of brand assets:
   - Attribution when citing Deflation Index data or research

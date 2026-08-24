@@ -254,8 +254,8 @@ function buildStories() {
       '@context': 'https://schema.org', '@type': 'Article',
       headline: story.title, description: story.dek, url, mainEntityOfPage: url,
       image: OG_IMG, datePublished: '2026-07-13', dateModified: TODAY,
-      author: { '@type': 'Organization', name: 'Deflation Index LLC', url: ORIGIN },
-      publisher: { '@type': 'Organization', name: 'Deflation Index LLC', url: ORIGIN },
+      author: { '@type': 'Organization', name: 'The Deflation Index', url: ORIGIN },
+      publisher: { '@type': 'Organization', name: 'The Deflation Index', url: ORIGIN },
       isPartOf: { '@type': 'WebSite', name: 'The Deflation Index', url: ORIGIN },
       license: 'https://creativecommons.org/licenses/by/4.0/', isAccessibleForFree: true,
     };
@@ -289,7 +289,7 @@ function buildSector(s) {
     description: `${s.metricLong}. Indexed to 1990=100, measured ${start}–2025. ${s.narrative}`,
     url, license: 'https://creativecommons.org/licenses/by/4.0/',
     temporalCoverage: `${start}/2025`, isAccessibleForFree: true,
-    creator: { '@type': 'Organization', name: 'Deflation Index LLC', url: ORIGIN },
+    creator: { '@type': 'Organization', name: 'The Deflation Index', url: ORIGIN },
     isPartOf: { '@type': 'Dataset', name: 'The Deflation Index', url: ORIGIN },
     distribution: csvs,
   };
