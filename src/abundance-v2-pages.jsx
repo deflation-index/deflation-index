@@ -341,7 +341,7 @@ function StoriesV2({ T, nav }) {
           <div style={{marginBottom:'2.5rem'}}>
             <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.5rem'}}>Stories</div>
             <h1 style={{fontFamily:T.font, fontSize:'clamp(2.2rem,5vw,3.4rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>Going deeper.</h1>
-            <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch', marginTop:'.6rem'}}>Short essays on the data. New ones occasionally.</p>
+            <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch', marginTop:'.6rem'}}>Short essays on the data. Three, deliberately.</p>
           </div>
         </RevealP>
         <div style={{display:'flex', flexDirection:'column', gap:'1rem'}}>

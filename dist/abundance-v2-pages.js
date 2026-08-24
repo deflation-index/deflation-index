@@ -950,7 +950,7 @@ function StoriesV2({
       maxWidth: '52ch',
       marginTop: '.6rem'
     }
-  }, "Short essays on the data. New ones occasionally."))), React.createElement("div", {
+  }, "Short essays on the data. Three, deliberately."))), React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
