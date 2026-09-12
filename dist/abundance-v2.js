@@ -936,7 +936,7 @@ function HomeV2({
   }, React.createElement("section", {
     style: {
       background: `linear-gradient(180deg, ${T.bgAlt} 0%, ${T.bg} 100%)`,
-      padding: '5rem 1.5rem 3rem',
+      padding: '5rem 0 3rem',
       position: 'relative',
       overflow: 'hidden'
     }
@@ -958,6 +958,7 @@ function HomeV2({
     style: {
       maxWidth: 1100,
       margin: '0 auto',
+      padding: '0 1.5rem',
       position: 'relative',
       zIndex: 1
     }
@@ -1131,7 +1132,7 @@ function HomeV2({
     style: {
       background: T.bgDeep,
       color: T.bg,
-      padding: '5rem 1.5rem',
+      padding: '5rem 0',
       marginTop: '4rem',
       position: 'relative',
       overflow: 'hidden'
@@ -1139,7 +1140,8 @@ function HomeV2({
   }, React.createElement("div", {
     style: {
       maxWidth: 1100,
-      margin: '0 auto'
+      margin: '0 auto',
+      padding: '0 1.5rem'
     }
   }, React.createElement(Reveal, null, React.createElement("div", {
     style: {
@@ -1396,12 +1398,13 @@ function HomeV2({
   }, t.text))))))), React.createElement("section", {
     style: {
       background: T.bgAlt,
-      padding: '4rem 1.5rem'
+      padding: '4rem 0'
     }
   }, React.createElement("div", {
     style: {
       maxWidth: 1100,
-      margin: '0 auto'
+      margin: '0 auto',
+      padding: '0 1.5rem'
     }
   }, React.createElement(Reveal, null, React.createElement("div", {
     style: {

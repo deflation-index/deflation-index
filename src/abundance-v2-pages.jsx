@@ -47,7 +47,7 @@ function SectorPageV2({ id, T, nav }) {
           <div>
             <a href="#/sectors" onClick={(e)=>{e.preventDefault();nav('sectors');}} style={{display:'inline-block', textDecoration:'none', background:'transparent', border:'none', fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.08em', textTransform:'uppercase', cursor:'pointer', padding:0, marginBottom:'.8rem'}}>← All sectors</a>
             <div style={{fontFamily:T.mono, fontSize:'.74rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.6rem'}}>Sector · weight {(sector.weight*100).toFixed(1)}%</div>
-            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,4rem)', fontWeight:400, letterSpacing:'-.02em', lineHeight:1.05, margin:'0 0 1rem'}}>{sector.name}.</h1>
+            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,4rem)', fontWeight:400, letterSpacing:'-.02em', lineHeight:1.05, margin:'0 0 1rem'}}>{sector.name}</h1>
             <p style={{fontSize:'1.2rem', lineHeight:1.55, color:T.inkSoft, marginBottom:'1.5rem', maxWidth:'46ch'}}>
               {sector.narrative}
             </p>
@@ -100,8 +100,7 @@ function SectorPageV2({ id, T, nav }) {
       <section style={{maxWidth:1100, margin:'0 auto', padding:'0 1.5rem 4rem'}}>
         <RevealP>
           <div style={{marginBottom:'1.2rem'}}>
-            <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>The trajectory</div>
-            <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, margin:0, letterSpacing:'-.015em'}}>{sector.name} cost vs CPI, 1990 = 100.</h2>
+            <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, margin:0, letterSpacing:'-.015em'}}>{sector.name} cost against CPI, 1990 = 100</h2>
           </div>
         </RevealP>
         <RevealP>
@@ -114,8 +113,7 @@ function SectorPageV2({ id, T, nav }) {
       {/* The $100 test */}
       <section style={{background:T.bgDeep, color:T.bg, padding:'4rem 1.5rem'}}>
         <div style={{maxWidth:780, margin:'0 auto', textAlign:'center'}}>
-          <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.7rem'}}>The $100 test</div>
-          <h2 style={{fontFamily:T.font, fontSize:'2.4rem', fontWeight:400, letterSpacing:'-.02em', margin:'0 0 2rem', color:T.bg}}>What the same $100 buys.</h2>
+          <h2 style={{fontFamily:T.font, fontSize:'2.4rem', fontWeight:400, letterSpacing:'-.02em', margin:'0 0 2rem', color:T.bg}}>What the same $100 buys</h2>
           <div style={{display:'grid', gridTemplateColumns:'1fr auto 1fr', gap:'2rem', alignItems:'center'}}>
             <div>
               <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,.5)', marginBottom:'.6rem'}}>{start}</div>
@@ -169,9 +167,8 @@ function SectorsIndexV2({ T, nav }) {
       <div style={{maxWidth:1100, margin:'0 auto'}}>
         <RevealP>
           <div style={{marginBottom:'2.5rem'}}>
-            <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.5rem'}}>Sectors</div>
-            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>Four sectors. One curve each.</h1>
-            <p style={{color:T.inkSoft, fontSize:'1.1rem', maxWidth:'52ch', marginTop:'.6rem'}}>The Deflation Index averages four sectors. Each tells its own story.</p>
+            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>The four series behind the index</h1>
+            <p style={{color:T.inkSoft, fontSize:'1.1rem', maxWidth:'52ch', marginTop:'.6rem'}}>Each is a single sourced metric; the index is their weighted geometric mean.</p>
           </div>
         </RevealP>
         <div className="di-cols-1to2" style={{gap:'1.4rem'}}>
@@ -239,9 +236,8 @@ function ExploreV2({ T }) {
       <div style={{maxWidth:1100, margin:'0 auto'}}>
         <RevealP>
           <div style={{marginBottom:'2rem'}}>
-            <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.5rem'}}>Explore</div>
-            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.2rem,5vw,3.4rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>Roll your own.</h1>
-            <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch', marginTop:'.6rem'}}>Pick two years. Compare every line. See what a hundred dollars bought.</p>
+            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.2rem,5vw,3.4rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>Compare any two years</h1>
+            <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch', marginTop:'.6rem'}}>Pick two years and see what a hundred dollars bought in each, across every series.</p>
           </div>
         </RevealP>
 
@@ -339,9 +335,7 @@ function StoriesV2({ T, nav }) {
       <div style={{maxWidth:780, margin:'0 auto'}}>
         <RevealP>
           <div style={{marginBottom:'2.5rem'}}>
-            <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.5rem'}}>Stories</div>
-            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.2rem,5vw,3.4rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>Going deeper.</h1>
-            <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch', marginTop:'.6rem'}}>Short essays on the data. Three, deliberately.</p>
+            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.2rem,5vw,3.4rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>Three essays on the data</h1>
           </div>
         </RevealP>
         <div style={{display:'flex', flexDirection:'column', gap:'1rem'}}>
@@ -468,8 +462,7 @@ function MethodV2({ T }) {
       <div style={{maxWidth:720, margin:'0 auto'}}>
         <RevealP>
           <div style={{marginBottom:'2rem'}}>
-            <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.5rem'}}>Method</div>
-            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.2rem,5vw,3.4rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>How it's built.</h1>
+            <h1 style={{fontFamily:T.font, fontSize:'clamp(2.2rem,5vw,3.4rem)', fontWeight:400, letterSpacing:'-.02em', margin:0}}>How it's built</h1>
             <p style={{color:T.inkSoft, fontSize:'1.1rem', maxWidth:'52ch', marginTop:'.6rem'}}>The Deflation Index measures cost per unit of capability: what a dollar buys in compute, bandwidth, kilowatt-hours, and stored energy. It is not a cost-of-living measure. The distance between the two is the subject.</p>
             <p style={{color:T.inkSoft, fontSize:'1.1rem', maxWidth:'52ch', marginTop:'.6rem'}}>Mechanically, it is a weighted average of four technology-cost indices, each rebased so that 1990 = 100.</p>
           </div>

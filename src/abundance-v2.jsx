@@ -381,12 +381,12 @@ function HomeV2({ nav, T }) {
   return (
     <div style={{background:T.bg, color:T.ink, fontFamily:T.sans}}>
       {/* HERO */}
-      <section style={{background:`linear-gradient(180deg, ${T.bgAlt} 0%, ${T.bg} 100%)`, padding:'5rem 1.5rem 3rem', position:'relative', overflow:'hidden'}}>
+      <section style={{background:`linear-gradient(180deg, ${T.bgAlt} 0%, ${T.bg} 100%)`, padding:'5rem 0 3rem', position:'relative', overflow:'hidden'}}>
         {/* Decorative curve */}
         <svg viewBox="0 0 1440 200" preserveAspectRatio="none" style={{position:'absolute', bottom:-1, left:0, width:'100%', height:120, pointerEvents:'none'}}>
           <path d="M 0,200 C 360,150 720,100 1440,140 L 1440,200 Z" fill={T.bg}/>
         </svg>
-        <div style={{maxWidth:1100, margin:'0 auto', position:'relative', zIndex:1}}>
+        <div style={{maxWidth:1100, margin:'0 auto', padding:'0 1.5rem', position:'relative', zIndex:1}}>
           <Reveal>
             <div style={{marginBottom:'1.5rem'}}>
               <Dateline T={T} parts={['v4.0', 'Complete through 2025', 'No further updates planned']}/>
@@ -447,8 +447,8 @@ function HomeV2({ nav, T }) {
       </section>
 
       {/* THE ONE NUMBER — three views of the same measurement */}
-      <section style={{background:T.bgDeep, color:T.bg, padding:'5rem 1.5rem', marginTop:'4rem', position:'relative', overflow:'hidden'}}>
-        <div style={{maxWidth:1100, margin:'0 auto'}}>
+      <section style={{background:T.bgDeep, color:T.bg, padding:'5rem 0', marginTop:'4rem', position:'relative', overflow:'hidden'}}>
+        <div style={{maxWidth:1100, margin:'0 auto', padding:'0 1.5rem'}}>
           <Reveal>
             <div style={{marginBottom:'2rem'}}>
               <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,0.55)'}}>Cost per unit of capability, 1990 = 100</div>
@@ -539,8 +539,8 @@ function HomeV2({ nav, T }) {
       </section>
 
       {/* STORIES */}
-      <section style={{background:T.bgAlt, padding:'4rem 1.5rem'}}>
-        <div style={{maxWidth:1100, margin:'0 auto'}}>
+      <section style={{background:T.bgAlt, padding:'4rem 0'}}>
+        <div style={{maxWidth:1100, margin:'0 auto', padding:'0 1.5rem'}}>
           <Reveal>
             <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:'2rem', flexWrap:'wrap'}}>
               <div>

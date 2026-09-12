@@ -103,7 +103,7 @@ function SectorPageV2({
       lineHeight: 1.05,
       margin: '0 0 1rem'
     }
-  }, sector.name, "."), React.createElement("p", {
+  }, sector.name), React.createElement("p", {
     style: {
       fontSize: '1.2rem',
       lineHeight: 1.55,
@@ -272,16 +272,7 @@ function SectorPageV2({
     style: {
       marginBottom: '1.2rem'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.4rem'
-    }
-  }, "The trajectory"), React.createElement("h2", {
+  }, React.createElement("h2", {
     style: {
       fontFamily: T.font,
       fontSize: '2rem',
@@ -289,7 +280,7 @@ function SectorPageV2({
       margin: 0,
       letterSpacing: '-.015em'
     }
-  }, sector.name, " cost vs CPI, 1990 = 100."))), React.createElement(RevealP, null, React.createElement("div", {
+  }, sector.name, " cost against CPI, 1990 = 100"))), React.createElement(RevealP, null, React.createElement("div", {
     style: {
       background: T.bg,
       border: `2px solid ${T.line}`,
@@ -312,16 +303,7 @@ function SectorPageV2({
       margin: '0 auto',
       textAlign: 'center'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      color: T.accent,
-      marginBottom: '.7rem'
-    }
-  }, "The $100 test"), React.createElement("h2", {
+  }, React.createElement("h2", {
     style: {
       fontFamily: T.font,
       fontSize: '2.4rem',
@@ -330,7 +312,7 @@ function SectorPageV2({
       margin: '0 0 2rem',
       color: T.bg
     }
-  }, "What the same $100 buys."), React.createElement("div", {
+  }, "What the same $100 buys"), React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr auto 1fr',
@@ -479,16 +461,7 @@ function SectorsIndexV2({
     style: {
       marginBottom: '2.5rem'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.5rem'
-    }
-  }, "Sectors"), React.createElement("h1", {
+  }, React.createElement("h1", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2.4rem,5vw,3.6rem)',
@@ -496,14 +469,14 @@ function SectorsIndexV2({
       letterSpacing: '-.02em',
       margin: 0
     }
-  }, "Four sectors. One curve each."), React.createElement("p", {
+  }, "The four series behind the index"), React.createElement("p", {
     style: {
       color: T.inkSoft,
       fontSize: '1.1rem',
       maxWidth: '52ch',
       marginTop: '.6rem'
     }
-  }, "The Deflation Index averages four sectors. Each tells its own story."))), React.createElement("div", {
+  }, "Each is a single sourced metric; the index is their weighted geometric mean."))), React.createElement("div", {
     className: "di-cols-1to2",
     style: {
       gap: '1.4rem'
@@ -634,16 +607,7 @@ function ExploreV2({
     style: {
       marginBottom: '2rem'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.5rem'
-    }
-  }, "Explore"), React.createElement("h1", {
+  }, React.createElement("h1", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2.2rem,5vw,3.4rem)',
@@ -651,14 +615,14 @@ function ExploreV2({
       letterSpacing: '-.02em',
       margin: 0
     }
-  }, "Roll your own."), React.createElement("p", {
+  }, "Compare any two years"), React.createElement("p", {
     style: {
       color: T.inkSoft,
       fontSize: '1.05rem',
       maxWidth: '52ch',
       marginTop: '.6rem'
     }
-  }, "Pick two years. Compare every line. See what a hundred dollars bought."))), React.createElement(RevealP, null, React.createElement("div", {
+  }, "Pick two years and see what a hundred dollars bought in each, across every series."))), React.createElement(RevealP, null, React.createElement("div", {
     style: {
       ...card,
       marginBottom: '1.4rem'
@@ -921,16 +885,7 @@ function StoriesV2({
     style: {
       marginBottom: '2.5rem'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.5rem'
-    }
-  }, "Stories"), React.createElement("h1", {
+  }, React.createElement("h1", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2.2rem,5vw,3.4rem)',
@@ -938,14 +893,7 @@ function StoriesV2({
       letterSpacing: '-.02em',
       margin: 0
     }
-  }, "Going deeper."), React.createElement("p", {
-    style: {
-      color: T.inkSoft,
-      fontSize: '1.05rem',
-      maxWidth: '52ch',
-      marginTop: '.6rem'
-    }
-  }, "Short essays on the data. Three, deliberately."))), React.createElement("div", {
+  }, "Three essays on the data"))), React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
@@ -1232,16 +1180,7 @@ function MethodV2({
     style: {
       marginBottom: '2rem'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.5rem'
-    }
-  }, "Method"), React.createElement("h1", {
+  }, React.createElement("h1", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2.2rem,5vw,3.4rem)',
@@ -1249,7 +1188,7 @@ function MethodV2({
       letterSpacing: '-.02em',
       margin: 0
     }
-  }, "How it's built."), React.createElement("p", {
+  }, "How it's built"), React.createElement("p", {
     style: {
       color: T.inkSoft,
       fontSize: '1.1rem',
