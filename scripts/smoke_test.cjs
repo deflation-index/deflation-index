@@ -65,11 +65,11 @@ setTimeout(() => {
   const html = w.document.getElementById('app').innerHTML;
   const H = w.DI.headline;
 
-  check('app mounted (static fallback replaced)', !html.includes('Static fallback') && html.includes('radically cheaper'));
+  check('app mounted (static fallback replaced)', !html.includes('Static fallback') && html.includes('Where the'));
   check('hero + one number derive from headline',
     html.includes(Math.abs(H.di_2025_cumulative_pct).toFixed(2) + '%') &&
     html.includes(Math.round(H.cpi_2025_cumulative_pct) + '%') &&
-    html.includes('One number, thirty-five years'));
+    html.includes('Cost per unit of capability, 1990 = 100'));
   check('homepage is DI-first (no M2 on home)', !/\bM2\b/.test(html));
   check('gap arithmetic internally consistent (data-level)',
     Math.abs((Math.abs(H.di_2025_cumulative_pct) + H.m2_2025_cumulative_pct - H.cpi_2025_cumulative_pct) - H.abundance_gap_2025_pp) < 1);

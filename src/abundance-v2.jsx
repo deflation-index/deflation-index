@@ -1,5 +1,5 @@
 /* global React, DIChart */
-const { useState, useEffect, useMemo, useRef } = React;
+const { useState, useEffect, useMemo } = React;
 const DI2 = window.DI;
 
 // ============================================================
@@ -14,34 +14,6 @@ const compact = (n) => {
   if (n >= 0.01) return n.toFixed(2);
   return n.toExponential(1);
 };
-
-// Animated count-up hook with IntersectionObserver
-function useCountUp(target, opts={}) {
-  const { duration = 1400, decimals = 0, prefix='', suffix='' } = opts;
-  const ref = useRef(null);
-  const [val, setVal] = useState(0);
-  const [done, setDone] = useState(false);
-  useEffect(() => {
-    if (!ref.current || done) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      const start = performance.now();
-      const tick = (t) => {
-        const p = Math.min(1, (t - start) / duration);
-        const eased = 1 - Math.pow(1 - p, 3);
-        setVal(target * eased);
-        if (p < 1) requestAnimationFrame(tick);
-        else setDone(true);
-      };
-      requestAnimationFrame(tick);
-      io.disconnect();
-    }, { threshold: 0.4 });
-    io.observe(ref.current);
-    return () => io.disconnect();
-  }, [target, duration, done]);
-  const formatted = decimals === 0 ? Math.round(val).toLocaleString() : val.toFixed(decimals);
-  return [ref, prefix + formatted + suffix];
-}
 
 // Reveal-on-scroll wrapper
 function Reveal({ children, as='div', style={} }) {
@@ -363,11 +335,11 @@ function ThenNowV2({ entry, T, onClick }) {
       display:'block', textAlign:'left', width:'100%',
       background:T.bg, border:`2px solid ${T.line}`, borderRadius:20,
       padding:'1.7rem 1.5rem', position:'relative', cursor:'pointer',
-      transition:'transform .25s, box-shadow .25s, border-color .25s',
+      transition:'border-color .25s',
       fontFamily:T.sans, color:T.ink,
     }}
-    onMouseEnter={e=>{ e.currentTarget.style.transform='translateY(-3px)'; e.currentTarget.style.boxShadow='0 18px 40px rgba(26,28,46,.08)'; e.currentTarget.style.borderColor=T.accent; }}
-    onMouseLeave={e=>{ e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'; e.currentTarget.style.borderColor=T.line; }}>
+    onMouseEnter={e=>{ e.currentTarget.style.borderColor=T.accent; }}
+    onMouseLeave={e=>{ e.currentTarget.style.borderColor=T.line; }}>
       <div style={{marginBottom:'.7rem', lineHeight:1}}><DollarIcon id={entry.id} T={T}/></div>
       <div style={{fontFamily:T.font, fontSize:'1.4rem', fontWeight:500, letterSpacing:'-.005em', marginBottom:'1rem'}}>{entry.label}</div>
       <div style={{display:'grid', gridTemplateColumns:'1fr auto 1fr', gap:'.6rem', alignItems:'center'}}>
@@ -402,8 +374,9 @@ function HomeV2({ nav, T }) {
   const diPct    = Math.abs(H.di_2025_cumulative_pct);   // 99.97
   const diAnnual = Math.abs(H.di_annual_pct);            // 20.37
   const cpiPct   = Math.round(H.cpi_2025_cumulative_pct);// 150 (quiet reference)
-  const [diRef, diVal] = useCountUp(diPct, {decimals:2, suffix:'%'});
-  const [annRef, annVal] = useCountUp(diAnnual, {decimals:1, suffix:'%'});
+  // Rendered, not animated: the number is the argument, not a transition.
+  const diVal    = diPct.toFixed(2) + '%';
+  const annVal   = diAnnual.toFixed(1) + '%';
 
   return (
     <div style={{background:T.bg, color:T.ink, fontFamily:T.sans}}>
@@ -413,24 +386,23 @@ function HomeV2({ nav, T }) {
         <svg viewBox="0 0 1440 200" preserveAspectRatio="none" style={{position:'absolute', bottom:-1, left:0, width:'100%', height:120, pointerEvents:'none'}}>
           <path d="M 0,200 C 360,150 720,100 1440,140 L 1440,200 Z" fill={T.bg}/>
         </svg>
-        <div style={{maxWidth:1280, margin:'0 auto', position:'relative', zIndex:1}}>
+        <div style={{maxWidth:1100, margin:'0 auto', position:'relative', zIndex:1}}>
           <Reveal>
             <div style={{marginBottom:'1.5rem'}}>
               <Dateline T={T} parts={['v4.0', 'Complete through 2025', 'No further updates planned']}/>
             </div>
           </Reveal>
-          <Reveal delay={80}>
+          <Reveal>
             <h1 style={{fontFamily:T.font, fontWeight:400, fontSize:'clamp(2rem,5.8vw,4.8rem)', lineHeight:1.05, letterSpacing:'-.025em', margin:'0 0 1.6rem'}}>
-              Technology got <span style={{fontStyle:'italic', color:T.accent, fontWeight:500}}>radically cheaper.</span><br/>
-              We measured exactly how much.
+              Where the <span style={{fontStyle:'italic', color:T.accent, fontWeight:500}}>abundance</span> went
             </h1>
           </Reveal>
-          <Reveal delay={150}>
+          <Reveal>
             <p style={{fontSize:'1.25rem', lineHeight:1.55, color:T.inkSoft, maxWidth:'58ch', marginBottom:'2rem'}}>
-              Technology inputs fell <strong style={{color:T.ink}}>{diPct.toFixed(2)}%</strong> per unit of capability, 1990–2025 — what a dollar buys in compute, bandwidth, kilowatt-hours, stored energy. Not the cost of living: the prices people actually pay rose <strong style={{color:T.ink}}>{cpiPct}%</strong>. The gap between the two is the finding.
+              Technology inputs fell <strong style={{color:T.ink}}>{diPct.toFixed(2)}%</strong> per unit of capability, 1990–2025 — what a dollar buys in compute, bandwidth, kilowatt-hours, stored energy. Not the cost of living: the prices people actually pay rose <strong style={{color:T.ink}}>{cpiPct}%</strong>.
             </p>
           </Reveal>
-          <Reveal delay={220}>
+          <Reveal>
             <div style={{display:'flex', gap:'.7rem', flexWrap:'wrap'}}>
               <a href="#/explore" onClick={(e)=>{e.preventDefault();nav('explore');}} className="di-tap-pill" style={{display:'inline-flex', alignItems:'center', textDecoration:'none', padding:'1rem 1.6rem', background:T.ink, color:T.bg, border:'none', borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>Explore the data →</a>
               <a href="#/method" onClick={(e)=>{e.preventDefault();nav('method');}} className="di-tap-pill" style={{display:'inline-flex', alignItems:'center', textDecoration:'none', padding:'1rem 1.6rem', background:'transparent', color:T.ink, border:`1.5px solid ${T.ink}`, borderRadius:999, fontWeight:500, fontFamily:T.sans, fontSize:'.95rem', cursor:'pointer'}}>How it's built</a>
@@ -442,26 +414,24 @@ function HomeV2({ nav, T }) {
       {/* HERO MOTIFS — rotating */}
       <section style={{maxWidth:1100, margin:'0 auto', padding:'4rem 1.5rem 2rem'}}>
         <Reveal>
-          <div style={{textAlign:'center', marginBottom:'2.5rem'}}>
-            <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.6rem'}}>The four motifs</div>
-            <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>What a hundred dollars buys now.</h2>
-            <p style={{color:T.inkSoft, fontSize:'1.1rem', marginTop:'.6rem', maxWidth:'52ch', marginInline:'auto'}}>Same hundred dollars, years apart. The unit on the box is the same; the multiplier is real.</p>
+          <div style={{marginBottom:'2.5rem'}}>
+            <h2 style={{fontFamily:T.font, fontSize:'clamp(1.6rem,3vw,2.2rem)', fontWeight:400, letterSpacing:'-.015em', margin:0, maxWidth:'34ch'}}>Each sector is one sourced metric, measured from the year the data starts</h2>
           </div>
         </Reveal>
         <div className="di-cols-1to4" style={{gap:'1.2rem'}}>
           {DI2.sectors.map((s,i)=>{
             const Hero = HEROES[s.id];
             return (
-              <Reveal key={s.id} delay={i*80}>
+              <Reveal key={s.id}>
                 <a href={'#/sectors/'+s.id} onClick={(e)=>{e.preventDefault();nav('sectors/'+s.id);}} style={{
                   display:'block', width:'100%', textAlign:'left',
                   textDecoration:'none', color:'inherit',
                   background:T.bg, border:`2px solid ${T.line}`, borderRadius:18,
                   padding:'.8rem .8rem 1.4rem', cursor:'pointer',
-                  transition:'transform .25s, border-color .25s',
+                  transition:'border-color .25s',
                 }}
-                onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.borderColor=T.accent;}}
-                onMouseLeave={e=>{e.currentTarget.style.transform='none'; e.currentTarget.style.borderColor=T.line;}}>
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=T.accent;}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=T.line;}}>
                   <div style={{aspectRatio:'1/1', display:'grid', placeItems:'center'}}>
                     <Hero T={T}/>
                   </div>
@@ -480,19 +450,17 @@ function HomeV2({ nav, T }) {
       <section style={{background:T.bgDeep, color:T.bg, padding:'5rem 1.5rem', marginTop:'4rem', position:'relative', overflow:'hidden'}}>
         <div style={{maxWidth:1100, margin:'0 auto'}}>
           <Reveal>
-            <div style={{textAlign:'center', marginBottom:'3rem'}}>
-              <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:T.accent, marginBottom:'.7rem'}}>1990 → 2025</div>
-              <h2 style={{fontFamily:T.font, fontSize:'clamp(2.4rem,5vw,3.6rem)', fontWeight:400, letterSpacing:'-.02em', margin:0, color:T.bg}}>One number, thirty-five years.</h2>
-              <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,0.55)', marginTop:'.8rem'}}>Cost per unit of capability</div>
+            <div style={{marginBottom:'2rem'}}>
+              <div style={{fontFamily:T.mono, fontSize:'.72rem', letterSpacing:'.12em', textTransform:'uppercase', color:'rgba(255,255,255,0.55)'}}>Cost per unit of capability, 1990 = 100</div>
             </div>
           </Reveal>
           <div className="di-cols-1to3" style={{gap:'2rem'}}>
             {[
-              {label:'Cumulative', sym:'−', color:T.accent2, ref:diRef, anim:diVal, sub:'since 1990 · v4 geometric, measured'},
-              {label:'Annual rate', sym:'−', color:T.accent, ref:annRef, anim:annVal, sub:'per year, compounding, every year'},
-              {label:'Index level', sym:'', color:'#FFFFFF', ref:null, anim:'100 → 0.034', sub:'1990 = 100 · 2025 measured'},
+              {label:'Cumulative', sym:'−', color:T.accent2, anim:diVal, sub:'since 1990 · v4 geometric, measured'},
+              {label:'Annual rate', sym:'−', color:T.accent, anim:annVal, sub:'per year, compounding, every year'},
+              {label:'Index level', sym:'', color:'#FFFFFF', anim:'100 → 0.034', sub:'1990 = 100 · 2025 measured'},
             ].map((s,i)=>(
-              <div key={i} ref={s.ref} style={{textAlign:'left', borderTop:`2px solid ${s.color}`, paddingTop:'1.2rem'}}>
+              <div key={i} style={{textAlign:'left', borderTop:`2px solid ${s.color}`, paddingTop:'1.2rem'}}>
                 <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.1em', textTransform:'uppercase', color:'rgba(255,255,255,0.55)', marginBottom:'.6rem'}}>{s.label}</div>
                 <div style={{fontFamily:T.font, fontSize:'clamp(2.4rem,4.5vw,3.6rem)', lineHeight:.95, color:s.color, fontWeight:500, letterSpacing:'-.02em'}}>
                   {s.sym}{s.anim}
@@ -509,13 +477,12 @@ function HomeV2({ nav, T }) {
         <Reveal>
           <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:'1.4rem', flexWrap:'wrap', gap:'1rem'}}>
             <div>
-              <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>The line</div>
-              <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>Thirty-five years, one direction.</h2>
+              <h2 style={{fontFamily:T.font, fontSize:'clamp(1.7rem,3.2vw,2.3rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>The index against CPI, 1990–2025</h2>
             </div>
             <a href="#/explore" onClick={(e)=>{e.preventDefault();nav('explore');}} style={{textDecoration:'none', background:T.bgAlt, border:`1px solid ${T.line}`, padding:'.6rem 1.1rem', borderRadius:999, fontFamily:T.sans, fontWeight:500, color:T.ink, cursor:'pointer'}}>Open in Explore →</a>
           </div>
         </Reveal>
-        <Reveal delay={100}>
+        <Reveal>
           <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:20, padding: isMobile ? '1.1rem' : '1.8rem'}}>
             <DIChart theme={T} height={isMobile ? 300 : 420}
               seriesOverride={[
@@ -532,14 +499,13 @@ function HomeV2({ nav, T }) {
       <section style={{maxWidth:1100, margin:'0 auto', padding:'4rem 1.5rem'}}>
         <Reveal>
           <div style={{marginBottom:'2.5rem'}}>
-            <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>The $100 test</div>
-            <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .6rem'}}>Hundred dollars, one rule, four sectors.</h2>
+            <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .6rem'}}>What $100 bought in 1990, and what it buys now</h2>
             <p style={{color:T.inkSoft, fontSize:'1.05rem', maxWidth:'52ch'}}>Same money, same unit of capability — each sector measured from the first year the number holds up. The multiplier is what technology bought you.</p>
           </div>
         </Reveal>
         <div className="di-cols-1to2" style={{gap:'1.1rem'}}>
           {DI2.dollarTest.map((it,i)=>(
-            <Reveal key={it.id} delay={i*70}>
+            <Reveal key={it.id}>
               <ThenNowV2 entry={it} T={T} onClick={()=>nav('explore')}/>
             </Reveal>
           ))}
@@ -550,14 +516,13 @@ function HomeV2({ nav, T }) {
       <section style={{maxWidth:780, margin:'0 auto', padding:'4rem 1.5rem'}}>
         <Reveal>
           <div style={{textAlign:'center', marginBottom:'2.5rem'}}>
-            <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.5rem'}}>How we got here</div>
-            <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>Six inflection points.</h2>
+            <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>How we got here</h2>
           </div>
         </Reveal>
         <div style={{position:'relative'}}>
           <div className="di-timeline-line" style={{position:'absolute', top:8, bottom:8, width:2, background:T.line}}/>
           {DI2.timeline.map((t, i) => (
-            <Reveal key={i} delay={i*60}>
+            <Reveal key={i}>
               <div className="di-timeline-row" style={{marginBottom:'2rem', alignItems:'flex-start'}}>
                 <div style={{fontFamily:T.font, fontSize:'clamp(1.4rem, 4vw, 1.7rem)', fontWeight:500, color:T.accent, lineHeight:.95, position:'relative', textAlign:'right'}}>
                   {t.year}
@@ -579,15 +544,14 @@ function HomeV2({ nav, T }) {
           <Reveal>
             <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:'2rem', flexWrap:'wrap'}}>
               <div>
-                <div style={{fontFamily:T.mono, fontSize:'.72rem', color:T.inkMute, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:'.4rem'}}>Stories</div>
-                <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>Going deeper.</h2>
+                <h2 style={{fontFamily:T.font, fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:400, letterSpacing:'-.015em', margin:0}}>Three longer pieces</h2>
               </div>
               <a href="#/stories" onClick={(e)=>{e.preventDefault();nav('stories');}} style={{textDecoration:'none', background:'transparent', border:`1px solid ${T.ink}`, padding:'.6rem 1.1rem', borderRadius:999, fontFamily:T.sans, fontWeight:500, color:T.ink, cursor:'pointer'}}>All stories →</a>
             </div>
           </Reveal>
           <div className="di-cols-1to2" style={{gap:'1rem'}}>
             {DI2.stories.map((st,i)=>(
-              <Reveal key={st.slug} delay={i*60}>
+              <Reveal key={st.slug}>
                 <a href={'#/stories/'+st.slug} onClick={(e)=>{e.preventDefault(); nav('stories/'+st.slug);}}
                    style={{display:'block', background:T.bg, border:`1px solid ${T.line}`, borderRadius:14, padding:'1.6rem', cursor:'pointer', textDecoration:'none', color:'inherit'}}>
                   <div style={{fontFamily:T.mono, fontSize:'.7rem', letterSpacing:'.08em', textTransform:'uppercase', color:T.accent, marginBottom:'.5rem'}}>{st.kicker} · {st.readMins} min</div>
@@ -603,7 +567,7 @@ function HomeV2({ nav, T }) {
       {/* CTA */}
       <section style={{padding:'4rem 1.5rem'}}>
         <div style={{maxWidth:560, margin:'0 auto', textAlign:'center'}}>
-          <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .7rem'}}>Major releases, by email.</h2>
+          <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, letterSpacing:'-.015em', margin:'0 0 .7rem'}}>Nothing planned. Sign up anyway.</h2>
           <p style={{color:T.inkSoft, fontSize:'1rem', marginBottom:'1.4rem'}}>The index is complete through 2025. If the work ever resumes, subscribers hear it first. No weekly anything, no upsell.</p>
           <NewsletterForm T={T}/>
         </div>
