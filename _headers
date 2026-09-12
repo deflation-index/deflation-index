@@ -1,21 +1,30 @@
 # Cache policy for The Deflation Index
 #
-# Honoured natively by Cloudflare Pages and Netlify. If the site is instead
-# served from a generic origin behind proxied Cloudflare DNS, this file is
-# inert and the equivalent rule must be set in the dashboard:
-#   Rules > Caching > Cache Rule: hostname eq deflationindex.com
-#   -> Eligible for cache, Edge TTL "Use cache-control header if present,
-#      bypass cache if not", Browser TTL: respect origin.
+# IMPORTANT — how Cloudflare Pages applies this file: when several rules
+# match one path, Pages COMBINES their headers rather than letting the
+# most specific rule win. A Cache-Control on /* is therefore appended to
+# every other rule, producing a doubled, ambiguous value. So Cache-Control
+# is set per-directory only, and /* carries security headers alone.
 #
+# HTML and JSON are NOT cacheable by this file. Measured in production:
+#   /vendor/*, /dist/*  -> cf-cache-status HIT
+#   /, /data/*.json     -> cf-cache-status DYNAMIC (straight to origin)
+# deflationindex.com is a Cloudflare zone with Pages behind it, and the
+# zone treats HTML and .json as uncacheable by default regardless of the
+# Cache-Control we send. Fixing that needs a zone Cache Rule:
+#   Caching > Cache Rules > Create rule
+#     If:  hostname eq "deflationindex.com"
+#     Then: Eligible for cache
+#           Edge TTL  - Use cache-control header if present, bypass if not
+#           Browser TTL - Respect origin
 # Rationale: the index is complete through 2025 with no further updates
 # planned. The content is immutable; it should be cached like it.
-# Cloudflare's default free-tier behaviour caches only static file
-# extensions and never HTML or .json — which is nearly everything this
-# site serves, including all of /data/. Measured hit rate before this
-# file: 1.54%.
+#
+# Note: Pages enforces its own max-age ceiling on static assets (observed:
+# 14400s), so the long TTLs below are an upper bound, not a guarantee.
 
-# Version-pinned vendor libraries — filename changes on upgrade, so these
-# can never go stale.
+# Version-pinned vendor libraries — the filename changes on upgrade, so
+# these can never go stale.
 /vendor/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -37,8 +46,25 @@
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
   Access-Control-Allow-Origin: *
 
-# Everything else, HTML included. Short browser TTL, long edge reuse.
-/*
+# HTML. These paths contain nothing but HTML, so they don't overlap the
+# rules above and no Cache-Control gets doubled. An explicit value here is
+# what makes the zone Cache Rule usable: Pages otherwise serves HTML as
+# max-age=0, must-revalidate, and a rule set to "use cache-control if
+# present" would then decline to cache it. Short browser TTL, long edge
+# reuse — a change still propagates in five minutes.
+/
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
+/index.html
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+/method.html
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+/sectors/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+/stories/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+# Security headers for everything. Deliberately no Cache-Control here —
+# see the note at the top of this file.
+/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
