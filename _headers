@@ -1,0 +1,44 @@
+# Cache policy for The Deflation Index
+#
+# Honoured natively by Cloudflare Pages and Netlify. If the site is instead
+# served from a generic origin behind proxied Cloudflare DNS, this file is
+# inert and the equivalent rule must be set in the dashboard:
+#   Rules > Caching > Cache Rule: hostname eq deflationindex.com
+#   -> Eligible for cache, Edge TTL "Use cache-control header if present,
+#      bypass cache if not", Browser TTL: respect origin.
+#
+# Rationale: the index is complete through 2025 with no further updates
+# planned. The content is immutable; it should be cached like it.
+# Cloudflare's default free-tier behaviour caches only static file
+# extensions and never HTML or .json — which is nearly everything this
+# site serves, including all of /data/. Measured hit rate before this
+# file: 1.54%.
+
+# Version-pinned vendor libraries — filename changes on upgrade, so these
+# can never go stale.
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Logos and favicons.
+/assets/*
+  Cache-Control: public, max-age=604800
+
+# Compiled app bundles. Not version-pinned in the filename, so revalidate
+# hourly but serve stale while doing it.
+/dist/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/src/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# The dataset. Frozen, but keep a revalidation window so a correction can
+# still propagate within a day.
+/data/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Access-Control-Allow-Origin: *
+
+# Everything else, HTML included. Short browser TTL, long edge reuse.
+/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

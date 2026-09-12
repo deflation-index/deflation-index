@@ -1,8 +1,7 @@
 const {
   useState,
   useEffect,
-  useMemo,
-  useRef
+  useMemo
 } = React;
 const DI2 = window.DI;
 const fmt2 = (v, plus = true) => `${v > 0 && plus ? '+' : ''}${v.toFixed(v < 10 && v > -10 ? 1 : 0)}%`;
@@ -14,38 +13,6 @@ const compact = n => {
   if (n >= 0.01) return n.toFixed(2);
   return n.toExponential(1);
 };
-function useCountUp(target, opts = {}) {
-  const {
-    duration = 1400,
-    decimals = 0,
-    prefix = '',
-    suffix = ''
-  } = opts;
-  const ref = useRef(null);
-  const [val, setVal] = useState(0);
-  const [done, setDone] = useState(false);
-  useEffect(() => {
-    if (!ref.current || done) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      const start = performance.now();
-      const tick = t => {
-        const p = Math.min(1, (t - start) / duration);
-        const eased = 1 - Math.pow(1 - p, 3);
-        setVal(target * eased);
-        if (p < 1) requestAnimationFrame(tick);else setDone(true);
-      };
-      requestAnimationFrame(tick);
-      io.disconnect();
-    }, {
-      threshold: 0.4
-    });
-    io.observe(ref.current);
-    return () => io.disconnect();
-  }, [target, duration, done]);
-  const formatted = decimals === 0 ? Math.round(val).toLocaleString() : val.toFixed(decimals);
-  return [ref, prefix + formatted + suffix];
-}
 function Reveal({
   children,
   as = 'div',
@@ -840,18 +807,14 @@ function ThenNowV2({
       padding: '1.7rem 1.5rem',
       position: 'relative',
       cursor: 'pointer',
-      transition: 'transform .25s, box-shadow .25s, border-color .25s',
+      transition: 'border-color .25s',
       fontFamily: T.sans,
       color: T.ink
     },
     onMouseEnter: e => {
-      e.currentTarget.style.transform = 'translateY(-3px)';
-      e.currentTarget.style.boxShadow = '0 18px 40px rgba(26,28,46,.08)';
       e.currentTarget.style.borderColor = T.accent;
     },
     onMouseLeave: e => {
-      e.currentTarget.style.transform = 'none';
-      e.currentTarget.style.boxShadow = 'none';
       e.currentTarget.style.borderColor = T.line;
     }
   }, React.createElement("div", {
@@ -962,14 +925,8 @@ function HomeV2({
   const diPct = Math.abs(H.di_2025_cumulative_pct);
   const diAnnual = Math.abs(H.di_annual_pct);
   const cpiPct = Math.round(H.cpi_2025_cumulative_pct);
-  const [diRef, diVal] = useCountUp(diPct, {
-    decimals: 2,
-    suffix: '%'
-  });
-  const [annRef, annVal] = useCountUp(diAnnual, {
-    decimals: 1,
-    suffix: '%'
-  });
+  const diVal = diPct.toFixed(2) + '%';
+  const annVal = diAnnual.toFixed(1) + '%';
   return React.createElement("div", {
     style: {
       background: T.bg,
@@ -1011,9 +968,7 @@ function HomeV2({
   }, React.createElement(Dateline, {
     T: T,
     parts: ['v4.0', 'Complete through 2025', 'No further updates planned']
-  }))), React.createElement(Reveal, {
-    delay: 80
-  }, React.createElement("h1", {
+  }))), React.createElement(Reveal, null, React.createElement("h1", {
     style: {
       fontFamily: T.font,
       fontWeight: 400,
@@ -1022,15 +977,13 @@ function HomeV2({
       letterSpacing: '-.025em',
       margin: '0 0 1.6rem'
     }
-  }, "Technology got ", React.createElement("span", {
+  }, "Where the ", React.createElement("span", {
     style: {
       fontStyle: 'italic',
       color: T.accent,
       fontWeight: 500
     }
-  }, "radically cheaper."), React.createElement("br", null), "We measured exactly how much.")), React.createElement(Reveal, {
-    delay: 150
-  }, React.createElement("p", {
+  }, "abundance"), " went")), React.createElement(Reveal, null, React.createElement("p", {
     style: {
       fontSize: '1.25rem',
       lineHeight: 1.55,
@@ -1046,9 +999,7 @@ function HomeV2({
     style: {
       color: T.ink
     }
-  }, cpiPct, "%"), ". The gap between the two is the finding.")), React.createElement(Reveal, {
-    delay: 220
-  }, React.createElement("div", {
+  }, cpiPct, "%"), ".")), React.createElement(Reveal, null, React.createElement("div", {
     style: {
       display: 'flex',
       gap: '.7rem',
@@ -1104,35 +1055,18 @@ function HomeV2({
     }
   }, React.createElement(Reveal, null, React.createElement("div", {
     style: {
-      textAlign: 'center',
       marginBottom: '2.5rem'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.6rem'
-    }
-  }, "The four motifs"), React.createElement("h2", {
+  }, React.createElement("h2", {
     style: {
       fontFamily: T.font,
-      fontSize: 'clamp(2rem,4vw,2.8rem)',
+      fontSize: 'clamp(1.6rem,3vw,2.2rem)',
       fontWeight: 400,
       letterSpacing: '-.015em',
-      margin: 0
+      margin: 0,
+      maxWidth: '34ch'
     }
-  }, "What a hundred dollars buys now."), React.createElement("p", {
-    style: {
-      color: T.inkSoft,
-      fontSize: '1.1rem',
-      marginTop: '.6rem',
-      maxWidth: '52ch',
-      marginInline: 'auto'
-    }
-  }, "Same hundred dollars, years apart. The unit on the box is the same; the multiplier is real."))), React.createElement("div", {
+  }, "Each sector is one sourced metric, measured from the year the data starts"))), React.createElement("div", {
     className: "di-cols-1to4",
     style: {
       gap: '1.2rem'
@@ -1140,8 +1074,7 @@ function HomeV2({
   }, DI2.sectors.map((s, i) => {
     const Hero = HEROES[s.id];
     return React.createElement(Reveal, {
-      key: s.id,
-      delay: i * 80
+      key: s.id
     }, React.createElement("a", {
       href: '#/sectors/' + s.id,
       onClick: e => {
@@ -1159,14 +1092,12 @@ function HomeV2({
         borderRadius: 18,
         padding: '.8rem .8rem 1.4rem',
         cursor: 'pointer',
-        transition: 'transform .25s, border-color .25s'
+        transition: 'border-color .25s'
       },
       onMouseEnter: e => {
-        e.currentTarget.style.transform = 'translateY(-4px)';
         e.currentTarget.style.borderColor = T.accent;
       },
       onMouseLeave: e => {
-        e.currentTarget.style.transform = 'none';
         e.currentTarget.style.borderColor = T.line;
       }
     }, React.createElement("div", {
@@ -1212,8 +1143,7 @@ function HomeV2({
     }
   }, React.createElement(Reveal, null, React.createElement("div", {
     style: {
-      textAlign: 'center',
-      marginBottom: '3rem'
+      marginBottom: '2rem'
     }
   }, React.createElement("div", {
     style: {
@@ -1221,28 +1151,9 @@ function HomeV2({
       fontSize: '.72rem',
       letterSpacing: '.12em',
       textTransform: 'uppercase',
-      color: T.accent,
-      marginBottom: '.7rem'
+      color: 'rgba(255,255,255,0.55)'
     }
-  }, "1990 \u2192 2025"), React.createElement("h2", {
-    style: {
-      fontFamily: T.font,
-      fontSize: 'clamp(2.4rem,5vw,3.6rem)',
-      fontWeight: 400,
-      letterSpacing: '-.02em',
-      margin: 0,
-      color: T.bg
-    }
-  }, "One number, thirty-five years."), React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      color: 'rgba(255,255,255,0.55)',
-      marginTop: '.8rem'
-    }
-  }, "Cost per unit of capability"))), React.createElement("div", {
+  }, "Cost per unit of capability, 1990 = 100"))), React.createElement("div", {
     className: "di-cols-1to3",
     style: {
       gap: '2rem'
@@ -1251,26 +1162,22 @@ function HomeV2({
     label: 'Cumulative',
     sym: '−',
     color: T.accent2,
-    ref: diRef,
     anim: diVal,
     sub: 'since 1990 · v4 geometric, measured'
   }, {
     label: 'Annual rate',
     sym: '−',
     color: T.accent,
-    ref: annRef,
     anim: annVal,
     sub: 'per year, compounding, every year'
   }, {
     label: 'Index level',
     sym: '',
     color: '#FFFFFF',
-    ref: null,
     anim: '100 → 0.034',
     sub: '1990 = 100 · 2025 measured'
   }].map((s, i) => React.createElement("div", {
     key: i,
-    ref: s.ref,
     style: {
       textAlign: 'left',
       borderTop: `2px solid ${s.color}`,
@@ -1315,24 +1222,15 @@ function HomeV2({
       flexWrap: 'wrap',
       gap: '1rem'
     }
-  }, React.createElement("div", null, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.4rem'
-    }
-  }, "The line"), React.createElement("h2", {
+  }, React.createElement("div", null, React.createElement("h2", {
     style: {
       fontFamily: T.font,
-      fontSize: 'clamp(2rem,4vw,2.8rem)',
+      fontSize: 'clamp(1.7rem,3.2vw,2.3rem)',
       fontWeight: 400,
       letterSpacing: '-.015em',
       margin: 0
     }
-  }, "Thirty-five years, one direction.")), React.createElement("a", {
+  }, "The index against CPI, 1990\u20132025")), React.createElement("a", {
     href: "#/explore",
     onClick: e => {
       e.preventDefault();
@@ -1349,9 +1247,7 @@ function HomeV2({
       color: T.ink,
       cursor: 'pointer'
     }
-  }, "Open in Explore \u2192"))), React.createElement(Reveal, {
-    delay: 100
-  }, React.createElement("div", {
+  }, "Open in Explore \u2192"))), React.createElement(Reveal, null, React.createElement("div", {
     style: {
       background: T.bg,
       border: `2px solid ${T.line}`,
@@ -1394,16 +1290,7 @@ function HomeV2({
     style: {
       marginBottom: '2.5rem'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.4rem'
-    }
-  }, "The $100 test"), React.createElement("h2", {
+  }, React.createElement("h2", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2rem,4vw,2.8rem)',
@@ -1411,7 +1298,7 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: '0 0 .6rem'
     }
-  }, "Hundred dollars, one rule, four sectors."), React.createElement("p", {
+  }, "What $100 bought in 1990, and what it buys now"), React.createElement("p", {
     style: {
       color: T.inkSoft,
       fontSize: '1.05rem',
@@ -1423,8 +1310,7 @@ function HomeV2({
       gap: '1.1rem'
     }
   }, DI2.dollarTest.map((it, i) => React.createElement(Reveal, {
-    key: it.id,
-    delay: i * 70
+    key: it.id
   }, React.createElement(ThenNowV2, {
     entry: it,
     T: T,
@@ -1440,16 +1326,7 @@ function HomeV2({
       textAlign: 'center',
       marginBottom: '2.5rem'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.5rem'
-    }
-  }, "How we got here"), React.createElement("h2", {
+  }, React.createElement("h2", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2rem,4vw,2.8rem)',
@@ -1457,7 +1334,7 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: 0
     }
-  }, "Six inflection points."))), React.createElement("div", {
+  }, "How we got here"))), React.createElement("div", {
     style: {
       position: 'relative'
     }
@@ -1471,8 +1348,7 @@ function HomeV2({
       background: T.line
     }
   }), DI2.timeline.map((t, i) => React.createElement(Reveal, {
-    key: i,
-    delay: i * 60
+    key: i
   }, React.createElement("div", {
     className: "di-timeline-row",
     style: {
@@ -1535,16 +1411,7 @@ function HomeV2({
       marginBottom: '2rem',
       flexWrap: 'wrap'
     }
-  }, React.createElement("div", null, React.createElement("div", {
-    style: {
-      fontFamily: T.mono,
-      fontSize: '.72rem',
-      color: T.inkMute,
-      letterSpacing: '.12em',
-      textTransform: 'uppercase',
-      marginBottom: '.4rem'
-    }
-  }, "Stories"), React.createElement("h2", {
+  }, React.createElement("div", null, React.createElement("h2", {
     style: {
       fontFamily: T.font,
       fontSize: 'clamp(2rem,4vw,2.8rem)',
@@ -1552,7 +1419,7 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: 0
     }
-  }, "Going deeper.")), React.createElement("a", {
+  }, "Three longer pieces")), React.createElement("a", {
     href: "#/stories",
     onClick: e => {
       e.preventDefault();
@@ -1575,8 +1442,7 @@ function HomeV2({
       gap: '1rem'
     }
   }, DI2.stories.map((st, i) => React.createElement(Reveal, {
-    key: st.slug,
-    delay: i * 60
+    key: st.slug
   }, React.createElement("a", {
     href: '#/stories/' + st.slug,
     onClick: e => {
@@ -1636,7 +1502,7 @@ function HomeV2({
       letterSpacing: '-.015em',
       margin: '0 0 .7rem'
     }
-  }, "Major releases, by email."), React.createElement("p", {
+  }, "Nothing planned. Sign up anyway."), React.createElement("p", {
     style: {
       color: T.inkSoft,
       fontSize: '1rem',

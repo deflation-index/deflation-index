@@ -289,9 +289,7 @@ function SectorPageV2({
       margin: 0,
       letterSpacing: '-.015em'
     }
-  }, sector.name, " cost vs CPI, 1990 = 100."))), React.createElement(RevealP, {
-    delay: 100
-  }, React.createElement("div", {
+  }, sector.name, " cost vs CPI, 1990 = 100."))), React.createElement(RevealP, null, React.createElement("div", {
     style: {
       background: T.bg,
       border: `2px solid ${T.line}`,
@@ -513,8 +511,7 @@ function SectorsIndexV2({
   }, DIp.sectors.map((s, i) => {
     const Hero = HEROES_P[s.id];
     return React.createElement(RevealP, {
-      key: s.id,
-      delay: i * 70
+      key: s.id
     }, React.createElement("a", {
       href: '#/sectors/' + s.id,
       onClick: e => {
@@ -533,14 +530,12 @@ function SectorsIndexV2({
         padding: '1.6rem',
         cursor: 'pointer',
         fontFamily: T.sans,
-        transition: 'transform .25s, border-color .25s'
+        transition: 'border-color .25s'
       },
       onMouseEnter: e => {
-        e.currentTarget.style.transform = 'translateY(-3px)';
         e.currentTarget.style.borderColor = T.accent;
       },
       onMouseLeave: e => {
-        e.currentTarget.style.transform = 'none';
         e.currentTarget.style.borderColor = T.line;
       }
     }, React.createElement("div", {
@@ -957,8 +952,7 @@ function StoriesV2({
       gap: '1rem'
     }
   }, DIp.stories.map((st, i) => React.createElement(RevealP, {
-    key: st.slug,
-    delay: i * 60
+    key: st.slug
   }, React.createElement("a", {
     href: '#/stories/' + st.slug,
     onClick: e => {

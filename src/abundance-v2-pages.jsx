@@ -104,7 +104,7 @@ function SectorPageV2({ id, T, nav }) {
             <h2 style={{fontFamily:T.font, fontSize:'2rem', fontWeight:400, margin:0, letterSpacing:'-.015em'}}>{sector.name} cost vs CPI, 1990 = 100.</h2>
           </div>
         </RevealP>
-        <RevealP delay={100}>
+        <RevealP>
           <div style={{background:T.bg, border:`2px solid ${T.line}`, borderRadius:18, padding: isMobileP ? '1rem' : '1.5rem'}}>
             <DIChart theme={T} height={isMobileP ? 280 : 400} seriesOverride={sectorSeries}/>
           </div>
@@ -178,13 +178,13 @@ function SectorsIndexV2({ T, nav }) {
           {DIp.sectors.map((s,i)=>{
             const Hero = HEROES_P[s.id];
             return (
-              <RevealP key={s.id} delay={i*70}>
+              <RevealP key={s.id}>
                 <a href={'#/sectors/'+s.id} onClick={(e)=>{e.preventDefault();nav('sectors/'+s.id);}} style={{
                   textAlign:'left', display:'block', width:'100%', textDecoration:'none', color:'inherit',
                   background:T.bg, border:`2px solid ${T.line}`,
                   borderRadius:18, padding:'1.6rem', cursor:'pointer', fontFamily:T.sans,
-                  transition:'transform .25s, border-color .25s'
-                }} onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-3px)';e.currentTarget.style.borderColor=T.accent;}} onMouseLeave={e=>{e.currentTarget.style.transform='none';e.currentTarget.style.borderColor=T.line;}}>
+                  transition:'border-color .25s'
+                }} onMouseEnter={e=>{e.currentTarget.style.borderColor=T.accent;}} onMouseLeave={e=>{e.currentTarget.style.borderColor=T.line;}}>
                   <div className="di-cols-1to-fixR" style={{gap:'1.2rem', alignItems:'center'}}>
                     <div>
                       <div style={{fontFamily:T.mono, fontSize:'.7rem', color:T.accent, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:'.4rem'}}>{s.metric}</div>
@@ -346,7 +346,7 @@ function StoriesV2({ T, nav }) {
         </RevealP>
         <div style={{display:'flex', flexDirection:'column', gap:'1rem'}}>
           {DIp.stories.map((st,i)=>(
-            <RevealP key={st.slug} delay={i*60}>
+            <RevealP key={st.slug}>
               <a href={'#/stories/'+st.slug}
                  onClick={(e)=>{ if(nav){ e.preventDefault(); nav('stories/'+st.slug); } }}
                  style={{
