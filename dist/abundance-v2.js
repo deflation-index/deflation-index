@@ -956,7 +956,7 @@ function HomeV2({
     fill: T.bg
   })), React.createElement("div", {
     style: {
-      maxWidth: 1280,
+      maxWidth: 1100,
       margin: '0 auto',
       position: 'relative',
       zIndex: 1

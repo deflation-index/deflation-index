@@ -386,7 +386,7 @@ function HomeV2({ nav, T }) {
         <svg viewBox="0 0 1440 200" preserveAspectRatio="none" style={{position:'absolute', bottom:-1, left:0, width:'100%', height:120, pointerEvents:'none'}}>
           <path d="M 0,200 C 360,150 720,100 1440,140 L 1440,200 Z" fill={T.bg}/>
         </svg>
-        <div style={{maxWidth:1280, margin:'0 auto', position:'relative', zIndex:1}}>
+        <div style={{maxWidth:1100, margin:'0 auto', position:'relative', zIndex:1}}>
           <Reveal>
             <div style={{marginBottom:'1.5rem'}}>
               <Dateline T={T} parts={['v4.0', 'Complete through 2025', 'No further updates planned']}/>
